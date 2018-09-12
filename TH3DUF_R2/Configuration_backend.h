@@ -3,10 +3,8 @@
 #define CONFIGURATION_BACKEND_H_VERSION 010109
 
 //===========================================================================
-//==================== DO NOT MODIFY BELOW THIS LINE ========================
+//======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
-
-//needs tuning?
 
 /**
  * Specify Stepper Driver types
@@ -661,28 +659,17 @@
 
   #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
-  #define X_MIN_ENDSTOP_INVERTING false
-  #define Y_MIN_ENDSTOP_INVERTING false
-  
   #if ENABLED(EZOUT_ENABLE)
     #define SPEAKER_KILL
   #endif
-  
-  #if ENABLED(EZABL_ENABLE)
-		#define Z_MIN_ENDSTOP_INVERTING true
-  #else
-    #define Z_MIN_ENDSTOP_INVERTING false
-  #endif
-  
+    
+  #define X_MIN_ENDSTOP_INVERTING false
+  #define Y_MIN_ENDSTOP_INVERTING false
+  #define Z_MIN_ENDSTOP_INVERTING false
   #define X_MAX_ENDSTOP_INVERTING true
   #define Y_MAX_ENDSTOP_INVERTING true
   #define Z_MAX_ENDSTOP_INVERTING true
-  
-  #if ENABLED(EZABL_ENABLE)
-	  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #else
-    #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-  #endif
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
 
   #if ENABLED(TITAN_EXTRUDER)
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
@@ -769,7 +756,7 @@
 #if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD)
   #define BAUDRATE 115200
 
-  #if ENABLED(CR10LCD_CR10S)
+  #if ENABLED(CR10LCD_CR10S) || ENABLED(ENDER3_DUALBOARD)
     #define CR10_STOCKDISPLAY
   #else
     #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
@@ -777,22 +764,11 @@
 
   #define X_MIN_ENDSTOP_INVERTING false
   #define Y_MIN_ENDSTOP_INVERTING false
-  
-  #if ENABLED(EZABL_ENABLE)
-	  #define Z_MIN_ENDSTOP_INVERTING true
-  #else
-    #define Z_MIN_ENDSTOP_INVERTING false
-  #endif
-  
+  #define Z_MIN_ENDSTOP_INVERTING false
   #define X_MAX_ENDSTOP_INVERTING true
   #define Y_MAX_ENDSTOP_INVERTING true
   #define Z_MAX_ENDSTOP_INVERTING true
-  
-  #if ENABLED(EZABL_ENABLE)
-	  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #else
-    #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-  #endif
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
 
   #if ENABLED(TITAN_EXTRUDER)
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
@@ -861,7 +837,6 @@
     #define X_BED_SIZE 220
     #define Y_BED_SIZE 220
     #define Z_MAX_POS 250
-    #define CR10LCD_CR10S	
   #endif
   
   //dual extrusion options
@@ -931,19 +906,11 @@
   
   #define X_MIN_ENDSTOP_INVERTING false
   #define Y_MIN_ENDSTOP_INVERTING false
-  #if ENABLED(EZABL_ENABLE)
-		#define Z_MIN_ENDSTOP_INVERTING true
-  #else
-    #define Z_MIN_ENDSTOP_INVERTING false
-  #endif
+  #define Z_MIN_ENDSTOP_INVERTING false
   #define X_MAX_ENDSTOP_INVERTING true
   #define Y_MAX_ENDSTOP_INVERTING true
   #define Z_MAX_ENDSTOP_INVERTING true
-  #if ENABLED(EZABL_ENABLE)
-	  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #else
-    #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-  #endif
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
   
   #define SPEAKER_KILL
 
@@ -971,6 +938,7 @@
   #define INVERT_X_DIR true
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR false
+  
   #if ENABLED(TITAN_EXTRUDER)
     #define INVERT_E0_DIR false
   #else
@@ -1075,7 +1043,6 @@
   #define Y_MAX_ENDSTOP_INVERTING true
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-
   
   #if ENABLED(CUSTOM_ESTEPS)
 	  #define DEFAULT_AXIS_STEPS_PER_UNIT {100.5,100.5,1600,CUSTOM_ESTEPS_VALUE}
