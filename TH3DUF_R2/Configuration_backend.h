@@ -6,17 +6,6 @@
 //======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
 
-/**
- * Specify Stepper Driver types
- * The options are used to determine driver pulse timings as well as more advanced functionality.
- * Stepper timing options can be overridden in Configuration_adv.h
- *
- * Options: A4988, DRV8825, LV8729, L6470, TB6560, TB6600, TMC2100,
- *          TMC2130, TMC2130_STANDALONE, TMC2208, TMC2208_STANDALONE,
- *          TMC26X,  TMC26X_STANDALONE,  TMC2660, TMC2660_STANDALONE,
- *          TMC5130, TMC5130_STANDALONE
- * :['A4988', 'DRV8825', 'LV8729', 'L6470', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE']
- */
 #define X_DRIVER_TYPE  A4988
 #define Y_DRIVER_TYPE  A4988
 #define Z_DRIVER_TYPE  A4988
@@ -56,11 +45,11 @@
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -10
   #define EZABL_ENABLE
 #endif
-//#if ENABLED(CR10_FANG) //DISCONTINUED - SAGS TOO MUCH
-  //#define X_PROBE_OFFSET_FROM_EXTRUDER 48
-  //#define Y_PROBE_OFFSET_FROM_EXTRUDER -11
-  //#define EZABL_ENABLE
-//#endif
+#if ENABLED(CR10_FANG) //DISCONTINUED - SAGS TOO MUCH
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 48
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -11
+  #define EZABL_ENABLE
+#endif
 #if ENABLED(TM3DAERO)
   #define X_PROBE_OFFSET_FROM_EXTRUDER -51
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -7
@@ -755,6 +744,10 @@
 //CR-10S Model Settings
 #if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD)
   #define BAUDRATE 115200
+  
+  #if ENABLED(TOUCH_LCD_FIX)
+    #define CR10S_NOFILAMENTSENSOR
+  #endif
 
   #if ENABLED(CR10LCD_CR10S) || ENABLED(ENDER3_DUALBOARD)
     #define CR10_STOCKDISPLAY

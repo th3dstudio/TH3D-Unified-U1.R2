@@ -111,13 +111,11 @@
 //#define CR10LCD_CR10S
 
 // If you are using our EZOut V1 (connects to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUT_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
+// and then uncomment the #define EZOUT_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUT_ENABLE
 
 // If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
+// and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUTV2_ENABLE
 
 // EZABL Probe Mounts
@@ -129,8 +127,10 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// Dual Extruder Options
-// This is for use with the TH3D CR-10S Board with dual extruder support.
+// Touch LCD Setting - Enable this if you have the touch LCD are are getting a "paused for user" message in the terminal window.
+//#define TOUCH_LCD_FIX
+
+// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
 
 // If you are using a single hotend with the 2 into 1 adapter uncomment the below line
 //#define SINGLE_HOTEND_YADAPTER
@@ -507,6 +507,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.1d"
+#define UNIFIED_VERSION "TH3D U1.R2.2"
 
 #endif // CONFIGURATION_H
