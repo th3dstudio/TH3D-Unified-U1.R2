@@ -330,9 +330,8 @@
 //===========================================================================
 
 // If you want more or less EZABL probe points change the number below (only used if EZABL enabled)
-// Default is 4 which gives you 4x4 grid. Do not go over 10 here.
-// Ender 2 will be best with a 3x3 grid, change to a 3 for Ender 2
-#define EZABL_POINTS 4
+// Default is 3 which gives you 3x3 grid for a total of 9 points. STICK WITH ODD NUMBERS
+#define EZABL_POINTS 3
 
 // If you want to probe in on the bed more than 15mm change this below. 
 // Do not use 30mm for the Standard CR-10/s or the S4 as you will be on the bed screws.
@@ -507,6 +506,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.2"
+#define UNIFIED_VERSION "TH3D U1.R2.3"
 
 #endif // CONFIGURATION_H
