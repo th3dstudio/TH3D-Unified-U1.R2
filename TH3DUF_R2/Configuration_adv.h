@@ -95,17 +95,31 @@
 #endif
 
 #if ENABLED(TORNADO)
-#define E0_AUTO_FAN_PIN 7
+  #define E0_AUTO_FAN_PIN 7
   #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
   #if ENABLED(TORNADO_QUIET)
     #define EXTRUDER_AUTO_FAN_SPEED  190  
   #else
     #define EXTRUDER_AUTO_FAN_SPEED  255  
   #endif
+  #if ENABLED(TIM_TORNADO)
+    #define USE_CONTROLLER_FAN
+    #if ENABLED(USE_CONTROLLER_FAN)
+      #define CONTROLLER_FAN_PIN 11  // Set a custom pin for the controller fan
+      #define CONTROLLERFAN_SECS 10          // Duration in seconds for the fan to run after all motors are disabled
+      #define CONTROLLERFAN_SPEED 255        // 255 == full speed
+    #endif
+  #endif
 #else
-  #define E0_AUTO_FAN_PIN -1
-  #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-  #define EXTRUDER_AUTO_FAN_SPEED   255  
+  #if ENABLED(TIM_I3MINI)
+    #define E0_AUTO_FAN_PIN 12
+    #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
+    #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
+  #else  
+    #define E0_AUTO_FAN_PIN -1
+    #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
+    #define EXTRUDER_AUTO_FAN_SPEED   255  
+  #endif
 #endif
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1

@@ -112,6 +112,9 @@
 // Common serial messages
 #define MSG_MARLIN "Marlin"
 
+// TH3D Custom
+#define MSG_M48_TEST                        "Run M48 Test"
+
 // Serial Console Messages (do not translate those!)
 
 #define MSG_ENQUEUEING                      "enqueueing \""

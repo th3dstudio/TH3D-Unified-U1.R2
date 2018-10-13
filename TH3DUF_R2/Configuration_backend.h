@@ -6,17 +6,21 @@
 //======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
 
-#define X_DRIVER_TYPE  A4988
-#define Y_DRIVER_TYPE  A4988
-#define Z_DRIVER_TYPE  A4988
-#define X2_DRIVER_TYPE A4988
-#define Y2_DRIVER_TYPE A4988
-#define Z2_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE A4988
-#define E1_DRIVER_TYPE A4988
-#define E2_DRIVER_TYPE A4988
-#define E3_DRIVER_TYPE A4988
-#define E4_DRIVER_TYPE A4988
+#include "Configuration_th3d.h"
+
+#if DISABLED(TH3DINHOUSEMACHINE)
+  #define X_DRIVER_TYPE  A4988
+  #define Y_DRIVER_TYPE  A4988
+  #define Z_DRIVER_TYPE  A4988
+  #define X2_DRIVER_TYPE A4988
+  #define Y2_DRIVER_TYPE A4988
+  #define Z2_DRIVER_TYPE A4988
+  #define E0_DRIVER_TYPE A4988
+  #define E1_DRIVER_TYPE A4988
+  #define E2_DRIVER_TYPE A4988
+  #define E3_DRIVER_TYPE A4988
+  #define E4_DRIVER_TYPE A4988
+#endif
 
 //Sensor Mounts
 #if ENABLED(CUSTOM_PROBE)
@@ -440,7 +444,11 @@
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
     
   #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+    #if ENABLED(TIM_U10)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, TITAN_EXTRUDER_STEPS }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+    #endif
   #else
     #if ENABLED(CUSTOM_ESTEPS)
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
@@ -1327,21 +1335,25 @@
 
 //Machine Check
 #if DISABLED(PRINTER_ENABLED_CHECK)
-  #error "READ THIS: No printer uncommented in Configuration.h file. Please uncomment your printer and try again."
+  #if DISABLED(TH3DINHOUSEMACHINE)  
+    #error "READ THIS: No printer uncommented in Configuration.h file. Please uncomment your printer and try again."
+  #endif
 #endif
 
 //Misc Settings
-#if defined(USER_PRINTER_NAME)
-  #define CUSTOM_MACHINE_NAME USER_PRINTER_NAME
-#else
-  #if ENABLED(AR_EZ300)
-    #define CUSTOM_MACHINE_NAME "TH3D Artillery"
-  #elif ENABLED(EZABL_ENABLE)
-    #define CUSTOM_MACHINE_NAME "TH3D EZABL"
-  #elif ENABLED(EZOUT_ENABLE)
-    #define CUSTOM_MACHINE_NAME "TH3D EZOut"
+#if DISABLED(TH3DINHOUSEMACHINE)
+  #if defined(USER_PRINTER_NAME)
+    #define CUSTOM_MACHINE_NAME USER_PRINTER_NAME
   #else
-    #define CUSTOM_MACHINE_NAME SHORT_BUILD_VERSION
+    #if ENABLED(AR_EZ300)
+      #define CUSTOM_MACHINE_NAME "TH3D Artillery"
+    #elif ENABLED(EZABL_ENABLE)
+      #define CUSTOM_MACHINE_NAME "TH3D EZABL"
+    #elif ENABLED(EZOUT_ENABLE)
+      #define CUSTOM_MACHINE_NAME "TH3D EZOut"
+    #else
+      #define CUSTOM_MACHINE_NAME SHORT_BUILD_VERSION
+    #endif
   #endif
 #endif
 
@@ -1366,12 +1378,13 @@
     #endif
   #endif
 #endif
+
 #define STRING_SPLASH_LINE1 SHORT_BUILD_VERSION
 #define STRING_SPLASH_LINE2 WEBSITE_URL
 
 #define SERIAL_PORT 0
 
-#if ENABLED(CR10SDUALEBOARD)
+#if ENABLED(CR10SDUALEBOARD) || ENABLED(TIM_AM8)
   #define EXTRUDERS 2
 #else
   #define EXTRUDERS 1
@@ -1379,20 +1392,24 @@
 
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
 
-#define POWER_SUPPLY 0
+#if DISABLED(TH3DINHOUSEMACHINE)
+  #define POWER_SUPPLY 0
+#endif
 
-#if ENABLED(V6_HOTEND)
-  #define TEMP_SENSOR_0 5
-#elif ENABLED(TH3D_HOTEND_THERMISTOR)
-  #define TEMP_SENSOR_0 1
-#elif ENABLED(WANHAO_D6)
-  #define TEMP_SENSOR_0 20
-#elif ENABLED(WANHAO_10K_THERMISTOR)
-  #define TEMP_SENSOR_0 99
-#elif ENABLED(WANHAO_I3MINI)
-  #define TEMP_SENSOR_0 13
-#else
-  #define TEMP_SENSOR_0 1
+#if DISABLED(TH3DINHOUSEMACHINE)
+  #if ENABLED(V6_HOTEND)
+    #define TEMP_SENSOR_0 5
+  #elif ENABLED(TH3D_HOTEND_THERMISTOR)
+    #define TEMP_SENSOR_0 1
+  #elif ENABLED(WANHAO_D6)
+    #define TEMP_SENSOR_0 20
+  #elif ENABLED(WANHAO_10K_THERMISTOR)
+    #define TEMP_SENSOR_0 99
+  #elif ENABLED(WANHAO_I3MINI)
+    #define TEMP_SENSOR_0 13
+  #else
+    #define TEMP_SENSOR_0 1
+  #endif
 #endif
 
 #if ENABLED(DUAL_HOTEND_DUAL_NOZZLES)
@@ -1408,26 +1425,28 @@
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
 
-#if ENABLED(AC_BED) || ENABLED(WANHAO_I3MINI)
-  #define TEMP_SENSOR_BED 0
-#elif ENABLED(TH3D_BED_THERMISTOR) || ENABLED(ALFAWISE_U10) || ENABLED(FT5)
-  #define TEMP_SENSOR_BED 1
-#elif ENABLED(TAZ5)
-  #define TEMP_SENSOR_BED 7
-#elif ENABLED(WANHAO_D6)
-  #define TEMP_SENSOR_BED 1
-#elif ENABLED(KEENOVO_TEMPSENSOR)
-  #define TEMP_SENSOR_BED 11
-#else
- #if ENABLED(WANHAO_I3)
-  #if ENABLED(WANHAO_10K_THERMISTOR)
-    #define TEMP_SENSOR_BED 99
-  #else
+#if DISABLED(TH3DINHOUSEMACHINE)
+  #if ENABLED(AC_BED) || ENABLED(WANHAO_I3MINI)
+    #define TEMP_SENSOR_BED 0
+  #elif ENABLED(TH3D_BED_THERMISTOR) || ENABLED(ALFAWISE_U10) || ENABLED(FT5)
     #define TEMP_SENSOR_BED 1
+  #elif ENABLED(TAZ5)
+    #define TEMP_SENSOR_BED 7
+  #elif ENABLED(WANHAO_D6)
+    #define TEMP_SENSOR_BED 1
+  #elif ENABLED(KEENOVO_TEMPSENSOR)
+    #define TEMP_SENSOR_BED 11
+  #else
+    #if ENABLED(WANHAO_I3)
+      #if ENABLED(WANHAO_10K_THERMISTOR)
+        #define TEMP_SENSOR_BED 99
+      #else
+        #define TEMP_SENSOR_BED 1
+      #endif
+    #else
+      #define TEMP_SENSOR_BED 5
+    #endif
   #endif
- #else
-  #define TEMP_SENSOR_BED 5
- #endif
 #endif
 
 #define TEMP_RESIDENCY_TIME 5  
@@ -1445,45 +1464,48 @@
 #define HEATER_4_MINTEMP 5
 #define BED_MINTEMP 5
 
-#define HEATER_0_MAXTEMP 300
-#define HEATER_1_MAXTEMP 300
-#define HEATER_2_MAXTEMP 300
-#define HEATER_3_MAXTEMP 300
-#define HEATER_4_MAXTEMP 300
-#define BED_MAXTEMP 150
+#define HEATER_0_MAXTEMP 290
+#define HEATER_1_MAXTEMP 290
+#define HEATER_2_MAXTEMP 290
+#define HEATER_3_MAXTEMP 290
+#define HEATER_4_MAXTEMP 290
+
+#if ENABLED(BED_HIGHTEMP)
+  #define BED_MAXTEMP 150
+#else
+  #define BED_MAXTEMP 110
+#endif
 
 #define PIDTEMP
 #define BANG_MAX 255
 #define PID_MAX BANG_MAX
 #define PID_K1 0.95
+
 #if ENABLED(PIDTEMP)
   #define PID_AUTOTUNE_MENU
   #define PID_FUNCTIONAL_RANGE 10
   
-#if ENABLED(WANHAO_D6)
-  // Duplicator 6
-  #define  DEFAULT_Kp 9.12
-  #define  DEFAULT_Ki 0.41
-  #define  DEFAULT_Kd 50.98
-#elif ENABLED(AR_EZ300)
-  // TH3D AR-EZ300 tuned @ 250C
-  #define DEFAULT_Kp 23.55
-  #define DEFAULT_Ki 1.82
-  #define DEFAULT_Kd 76.21
-#else  
-  // Default Hotend PID
-  #define  DEFAULT_Kp 22.2
-  #define  DEFAULT_Ki 1.08
-  #define  DEFAULT_Kd 114
-#endif
+  #if ENABLED(WANHAO_D6)
+    #define  DEFAULT_Kp 9.12
+    #define  DEFAULT_Ki 0.41
+    #define  DEFAULT_Kd 50.98
+  #elif ENABLED(AR_EZ300)
+    #define DEFAULT_Kp 23.55
+    #define DEFAULT_Ki 1.82
+    #define DEFAULT_Kd 76.21
+  #else  
+    #define  DEFAULT_Kp 22.2
+    #define  DEFAULT_Ki 1.08
+    #define  DEFAULT_Kd 114
+  #endif
   
-#endif // PIDTEMP
+#endif 
 
 #if DISABLED(PIDBED_DISABLE)
   #if DISABLED(TORNADO)
-	#if DISABLED(KEENOVO_TEMPSENSOR)
+    #if DISABLED(KEENOVO_TEMPSENSOR)
       #if DISABLED(SLIM_1284P)
-	    #define PIDTEMPBED
+        #define PIDTEMPBED
       #endif
     #endif
   #endif
@@ -1493,12 +1515,10 @@
 
 #if ENABLED(PIDTEMPBED)
   #if ENABLED(WANHAO_D6)
-    // Duplicator 6
     #define  DEFAULT_bedKp 124.55
     #define  DEFAULT_bedKi 23.46
     #define  DEFAULT_bedKd 165.29
   #else
-    //Default Bed PID
     #define  DEFAULT_bedKp 690.34
     #define  DEFAULT_bedKi 111.47
     #define  DEFAULT_bedKd 1068.83
@@ -1509,7 +1529,7 @@
   #define PREVENT_COLD_EXTRUSION
 #endif
 
-#define EXTRUDE_MINTEMP 120
+#define EXTRUDE_MINTEMP 170
 
 #define PREVENT_LENGTHY_EXTRUDE
 #define EXTRUDE_MAXLENGTH 1000
@@ -1530,6 +1550,14 @@
 #define ENDSTOPPULLUPS
 
 #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+
+#define HOMING_FEEDRATE_XY (50*60)
+
+#if ENABLED(EZABL_FASTPROBE)
+	#define HOMING_FEEDRATE_Z  (8*60)
+#else
+	#define HOMING_FEEDRATE_Z  (4*60)
+#endif
   
 #if ENABLED(EZABL_ENABLE)
   #define RESTORE_LEVELING_AFTER_G28
@@ -1541,22 +1569,34 @@
     #define XY_PROBE_SPEED 12000
   #endif
   #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
-  #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
-  
+  #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)  
   #if ENABLED(FIX_MOUNTED_PROBE) && DISABLED(HEATERS_ON_DURING_PROBING)
     #define PROBING_HEATERS_OFF   
-  #endif
-  
+  #endif  
   #define MULTIPLE_PROBING 2
   #define Z_CLEARANCE_DEPLOY_PROBE   5
   #define Z_CLEARANCE_BETWEEN_PROBES 3 
   #define Z_PROBE_OFFSET_RANGE_MIN  -5
-  #define Z_PROBE_OFFSET_RANGE_MAX  1
-  
-  #define Z_MIN_PROBE_REPEATABILITY_TEST
-  
+  #define Z_PROBE_OFFSET_RANGE_MAX  1  
+  #define Z_MIN_PROBE_REPEATABILITY_TEST  
   #define Z_AFTER_PROBING           5
-  #define Z_PROBE_LOW_POINT         -3
+  #define Z_PROBE_LOW_POINT         -3  
+  #define AUTO_BED_LEVELING_BILINEAR
+  #define Z_SAFE_HOMING
+  #if ENABLED(Z_SAFE_HOMING)
+    #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE) / 2)
+    #define Z_SAFE_HOMING_Y_POINT ((Y_BED_SIZE) / 2)
+  #endif
+  #define GRID_MAX_POINTS_X EZABL_POINTS
+  #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+  #define LEFT_PROBE_BED_POSITION (max(EZABL_PROBE_EDGE, X_PROBE_OFFSET_FROM_EXTRUDER))
+  #define RIGHT_PROBE_BED_POSITION (min(X_BED_SIZE - EZABL_PROBE_EDGE, X_BED_SIZE + X_PROBE_OFFSET_FROM_EXTRUDER))
+  #define FRONT_PROBE_BED_POSITION (max(EZABL_PROBE_EDGE, Y_PROBE_OFFSET_FROM_EXTRUDER))
+  #define BACK_PROBE_BED_POSITION (min(Y_BED_SIZE - EZABL_PROBE_EDGE, Y_BED_SIZE + Y_PROBE_OFFSET_FROM_EXTRUDER))
+  #define MIN_PROBE_EDGE 5
+  #if ENABLED(EZABL_OUTSIDE_GRID_COMPENSATION)
+    #define EXTRAPOLATE_BEYOND_GRID
+  #endif
 #endif  
 
 #if ENABLED(NEW_ACCELERATION_CONTROL) && DISABLED(POWER_LOSS_RECOVERY)
@@ -1600,7 +1640,9 @@
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
   #define MIN_SOFTWARE_ENDSTOP_X
   #define MIN_SOFTWARE_ENDSTOP_Y
-  //#define MIN_SOFTWARE_ENDSTOP_Z
+  #if DISABLED(EZABL_ENABLE)
+    #define MIN_SOFTWARE_ENDSTOP_Z
+  #endif
 #endif
 
 #define MAX_SOFTWARE_ENDSTOPS
@@ -1618,7 +1660,11 @@
     #else
       #define FIL_RUNOUT_INVERTING true
     #endif
-    #define NUM_RUNOUT_SENSORS   1
+    #if DISABLED(TIM_AM8)
+      #define NUM_RUNOUT_SENSORS   1
+    #else
+      #define NUM_RUNOUT_SENSORS   2
+    #endif
     #define FIL_RUNOUT_PULLUP
     #define FILAMENT_RUNOUT_SCRIPT "M600"
   #endif
@@ -1628,58 +1674,17 @@
   #define PROBE_MANUALLY
   #define LCD_BED_LEVELING
   #define MESH_BED_LEVELING
-
-  #define MBL_Z_STEP 0.025    // Step size while manually probing Z axis.
-  #define LCD_PROBE_Z_RANGE 4 // Z Range centered on Z_MIN_POS for LCD Z adjustment
-
-  #define MESH_INSET 10          // Mesh inset margin on print area
-  #define GRID_MAX_POINTS_X 5    // Don't use more than 7 points per axis, implementation limited.
+  #define MBL_Z_STEP 0.025    
+  #define LCD_PROBE_Z_RANGE 4 
+  #define MESH_INSET 10          
+  #define GRID_MAX_POINTS_X 5    
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
-#endif
-
-#if ENABLED(EZABL_ENABLE)
-  #define AUTO_BED_LEVELING_BILINEAR
 #endif
 
 #if ENABLED(MESH_BED_LEVELING) || ENABLED(AUTO_BED_LEVELING_BILINEAR) || ENABLED(AUTO_BED_LEVELING_UBL)
   #define ENABLE_LEVELING_FADE_HEIGHT
   #define SEGMENT_LEVELED_MOVES
   #define LEVELED_SEGMENT_LENGTH 5.0
-#endif
-
-#if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
-
-  #define GRID_MAX_POINTS_X EZABL_POINTS
-  #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
-  
-  #define LEFT_PROBE_BED_POSITION (max(EZABL_PROBE_EDGE, X_PROBE_OFFSET_FROM_EXTRUDER))
-  #define RIGHT_PROBE_BED_POSITION (min(X_BED_SIZE - EZABL_PROBE_EDGE, X_BED_SIZE + X_PROBE_OFFSET_FROM_EXTRUDER))
-  #define FRONT_PROBE_BED_POSITION (max(EZABL_PROBE_EDGE, Y_PROBE_OFFSET_FROM_EXTRUDER))
-  #define BACK_PROBE_BED_POSITION (min(Y_BED_SIZE - EZABL_PROBE_EDGE, Y_BED_SIZE + Y_PROBE_OFFSET_FROM_EXTRUDER))
-  
-  #define MIN_PROBE_EDGE 5
-
-  #if ENABLED(EZABL_OUTSIDE_GRID_COMPENSATION)
-    #define EXTRAPOLATE_BEYOND_GRID
-  #endif
-
-#endif
-
-#if ENABLED(FIX_MOUNTED_PROBE)
-  #define Z_SAFE_HOMING
-#endif
-
-#if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE) / 2)
-  #define Z_SAFE_HOMING_Y_POINT ((Y_BED_SIZE) / 2)
-#endif
-
-#define HOMING_FEEDRATE_XY (40*60)
-
-#if ENABLED(EZABL_FASTPROBE)
-	#define HOMING_FEEDRATE_Z  (8*60)
-#else
-	#define HOMING_FEEDRATE_Z  (4*60)
 #endif
 
 #define EEPROM_SETTINGS
@@ -1709,6 +1714,8 @@
 #define DISPLAY_CHARSET_HD44780 JAPANESE
 
 #define SDSUPPORT
+
+#define DISABLE_REDUCED_ACCURACY_WARNING
 
 #define INDIVIDUAL_AXIS_HOMING_MENU
 

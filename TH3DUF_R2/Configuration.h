@@ -428,6 +428,9 @@
 // heat up times uncomment below to switch back to the old "bang-bang" method that cycles it on and off slower.
 //#define PIDBED_DISABLE
 
+// Stock bed max is 110C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
+//#define BED_HIGHTEMP
+
 // MISC --------------------------------------------
 
 // If you have a 5015 fan that whines when under 100% speed uncomment the below line.
@@ -506,6 +509,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.3"
+#define UNIFIED_VERSION "TH3D U1.R2.4"
 
 #endif // CONFIGURATION_H

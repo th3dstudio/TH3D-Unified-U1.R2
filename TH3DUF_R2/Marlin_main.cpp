@@ -7985,7 +7985,8 @@ inline void gcode_M42() {
     #endif
 
     if (verbose_level > 0)
-      SERIAL_PROTOCOLLNPGM("EZABL Test");
+      SERIAL_PROTOCOLLNPGM("M48 Test Running...");
+      lcd_setstatus("M48 Test Running...");
 
     const int8_t n_samples = parser.byteval('P', 10);
     #if DISABLED(SLIM_1284P)
@@ -8114,6 +8115,12 @@ inline void gcode_M42() {
       SERIAL_PROTOCOL_F(sigma, 6);
       SERIAL_EOL();
       SERIAL_EOL();
+
+      #if ENABLED(ULTRA_LCD)
+        char sigma_str[8];
+        dtostrf(sigma, 2, 6, sigma_str);
+        lcd_status_printf_P(0, PSTR("M48 Result: %s"), sigma_str);
+      #endif
     }
 
     clean_up_after_endstop_or_probe_move();
@@ -15232,6 +15239,10 @@ void setup() {
   #if ENABLED(SDSUPPORT) && DISABLED(ULTRA_LCD)
     card.beginautostart();
   #endif
+  
+  #if ENABLED(SDSUPPORT)
+	  if (!card.cardOK) card.initsd();
+	#endif
 }
 
 /**
