@@ -3816,7 +3816,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     #elif HAS_BED_PROBE
       MENU_ITEM_EDIT(float52, MSG_ZPROBE_ZOFFSET, &zprobe_zoffset, Z_PROBE_OFFSET_RANGE_MIN, Z_PROBE_OFFSET_RANGE_MAX);
     #endif
-
+    
     #if DISABLED(SLIM_LCD_MENUS)
 
       // M203 / M205 - Feedrate items
