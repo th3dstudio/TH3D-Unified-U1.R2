@@ -1,41 +1,50 @@
 /**
-* **************How to use this firmware - READ THIS*********************************
+* ************** How to use this firmware - READ THIS *********************************
 *
 * Uncomment means removing the 2 // in front of #define.
 * 
+* FLASHING NOTES:
 * ALL slicers (Simplify3D, Cura, Slic3r, etc) or anything else that connects to the COM port must be CLOSED for the firmware to be flash.
 * If anything is connected to the COM port when flashing it will fail, typically "access denied" is listed in the error section of the Arduino IDE.
 * You MUST use the Included Arduino IDE to flash the firmware if on Windows and if you are on a Mac or Linux follow the guide in our knowledgebase to setup your IDE to work with the firmware.
 * 
-* If you have EZABL uncomment the mount you are using with the printer. This is all that is needed now.
+* EZABL SETUP NOTES: 
+* If you have EZABL uncomment the mount you are using with the printer. 
+* If you have a custom/unsupported mount uncomment #define CUSTOM_MOUNT and enter your offsets 
+* below in the CUSTOM MOUNT section. Refer to the EZABL guide to get your offsets.
 * 
-* If you have a custom/unsupported mount uncomment #define CUSTOM_MOUNT
-* and enter your offsets below in the CUSTOM MOUNT section.
+* STEP 1:
+* Select the correct board from the tools menu for the printer you are flashing.
+* Read the printer title for the model you are flashing, it will show what board to select.
+*
+* STEP 2:
+* Uncomment the printer you want to flash. The printers are sorted A-Z by brand name.
+* If you are using the CR-10S DUAL board with the Ender 3 then read the specific section below on how to do this.
+*
+* STEP 3: 
+* Select the COM port your printer is on from the Tools menu. If you do not see the COM port try
+* downloading the latest drivers from the manufacturer or TH3D site on our knowledgebase.
+* 
+* STEP 4:
+* Verify you have the correct board selected, printer model uncommented, and if you are using EZOUT and/or EZABL
+* the lines you need to use them are also uncommented.
+*
+* STEP 5:
+* Once you have your settings verified click the arrow in the upper left to upload to the board.
+*
+* STEP 6:
+* Reset your eeprom. You can send M502 then M500 to reset the EEPROM OR on the printer LCD go to 
+* Control > Initialize EEPROM to clear out the EEPROM to defaults.
+*
+* BOOTLOADER FLASHING NOTES:
+* For flashing your bootloader with an Uno make sure to select Arduino as ISP for the programmer
 * 
 * There are other features in the TH3D Extras section so look there for V6 Hotend,
 * Bootscreen settings, Titan Extruder and more. You only need to edit this file.
 * 
-* For the Tornado, TAZ5, Wanhao i3 Mini, Wanhao, D6, Alfawise U10, and CR-10S select Tools > Board > Arduino Mega 2560
-* For the Ender 2, Ender 3, and CR-10 select Tools > Board > Sanguino(1284P Boards)
-* For the ANET Printers select Tools > Board > ANET V1.0
-* 
-* If you are using the CR-10S DUAL board with the Ender 3 then read the specific section below on how to do this
-* 
-* Then select the COM port your printer is on from the Tools menu.
-* 
-* Once you have your settings click the arrow in the upper left to upload to the board.
-*
-* ANYTHING UNCOMMENTED BY DEFAULT IS SUPPOSED TO BE THAT WAY. DO NOT ASK SUPPORT ABOUT THIS OR DISABLE THEM.
-* 
-* Thats it! 
-* 
-* !!!!!!!CAUTION!!!!!!!
-* After updating be sure to either send M502 then M500 to reset your EEPROM or on the printer
-* LCD go to Control > Initialize EEPROM to clear out the EEPROM to defaults.
-* 
-* ONLY UNCOMMENT ONE PRINTER TYPE. IF YOU UNCOMMENT MORE THAN ONE YOU WILL GET ERRORS.
+* ERROR NOTES:
 * If you get errors flashing READ the message it gives you and double check that you selected
-* the correct board from the Tools menu in Arduino.
+* the correct board from the Tools menu in Arduino. Turn off any AV systems and reboot the computer.
 */
 
 #ifndef CONFIGURATION_H
@@ -46,30 +55,11 @@
 //============================ TH3D Configuration ===========================
 //===========================================================================
 
-// ONLY UNCOMMENT THINGS IN ONE PRINTER SECTION!!! IF YOU DO NOT FOLLOW THIS THEN YOU WILL GET ERRORS.
+// ONLY UNCOMMENT THINGS IN ONE PRINTER SECTION!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME.
 
 //===========================================================================
-// TH3D Artillery Options - Select Arduino Mega 2560 from Tools > Board
+// *************************    AIBECY PRINTERS     *************************
 //===========================================================================
-//#define AR_EZ300
-
-// EZABL Probe Mounts
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define CR10_OEM
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
-
-//===========================================================================
-// Geeetech A10 Options - Select Arduino Mega 2560 from Tools > Board
-//===========================================================================
-//#define GEEETECH_A10
-
-// EZABL Probe Mounts
-//#define GEE_A10_OEM
-//#define CUSTOM_PROBE
 
 //===========================================================================
 // Aibecy DY-H9 Options - Select Arduino Mega 2560 from Tools > Board
@@ -80,7 +70,52 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
-// Creality CR-10 Options - Select Sanguino(1284P) from Tools > Board
+// *************************   ALFAWISE PRINTERS    *************************
+//===========================================================================
+
+//===========================================================================
+// Alfawise U10 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define ALFAWISE_U10
+
+// EZABL Probe Mounts
+//#define ALFAWISEU10_OEM
+//#define ALFAWISEU10_PETSFANG
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// *************************     ANET PRINTERS      *************************
+//===========================================================================
+
+//===========================================================================
+// ANET Printers Options - Select 'ANET V1.0' from Tools > Board
+//===========================================================================
+// Uncomment the ANET Model you are using
+//#define ANET_A2 //** please see option below to choose bed size for the A2 only!!
+//#define ANET_A6
+//#define ANET_A8
+//#define ANET_E10
+//#define ANET_E12
+
+// Choose bed size for A2 only
+// IGNORE THESE OPTIONS FOR MACHINES OTHER THAN THE A2
+//#define A2_SMALL_BED //(220x220)
+//#define A2_LARGE_BED //(220x270)
+
+// Choose which type of LCD you have (Select One option)
+//#define ANET_LCD12864 //This is the larger LCD with the rotary controller found on most ANET machines
+//#define ANET_LCD2004 //This is the LCD with the 5 button keypad usually found on A8 and some A2 machines
+
+// EZABL Probe Mounts - Bootscreen will be disabled when enabling EZABL on the Anet Boards due to space issues
+//#define ANET_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// *************************   CREALITY PRINTERS    *************************
+//===========================================================================
+
+//===========================================================================
+// Creality CR-10 Options - Select 'Sanguino 1284P' from Tools > Board
 //===========================================================================
 //#define CR10
 //#define CR10_MINI
@@ -103,7 +138,7 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
-// Creality CR-10S Options - Select Arduino Mega 2560 from Tools > Board
+// Creality CR-10S Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define CR10S
 //#define CR10S_MINI
@@ -150,7 +185,7 @@
 //#define DUAL_HOTEND_SINGLE_NOZZLE
 
 //===========================================================================
-// Creality Ender 2 Options - Select Sanguino(1284P) from Tools > Board
+// Creality Ender 2 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define ENDER2
 
@@ -168,7 +203,7 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
-// Creality Ender 3 Options - Select Sanguino(1284P) from Tools > Board
+// Creality Ender 3 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define ENDER3
 
@@ -189,7 +224,7 @@
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 3
 // DO NOT UNCOMMENT THE ABOVE #define ENDER3 LINE IF USING THE DUAL BOARD
-// Select Arduino Mega 2560 from Tools > Board - NOT Sanguino
+// Select 'Arduino Mega 2560' from Tools > Board - NOT Sanguino
 //
 // To use the Ender 3 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the 
 // CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 3 LCD.
@@ -209,7 +244,57 @@
 //#define DUAL_HOTEND_SINGLE_NOZZLE
 
 //===========================================================================
-// TEVO Tornado Options - Select Arduino Mega 2560 from Tools > Board
+// *************************  FOLGERTECH PRINTERS   *************************
+//===========================================================================
+
+//===========================================================================
+// Folgertech FT-5 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define FT5
+
+// If you are using a 12864 LCD instead of the stock LCD 2004 display uncomment the below line.
+//#define FT5_12864LCD
+
+// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_ENABLE line below.
+// Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
+
+// EZABL Probe Mounts
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// *************************   GEEETECH PRINTERS    *************************
+//===========================================================================
+
+//===========================================================================
+// Geeetech A10 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define GEEETECH_A10
+
+// EZABL Probe Mounts
+//#define GEE_A10_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// *************************    LULZBOT PRINTERS    *************************
+//===========================================================================
+
+//===========================================================================
+// Lulzbot TAZ5 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define TAZ5
+
+// EZABL Probe Mounts
+//#define TAZ5_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// *************************     TEVO PRINTERS      *************************
+//===========================================================================
+
+//===========================================================================
+// TEVO Tornado Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define TORNADO
 
@@ -234,44 +319,16 @@
 //#define TORNADO_QUIET
 
 //===========================================================================
-// Lulzbot TAZ5 Options - Select Arduino Mega 2560 from Tools > Board
+// *************************    WANHAO PRINTERS     *************************
 //===========================================================================
-//#define TAZ5
-
-// EZABL Probe Mounts
-//#define TAZ5_OEM
-//#define CUSTOM_PROBE
 
 //===========================================================================
-// ANET Printers Options - Select ANET 1.0 from Tools > Board
-//===========================================================================
-// Uncomment the ANET Model you are using
-//#define ANET_A2 //** please see option below to choose bed size for the A2 only!!
-//#define ANET_A6
-//#define ANET_A8
-//#define ANET_E10
-//#define ANET_E12
-
-// Choose bed size for A2 only
-// IGNORE THESE OPTIONS FOR MACHINES OTHER THAN THE A2
-//#define A2_SMALL_BED //(220x220)
-//#define A2_LARGE_BED //(220x270)
-
-// Choose which type of LCD you have (Select One option)
-//#define ANET_LCD12864 //This is the larger LCD with the rotary controller found on most ANET machines
-//#define ANET_LCD2004 //This is the LCD with the 5 button keypad usually found on A8 and some A2 machines
-
-// EZABL Probe Mounts - Bootscreen will be disabled when enabling EZABL on the Anet Boards due to space issues
-//#define ANET_OEM
-//#define CUSTOM_PROBE
-
-//===========================================================================
-// Wanhao i3 Options - Select Sanguino(1284P) from Tools > Board
+// Wanhao i3 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define WANHAO_I3
 
 // If you are using our EZOut V2 (connected to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUT_ENABLE line below.
+// and then uncomment the #define EZOUTV2_ENABLE line below.
 // Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUTV2_ENABLE
 
@@ -284,7 +341,7 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
-// Wanhao i3 MINI Options - Select Arduino Mega 2560 from Tools > Board
+// Wanhao i3 MINI Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define WANHAO_I3MINI
 
@@ -294,7 +351,7 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
-// Wanhao D6 Options - Select Arduino Mega 2560 from Tools > Board
+// Wanhao D6 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define WANHAO_D6
 
@@ -307,31 +364,10 @@
 //#define WANHAO_D6_OEM
 //#define CUSTOM_PROBE
 
-//===========================================================================
-// Alfawise U10 Options - Select Arduino Mega 2560 from Tools > Board
-//===========================================================================
-//#define ALFAWISE_U10
-
-// EZABL Probe Mounts
-//#define ALFAWISEU10_OEM
-//#define ALFAWISEU10_PETSFANG
-//#define CUSTOM_PROBE
 
 //===========================================================================
-// Folgetech FT-5 Options - Select Arduino Mega 2560 from Tools > Board
+// *************************  END PRINTER SECTION   *************************
 //===========================================================================
-//#define FT5
-
-// If you are using a 12864 LCD instead of the stock LCD 2004 display uncomment the below line.
-//#define FT5_12864LCD
-
-// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts
-//#define CUSTOM_PROBE
 
 //===========================================================================
 // EZABL Advanced Settings
@@ -368,6 +404,7 @@
 
 // If you are using the EZABL Expert OctoPrint Plugin enable this option. This will make the probe home to the front left of the bed instead of the center.
 // Plugin Download/Info Page: https://github.com/houseofbugs/Octoprint_EZABL_Expert
+// THIS IS NOT SUPPORTED BY TH3D INCLUDED SUPPORT. THIS IS ADDED IN FOR YOUR CONVENIENCE.
 //#define EZABL_EXPERT_PLUGIN
 
 //===========================================================================
