@@ -160,10 +160,6 @@
   #define ULTIPANEL_FEEDMULTIPLY  
 #endif
 
-#define DEFAULT_MINSEGMENTTIME        25000
-#define SLOWDOWN
-#define MINIMUM_PLANNER_SPEED 0.05
-
 #if ENABLED(NEW_JERK_CONTROL) && DISABLED(POWER_LOSS_RECOVERY)
   #define JUNCTION_DEVIATION
   #define JUNCTION_DEVIATION_MM 0.02
@@ -268,13 +264,26 @@
 #endif
 
 #define MIN_STEPS_PER_SEGMENT 6
-//#define MIN_STEPS_PER_SEGMENT 5 //test if helps slowdown - no change
 
-#define BLOCK_BUFFER_SIZE 16
-#define MAX_CMD_SIZE 96
-#define BUFSIZE 4
-#define TX_BUFFER_SIZE 0
-//#define TX_BUFFER_SIZE 4 //test if helps slowdown - no change
+#if ENABLED(OCTOPRINT_OPTIMIZED)
+  //These settings are for tuning the OCTOPRINT_OPTIMIZED setting. SD will be disabled.
+  #define BLOCK_BUFFER_SIZE 128
+  #define MAX_CMD_SIZE 96
+  #define BUFSIZE 32
+  #define DEFAULT_MINSEGMENTTIME        50000
+  //#define SLOWDOWN
+  #define MINIMUM_PLANNER_SPEED 0.05
+  #define TX_BUFFER_SIZE 0
+#else
+  //These settings are the stock settings with SD enabled.
+  #define BLOCK_BUFFER_SIZE 16
+  #define MAX_CMD_SIZE 96
+  #define BUFSIZE 4
+  #define DEFAULT_MINSEGMENTTIME        25000
+  #define SLOWDOWN
+  #define MINIMUM_PLANNER_SPEED 0.05
+  #define TX_BUFFER_SIZE 0
+#endif
 
 #define ADVANCED_PAUSE_FEATURE
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
