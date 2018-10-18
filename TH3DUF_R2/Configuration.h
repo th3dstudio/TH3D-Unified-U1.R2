@@ -539,10 +539,6 @@
 //#define NEW_JERK_CONTROL
 //#define NEW_ACCELERATION_CONTROL
 
-// Experimental feature to disable SD support to free up memory with OctoPrint USB usage and change USB communication/buffer settings
-// Source: http://lokspace.eu/bad-print-quality-with-usb-or-octoprint-the-solution-is-here/
-//#define OCTOPRINT_OPTIMIZED
-
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.
 // We only test compile with English language. If you run into space issues disable some features.
@@ -562,6 +558,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.5.A2"
+#define UNIFIED_VERSION "TH3D U1.R2.4a"
 
 #endif // CONFIGURATION_H
