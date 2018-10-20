@@ -402,11 +402,6 @@
 // This will extrapolate the implied tilt of the bed outside of the probe area. Do not comment out unless directed by support.
 #define EZABL_OUTSIDE_GRID_COMPENSATION
 
-// If you are using the EZABL Expert OctoPrint Plugin enable this option. This will make the probe home to the front left of the bed instead of the center.
-// Plugin Download/Info Page: https://github.com/houseofbugs/Octoprint_EZABL_Expert
-// THIS IS NOT SUPPORTED BY TH3D INCLUDED SUPPORT. THIS IS ADDED IN FOR YOUR CONVENIENCE.
-//#define EZABL_EXPERT_PLUGIN
-
 //===========================================================================
 // IF YOU HAVE A CUSTOM PROBE MOUNT OR ONE THAT IS NOT PRE-SUPPORTED UNCOMMENT THE
 // CUSTOM_PROBE OPTION IN YOUR PRINTER SECTION AND ENTER YOUR PROBE LOCATION BELOW
@@ -558,6 +553,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.4a"
+#define UNIFIED_VERSION "TH3D U1.R2.4b"
 
 #endif // CONFIGURATION_H
