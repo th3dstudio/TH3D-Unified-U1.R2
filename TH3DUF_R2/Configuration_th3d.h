@@ -18,11 +18,28 @@
 //#define TIM_D6
 //#define TIM_WI3
 //#define TIM_TORNADO
-//#define TIM_AM8
+//#define TIM_ENDER3
 
 // Custom Machines
 //#define MATTF_X5S
 //#define STEVE_A30
+
+#if ENABLED(TIM_ENDER3)
+  #define ENDER3
+  #define EZOUT_ENABLE
+  #define CR10_OEM
+  #define EZABL_POINTS 3
+  #define EZABL_PROBE_EDGE 15
+  #define NO_COLD_PREVENT
+  #define EZABL_FASTPROBE
+  #define BABYSTEP_OFFSET
+  
+  #define LINEAR_ADVANCE
+  #define LINEAR_ADVANCE_K 0
+  #define NEW_JERK_CONTROL
+  #define NEW_ACCELERATION_CONTROL
+  #define USER_PRINTER_NAME "HakEnder3" 
+#endif
 
 #if ENABLED(STEVE_A30)
   #define TH3DINHOUSEMACHINE
