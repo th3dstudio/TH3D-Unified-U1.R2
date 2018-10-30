@@ -39,6 +39,9 @@
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "HakEnder3" 
+  #define HOME_ADJUST
+  #define X_HOME_LOCATION 0
+  #define Y_HOME_LOCATION -6
 #endif
 
 #if ENABLED(STEVE_A30)

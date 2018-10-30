@@ -136,7 +136,13 @@
 #define X_HOME_BUMP_MM 5
 #define Y_HOME_BUMP_MM 5
 #define Z_HOME_BUMP_MM 2
-#define HOMING_BUMP_DIVISOR { 2, 2, 4 }  
+
+#if ENABLED(SLOWER_HOMING)
+  #define HOMING_BUMP_DIVISOR { 5, 5, 4 }
+#else
+  #define HOMING_BUMP_DIVISOR { 2, 2, 4 }
+#endif
+
 #define QUICK_HOME                    
 
 #define AXIS_RELATIVE_MODES {false, false, false, false}

@@ -483,6 +483,9 @@
 // Use your own printer name
 //#define USER_PRINTER_NAME "CHANGE ME" 
 
+// If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
+//#define SLOWER_HOMING
+
 // BOOT SCREEN OPTIONS -----------------------------
 
 // Use TinyMachines Bootscreen instead of TH3D
