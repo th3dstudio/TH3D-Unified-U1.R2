@@ -30,8 +30,8 @@
   #endif
 #endif
 #if ENABLED(GEE_A10_OEM)
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -53
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER 3
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -54
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
   #define EZABL_ENABLE
 #endif
 #if ENABLED(CR10_VOLCANO)
@@ -335,8 +335,8 @@
     #define X_MIN_POS X_HOME_LOCATION
     #define Y_MIN_POS Y_HOME_LOCATION
   #else
-    #define X_MIN_POS 0
-    #define Y_MIN_POS 0
+    #define X_MIN_POS -7
+    #define Y_MIN_POS -7
   #endif
   
   #define ENCODER_PULSES_PER_STEP 4
@@ -1624,7 +1624,7 @@
 #if ENABLED(SLOWER_HOMING)
   #define HOMING_FEEDRATE_XY (20*60)
 #else
-  #define HOMING_FEEDRATE_XY (50*60)
+  #define HOMING_FEEDRATE_XY (40*60)
 #endif
 
 #if ENABLED(EZABL_FASTPROBE)
