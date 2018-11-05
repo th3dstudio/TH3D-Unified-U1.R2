@@ -327,8 +327,8 @@
     #define INVERT_E0_DIR true
   #endif
 
-  #define X_BED_SIZE 220
-  #define Y_BED_SIZE 220
+  #define X_BED_SIZE 235
+  #define Y_BED_SIZE 235
   #define Z_MAX_POS 260
   
   #if ENABLED(HOME_ADJUST)

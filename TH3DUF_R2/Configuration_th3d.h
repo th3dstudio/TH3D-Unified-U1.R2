@@ -23,6 +23,26 @@
 // Custom Machines
 //#define MATTF_X5S
 //#define STEVE_A30
+//#define NGIL_ENDER3
+
+#if ENABLED(NGIL_ENDER3)
+  #define ENDER3
+  #define EZOUT_ENABLE
+  #define PETSFANG
+  #define EZABL_POINTS 3
+  #define EZABL_PROBE_EDGE 15
+  #define NO_COLD_PREVENT
+  #define EZABL_FASTPROBE
+  #define BABYSTEP_OFFSET
+  #define TITAN_EXTRUDER
+  #define TITAN_EXTRUDER_STEPS 463  
+  #define LINEAR_ADVANCE
+  #define LINEAR_ADVANCE_K 0
+  #define NEW_JERK_CONTROL
+  #define NEW_ACCELERATION_CONTROL
+  #define USER_PRINTER_NAME "Nicks Ender3" 
+#endif
+
 
 #if ENABLED(TIM_ENDER3)
   #define ENDER3
