@@ -568,12 +568,12 @@
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the probe.
 
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 463 }
-  #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 25 }
-  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
+  #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 5000 }
   
-  #define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves
+  #define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration for printing moves
   #define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration for retracts
-  #define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves
+  #define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
 
   #define DEFAULT_XJERK                 10.0
   #define DEFAULT_YJERK                 10.0

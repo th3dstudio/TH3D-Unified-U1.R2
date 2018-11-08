@@ -58,6 +58,19 @@
 // ONLY UNCOMMENT THINGS IN ONE PRINTER SECTION!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME.
 
 //===========================================================================
+// *************************    ADIMLab PRINTERS    *************************
+//===========================================================================
+
+//===========================================================================
+// ADIMLab Gantry i3 Plus Options - Select Arduino Mega 2560 from Tools > Board
+//===========================================================================
+//#define ADIM_GANTRY_I3_PLUS
+
+// EZABL Probe Mounts
+//#define ADIM_I3P_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // *************************    AIBECY PRINTERS     *************************
 //===========================================================================
 
@@ -128,9 +141,9 @@
 //#define EZOUT_ENABLE
 
 // EZABL Probe Mounts
+//#define CR10_OEM
 //#define CR10_VOLCANO
 //#define CR10_V6HEAVYDUTY
-//#define CR10_OEM
 //#define CR10_FANG
 //#define TM3DAERO
 //#define TM3DAERO_EXTENDED
@@ -162,9 +175,9 @@
 //#define EZOUTV2_ENABLE
 
 // EZABL Probe Mounts
+//#define CR10_OEM
 //#define CR10_VOLCANO
 //#define CR10_V6HEAVYDUTY
-//#define CR10_OEM
 //#define TM3DAERO
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
@@ -175,14 +188,37 @@
 
 // Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
 
-// If you are using a single hotend with the 2 into 1 adapter uncomment the below line
-//#define SINGLE_HOTEND_YADAPTER
+// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
+//#define DUAL_EXTRUDER_SINGLE_HOTEND
 
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
 
-// If you are using a dual hotend with the single/mixing nozzle uncomment the below line
-//#define DUAL_HOTEND_SINGLE_NOZZLE
+//===========================================================================
+// Creality CR-20 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define CR20
+
+// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
+
+// EZABL Probe Mounts (CR-20 uses the same mounts as CR-10)
+//#define CR10_OEM
+//#define CR10_VOLCANO
+//#define CR10_V6HEAVYDUTY
+//#define TM3DAERO
+//#define TM3DAERO_EXTENDED
+//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
+//#define CUSTOM_PROBE
+
+// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
+
+// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
+//#define DUAL_EXTRUDER_SINGLE_HOTEND
+
+// If you are using a dual hotend with dual nozzles uncomment the below line
+//#define DUAL_HOTEND_DUAL_NOZZLES
 
 //===========================================================================
 // Creality Ender 2 Options - Select 'Sanguino 1284p' from Tools > Board
@@ -194,9 +230,9 @@
 // This is because the probeable area on the non-Ender 2 mounts is too small typically to get a good result.
 //#define ENDER2_OEM
 //#define ENDER2_V6
+//#define CR10_OEM
 //#define CR10_VOLCANO
 //#define CR10_V6HEAVYDUTY
-//#define CR10_OEM
 //#define TM3DAERO
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
@@ -213,9 +249,9 @@
 //#define EZOUT_ENABLE
 
 // EZABL Probe Mounts (Ender 3 uses the same mounts as CR-10)
+//#define CR10_OEM
 //#define CR10_VOLCANO
 //#define CR10_V6HEAVYDUTY
-//#define CR10_OEM
 //#define TM3DAERO
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
@@ -234,14 +270,13 @@
 //=================================================================================================
 //#define ENDER3_DUALBOARD
 
-// If you are using a single hotend with the 2 into 1 adapter uncomment the below line
-//#define SINGLE_HOTEND_YADAPTER
+// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
+
+// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
+//#define DUAL_EXTRUDER_SINGLE_HOTEND
 
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
-
-// If you are using a dual hotend with the single/mixing nozzle uncomment the below line
-//#define DUAL_HOTEND_SINGLE_NOZZLE
 
 //===========================================================================
 // *************************  FOLGERTECH PRINTERS   *************************
@@ -270,10 +305,12 @@
 //===========================================================================
 // Geeetech A10 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
-//#define GEEETECH_A10
+// A10 V1 has the 40mm Fan on the left side of the hotend and NO filament sensor
+// A10 V2 has a filament sensor and no 40mm fan on the left side of the hotend (support coming soon)
+//#define GEEETECH_A10_V1
 
 // EZABL Probe Mounts
-//#define GEE_A10_OEM
+//#define GEE_A10_V1_OEM
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -556,6 +593,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.4c"
+#define UNIFIED_VERSION "TH3D U1.R2.5"
 
 #endif // CONFIGURATION_H

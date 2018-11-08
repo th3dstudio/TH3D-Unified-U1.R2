@@ -29,7 +29,12 @@
     #define DISABLE_BOOT
   #endif
 #endif
-#if ENABLED(GEE_A10_OEM)
+#if ENABLED(ADIM_I3P_OEM)
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -33
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -60
+  #define EZABL_ENABLE
+#endif
+#if ENABLED(GEE_A10_V1_OEM)
   #define X_PROBE_OFFSET_FROM_EXTRUDER -54
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
   #define EZABL_ENABLE
@@ -138,6 +143,73 @@
   #define EZABL_ENABLE
   #define DISABLE_BOOT
 #endif
+
+//ADIMLAB GANTRY I3 PLUS Settings
+#if ENABLED(ADIM_GANTRY_I3_PLUS)
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_ULTIMAKER
+  #endif
+
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+  #define BAUDRATE 250000
+
+  #define X_MIN_ENDSTOP_INVERTING true
+  #define Y_MIN_ENDSTOP_INVERTING true
+  #define Z_MIN_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING true
+  #define Y_MAX_ENDSTOP_INVERTING true
+  #define Z_MAX_ENDSTOP_INVERTING true
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, CUSTOM_ESTEPS_VALUE }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, 100 }
+    #endif
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 200, 10000 }
+
+  #define DEFAULT_ACCELERATION          1000    
+  #define DEFAULT_RETRACT_ACCELERATION  1500   
+  #define DEFAULT_TRAVEL_ACCELERATION   1000    
+  
+  #define DEFAULT_XJERK                 10.0
+  #define DEFAULT_YJERK                 10.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+
+  #define X_BED_SIZE 310
+  #define Y_BED_SIZE 310
+  #define Z_MAX_POS 410
+  
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_LOCATION
+    #define Y_MIN_POS Y_HOME_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+  
+  #define ENCODER_PULSES_PER_STEP 4
+  #define ENCODER_STEPS_PER_MENU_ITEM 1
+  
+  #define PRINTER_ENABLED_CHECK
+#endif //end adimlab i3 plus settings
 
 //DY-H9 Settings
 #if ENABLED(DY_H9)
@@ -278,7 +350,7 @@
 #endif
 
 //Geeetech A10 Settings
-#if ENABLED(GEEETECH_A10)
+#if ENABLED(GEEETECH_A10_V1)
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_GT2560_REV_B
   #endif
@@ -821,7 +893,7 @@
 #endif //end CR-10
 
 //CR-10S Model Settings
-#if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD)
+#if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20)
   #define BAUDRATE 115200
   
   #if ENABLED(TOUCH_LCD_FIX)
@@ -830,6 +902,8 @@
 
   #if ENABLED(CR10LCD_CR10S) || ENABLED(ENDER3_DUALBOARD)
     #define CR10_STOCKDISPLAY
+  #elif ENABLED(CR20)
+    #define MINIPANEL
   #else
     #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
   #endif
@@ -909,6 +983,12 @@
     #define X_BED_SIZE 220
     #define Y_BED_SIZE 220
     #define Z_MAX_POS 250
+  #endif
+  
+  #if ENABLED(CR20)
+    #define X_BED_SIZE 220
+    #define Y_BED_SIZE 220
+    #define Z_MAX_POS 320
   #endif
   
   //dual extrusion options
