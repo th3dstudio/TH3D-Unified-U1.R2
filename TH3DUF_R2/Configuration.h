@@ -58,6 +58,19 @@
 // ONLY UNCOMMENT THINGS IN ONE PRINTER SECTION!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME.
 
 //===========================================================================
+// *************************     TH3D PRINTERS      *************************
+//===========================================================================
+
+//===========================================================================
+// TH3D Artillery EZ300 Options - Select Arduino Mega 2560 from Tools > Board
+//===========================================================================
+//#define AR_EZ300
+
+// EZABL Probe Mounts
+//#define AR_OEM_MOUNT
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // *************************    ADIMLab PRINTERS    *************************
 //===========================================================================
 
@@ -593,6 +606,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.5"
+#define UNIFIED_VERSION "TH3D U1.R2.6"
 
 #endif // CONFIGURATION_H

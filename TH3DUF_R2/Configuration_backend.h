@@ -49,6 +49,9 @@
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
   #define EZABL_ENABLE
 #endif
+#if ENABLED(AR_OEM_MOUNT)
+  #define CR10_OEM
+#endif
 #if ENABLED(CR10_OEM)
   #define X_PROBE_OFFSET_FROM_EXTRUDER -44
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -10
@@ -284,6 +287,20 @@
     #define MOTHERBOARD BOARD_MKS_GEN_L
   #endif
 
+  #undef X_DRIVER_TYPE
+  #define X_DRIVER_TYPE  TMC2208_STANDALONE
+  #undef Y_DRIVER_TYPE
+  #define Y_DRIVER_TYPE  TMC2208_STANDALONE
+  #define Z_DRIVER_TYPE  A4988
+  #define E0_DRIVER_TYPE A4988
+  #define E1_DRIVER_TYPE A4988
+
+  #define NEW_JERK_CONTROL
+  #define NEW_ACCELERATION_CONTROL
+  #define LINEAR_ADVANCE
+  #define EZABL_FASTPROBE
+  #define BABYSTEP_OFFSET
+
   #define EZOUTV2_ENABLE
 
   #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
@@ -303,7 +320,7 @@
     #if ENABLED(CUSTOM_ESTEPS)
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
     #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 100 }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 463 }
     #endif
   #endif
   
@@ -326,7 +343,7 @@
   #if ENABLED(TITAN_EXTRUDER)
     #define INVERT_E0_DIR true
   #else
-    #define INVERT_E0_DIR false
+    #define INVERT_E0_DIR true
   #endif
 
   #define X_BED_SIZE 300
@@ -1652,13 +1669,7 @@
 #endif 
 
 #if DISABLED(PIDBED_DISABLE)
-  #if DISABLED(TORNADO)
-    #if DISABLED(KEENOVO_TEMPSENSOR)
-      #if DISABLED(SLIM_1284P)
-        #define PIDTEMPBED
-      #endif
-    #endif
-  #endif
+  #define PIDTEMPBED
 #endif
 
 #define MAX_BED_POWER 255
