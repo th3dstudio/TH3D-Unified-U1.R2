@@ -424,7 +424,7 @@
   #define TORNADO
   #define PETSFANG
   #define EZABL_POINTS 3
-  #define EZABL_PROBE_EDGE 25
+  #define EZABL_PROBE_EDGE 15
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
@@ -623,6 +623,7 @@
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
+  #define EZOUTV2_ENABLE
   
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
@@ -639,6 +640,8 @@
   #define Y_DRIVER_TYPE  DRV8825
   #define Z_DRIVER_TYPE  DRV8825
   #define E0_DRIVER_TYPE A4988
+  
+  #define EZOUTV2_ENABLE
   
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_RAMPS_14_EFB

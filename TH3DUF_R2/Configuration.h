@@ -58,6 +58,19 @@
 // ONLY UNCOMMENT THINGS IN ONE PRINTER SECTION!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME.
 
 //===========================================================================
+// *************************     TH3D PRINTERS      *************************
+//===========================================================================
+
+//===========================================================================
+// TH3D Artillery EZ300 Options - Select Arduino Mega 2560 from Tools > Board
+//===========================================================================
+//#define AR_EZ300
+
+// EZABL Probe Mounts
+//#define AR_OEM_MOUNT
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // *************************    ADIMLab PRINTERS    *************************
 //===========================================================================
 
@@ -224,6 +237,10 @@
 // Creality Ender 2 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define ENDER2
+
+// If you are using our EZOut V2 (connects to the LCD header & connect the 2 pin connector to the "Check" header to the right of the LCD connection) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
 
 // EZABL Probe Mounts (Ender 2 can use the same mounts as CR-10, Ender 2 Specific mounts minimize distance from probe to nozzle for max probing area)
 // If you have issues with the non-Ender 2 mounts then please print them off and switch to one of them before contacting support. 
@@ -593,6 +610,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.5"
+#define UNIFIED_VERSION "TH3D U1.R2.6"
 
 #endif // CONFIGURATION_H

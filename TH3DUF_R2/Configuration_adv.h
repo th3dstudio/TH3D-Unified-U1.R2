@@ -115,6 +115,10 @@
     #define E0_AUTO_FAN_PIN 12
     #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
     #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
+  #elif ENABLED(AR_EZ300)
+    #define E0_AUTO_FAN_PIN 7
+    #define EXTRUDER_AUTO_FAN_TEMPERATURE 40
+    #define EXTRUDER_AUTO_FAN_SPEED   255
   #else  
     #define E0_AUTO_FAN_PIN -1
     #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
@@ -245,8 +249,8 @@
 
 #define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
-  #define BABYSTEP_INVERT_Z false    
-  #define BABYSTEP_MULTIPLICATOR 10  
+  #define BABYSTEP_INVERT_Z false
+  #define BABYSTEP_MULTIPLICATOR 10
   #if ENABLED(BABYSTEP_OFFSET)
     #define BABYSTEP_ZPROBE_OFFSET   
   #endif

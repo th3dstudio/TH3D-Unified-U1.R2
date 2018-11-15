@@ -489,6 +489,15 @@ static_assert(X_MAX_LENGTH >= X_BED_SIZE && Y_MAX_LENGTH >= Y_BED_SIZE,
   #if (Z_MIN_PROBE_ENDSTOP_INVERTING == false)
     #if ENABLED(FIX_MOUNTED_PROBE)
       #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
     #endif
   #endif
 #endif
@@ -1440,6 +1449,7 @@ static_assert(X_MAX_LENGTH >= X_BED_SIZE && Y_MAX_LENGTH >= Y_BED_SIZE,
  * Make sure only one display is enabled
  *
  * Note: BQ_LCD_SMART_CONTROLLER => REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+ *       HJC_LCD_SMART_CONTROLLER => REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
  *       REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER => REPRAP_DISCOUNT_SMART_CONTROLLER
  *       SAV_3DGLCD => U8GLIB_SH1106 => ULTIMAKERCONTROLLER
  *       MKS_12864OLED => U8GLIB_SH1106 => ULTIMAKERCONTROLLER
@@ -1465,7 +1475,7 @@ static_assert(X_MAX_LENGTH >= X_BED_SIZE && Y_MAX_LENGTH >= Y_BED_SIZE,
       && DISABLED(MAKEBOARD_MINI_2_LINE_DISPLAY_1602) \
       && DISABLED(MKS_12864OLED) \
       && DISABLED(MKS_12864OLED_SSD1306) ) \
-  + (ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER) && DISABLED(BQ_LCD_SMART_CONTROLLER)) \
+  + (ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER) && DISABLED(BQ_LCD_SMART_CONTROLLER) && DISABLED(HJC_LCD_SMART_CONTROLLER)) \
   + ENABLED(LCD_FOR_MELZI) \
   + ENABLED(MKS_12864OLED) \
   + ENABLED(MKS_12864OLED_SSD1306) \
@@ -1491,6 +1501,7 @@ static_assert(X_MAX_LENGTH >= X_BED_SIZE && Y_MAX_LENGTH >= Y_BED_SIZE,
   + (ENABLED(U8GLIB_SSD1306) && DISABLED(OLED_PANEL_TINYBOY2) && DISABLED(MKS_12864OLED_SSD1306)) \
   + ENABLED(SAV_3DLCD) \
   + ENABLED(BQ_LCD_SMART_CONTROLLER) \
+  + ENABLED(HJC_LCD_SMART_CONTROLLER) \
   + ENABLED(SAV_3DGLCD) \
   + ENABLED(OLED_PANEL_TINYBOY2) \
   + ENABLED(ZONESTAR_LCD) \

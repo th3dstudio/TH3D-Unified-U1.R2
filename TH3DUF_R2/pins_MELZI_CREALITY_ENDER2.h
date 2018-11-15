@@ -45,14 +45,17 @@
 #undef LCD_PINS_D7
 #undef FIL_RUNOUT_PIN
 
+#if ENABLED(EZOUTV2_ENABLE)
+  #define FIL_RUNOUT_PIN   29
+#else
+  #define FIL_RUNOUT_PIN   -1
+#endif
+
 // SD LCD Fix from https://www.facebook.com/groups/1469255646470283/permalink/1634507159945130/
 #undef DOGLCD_CS
 #define DOGLCD_CS 28 // DOG CS
 #define LCD_SDSS        31 
-//#define LCD_PINS_RS     28 // st9720 CS
-//#define LCD_PINS_ENABLE 17 // st9720 DAT
-//#define LCD_PINS_D4     30 // st9720 CLK
-#define FIL_RUNOUT_PIN  -1 // Uses Beeper/LED Pin Pulled to GND
+
 
 // Alter timing for graphical display
 #ifndef ST7920_DELAY_1
