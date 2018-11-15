@@ -170,7 +170,7 @@
     #if ENABLED(CUSTOM_ESTEPS)
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, CUSTOM_ESTEPS_VALUE }
     #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, 100 }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, 94 }
     #endif
   #endif
   
@@ -186,9 +186,9 @@
   #define DEFAULT_ZJERK                  0.4
   #define DEFAULT_EJERK                  5.0
   
-  #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
   
   #if ENABLED(TITAN_EXTRUDER)
     #define INVERT_E0_DIR true
@@ -196,9 +196,9 @@
     #define INVERT_E0_DIR false
   #endif
 
-  #define X_BED_SIZE 310
-  #define Y_BED_SIZE 310
-  #define Z_MAX_POS 410
+  #define X_BED_SIZE 315
+  #define Y_BED_SIZE 315
+  #define Z_MAX_POS 415
   
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
