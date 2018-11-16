@@ -30,7 +30,7 @@
   #endif
 #endif
 #if ENABLED(ADIM_I3P_OEM)
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -33
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 33
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -60
   #define EZABL_ENABLE
 #endif
@@ -168,17 +168,17 @@
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
   #else
     #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, CUSTOM_ESTEPS_VALUE }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
     #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 80, 94 }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
     #endif
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
-  #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 200, 10000 }
+  #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 50, 2000 }
 
   #define DEFAULT_ACCELERATION          1000    
-  #define DEFAULT_RETRACT_ACCELERATION  1500   
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
   #define DEFAULT_TRAVEL_ACCELERATION   1000    
   
   #define DEFAULT_XJERK                 10.0
@@ -196,9 +196,9 @@
     #define INVERT_E0_DIR false
   #endif
 
-  #define X_BED_SIZE 315
-  #define Y_BED_SIZE 315
-  #define Z_MAX_POS 415
+  #define X_BED_SIZE 310
+  #define Y_BED_SIZE 310
+  #define Z_MAX_POS 410
   
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
@@ -207,9 +207,11 @@
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
   #endif
-  
+
+
   #define ENCODER_PULSES_PER_STEP 4
   #define ENCODER_STEPS_PER_MENU_ITEM 1
+  #define REVERSE_ENCODER_DIRECTION
   
   #define PRINTER_ENABLED_CHECK
 #endif //end adimlab i3 plus settings
