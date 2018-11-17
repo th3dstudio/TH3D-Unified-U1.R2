@@ -111,7 +111,7 @@
     #endif
   #endif
 #else
-  #if ENABLED(TIM_I3MINI)
+  #if ENABLED(I3MINI_FANCONTROL)
     #define E0_AUTO_FAN_PIN 12
     #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
     #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed

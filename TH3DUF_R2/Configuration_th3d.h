@@ -25,6 +25,9 @@
 //#define STEVE_A30
 //#define NGIL_ENDER3
 
+// DH-THW Machines
+//#define DOUG_I3MINI
+
 #if ENABLED(NGIL_ENDER3)
   #define ENDER3
   #define EZOUT_ENABLE
@@ -167,7 +170,24 @@
   #define EZABL_FASTPROBE
   #define TITAN_EXTRUDER
   #define TITAN_EXTRUDER_STEPS 463
+  #define I3MINI_FANCONTROL
   #define USER_PRINTER_NAME "HangryPrinter" 
+  #define NO_COLD_PREVENT
+  #define BABYSTEP_OFFSET
+  #define LINEAR_ADVANCE
+  #define LINEAR_ADVANCE_K 0
+  #define NEW_JERK_CONTROL
+  #define NEW_ACCELERATION_CONTROL
+#endif
+
+#if ENABLED(DOUG_I3MINI)
+  #define WANHAO_I3MINI
+  #define WANHAO_I3MINI_OEM_EZABLMINI
+  #define EZABL_POINTS 3
+  #define EZABL_PROBE_EDGE 5
+  #define EZABL_FASTPROBE
+  #define I3MINI_FANCONTROL
+  #define USER_PRINTER_NAME "PartPrinter" 
   #define NO_COLD_PREVENT
   #define BABYSTEP_OFFSET
   #define LINEAR_ADVANCE
