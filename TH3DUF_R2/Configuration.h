@@ -373,6 +373,18 @@
 //#define TORNADO_QUIET
 
 //===========================================================================
+// *************************    TRONXY PRINTERS     *************************
+//===========================================================================
+
+//===========================================================================
+// TronXY X3S Options - Select 'Sanguino 1284p' from Tools > Board
+//===========================================================================
+//#define TRONXY_X3S
+
+// EZABL Probe Mounts
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // *************************    WANHAO PRINTERS     *************************
 //===========================================================================
 
@@ -522,8 +534,9 @@
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED
 
-// If your bed pulsing from PID is causing your lights to dim (mainly with AC beds)or you want slightly quicker bed 
+// If your bed pulsing from PID is causing your lights to dim (mainly with AC beds) or you want slightly quicker bed 
 // heat up times uncomment below to switch back to the old "bang-bang" method that cycles it on and off slower.
+// This is disabled even when uncommented when using a 1284p board with MANUAL_MESH_LEVELING due to space restrictions.
 //#define PIDBED_DISABLE
 
 // Stock bed max is 110C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
@@ -610,6 +623,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.6a"
+#define UNIFIED_VERSION "TH3D U1.R2.7"
 
 #endif // CONFIGURATION_H
