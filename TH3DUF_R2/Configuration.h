@@ -534,10 +534,9 @@
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED
 
-// If your bed pulsing from PID is causing your lights to dim (mainly with AC beds) or you want slightly quicker bed 
-// heat up times uncomment below to switch back to the old "bang-bang" method that cycles it on and off slower.
+// Comment this out to enable bed PID control. This is not needed but some users want it. Some machines may not work correctly with it enabled.
 // This is disabled even when uncommented when using a 1284p board with MANUAL_MESH_LEVELING due to space restrictions.
-//#define PIDBED_DISABLE
+#define PIDBED_DISABLE
 
 // Stock bed max is 110C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
 //#define BED_HIGHTEMP
