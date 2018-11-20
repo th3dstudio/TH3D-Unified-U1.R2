@@ -50,12 +50,24 @@
 #define BTN_EN2         11
 #define BTN_ENC         26
 
-#ifndef ST7920_DELAY_1
-  #define ST7920_DELAY_1 DELAY_NS(0)
-#endif
-#ifndef ST7920_DELAY_2
-  #define ST7920_DELAY_2 DELAY_NS(125)
-#endif
-#ifndef ST7920_DELAY_3
-  #define ST7920_DELAY_3 DELAY_NS(0)
+#if ENABLED(TRONXY_X5S)
+  #ifndef ST7920_DELAY_1
+    #define ST7920_DELAY_1 DELAY_NS(200)
+  #endif
+  #ifndef ST7920_DELAY_2
+    #define ST7920_DELAY_2 DELAY_NS(200)
+  #endif
+  #ifndef ST7920_DELAY_3
+    #define ST7920_DELAY_3 DELAY_NS(200)
+  #endif
+#else
+  #ifndef ST7920_DELAY_1
+    #define ST7920_DELAY_1 DELAY_NS(0)
+  #endif
+  #ifndef ST7920_DELAY_2
+    #define ST7920_DELAY_2 DELAY_NS(125)
+  #endif
+  #ifndef ST7920_DELAY_3
+    #define ST7920_DELAY_3 DELAY_NS(0)
+  #endif
 #endif

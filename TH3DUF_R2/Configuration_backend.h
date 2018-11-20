@@ -194,7 +194,7 @@
     #define X_MIN_POS X_HOME_LOCATION
     #define Y_MIN_POS Y_HOME_LOCATION
   #else
-    #define X_MIN_POS 0
+    #define X_MIN_POS -6
     #define Y_MIN_POS 0
   #endif
 
