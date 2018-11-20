@@ -875,7 +875,7 @@
 #endif //end i3 settings
 
 //CR-10 and Ender 3 Model Settings
-#if ENABLED(CR10) || ENABLED(CR10_MINI) || ENABLED(CR10_S4) || ENABLED(CR10_S5) || ENABLED(ENDER3)
+#if ENABLED(CR10) || ENABLED(CR10_MINI) || ENABLED(CR10_S4) || ENABLED(CR10_S5) || ENABLED(ENDER3) || ENABLED(ENDER5)
   #define SLIM_1284P
   #define BAUDRATE 115200
 
@@ -961,6 +961,12 @@
     #define X_BED_SIZE 235
     #define Y_BED_SIZE 235
     #define Z_MAX_POS 250
+  #endif
+  
+  #if ENABLED(ENDER5)
+    #define X_BED_SIZE 220
+    #define Y_BED_SIZE 220
+    #define Z_MAX_POS 300
   #endif
 
   #if ENABLED(HOME_ADJUST)
@@ -1863,6 +1869,10 @@
 #if ENABLED(WANHAO_I3MINI)
   #define X_HOME_DIR 1
   #define Y_HOME_DIR -1
+  #define Z_HOME_DIR -1
+#elif ENABLED(ENDER5)
+  #define X_HOME_DIR 1
+  #define Y_HOME_DIR 1
   #define Z_HOME_DIR -1
 #else
   #define X_HOME_DIR -1
