@@ -8069,7 +8069,7 @@ inline void gcode_M42() {
             if (verbose_level > 1) {
               SERIAL_PROTOCOL(n + 1);
               SERIAL_PROTOCOLPGM(" of ");
-              SERIAL_PROTOCOL((int)n_samples);
+              SERIAL_PROTOCOL(int(n_samples));
               SERIAL_PROTOCOLPGM(": z: ");
               SERIAL_PROTOCOL_F(sample_set[n], 3);
               if (verbose_level > 2) {
@@ -12538,7 +12538,7 @@ void tool_change(const uint8_t tmp_extruder, const float fr_mm_s/*=0.0*/, bool n
     #endif
 
     SERIAL_ECHO_START();
-    SERIAL_ECHOLNPAIR(MSG_ACTIVE_EXTRUDER, (int)active_extruder);
+    SERIAL_ECHOLNPAIR(MSG_ACTIVE_EXTRUDER, int(active_extruder));
 
   #endif // !MIXING_EXTRUDER || MIXING_VIRTUAL_TOOLS <= 1
 }
