@@ -1113,6 +1113,10 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_ITEM(submenu, MSG_TUNE, lcd_tune_menu);
     else
       MENU_ITEM(submenu, MSG_PREPARE, lcd_prepare_menu);
+    
+    #if ENABLED(LED_CONTROL_MENU)
+      MENU_ITEM(submenu, MSG_LED_CONTROL, lcd_led_menu);
+    #endif
 
     MENU_ITEM(submenu, MSG_CONTROL, lcd_control_menu);
 
@@ -1142,10 +1146,6 @@ void lcd_quick_feedback(const bool clear_buttons) {
 
     #if ENABLED(LCD_INFO_MENU)
       MENU_ITEM(submenu, MSG_INFO_MENU, lcd_info_menu);
-    #endif
-
-    #if ENABLED(LED_CONTROL_MENU)
-      MENU_ITEM(submenu, MSG_LED_CONTROL, lcd_led_menu);
     #endif
 
     END_MENU();
@@ -4266,10 +4266,10 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_BACK(MSG_MAIN);
       bool led_on = leds.lights_on;
       MENU_ITEM_EDIT_CALLBACK(bool, MSG_LEDS, &led_on, leds.toggle);
-      MENU_ITEM(function, MSG_SET_LEDS_DEFAULT, leds.set_default);
       #if ENABLED(LED_COLOR_PRESETS)
         MENU_ITEM(submenu, MSG_LED_PRESETS, lcd_led_presets_menu);
       #endif
+      MENU_ITEM(function, MSG_SET_LEDS_DEFAULT, leds.set_default);
       MENU_ITEM(submenu, MSG_CUSTOM_LEDS, lcd_led_custom_menu);
       END_MENU();
     }

@@ -8,6 +8,16 @@
 
 #include "Configuration_th3d.h"
 
+#if ENABLED(TH3D_RGB_STRIP)
+  #define NEOPIXEL_LED
+  #define NEOPIXEL_TYPE   NEO_GRB
+  #define NEOPIXEL_PIN    19
+  #define NEOPIXEL_PIXELS 4
+  #define NEOPIXEL_IS_SEQUENTIAL
+  #define NEOPIXEL_BRIGHTNESS 255
+  #define PRINTER_EVENT_LEDS
+#endif
+
 #if DISABLED(TH3DINHOUSEMACHINE)
   #define X_DRIVER_TYPE  A4988
   #define Y_DRIVER_TYPE  A4988
@@ -1164,7 +1174,7 @@
   //dual extrusion options
   
   //single hotend y adapter
-  #if ENABLED(SINGLE_HOTEND_YADAPTER)
+  #if ENABLED(DUAL_EXTRUDER_SINGLE_HOTEND)
     #define CR10SDUALEBOARD
     #define SINGLENOZZLE
     
@@ -1189,19 +1199,6 @@
     #define HOTEND_OFFSET_X {0.0, DUAL_HOTEND_X_DISTANCE} // (in mm) for each extruder, offset of the hotend on the X axis
     #define HOTEND_OFFSET_Y {0.0, 0.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
   
-  #endif
-
-  //dual hotend single mixing nozzle
-  #if ENABLED(DUAL_HOTEND_SINGLE_NOZZLE)
-    #define CR10SDUALEBOARD
-    #define SINGLENOZZLE
-        
-    #if ENABLED(TITAN_EXTRUDER)
-      #define INVERT_E1_DIR true
-    #else
-      #define INVERT_E1_DIR false
-    #endif
-
   #endif
 
   #if ENABLED(HOME_ADJUST)
