@@ -206,6 +206,7 @@
  * M501 - Restore parameters from EEPROM. (Requires EEPROM_SETTINGS)
  * M502 - Revert to the default "factory settings". ** Does not write them to EEPROM! **
  * M503 - Print the current settings (in memory): "M503 S<verbose>". S0 specifies compact output.
+ * M524 - Abort SD card print job started with M24 (Requires SDSUPPORT)
  * M540 - Enable/disable SD card abort on endstop hit: "M540 S<state>". (Requires ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED)
  * M600 - Pause for filament change: "M600 X<pos> Y<pos> Z<raise> E<first_retract> L<later_retract>". (Requires ADVANCED_PAUSE_FEATURE)
  * M603 - Configure filament change: "M603 T<tool> U<unload_length> L<load_length>". (Requires ADVANCED_PAUSE_FEATURE)
@@ -4595,7 +4596,8 @@ void home_all_axes() { gcode_G28(true); }
         if (parser.seenval('X')) {
           px = parser.value_int() - 1;
           if (!WITHIN(px, 0, GRID_MAX_POINTS_X - 1)) {
-            SERIAL_PROTOCOLLNPGM("X out of range (1-" STRINGIFY(GRID_MAX_POINTS_X) ").");
+            SERIAL_PROTOCOLPAIR("X out of range (1-", int(GRID_MAX_POINTS_X));
+            SERIAL_PROTOCOLLNPGM(")");
             return;
           }
         }
@@ -4607,7 +4609,8 @@ void home_all_axes() { gcode_G28(true); }
         if (parser.seenval('Y')) {
           py = parser.value_int() - 1;
           if (!WITHIN(py, 0, GRID_MAX_POINTS_Y - 1)) {
-            SERIAL_PROTOCOLLNPGM("Y out of range (1-" STRINGIFY(GRID_MAX_POINTS_Y) ").");
+            SERIAL_PROTOCOLPAIR("Y out of range (1-", int(GRID_MAX_POINTS_Y));
+            SERIAL_PROTOCOLLNPGM(")");
             return;
           }
         }
@@ -7879,9 +7882,9 @@ inline void gcode_M42() {
 
     // Enable or disable endstop monitoring
     if (parser.seen('E')) {
-      endstop_monitor_flag = parser.value_bool();
+      endstops.monitor_flag = parser.value_bool();
       SERIAL_PROTOCOLPGM("endstop monitor ");
-      serialprintPGM(endstop_monitor_flag ? PSTR("en") : PSTR("dis"));
+      serialprintPGM(endstops.monitor_flag ? PSTR("en") : PSTR("dis"));
       SERIAL_PROTOCOLLNPGM("abled");
       return;
     }
@@ -8160,7 +8163,7 @@ inline void gcode_M42() {
    *   This has no effect during an SD print job
    */
   inline void gcode_M73() {
-    if (!IS_SD_PRINTING && parser.seen('P')) {
+    if (!IS_SD_PRINTING() && parser.seen('P')) {
       progress_bar_percent = parser.value_byte();
       NOMORE(progress_bar_percent, 100);
     }
@@ -10781,6 +10784,17 @@ inline void gcode_M502() {
   }
 #endif
 
+#if ENABLED(SDSUPPORT) && DISABLED(SLIM_1284P)
+
+  /**
+   * M524: Abort the current SD print job (started with M24)
+   */
+  inline void gcode_M524() {
+    if (IS_SD_PRINTING()) card.abort_sd_printing = true;
+  }
+
+#endif // SDSUPPORT
+
 #if ENABLED(ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED)
 
   /**
@@ -12975,6 +12989,10 @@ void process_parsed_command() {
         case 504: gcode_M504(); break;                            // M504: Validate EEPROM
       #endif
 
+      #if ENABLED(SDSUPPORT) && DISABLED(SLIM_1284P)
+        case 524: gcode_M524(); break;                            // M524: Abort SD print job
+      #endif
+
       #if ENABLED(ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED)
         case 540: gcode_M540(); break;                            // M540: Set Abort on Endstop Hit for SD Printing
       #endif
@@ -12982,7 +13000,7 @@ void process_parsed_command() {
       #if ENABLED(ADVANCED_PAUSE_FEATURE)
         case 600: gcode_M600(); break;                            // M600: Pause for Filament Change
         #if DISABLED(SLIM_1284P)
-         case 603: gcode_M603(); break;                            // M603: Configure Filament Change
+          case 603: gcode_M603(); break;                          // M603: Configure Filament Change
         #endif
       #endif
 
@@ -14748,7 +14766,7 @@ void manage_inactivity(const bool ignore_stepper_queue/*=false*/) {
     // ---------------------------------------------------------
     static int homeDebounceCount = 0;   // poor man's debouncing count
     const int HOME_DEBOUNCE_DELAY = 2500;
-    if (!IS_SD_PRINTING && !READ(HOME_PIN)) {
+    if (!IS_SD_PRINTING() && !READ(HOME_PIN)) {
       if (!homeDebounceCount) {
         enqueue_and_echo_commands_P(PSTR("G28"));
         LCD_MESSAGEPGM(MSG_AUTO_HOME);
@@ -15242,7 +15260,7 @@ void setup() {
   
   #if ENABLED(SDSUPPORT)
 	  if (!card.cardOK) card.initsd();
-	#endif
+  #endif
 }
 
 /**
@@ -15262,27 +15280,24 @@ void loop() {
 
     card.checkautostart();
 
-    #if ENABLED(ULTIPANEL)
-      if (abort_sd_printing) {
-        abort_sd_printing = false;
-        card.stopSDPrint(
-          #if SD_RESORT
-            true
-          #endif
-        );
-        clear_command_queue();
-        quickstop_stepper();
-        print_job_timer.stop();
-        thermalManager.disable_all_heaters();
-        #if FAN_COUNT > 0
-          for (uint8_t i = 0; i < FAN_COUNT; i++) fanSpeeds[i] = 0;
+    if (card.abort_sd_printing) {
+      card.stopSDPrint(
+        #if SD_RESORT
+          true
         #endif
-        wait_for_heatup = false;
-        #if ENABLED(POWER_LOSS_RECOVERY)
-          card.removeJobRecoveryFile();
-        #endif
-      }
-    #endif
+      );
+      clear_command_queue();
+      quickstop_stepper();
+      print_job_timer.stop();
+      thermalManager.disable_all_heaters();
+      #if FAN_COUNT > 0
+        for (uint8_t i = 0; i < FAN_COUNT; i++) fanSpeeds[i] = 0;
+      #endif
+      wait_for_heatup = false;
+      #if ENABLED(POWER_LOSS_RECOVERY)
+        card.removeJobRecoveryFile();
+      #endif
+    }
 
   #endif // SDSUPPORT
 

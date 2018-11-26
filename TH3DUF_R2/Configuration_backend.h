@@ -8,28 +8,20 @@
 
 #include "Configuration_th3d.h"
 
-#if ENABLED(TH3D_RGB_STRIP)
-  #define NEOPIXEL_LED
-  #define NEOPIXEL_TYPE   NEO_GRB
-  #define NEOPIXEL_PIN    19
-  #define NEOPIXEL_PIXELS 4
-  #define NEOPIXEL_IS_SEQUENTIAL
-  #define NEOPIXEL_BRIGHTNESS 255
-  #define PRINTER_EVENT_LEDS
-#endif
-
 #if DISABLED(TH3DINHOUSEMACHINE)
-  #define X_DRIVER_TYPE  A4988
-  #define Y_DRIVER_TYPE  A4988
-  #define Z_DRIVER_TYPE  A4988
-  #define X2_DRIVER_TYPE A4988
-  #define Y2_DRIVER_TYPE A4988
-  #define Z2_DRIVER_TYPE A4988
-  #define E0_DRIVER_TYPE A4988
-  #define E1_DRIVER_TYPE A4988
-  #define E2_DRIVER_TYPE A4988
-  #define E3_DRIVER_TYPE A4988
-  #define E4_DRIVER_TYPE A4988
+  #if DISABLED(CUSTOM_DRIVERS)
+    #define X_DRIVER_TYPE  A4988
+    #define Y_DRIVER_TYPE  A4988
+    #define Z_DRIVER_TYPE  A4988
+    #define X2_DRIVER_TYPE A4988
+    #define Y2_DRIVER_TYPE A4988
+    #define Z2_DRIVER_TYPE A4988
+    #define E0_DRIVER_TYPE A4988
+    #define E1_DRIVER_TYPE A4988
+    #define E2_DRIVER_TYPE A4988
+    #define E3_DRIVER_TYPE A4988
+    #define E4_DRIVER_TYPE A4988
+  #endif
 #endif
 
 //Sensor Mounts
@@ -1658,6 +1650,20 @@
   #endif
 #endif
 
+#if ENABLED(TH3D_RGB_STRIP)
+  #define NEOPIXEL_LED
+  #define NEOPIXEL_TYPE   NEO_GRB
+  #define NEOPIXEL_PIN    19
+  #if ENABLED(AR_EZ300)
+    #define NEOPIXEL_PIXELS 4
+  #else
+    #define NEOPIXEL_PIXELS TH3D_RGB_STRIP_LED_COUNT
+  #endif
+  #define NEOPIXEL_IS_SEQUENTIAL
+  #define NEOPIXEL_BRIGHTNESS 255
+  #define PRINTER_EVENT_LEDS
+#endif
+
 //Misc Settings
 #if DISABLED(TH3DINHOUSEMACHINE)
   #if defined(USER_PRINTER_NAME)
@@ -1822,7 +1828,7 @@
   #endif
 #endif 
 
-#if DISABLED(PIDBED_DISABLE)
+#if ENABLED(PIDBED_ENABLE)
   #if DISABLED(SLIM_1284P) && DISABLED(MANUAL_MESH_LEVELING)
     #define PIDTEMPBED
   #endif

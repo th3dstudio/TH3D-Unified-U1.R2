@@ -19,6 +19,7 @@
 //#define TIM_WI3
 //#define TIM_TORNADO
 //#define TIM_ENDER3
+//#define TIM_AM8
 
 // Custom Machines
 //#define MATTF_X5S
@@ -44,6 +45,7 @@
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "Nicks Ender3" 
+  #define PIDBED_ENABLE
 #endif
 
 
@@ -56,7 +58,7 @@
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -70,7 +72,7 @@
 #if ENABLED(STEVE_A30)
   #define TH3DINHOUSEMACHINE
   #define NO_COLD_PREVENT
-  
+  #define PIDBED_ENABLE
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_RAMPS_14_EFB
   #endif
@@ -194,12 +196,13 @@
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
+  #define PIDBED_ENABLE
 #endif
 
 #if ENABLED(TIM_AM8)
   #define TH3DINHOUSEMACHINE
   #define NO_COLD_PREVENT
-
+  #define PIDBED_ENABLE
   #define X_DRIVER_TYPE  DRV8825
   #define Y_DRIVER_TYPE  DRV8825
   #define Z_DRIVER_TYPE  DRV8825
@@ -319,7 +322,7 @@
   #endif
   
   #define COREXY
-  
+  #define PIDBED_ENABLE
   #define CUSTOM_PROBE
   #define X_PROBE_OFFSET_FROM_EXTRUDER 35  // X offset: -left  +right  [of the nozzle]
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0  // Y offset: -front +behind [the nozzle]
@@ -422,6 +425,11 @@
 
 #if ENABLED(TIM_U10)
   #define ALFAWISE_U10
+  #define CUSTOM_DRIVERS
+  #define X_DRIVER_TYPE  DRV8825
+  #define Y_DRIVER_TYPE  DRV8825
+  #define Z_DRIVER_TYPE  DRV8825
+  #define E0_DRIVER_TYPE A4988
   #define CUSTOM_PROBE
   #define X_PROBE_OFFSET_FROM_EXTRUDER -48  // X offset: -left  +right  [of the nozzle]
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -2  // Y offset: -front +behind [the nozzle]
@@ -431,7 +439,7 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define V6_HOTEND
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -449,7 +457,7 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -466,7 +474,7 @@
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -482,7 +490,7 @@
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -500,7 +508,7 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -518,7 +526,7 @@
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -576,7 +584,7 @@
   #define USE_XMIN_PLUG
   #define USE_YMIN_PLUG
   #define USE_ZMIN_PLUG
-  
+  #define PIDBED_ENABLE
   #define ENDSTOPPULLUPS
   
   #define X_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
@@ -629,6 +637,7 @@
   #define REVERSE_ENCODER_DIRECTION
   #define ANET_FULL_GRAPHICS_LCD
 
+  #define CUSTOM_DRIVERS
   #define X_DRIVER_TYPE  DRV8825
   #define Y_DRIVER_TYPE  DRV8825
   #define Z_DRIVER_TYPE  DRV8825
@@ -644,7 +653,7 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
-  
+  #define PIDBED_ENABLE
   #define LINEAR_ADVANCE
   #define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
@@ -656,6 +665,7 @@
   #define TH3DINHOUSEMACHINE
   #define NO_COLD_PREVENT
 
+  #define CUSTOM_DRIVERS
   #define X_DRIVER_TYPE  DRV8825
   #define Y_DRIVER_TYPE  DRV8825
   #define Z_DRIVER_TYPE  DRV8825
@@ -752,7 +762,7 @@
   #define X_MAX_POS X_BED_SIZE
   #define Y_MAX_POS Y_BED_SIZE
   #define Z_MAX_POS 140
-  
+  #define PIDBED_ENABLE
   #define SDSUPPORT
   #define ENCODER_PULSES_PER_STEP 4
   #define ENCODER_STEPS_PER_MENU_ITEM 1
@@ -765,6 +775,7 @@
   #define TH3DINHOUSEMACHINE
   #define NO_COLD_PREVENT
 
+  #define CUSTOM_DRIVERS
   #define X_DRIVER_TYPE  DRV8825
   #define Y_DRIVER_TYPE  DRV8825
   #define Z_DRIVER_TYPE  DRV8825
@@ -813,7 +824,7 @@
   #define USE_XMIN_PLUG
   #define USE_YMIN_PLUG
   #define USE_ZMIN_PLUG
-  
+  #define PIDBED_ENABLE
   #define ENDSTOPPULLUPS
   
   #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.

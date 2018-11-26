@@ -296,6 +296,25 @@
 //#define DUAL_HOTEND_DUAL_NOZZLES
 
 //===========================================================================
+// Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
+//===========================================================================
+//#define ENDER5
+
+// If you are using our EZOut V1/V2 (connected to LCD header) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUT_ENABLE line below.
+// Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUT_ENABLE
+
+// EZABL Probe Mounts (Ender 5 uses the same mounts as CR-10)
+//#define CR10_OEM
+//#define CR10_VOLCANO
+//#define CR10_V6HEAVYDUTY
+//#define TM3DAERO
+//#define TM3DAERO_EXTENDED
+//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // *************************  FOLGERTECH PRINTERS   *************************
 //===========================================================================
 
@@ -508,6 +527,12 @@
 // TH3D EXTRAS
 //===========================================================================
 
+// TH3D RGB LED STRIP ------------------------------
+// If you are using the TH3D RGB strip connect to the Z+ endstop connection and uncomment the below line
+//#define TH3D_RGB_STRIP
+// If you cut the strip shorter please count the LEDs that are left, uncomment the line below, and change the number below to how many LEDs you have.
+#define TH3D_RGB_STRIP_LED_COUNT 20
+
 // EXTRUDER SETTINGS -------------------------------
 
 // If you want to change the Esteps for your printer you can uncomment the below line and set CUSTOM_ESTEPS_VALUE to what you want - USE WHOLE NUMBERS ONLY
@@ -542,12 +567,12 @@
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED
 
-// Comment this out to enable bed PID control. This is not needed but some users want it. Some machines may not work correctly with it enabled.
-// This is disabled even when uncommented when using a 1284p board with MANUAL_MESH_LEVELING due to space restrictions.
-#define PIDBED_DISABLE
-
 // Stock bed max is 110C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
 //#define BED_HIGHTEMP
+
+// If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. 
+// This will be disabled when using manual mesh leveling with a 1284p board due to memory limitations.
+//#define PIDBED_ENABLE
 
 // MISC --------------------------------------------
 
@@ -630,6 +655,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.7"
+#define UNIFIED_VERSION "TH3D U1.R2.8"
 
 #endif // CONFIGURATION_H
