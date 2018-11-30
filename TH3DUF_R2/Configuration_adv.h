@@ -87,11 +87,7 @@
   #endif
 
   #define MOTOR_CURRENT_PWM_RANGE 2782
-  #if ENABLED(TIM_D6)
-    #define PWM_MOTOR_CURRENT { 1200, 1200, 1500 }
-  #else
-    #define PWM_MOTOR_CURRENT { 1200, 1200, 1200 }
-  #endif
+  #define PWM_MOTOR_CURRENT { 1200, 1200, 1000 }
   #define DIGIPOT_I2C_NUM_CHANNELS 8 
   #define DIGIPOT_I2C_MOTOR_CURRENTS { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }
   
