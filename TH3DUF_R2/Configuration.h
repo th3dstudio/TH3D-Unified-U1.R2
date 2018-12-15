@@ -482,10 +482,6 @@
 // DO NOTE: Not all machines will be accurate at the quicker speeds. Use M48 to verify accuracy.
 //#define EZABL_FASTPROBE
 
-// If you want babystepping to modify the Z Offset uncomment the below line. Use M500 to save any changes made or
-// Control > Store Settings if you want to save the changes made with the Z Offset/Babystepping combined option.
-//#define BABYSTEP_OFFSET
-
 // This will disable the XYE motors during probing. Can be useful if you have stepper motors causing interference issues with the EZABL sensor.
 //#define PROBING_MOTORS_OFF
 
@@ -528,7 +524,7 @@
 //===========================================================================
 
 // TH3D RGB LED STRIP ------------------------------
-// If you are using the TH3D RGB strip connect to the Z+ endstop connection and uncomment the below line
+// If you are using the TH3D RGB strip connect to the Z+ endstop connection, power supply connection, and uncomment the below line
 //#define TH3D_RGB_STRIP
 // If you cut the strip shorter please count the LEDs that are left, uncomment the line below, and change the number below to how many LEDs you have.
 #define TH3D_RGB_STRIP_LED_COUNT 20
@@ -539,7 +535,8 @@
 //#define CUSTOM_ESTEPS
 #define CUSTOM_ESTEPS_VALUE 999
 
-// If you are using an E3D or TH3D Titan Extruder uncomment the below line to setup the firmware to the correct steps and direction
+// If you are using an TH3D Tough Extruder, Bondtech BMG (set steps below to 415), or E3D Titan Extruder
+// uncomment the below line to setup the firmware to the correct steps and direction. Also applicable to Titan/Tough Aero setups.
 //#define TITAN_EXTRUDER
 #define TITAN_EXTRUDER_STEPS 463
 
@@ -550,7 +547,7 @@
 
 // THERMISTOR SETTINGS -----------------------------
 
-// If you are using an E3D V6 Hotend uncomment the below line.
+// If you are using an E3D V6 Hotend with their cartridge thermistor (not glass version) uncomment the below line.
 //#define V6_HOTEND
 
 // If you are using a Tough Hotend from TH3D or any thermistors TH3D sells for your hotend uncomment the below line.
@@ -564,15 +561,15 @@
 
 // BED SETTINGS ------------------------------------
 
+// If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
+// This will be disabled when using manual mesh leveling with a 1284p board due to memory limitations.
+//#define PIDBED_ENABLE
+
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED
 
 // Stock bed max is 110C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
 //#define BED_HIGHTEMP
-
-// If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. 
-// This will be disabled when using manual mesh leveling with a 1284p board due to memory limitations.
-//#define PIDBED_ENABLE
 
 // MISC --------------------------------------------
 
@@ -598,6 +595,21 @@
 
 // ADVANCED FEATURES (NOT SUPPORTED BY TH3D)  ------
 
+// If you need to adjust your XY home offsets from defaults then you can uncomment the HOME_ADJUST line below and enter your
+// custom XY offsets. This is provided for convenience and is unsupported with included product support.
+// How to use - measure (home XY then jog using the LCD 1mm at a time) the X and Y distance the nozzle is off
+// the build plate and then put those as NEGATIVE values below, positive values will NOT work (move your endstops to fix a positve offset).
+//#define HOME_ADJUST
+#define X_HOME_LOCATION -10
+#define Y_HOME_LOCATION -10
+
+// Linear Advance Pressure Control - This is provided for convenience and is unsupported with included product support.
+// See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
+// Uncomment the below line to enable Linear Advance Pressure Control.
+//#define LINEAR_ADVANCE
+// Change the K Value here or use M900 KX.XX in your starting code (recommended).
+#define LINEAR_ADVANCE_K 0
+
 // If you want to use manual mesh leveling you can enable the below option. TH3D does NOT provide free support
 // to help you use this feature. This is for generating a MANUAL mesh WITHOUT a probe. 
 // Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html
@@ -615,26 +627,6 @@
 // feature even if you are a customer and/or replace SD cards due to pre-mature failure. This is provided based on community demands.
 // !!!USE AT YOUR OWN RISK!!!
 //#define POWER_LOSS_RECOVERY
-
-// If you need to adjust your XY home offsets from defaults then you can uncomment the HOME_ADJUST line below and enter your
-// custom XY offsets. This is provided for convenience and is unsupported with included product support.
-// How to use - measure (home XY then jog using the LCD 1mm at a time) the X and Y distance the nozzle is off
-// the build plate and then put those as NEGATIVE values below, positive values will NOT work (move your endstops to fix a positve offset).
-//#define HOME_ADJUST
-#define X_HOME_LOCATION -10
-#define Y_HOME_LOCATION -10
-
-// Linear Advance Pressure Control - This is provided for convenience and is unsupported with included product support.
-// See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
-// Uncomment the below line to enable Linear Advance Pressure Control.
-//#define LINEAR_ADVANCE
-// Change the K Value here or use M900 KX.XX in your starting code (recommended).
-#define LINEAR_ADVANCE_K 0
-
-// These are new motion control options for jerk and acceleration.
-// These are very new features so if you notice issues disable them. 
-//#define NEW_JERK_CONTROL
-//#define NEW_ACCELERATION_CONTROL
 
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.
