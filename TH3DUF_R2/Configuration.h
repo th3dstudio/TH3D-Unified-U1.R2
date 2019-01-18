@@ -595,6 +595,12 @@
 
 // ADVANCED FEATURES (NOT SUPPORTED BY TH3D)  ------
 
+// If you want to use BL-Touch instead of the EZABL Sensor uncomment the line below. 
+// TH3D does NOT provide free support to help you use this feature.
+//#define BLTOUCH
+// If used with a 1284P board enable the line below
+//#define SERVO0_PIN 27
+
 // If you need to adjust your XY home offsets from defaults then you can uncomment the HOME_ADJUST line below and enter your
 // custom XY offsets. This is provided for convenience and is unsupported with included product support.
 // How to use - measure (home XY then jog using the LCD 1mm at a time) the X and Y distance the nozzle is off
