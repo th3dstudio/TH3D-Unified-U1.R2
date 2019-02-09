@@ -43,6 +43,8 @@
         #include "_BootscreenTORNADO.h"
       #elif ENABLED(ENDER_BOOT)
         #include "_BootscreenENDER.h"
+      #elif ENABLED(TH3D_EZ300)
+        #include "_BootscreenEZ300.h"
       #else
         #include "_Bootscreen.h"
       #endif  

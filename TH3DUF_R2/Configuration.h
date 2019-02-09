@@ -62,12 +62,12 @@
 //===========================================================================
 
 //===========================================================================
-// TH3D Artillery EZ300 Options - Select Arduino Mega 2560 from Tools > Board
+// TH3D Alpha EZ300 Options - Select Arduino Mega 2560 from Tools > Board
 //===========================================================================
-//#define AR_EZ300
+#define TH3D_EZ300
 
 // EZABL Probe Mounts
-//#define AR_OEM_MOUNT
+#define EZ300_OEM_MOUNT
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -297,6 +297,7 @@
 
 //===========================================================================
 // Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
+// NOT TESTED - DO NOT USE - WILL FINALIZE IN U1.R2.9 VERSION
 //===========================================================================
 //#define ENDER5
 
@@ -476,7 +477,7 @@
 // You can do down to 10mm on the Wanhao i3 since it cannot print on the entire bed.
 // You can do down to 5mm on the Wanhao i3 Mini since it cannot print on the entire bed.
 // (only used if EZABL enabled)
-#define EZABL_PROBE_EDGE 15
+#define EZABL_PROBE_EDGE 30
 
 // If you want to speed up the probing process you can try using the Fast Probe option
 // DO NOTE: Not all machines will be accurate at the quicker speeds. Use M48 to verify accuracy.
