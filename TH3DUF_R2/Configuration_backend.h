@@ -51,7 +51,7 @@
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
   #define EZABL_ENABLE
 #endif
-#if ENABLED(AR_OEM_MOUNT)
+#if ENABLED(EZ300_OEM_MOUNT)
   #define X_PROBE_OFFSET_FROM_EXTRUDER -32
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -8
   #define EZABL_ENABLE
@@ -432,8 +432,8 @@
   #define PRINTER_ENABLED_CHECK
 #endif
 
-//TH3D Artillery Model Settings
-#if ENABLED(AR_EZ300)
+//TH3D Alpha EZ300 Settings
+#if ENABLED(TH3D_EZ300)
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_MKS_GEN_L
   #endif
@@ -476,11 +476,11 @@
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
-  #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 200, 10000 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 200, 10000 }
 
-  #define DEFAULT_ACCELERATION          1000    
+  #define DEFAULT_ACCELERATION          800    
   #define DEFAULT_RETRACT_ACCELERATION  1500   
-  #define DEFAULT_TRAVEL_ACCELERATION   1000    
+  #define DEFAULT_TRAVEL_ACCELERATION   800    
   
   #define DEFAULT_XJERK                 10.0
   #define DEFAULT_YJERK                 10.0
@@ -499,7 +499,7 @@
 
   #define X_BED_SIZE 300
   #define Y_BED_SIZE 300
-  #define Z_MAX_POS 380
+  #define Z_MAX_POS 300
   
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
@@ -515,6 +515,8 @@
   #define REVERSE_ENCODER_DIRECTION
   
   #define PRINTER_ENABLED_CHECK
+  #define TH3D_RGB_STRIP
+  
 #endif
 
 //Geeetech A10 Settings
@@ -1656,7 +1658,7 @@
   #define NEOPIXEL_LED
   #define NEOPIXEL_TYPE   NEO_GRB
   #define NEOPIXEL_PIN    19
-  #if ENABLED(AR_EZ300)
+  #if ENABLED(TH3D_EZ300)
     #define NEOPIXEL_PIXELS 4
   #else
     #define NEOPIXEL_PIXELS TH3D_RGB_STRIP_LED_COUNT
@@ -1671,8 +1673,8 @@
   #if defined(USER_PRINTER_NAME)
     #define CUSTOM_MACHINE_NAME USER_PRINTER_NAME
   #else
-    #if ENABLED(AR_EZ300)
-      #define CUSTOM_MACHINE_NAME "TH3D Artillery"
+    #if ENABLED(TH3D_EZ300)
+      #define CUSTOM_MACHINE_NAME "Alpha EZ300"
     #elif ENABLED(EZABL_ENABLE)
       #define CUSTOM_MACHINE_NAME "TH3D EZABL"
     #elif ENABLED(EZOUT_ENABLE)
@@ -1815,7 +1817,7 @@
     #define  DEFAULT_Kp 9.12
     #define  DEFAULT_Ki 0.41
     #define  DEFAULT_Kd 50.98
-  #elif ENABLED(AR_EZ300)
+  #elif ENABLED(TH3D_EZ300)
     #define DEFAULT_Kp 23.55
     #define DEFAULT_Ki 1.82
     #define DEFAULT_Kd 76.21

@@ -483,7 +483,7 @@
 #endif
 
 #if ENABLED(TIM_EZ300)
-  #define AR_EZ300
+  #define TH3D_EZ300
   #define CR10_OEM
   #define EZABL_POINTS 3
   #define EZABL_PROBE_EDGE 45
