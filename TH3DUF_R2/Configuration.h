@@ -572,6 +572,9 @@
 // Stock bed max is 110C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
 //#define BED_HIGHTEMP
 
+// Custom TEMP_SENSOR setting. Only replace if directed to.
+// #define KNOWN_TEMP_SENSOR 1
+
 // MISC --------------------------------------------
 
 // If you have a 5015 fan that whines when under 100% speed uncomment the below line.

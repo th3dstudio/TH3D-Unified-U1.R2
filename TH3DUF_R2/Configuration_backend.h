@@ -1735,6 +1735,8 @@
     #define TEMP_SENSOR_0 99
   #elif ENABLED(WANHAO_I3MINI)
     #define TEMP_SENSOR_0 13
+  #elif ENABLED(KNOWN_TEMP_SENSOR)
+    #define TEMP_SENSOR_0 KNOWN_TEMP_SENSOR
   #else
     #define TEMP_SENSOR_0 1
   #endif
