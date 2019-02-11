@@ -451,9 +451,9 @@
   #define LINEAR_ADVANCE
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
-
   #define EZOUTV2_ENABLE
-
+  #define FAST_PWM_FAN
+  
   #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
   #define BAUDRATE 250000
 
@@ -487,8 +487,8 @@
   #define DEFAULT_ZJERK                  0.4
   #define DEFAULT_EJERK                  5.0
   
-  #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
   
   #if ENABLED(TITAN_EXTRUDER)
@@ -1819,8 +1819,8 @@
     #define  DEFAULT_Kd 50.98
   #elif ENABLED(TH3D_EZ300)
     #define DEFAULT_Kp 23.55
-    #define DEFAULT_Ki 1.82
-    #define DEFAULT_Kd 76.21
+    #define DEFAULT_Ki 2.33
+    #define DEFAULT_Kd 57.20
   #elif ENABLED(TIM_TORNADO)
     #define DEFAULT_Kp 31.89
     #define DEFAULT_Ki 4.99

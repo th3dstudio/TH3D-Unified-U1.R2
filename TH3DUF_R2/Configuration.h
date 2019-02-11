@@ -64,10 +64,10 @@
 //===========================================================================
 // TH3D Alpha EZ300 Options - Select Arduino Mega 2560 from Tools > Board
 //===========================================================================
-#define TH3D_EZ300
+//#define TH3D_EZ300
 
 // EZABL Probe Mounts
-#define EZ300_OEM_MOUNT
+//#define EZ300_OEM_MOUNT
 //#define CUSTOM_PROBE
 
 //===========================================================================
