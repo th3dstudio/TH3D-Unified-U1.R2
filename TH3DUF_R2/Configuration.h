@@ -68,6 +68,16 @@
 
 // EZABL Probe Mounts
 //#define EZ300_OEM_MOUNT
+
+// The Alpha X Carriage is 100% compatible with the Creality printer mounts.
+//#define CR10_OEM
+//#define CR10_VOLCANO
+//#define CR10_V6HEAVYDUTY
+//#define CR10_FANG
+//#define TM3DAERO
+//#define TM3DAERO_EXTENDED
+//#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
+
 //#define CUSTOM_PROBE
 
 //===========================================================================
