@@ -453,6 +453,7 @@
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
   #define FAST_PWM_FAN
+  #define PIDBED_ENABLE
   
   #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
   #define BAUDRATE 250000
@@ -1732,7 +1733,7 @@
 #if DISABLED(TH3DINHOUSEMACHINE)
   #if ENABLED(V6_HOTEND)
     #define TEMP_SENSOR_0 5
-  #elif ENABLED(TH3D_HOTEND_THERMISTOR)
+  #elif ENABLED(TH3D_HOTEND_THERMISTOR) || ENABLED(TH3D_EZ300)
     #define TEMP_SENSOR_0 1
   #elif ENABLED(WANHAO_D6)
     #define TEMP_SENSOR_0 20
@@ -1761,7 +1762,7 @@
 #if DISABLED(TH3DINHOUSEMACHINE)
   #if ENABLED(AC_BED) || ENABLED(WANHAO_I3MINI)
     #define TEMP_SENSOR_BED 0
-  #elif ENABLED(TH3D_BED_THERMISTOR) || ENABLED(ALFAWISE_U10) || ENABLED(FT5)
+  #elif ENABLED(TH3D_BED_THERMISTOR) || ENABLED(ALFAWISE_U10) || ENABLED(FT5) || ENABLED(TH3D_EZ300)
     #define TEMP_SENSOR_BED 1
   #elif ENABLED(TAZ5)
     #define TEMP_SENSOR_BED 7
@@ -1823,9 +1824,9 @@
     #define  DEFAULT_Ki 0.41
     #define  DEFAULT_Kd 50.98
   #elif ENABLED(TH3D_EZ300)
-    #define DEFAULT_Kp 23.55
-    #define DEFAULT_Ki 2.33
-    #define DEFAULT_Kd 57.20
+    #define DEFAULT_Kp 47.60
+    #define DEFAULT_Ki 7.96
+    #define DEFAULT_Kd 71.16
   #elif ENABLED(TIM_TORNADO)
     #define DEFAULT_Kp 31.89
     #define DEFAULT_Ki 4.99
@@ -1850,6 +1851,10 @@
     #define  DEFAULT_bedKp 124.55
     #define  DEFAULT_bedKi 23.46
     #define  DEFAULT_bedKd 165.29
+  #elif ENABLED(TH3D_EZ300)
+    #define  DEFAULT_bedKp 113.36
+    #define  DEFAULT_bedKi 21.62
+    #define  DEFAULT_bedKd 148.59
   #else
     #define  DEFAULT_bedKp 690.34
     #define  DEFAULT_bedKi 111.47
