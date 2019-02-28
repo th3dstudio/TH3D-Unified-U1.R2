@@ -77,7 +77,6 @@
 //#define TM3DAERO
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -307,7 +306,6 @@
 
 //===========================================================================
 // Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
-// NOT TESTED - DO NOT USE - WILL FINALIZE IN U1.R2.9 VERSION
 //===========================================================================
 //#define ENDER5
 
@@ -487,17 +485,21 @@
 // You can do down to 10mm on the Wanhao i3 since it cannot print on the entire bed.
 // You can do down to 5mm on the Wanhao i3 Mini since it cannot print on the entire bed.
 // (only used if EZABL enabled)
-#define EZABL_PROBE_EDGE 30
+#define EZABL_PROBE_EDGE 15
 
-// If you want to speed up the probing process you can try using the Fast Probe option
-// DO NOTE: Not all machines will be accurate at the quicker speeds. Use M48 to verify accuracy.
-//#define EZABL_FASTPROBE
+// If you have issues with your machine running the faster probe setting disable the #define EZABL_FASTPROBE below.
+// DO NOTE: Most machines will work with the fast probe enabled. Use M48 to verify accuracy.
+#define EZABL_FASTPROBE
 
 // This will disable the XYE motors during probing. Can be useful if you have stepper motors causing interference issues with the EZABL sensor.
 //#define PROBING_MOTORS_OFF
 
 // Heaters will stay on during probing - only use if directed to by support. Do not use on AC beds.
 //#define HEATERS_ON_DURING_PROBING
+
+// If you want a more granular control over the babystepping uncomment the below line.
+// This will make the adjustment finer than the standard setting.
+//#define FINE_BABYSTEPPING
 
 // This will extrapolate the implied tilt of the bed outside of the probe area. Do not comment out unless directed by support.
 #define EZABL_OUTSIDE_GRID_COMPENSATION
@@ -574,7 +576,7 @@
 
 // If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
 // This will be disabled when using manual mesh leveling with a 1284p board due to memory limitations.
-//#define PIDBED_ENABLE
+#define PIDBED_ENABLE
 
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED

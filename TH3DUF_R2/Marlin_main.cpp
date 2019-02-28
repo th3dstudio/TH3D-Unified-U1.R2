@@ -601,13 +601,7 @@ uint8_t target_extruder;
 #endif
 
 #if HAS_POWER_SWITCH
-  bool powersupply_on = (
-    #if ENABLED(PS_DEFAULT_OFF)
-      false
-    #else
-      true
-    #endif
-  );
+  bool powersupply_on;
   #if ENABLED(AUTO_POWER_CONTROL)
     #define PSU_ON()  powerManager.power_on()
     #define PSU_OFF() powerManager.power_off()
@@ -943,9 +937,9 @@ void setup_powerhold() {
   #endif
   #if HAS_POWER_SWITCH
     #if ENABLED(PS_DEFAULT_OFF)
-      PSU_OFF();
+      powersupply_on = true;  PSU_OFF();
     #else
-      PSU_ON();
+      powersupply_on = false; PSU_ON();
     #endif
   #endif
 }
@@ -1383,7 +1377,11 @@ bool get_target_extruder_from_command(const uint16_t code) {
       }
     #elif ENABLED(DELTA)
       soft_endstop_min[axis] = base_min_pos(axis);
-      soft_endstop_max[axis] = axis == Z_AXIS ? delta_height : base_max_pos(axis);
+      soft_endstop_max[axis] = axis == Z_AXIS ? delta_height
+      #if HAS_BED_PROBE
+        - zprobe_zoffset
+      #endif
+      : base_max_pos(axis);
     #else
       soft_endstop_min[axis] = base_min_pos(axis);
       soft_endstop_max[axis] = base_max_pos(axis);
@@ -1512,13 +1510,14 @@ static void set_axis_is_at_home(const AxisEnum axis) {
     }
     else
   #elif ENABLED(DELTA)
-    if (axis == Z_AXIS)
-      current_position[axis] = delta_height;
-    else
-  #endif
-  {
+    current_position[axis] = (axis == Z_AXIS ? delta_height
+    #if HAS_BED_PROBE
+      - zprobe_zoffset
+    #endif
+    : base_home_pos(axis));
+  #else
     current_position[axis] = base_home_pos(axis);
-  }
+  #endif
 
   /**
    * Z Probe Z Homing? Account for the probe's Z offset.
@@ -4067,7 +4066,11 @@ inline void gcode_G4() {
     #endif
 
     // Move all carriages together linearly until an endstop is hit.
-    current_position[X_AXIS] = current_position[Y_AXIS] = current_position[Z_AXIS] = (delta_height + 10);
+    current_position[X_AXIS] = current_position[Y_AXIS] = current_position[Z_AXIS] = (delta_height + 10
+      #if HAS_BED_PROBE
+        - zprobe_zoffset
+      #endif
+    );
     feedrate_mm_s = homing_feedrate(X_AXIS);
     buffer_line_to_current_position();
     planner.synchronize();
@@ -5755,12 +5758,6 @@ void home_all_axes() { gcode_G28(true); }
     if ((!end_stops && tower_angles) || (end_stops && !tower_angles)) { // XOR
       SERIAL_PROTOCOLPAIR("  Radius:", delta_radius);
     }
-    #if HAS_BED_PROBE
-      if (!end_stops && !tower_angles) {
-        SERIAL_PROTOCOL_SP(30);
-        print_signed_float(PSTR("Offset"), zprobe_zoffset);
-      }
-    #endif
     SERIAL_EOL();
   }
 
@@ -5809,30 +5806,19 @@ void home_all_axes() { gcode_G28(true); }
   /**
    *  - Probe a point
    */
-  static float calibration_probe(const float &nx, const float &ny, const bool stow, const bool set_up) {
+  static float calibration_probe(const float &nx, const float &ny, const bool stow) {
     #if HAS_BED_PROBE
-      return probe_pt(nx, ny, set_up ? PROBE_PT_BIG_RAISE : stow ? PROBE_PT_STOW : PROBE_PT_RAISE, 0, false);
+      return probe_pt(nx, ny, stow ? PROBE_PT_STOW : PROBE_PT_RAISE, 0, false);
     #else
       UNUSED(stow);
-      UNUSED(set_up);
       return lcd_probe_pt(nx, ny);
     #endif
   }
 
-  #if HAS_BED_PROBE && ENABLED(ULTIPANEL)
-    static float probe_z_shift(const float center) {
-      STOW_PROBE();
-      endstops.enable_z_probe(false);
-      float z_shift = lcd_probe_pt(0, 0) - center;
-      endstops.enable_z_probe(true);
-      return z_shift;
-    }
-  #endif
-
   /**
    *  - Probe a grid
    */
-  static bool probe_calibration_points(float z_pt[NPP + 1], const int8_t probe_points, const bool towers_set, const bool stow_after_each, const bool set_up) {
+  static bool probe_calibration_points(float z_pt[NPP + 1], const int8_t probe_points, const bool towers_set, const bool stow_after_each) {
     const bool _0p_calibration      = probe_points == 0,
                _1p_calibration      = probe_points == 1 || probe_points == -1,
                _4p_calibration      = probe_points == 2,
@@ -5855,7 +5841,7 @@ void home_all_axes() { gcode_G28(true); }
     if (!_0p_calibration) {
 
       if (!_7p_no_intermediates && !_7p_4_intermediates && !_7p_11_intermediates) { // probe the center
-        z_pt[CEN] += calibration_probe(0, 0, stow_after_each, set_up);
+        z_pt[CEN] += calibration_probe(0, 0, stow_after_each);
         if (isnan(z_pt[CEN])) return false;
       }
 
@@ -5865,7 +5851,7 @@ void home_all_axes() { gcode_G28(true); }
         I_LOOP_CAL_PT(rad, start, steps) {
           const float a = RADIANS(210 + (360 / NPP) *  (rad - 1)),
                       r = delta_calibration_radius * 0.1;
-          z_pt[CEN] += calibration_probe(cos(a) * r, sin(a) * r, stow_after_each, set_up);
+          z_pt[CEN] += calibration_probe(cos(a) * r, sin(a) * r, stow_after_each);
           if (isnan(z_pt[CEN])) return false;
        }
         z_pt[CEN] /= float(_7p_2_intermediates ? 7 : probe_points);
@@ -5889,7 +5875,7 @@ void home_all_axes() { gcode_G28(true); }
             const float a = RADIANS(210 + (360 / NPP) *  (rad - 1)),
                         r = delta_calibration_radius * (1 - 0.1 * (zig_zag ? offset - circle : circle)),
                         interpol = fmod(rad, 1);
-            const float z_temp = calibration_probe(cos(a) * r, sin(a) * r, stow_after_each, set_up);
+            const float z_temp = calibration_probe(cos(a) * r, sin(a) * r, stow_after_each);
             if (isnan(z_temp)) return false;
             // split probe point to neighbouring calibration points
             z_pt[uint8_t(LROUND(rad - interpol + NPP - 1)) % NPP + 1] += z_temp * sq(cos(RADIANS(interpol * 90)));
@@ -6018,10 +6004,7 @@ void home_all_axes() { gcode_G28(true); }
    *
    * Parameters:
    *
-   *   S   Setup mode; disables probe protection
-   *
    *   Pn  Number of probe points:
-   *      P-1      Checks the z_offset with a center probe and paper test.
    *      P0       Normalizes calibration.
    *      P1       Calibrates height only with center probe.
    *      P2       Probe center and towers. Calibrate height, endstops and delta radius.
@@ -6044,22 +6027,15 @@ void home_all_axes() { gcode_G28(true); }
    */
   inline void gcode_G33() {
 
-    const bool set_up =
-      #if HAS_BED_PROBE
-        parser.seen('S');
-      #else
-        false;
-      #endif
-
-    const int8_t probe_points = set_up ? 2 : parser.intval('P', DELTA_CALIBRATION_DEFAULT_POINTS);
-    if (!WITHIN(probe_points, -1, 10)) {
-      SERIAL_PROTOCOLLNPGM("?(P)oints is implausible (-1 - 10).");
+    const int8_t probe_points = parser.intval('P', DELTA_CALIBRATION_DEFAULT_POINTS);
+    if (!WITHIN(probe_points, 0, 10)) {
+      SERIAL_PROTOCOLLNPGM("?(P)oints is implausible (0-10).");
       return;
     }
 
     const bool towers_set = !parser.seen('T');
 
-    const float calibration_precision = set_up ? Z_CLEARANCE_BETWEEN_PROBES / 5.0 : parser.floatval('C', 0.0);
+    const float calibration_precision = parser.floatval('C', 0.0);
     if (calibration_precision < 0) {
       SERIAL_PROTOCOLLNPGM("?(C)alibration precision is implausible (>=0).");
       return;
@@ -6067,25 +6043,17 @@ void home_all_axes() { gcode_G28(true); }
 
     const int8_t force_iterations = parser.intval('F', 0);
     if (!WITHIN(force_iterations, 0, 30)) {
-      SERIAL_PROTOCOLLNPGM("?(F)orce iteration is implausible (0 - 30).");
+      SERIAL_PROTOCOLLNPGM("?(F)orce iteration is implausible (0-30).");
       return;
     }
 
     const int8_t verbose_level = parser.byteval('V', 1);
     if (!WITHIN(verbose_level, 0, 3)) {
-      SERIAL_PROTOCOLLNPGM("?(V)erbose level is implausible (0 - 3).");
+      SERIAL_PROTOCOLLNPGM("?(V)erbose level is implausible (0-3).");
       return;
     }
 
     const bool stow_after_each = parser.seen('E');
-
-    if (set_up) {
-      delta_height = 999.99;
-      delta_radius = DELTA_PRINTABLE_RADIUS;
-      ZERO(delta_endstop_adj);
-      ZERO(delta_tower_angle_trim);
-      recalc_delta_settings();
-    }
 
     const bool _0p_calibration      = probe_points == 0,
                _1p_calibration      = probe_points == 1 || probe_points == -1,
@@ -6135,7 +6103,6 @@ void home_all_axes() { gcode_G28(true); }
     const char *checkingac = PSTR("Checking... AC");
     serialprintPGM(checkingac);
     if (verbose_level == 0) SERIAL_PROTOCOLPGM(" (DRY-RUN)");
-    if (set_up) SERIAL_PROTOCOLPGM("  (SET-UP)");
     SERIAL_EOL();
     lcd_setstatusPGM(checkingac);
 
@@ -6154,7 +6121,7 @@ void home_all_axes() { gcode_G28(true); }
 
       // Probe the points
       zero_std_dev_old = zero_std_dev;
-      if (!probe_calibration_points(z_at_pt, probe_points, towers_set, stow_after_each, set_up)) {
+      if (!probe_calibration_points(z_at_pt, probe_points, towers_set, stow_after_each)) {
         SERIAL_PROTOCOLLNPGM("Correct delta settings with M665 and M666");
         return AC_CLEANUP();
       }
@@ -6202,11 +6169,6 @@ void home_all_axes() { gcode_G28(true); }
         delta_calibration_radius = cr_old;
 
         switch (probe_points) {
-          case -1:
-            #if HAS_BED_PROBE && ENABLED(ULTIPANEL)
-              zprobe_zoffset += probe_z_shift(z_at_pt[CEN]);
-            #endif
-
           case 0:
             test_precision = 0.00; // forced end
             break;
@@ -7982,8 +7944,8 @@ inline void gcode_M42() {
     const int8_t verbose_level = parser.byteval('V', 1);
     #if DISABLED(SLIM_1284P)
       if (!WITHIN(verbose_level, 0, 4)) {
-      SERIAL_PROTOCOLLNPGM("?(V)erbose level error (0-4).");
-      return;
+      	SERIAL_PROTOCOLLNPGM("?(V)erbose level error (0-4).");
+      	return;
       }
     #endif
 
@@ -7994,8 +7956,8 @@ inline void gcode_M42() {
     const int8_t n_samples = parser.byteval('P', 10);
     #if DISABLED(SLIM_1284P)
       if (!WITHIN(n_samples, 4, 50)) {
-      SERIAL_PROTOCOLLNPGM("?Sample size not plausible (4-50).");
-      return;
+      	SERIAL_PROTOCOLLNPGM("?Sample size not plausible (4-50).");
+      	return;
       }
     #endif
 
@@ -10048,7 +10010,7 @@ inline void gcode_M226() {
         NOLESS(thermalManager.lpq_len, 0);
       #endif
 
-      thermalManager.updatePID();
+      thermalManager.update_pid();
       SERIAL_ECHO_START();
       #if ENABLED(PID_PARAMS_PER_HOTEND)
         SERIAL_ECHOPAIR(" e:", e); // specify extruder in serial output
@@ -10194,7 +10156,7 @@ inline void gcode_M303() {
       KEEPALIVE_STATE(NOT_BUSY);
     #endif
 
-    thermalManager.PID_autotune(temp, e, c, u);
+    thermalManager.pid_autotune(temp, e, c, u);
 
     #if DISABLED(BUSY_WHILE_HEATING)
       KEEPALIVE_STATE(IN_HANDLER);
@@ -14600,7 +14562,7 @@ void prepare_move_to_destination() {
 
 #if ENABLED(TEMP_STAT_LEDS)
 
-  static bool red_led = false;
+  static uint8_t red_led = -1;  // Invalid value to force leds initializzation on startup
   static millis_t next_status_led_update_ms = 0;
 
   void handle_status_leds(void) {
@@ -14608,20 +14570,18 @@ void prepare_move_to_destination() {
       next_status_led_update_ms += 500; // Update every 0.5s
       float max_temp = 0.0;
       #if HAS_HEATED_BED
-        max_temp = MAX3(max_temp, thermalManager.degTargetBed(), thermalManager.degBed());
+        max_temp = MAX(thermalManager.degTargetBed(), thermalManager.degBed());
       #endif
       HOTEND_LOOP()
         max_temp = MAX3(max_temp, thermalManager.degHotend(e), thermalManager.degTargetHotend(e));
-      const bool new_led = (max_temp > 55.0) ? true : (max_temp < 54.0) ? false : red_led;
+      const uint8_t new_led = (max_temp > 55.0) ? HIGH : (max_temp < 54.0 || red_led == -1) ? LOW : red_led;
       if (new_led != red_led) {
         red_led = new_led;
         #if PIN_EXISTS(STAT_LED_RED)
-          WRITE(STAT_LED_RED_PIN, new_led ? HIGH : LOW);
-          #if PIN_EXISTS(STAT_LED_BLUE)
-            WRITE(STAT_LED_BLUE_PIN, new_led ? LOW : HIGH);
-          #endif
-        #else
-          WRITE(STAT_LED_BLUE_PIN, new_led ? HIGH : LOW);
+          WRITE(STAT_LED_RED_PIN, new_led);
+        #endif
+        #if PIN_EXISTS(STAT_LED_BLUE)
+          WRITE(STAT_LED_BLUE_PIN, !new_led);
         #endif
       }
     }
@@ -15258,6 +15218,8 @@ void setup() {
     card.beginautostart();
   #endif
   
+  // SD Card Init Fix
+
   #if ENABLED(SDSUPPORT)
 	  if (!card.cardOK) card.initsd();
   #endif

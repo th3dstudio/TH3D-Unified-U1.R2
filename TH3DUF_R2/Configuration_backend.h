@@ -977,9 +977,9 @@
   #define X_MIN_ENDSTOP_INVERTING false
   #define Y_MIN_ENDSTOP_INVERTING false
   #define Z_MIN_ENDSTOP_INVERTING false
-  #define X_MAX_ENDSTOP_INVERTING true
-  #define Y_MAX_ENDSTOP_INVERTING true
-  #define Z_MAX_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
 
   #if ENABLED(TITAN_EXTRUDER)
@@ -1011,7 +1011,12 @@
   
   #define INVERT_X_DIR true
   #define INVERT_Y_DIR true
-  #define INVERT_Z_DIR false
+  
+  #if ENABLED(ENDER5)
+    #define INVERT_Z_DIR true
+  #else
+    #define INVERT_Z_DIR false
+  #endif
   
   #if ENABLED(TITAN_EXTRUDER)
     #define INVERT_E0_DIR false
@@ -1878,6 +1883,10 @@
   #define USE_YMIN_PLUG
   #define USE_ZMIN_PLUG
   #define USE_XMAX_PLUG
+#elif ENABLED(ENDER5)
+  #define USE_XMAX_PLUG
+  #define USE_YMAX_PLUG
+  #define USE_ZMIN_PLUG
 #else
   #define USE_XMIN_PLUG
   #define USE_YMIN_PLUG
@@ -1894,10 +1903,10 @@
   #define HOMING_FEEDRATE_XY (40*60)
 #endif
 
-#if ENABLED(EZABL_FASTPROBE)
-	#define HOMING_FEEDRATE_Z  (8*60)
-#else
+#if DISABLED(EZABL_FASTPROBE)
 	#define HOMING_FEEDRATE_Z  (4*60)
+#else
+	#define HOMING_FEEDRATE_Z  (8*60)
 #endif
   
 #if ENABLED(EZABL_ENABLE)
