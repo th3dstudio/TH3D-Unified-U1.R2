@@ -544,7 +544,7 @@
     #if ENABLED(CUSTOM_ESTEPS)
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
     #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
     #endif
   #endif
   
@@ -988,7 +988,7 @@
     #if ENABLED(CUSTOM_ESTEPS)
 	  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
 	#else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
 	#endif
   #endif
   
@@ -1109,7 +1109,7 @@
     #if ENABLED(CUSTOM_ESTEPS)
 	  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
 	#else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
 	#endif
   #endif
   
@@ -1246,7 +1246,7 @@
     #if ENABLED(CUSTOM_ESTEPS)
 	    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
 	  #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
 	  #endif
   #endif
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
@@ -1437,7 +1437,7 @@
 	    #if ENABLED(CUSTOM_ESTEPS)
 		    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
 	    #else
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 93 }
+        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 95 }
       #endif
 	  #endif
 	#else
@@ -1447,7 +1447,7 @@
 	    #if ENABLED(CUSTOM_ESTEPS)
 		    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
 	    #else
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
 	    #endif
 	  #endif
   #endif
@@ -1945,7 +1945,7 @@
   #if ENABLED(EZABL_OUTSIDE_GRID_COMPENSATION)
     #define EXTRAPOLATE_BEYOND_GRID
   #endif
-#endif  
+#endif
 
 #if DISABLED(POWER_LOSS_RECOVERY)
   #define S_CURVE_ACCELERATION

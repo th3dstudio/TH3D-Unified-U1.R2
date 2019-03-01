@@ -576,7 +576,7 @@
 
 // If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
 // This will be disabled when using manual mesh leveling with a 1284p board due to memory limitations.
-#define PIDBED_ENABLE
+//#define PIDBED_ENABLE
 
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED
@@ -619,6 +619,7 @@
 // Linear Advance Pressure Control - This is provided for convenience and is unsupported with included product support.
 // See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
 // Uncomment the below line to enable Linear Advance Pressure Control.
+// If using linear advance along with EZABL on a printer with 1284p some Control > Motion menus will not be displayed due to space restrictions
 //#define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0
@@ -660,6 +661,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.8"
+#define UNIFIED_VERSION "TH3D U1.R2.8a"
 
 #endif // CONFIGURATION_H

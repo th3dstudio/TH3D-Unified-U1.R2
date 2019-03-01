@@ -3311,11 +3311,6 @@ void lcd_quick_feedback(const bool clear_buttons) {
     void lcd_callback_set_contrast() { set_lcd_contrast(lcd_contrast); }
   #endif
 
-  static void lcd_factory_settings() {
-    settings.reset();
-    lcd_completion_feedback();
-  }
-
   #if ENABLED(EEPROM_SETTINGS)
 
     static void lcd_init_eeprom() {
@@ -3591,6 +3586,31 @@ void lcd_quick_feedback(const bool clear_buttons) {
 
     END_MENU();
   }
+  
+  #if ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)    
+    //nothing
+  #else
+    void _planner_refresh_positioning() { planner.refresh_positioning(); }
+    #if ENABLED(DISTINCT_E_FACTORS)
+      void _planner_refresh_e_positioning(const uint8_t e) {
+        if (e == active_extruder)
+          _planner_refresh_positioning();
+        else
+          planner.steps_to_mm[E_AXIS + e] = 1.0f / planner.axis_steps_per_mm[E_AXIS + e];
+      }  
+      void _planner_refresh_e0_positioning() { _planner_refresh_e_positioning(0); }
+      void _planner_refresh_e1_positioning() { _planner_refresh_e_positioning(1); }
+      #if E_STEPPERS > 2
+        void _planner_refresh_e2_positioning() { _planner_refresh_e_positioning(2); }
+        #if E_STEPPERS > 3
+          void _planner_refresh_e3_positioning() { _planner_refresh_e_positioning(3); }
+          #if E_STEPPERS > 4
+            void _planner_refresh_e4_positioning() { _planner_refresh_e_positioning(4); }
+          #endif // E_STEPPERS > 4
+        #endif // E_STEPPERS > 3
+      #endif // E_STEPPERS > 2
+    #endif
+  #endif
 
   #if DISABLED(SLIM_LCD_MENUS)
 
@@ -3651,27 +3671,6 @@ void lcd_quick_feedback(const bool clear_buttons) {
           void _reset_e3_acceleration_rate() { _reset_e_acceleration_rate(3); }
           #if E_STEPPERS > 4
             void _reset_e4_acceleration_rate() { _reset_e_acceleration_rate(4); }
-          #endif // E_STEPPERS > 4
-        #endif // E_STEPPERS > 3
-      #endif // E_STEPPERS > 2
-    #endif
-
-    void _planner_refresh_positioning() { planner.refresh_positioning(); }
-    #if ENABLED(DISTINCT_E_FACTORS)
-      void _planner_refresh_e_positioning(const uint8_t e) {
-        if (e == active_extruder)
-          _planner_refresh_positioning();
-        else
-          planner.steps_to_mm[E_AXIS + e] = 1.0f / planner.axis_steps_per_mm[E_AXIS + e];
-      }
-      void _planner_refresh_e0_positioning() { _planner_refresh_e_positioning(0); }
-      void _planner_refresh_e1_positioning() { _planner_refresh_e_positioning(1); }
-      #if E_STEPPERS > 2
-        void _planner_refresh_e2_positioning() { _planner_refresh_e_positioning(2); }
-        #if E_STEPPERS > 3
-          void _planner_refresh_e3_positioning() { _planner_refresh_e_positioning(3); }
-          #if E_STEPPERS > 4
-            void _planner_refresh_e4_positioning() { _planner_refresh_e_positioning(4); }
           #endif // E_STEPPERS > 4
         #endif // E_STEPPERS > 3
       #endif // E_STEPPERS > 2
@@ -3752,11 +3751,15 @@ void lcd_quick_feedback(const bool clear_buttons) {
       END_MENU();
     }
 
+  #endif // !SLIM_LCD_MENUS
+
+  #if ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)    
+    //nothing
+  #else
     // M205 Jerk
     void lcd_control_motion_jerk_menu() {
       START_MENU();
       MENU_BACK(MSG_MOTION);
-
       #if ENABLED(JUNCTION_DEVIATION)
         MENU_ITEM_EDIT_CALLBACK(float43, MSG_JUNCTION_DEVIATION, &planner.junction_deviation_mm, 0.01f, 0.3f, planner.recalculate_max_e_jerk);
       #else
@@ -3777,11 +3780,9 @@ void lcd_quick_feedback(const bool clear_buttons) {
     void lcd_control_motion_steps_per_mm_menu() {
       START_MENU();
       MENU_BACK(MSG_MOTION);
-
       MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(float62, MSG_ASTEPS, &planner.axis_steps_per_mm[A_AXIS], 5, 9999, _planner_refresh_positioning);
       MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(float62, MSG_BSTEPS, &planner.axis_steps_per_mm[B_AXIS], 5, 9999, _planner_refresh_positioning);
       MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(float62, MSG_CSTEPS, &planner.axis_steps_per_mm[C_AXIS], 5, 9999, _planner_refresh_positioning);
-
       #if ENABLED(DISTINCT_E_FACTORS)
         MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(float62, MSG_ESTEPS, &planner.axis_steps_per_mm[E_AXIS + active_extruder], 5, 9999, _planner_refresh_positioning);
         MENU_MULTIPLIER_ITEM_EDIT_CALLBACK(float62, MSG_E1STEPS, &planner.axis_steps_per_mm[E_AXIS], 5, 9999, _planner_refresh_e0_positioning);
@@ -3801,9 +3802,8 @@ void lcd_quick_feedback(const bool clear_buttons) {
 
       END_MENU();
     }
-
-  #endif // !SLIM_LCD_MENUS
-
+  #endif
+  
   /**
    *
    * "Control" > "Motion" submenu
@@ -3828,13 +3828,17 @@ void lcd_quick_feedback(const bool clear_buttons) {
       // M201 - Acceleration items
       MENU_ITEM(submenu, MSG_ACCELERATION, lcd_control_motion_acceleration_menu);
 
+    #endif // !SLIM_LCD_MENUS
+    
+    #if ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)    
+      //nothing
+    #else
       // M205 - Max Jerk
       MENU_ITEM(submenu, MSG_JERK, lcd_control_motion_jerk_menu);
-
+    
       // M92 - Steps Per mm
       MENU_ITEM(submenu, MSG_STEPS_PER_MM, lcd_control_motion_steps_per_mm_menu);
-
-    #endif // !SLIM_LCD_MENUS
+    #endif
 
     // M540 S - Abort on endstop hit when SD printing
     #if ENABLED(ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED)
@@ -4269,10 +4273,10 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_BACK(MSG_MAIN);
       bool led_on = leds.lights_on;
       MENU_ITEM_EDIT_CALLBACK(bool, MSG_LEDS, &led_on, leds.toggle);
+      MENU_ITEM(function, MSG_SET_LEDS_DEFAULT, leds.set_default);
       #if ENABLED(LED_COLOR_PRESETS)
         MENU_ITEM(submenu, MSG_LED_PRESETS, lcd_led_presets_menu);
       #endif
-      MENU_ITEM(function, MSG_SET_LEDS_DEFAULT, leds.set_default);
       MENU_ITEM(submenu, MSG_CUSTOM_LEDS, lcd_led_custom_menu);
       END_MENU();
     }

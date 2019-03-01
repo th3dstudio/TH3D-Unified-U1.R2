@@ -646,7 +646,7 @@
   #define MSG_RESTORE_FAILSAFE                _UxGT("Restore failsafe")
 #endif
 #ifndef MSG_INIT_EEPROM
-  #define MSG_INIT_EEPROM                     _UxGT("Initialize EEPROM")
+  #define MSG_INIT_EEPROM                     _UxGT("Reset EEPROM")
 #endif
 #ifndef MSG_REFRESH
   #define MSG_REFRESH                         _UxGT("Refresh")
