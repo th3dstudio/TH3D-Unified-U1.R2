@@ -34,7 +34,7 @@
 *
 * STEP 6:
 * Reset your eeprom. You can send M502 then M500 to reset the EEPROM OR on the printer LCD go to 
-* Control > Initialize EEPROM to clear out the EEPROM to defaults.
+* Control > Reset EEPROM to clear out the EEPROM to defaults.
 *
 * BOOTLOADER FLASHING NOTES:
 * For flashing your bootloader with an Uno make sure to select Arduino as ISP for the programmer
@@ -641,6 +641,14 @@
 // feature even if you are a customer and/or replace SD cards due to pre-mature failure. This is provided based on community demands.
 // !!!USE AT YOUR OWN RISK!!!
 //#define POWER_LOSS_RECOVERY
+
+// If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option
+// in your printer section, and then enter your probe offsets in the CUSTOM_PROBE section above.
+// NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires 
+// the Bootscreen, SCurve Acceleration, & Junction Jerk will be disabled.
+//#define BLTOUCH
+// Here is where you set your servo pin. EZOut Servo Pin Numbers: Others - 27, Ender 2 - 29
+//#define SERVO0_PIN 27
 
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.

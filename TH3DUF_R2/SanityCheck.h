@@ -44,6 +44,14 @@
   #error "Only select one type of hotend thermistor setting."
 #endif
 
+#if ENABLED(BLTOUCH) && (ENABLED(EZOUT_ENABLE) || ENABLED(EZOUTV2_ENABLE)) && ENABLED(SLIM_1284P)
+  #error "You cannot use the EZOut and BLTouch at the same time due to limitations on your board."
+#endif
+
+#if ENABLED(BLTOUCH) && ENABLED(POWER_LOSS_RECOVERY) && ENABLED(SLIM_1284P)
+  #error "Due to space limitations the BLTouch cannot be used with Power Loss Recovery on your printer. Disable Power Loss Recovery and re-flash."
+#endif
+
 /**
  * We try our best to include sanity checks for all changed configuration
  * directives because users have a tendency to use outdated config files with
