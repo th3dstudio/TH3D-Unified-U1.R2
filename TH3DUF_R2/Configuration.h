@@ -581,7 +581,7 @@
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED
 
-// Stock bed max is 110C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
+// Stock bed max is 120C for this firmware. Enable this to allow temps up to 150C. Your bed must support this temp for it to achieve the higher temperatures.
 //#define BED_HIGHTEMP
 
 // MISC --------------------------------------------
