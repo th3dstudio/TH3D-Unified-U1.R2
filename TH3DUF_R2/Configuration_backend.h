@@ -1818,7 +1818,7 @@
 #if ENABLED(BED_HIGHTEMP)
   #define BED_MAXTEMP 150
 #else
-  #define BED_MAXTEMP 110
+  #define BED_MAXTEMP 120
 #endif
 
 #define PIDTEMP
