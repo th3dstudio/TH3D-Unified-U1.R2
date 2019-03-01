@@ -45,6 +45,9 @@
 * ERROR NOTES:
 * If you get errors flashing READ the message it gives you and double check that you selected
 * the correct board from the Tools menu in Arduino. Turn off any AV systems and reboot the computer.
+* 
+* COMMUNITY REQUESTED FEATURES NOTE:
+* All features in the community requested features section are provided as-is with no support from TH3D.
 */
 
 #ifndef CONFIGURATION_H
@@ -504,10 +507,10 @@
 // This will extrapolate the implied tilt of the bed outside of the probe area. Do not comment out unless directed by support.
 #define EZABL_OUTSIDE_GRID_COMPENSATION
 
-//===========================================================================
+//================================================================================
 // IF YOU HAVE A CUSTOM PROBE MOUNT OR ONE THAT IS NOT PRE-SUPPORTED UNCOMMENT THE
 // CUSTOM_PROBE OPTION IN YOUR PRINTER SECTION AND ENTER YOUR PROBE LOCATION BELOW
-//===========================================================================
+//================================================================================
 #if ENABLED(CUSTOM_PROBE)
   /**
   *   Z Probe to nozzle (X,Y) offset, relative to (0, 0).
@@ -533,7 +536,7 @@
 #endif
 
 //===========================================================================
-// TH3D EXTRAS
+//******************** EXTRA FEATURES AND TWEAKS ****************************
 //===========================================================================
 
 // TH3D RGB LED STRIP ------------------------------
@@ -606,8 +609,11 @@
 // Disable Bootscreen completely
 //#define DISABLE_BOOT
 
-// ADVANCED FEATURES (NOT SUPPORTED BY TH3D)  ------
+//===========================================================================
+//****************** COMMUNITY REQUESTED FEATURES ***************************
+//===========================================================================
 
+// HOME OFFSET ADJUSTMENT --------------------------
 // If you need to adjust your XY home offsets from defaults then you can uncomment the HOME_ADJUST line below and enter your
 // custom XY offsets. This is provided for convenience and is unsupported with included product support.
 // How to use - measure (home XY then jog using the LCD 1mm at a time) the X and Y distance the nozzle is off
@@ -616,39 +622,40 @@
 #define X_HOME_LOCATION -10
 #define Y_HOME_LOCATION -10
 
-// Linear Advance Pressure Control - This is provided for convenience and is unsupported with included product support.
-// See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
-// Uncomment the below line to enable Linear Advance Pressure Control.
-// If using linear advance along with EZABL on a printer with 1284p some Control > Motion menus will not be displayed due to space restrictions
+// LINEAR ADVANCE ----------------------------------
+// See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
+//
 //#define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0
+// NOTE: If using linear advance along with EZABL on a printer with 1284p some Control > Motion menus will not be displayed due to space restrictions.
+// You can still change these via GCode commands.
 
-// If you want to use manual mesh leveling you can enable the below option. TH3D does NOT provide free support
-// to help you use this feature. This is for generating a MANUAL mesh WITHOUT a probe. 
-// Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html
-// If used with a 1284P board the bootscreen will be disabled to save space.
+// BL TOUCH ----------------------------------------
+// If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option in your printer section, 
+// and then enter your probe offsets in the CUSTOM_PROBE section above. The Pin 27 boards on eBay are clones of our original EZOut. If you want to 
+// support the people that originally came up with the board you can get our EZOut breakout board here: http://EZOut.TH3DStudio.com
+// Sales from our shop allow us to allocate time for community firmware development at no charge to you. <3
+//
+//#define BLTOUCH
+// Here is where you set your servo pin. EZOut Servo Pin Numbers: Others - 27, Ender 2 - 29. For 2560 boards look for the pin you connected the servo wire to and enter below.
+//#define SERVO0_PIN 27
+//
+// NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
+// the Bootscreen, SCurve Acceleration, & Junction Jerk will be disabled.
+
+// MANUAL MESH LEVELING ----------------------------
+// If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. 
+// Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html If used with a 1284P board the bootscreen will be disabled to save space.
+// NOTE: If you want to automate the leveling process our EZABL kits do this for you. Check them out here: http://EZABL.TH3DStudio.com
 //#define MANUAL_MESH_LEVELING
 
-// !!!USE AT YOUR OWN RISK!!!
+// POWER LOSS RECOVERY -----------------------------
 // Continue after Power-Loss feature will store the current state to the SD Card at the start of each layer
-// during SD printing. If the recovery file is found at boot time, present an option on the LCD screen to
-// continue the print from the last-known point in the file.
-// This will DISABLE Junction Deviation,  S-Curve Acceleration, and/or Linear Advance due to RAM limitations. You can only use this with the older
-// jerk and acceleration features due to RAM limitations on the CPU.
+// during SD printing. If this is found at bootup it will ask you if you want to resume the print.
 //
-// NOTE: This feature is UNSUPPORTED and causes excessive wear on your SD card. TH3D will NOT provide support for this
-// feature even if you are a customer and/or replace SD cards due to pre-mature failure. This is provided based on community demands.
-// !!!USE AT YOUR OWN RISK!!!
+// NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.
 //#define POWER_LOSS_RECOVERY
-
-// If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option
-// in your printer section, and then enter your probe offsets in the CUSTOM_PROBE section above.
-// NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires 
-// the Bootscreen, SCurve Acceleration, & Junction Jerk will be disabled.
-//#define BLTOUCH
-// Here is where you set your servo pin. EZOut Servo Pin Numbers: Others - 27, Ender 2 - 29
-//#define SERVO0_PIN 27
 
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.
