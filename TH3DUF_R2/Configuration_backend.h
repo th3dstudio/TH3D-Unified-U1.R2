@@ -1709,6 +1709,8 @@
   #define SLIM_LCD_MENUS
   #if ENABLED(LINEAR_ADVANCE)
     #define DISABLE_BOOT
+  #elif ENABLED(EZABL_ENABLE)
+    #define DISABLE_BOOT
   #endif
 #endif
 
@@ -1960,7 +1962,7 @@
   #endif
 #endif
 
-#if DISABLED(POWER_LOSS_RECOVERY) && DISABLED(BLTOUCH)
+#if DISABLED(POWER_LOSS_RECOVERY)
   #define S_CURVE_ACCELERATION
 #endif
 

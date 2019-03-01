@@ -642,7 +642,7 @@
 //#define SERVO0_PIN 27
 //
 // NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
-// the Bootscreen, SCurve Acceleration, & Junction Jerk will be disabled.
+// the Bootscreen and some Control > Motion menus will not be displayed due to space restrictions
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. 
