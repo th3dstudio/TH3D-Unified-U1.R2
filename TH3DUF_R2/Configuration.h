@@ -308,6 +308,24 @@
 //#define DUAL_HOTEND_DUAL_NOZZLES
 
 //===========================================================================
+// Creality Ender 4 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define ENDER4
+
+// If you have the filament sensor from Creality uncomment the below line
+//#define ENDER4_FIL
+
+// If you are using our EZOut V2 (connected to X+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUT_ENABLE line below.
+// Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
+
+// EZABL Probe Mounts
+//#define ENDER4_OEM_LEFT
+//#define ENDER4_OEM_RIGHT //need to design
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define ENDER5
@@ -676,6 +694,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.8a"
+#define UNIFIED_VERSION "TH3D U1.R2.9"
 
 #endif // CONFIGURATION_H

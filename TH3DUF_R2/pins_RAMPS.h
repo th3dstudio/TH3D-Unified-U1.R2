@@ -77,6 +77,8 @@
 #ifndef X_MAX_PIN
   #if ENABLED(EZOUTV2_ENABLE)
     #define X_MAX_PIN         -1
+  #elif ENABLED(ENDER4_FIL)
+    #define X_MAX_PIN         -1
   #else
     #define X_MAX_PIN         2
   #endif
@@ -286,7 +288,7 @@
 #endif
 
 // define digital pin 4 for the filament runout sensor. Use the RAMPS 1.4 digital input 4 on the servos connector
-#if ENABLED(EZOUTV2_ENABLE)
+#if ENABLED(EZOUTV2_ENABLE) || ENABLED(ENDER4_FIL)
   #if ENABLED(TIM_SMARTT)
     #define FIL_RUNOUT_PIN      57
   #else

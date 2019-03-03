@@ -40,6 +40,10 @@
   #error "Only use one type of EZOut sensor at a time. Please read the EZOut installation guide for details."
 #endif
 
+#if ENABLED(EZOUTV2_ENABLE) && ENABLED(ENDER4_FIL)
+  #error "Only use one type of filament sensor at a time on the Ender 4. Please enable the one you have and disable the other."
+#endif
+
 #if ENABLED(TH3D_HOTEND_THERMISTOR) && ENABLED(V6_HOTEND)
   #error "Only select one type of hotend thermistor setting."
 #endif
