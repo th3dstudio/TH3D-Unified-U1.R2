@@ -1241,8 +1241,8 @@
   #endif
   
   #if ENABLED(ENDER3_DUALBOARD)
-    #define X_BED_SIZE 220
-    #define Y_BED_SIZE 220
+    #define X_BED_SIZE 235
+    #define Y_BED_SIZE 235
     #define Z_MAX_POS 250
   #endif
   
