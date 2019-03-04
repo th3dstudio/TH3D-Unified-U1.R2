@@ -1,5 +1,5 @@
 /**
-* ************** How to use this firmware - READ THIS *********************************
+* ************** How to use this firmware - READ THIS, yes actually read this. *********************************
 *
 * Uncomment means removing the 2 // in front of #define.
 * 
