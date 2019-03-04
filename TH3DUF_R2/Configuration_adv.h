@@ -128,8 +128,8 @@
     #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
   #elif ENABLED(TH3D_EZ300)
     #define E0_AUTO_FAN_PIN 7
-    #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-    #define EXTRUDER_AUTO_FAN_SPEED   127
+    #define EXTRUDER_AUTO_FAN_TEMPERATURE 40
+    #define EXTRUDER_AUTO_FAN_SPEED   255
   #else  
     #define E0_AUTO_FAN_PIN -1
     #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
