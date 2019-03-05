@@ -195,7 +195,12 @@
   
   #define COREXY
 
-  #define X_BED_SIZE 220
+  #if ENABLED(TIM_ENDER4)
+    #define X_BED_SIZE 210
+  #else
+    #define X_BED_SIZE 220
+  #endif
+  
   #define Y_BED_SIZE 220
   #define Z_MAX_POS 310
 

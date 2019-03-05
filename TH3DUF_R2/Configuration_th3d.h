@@ -19,6 +19,7 @@
 //#define TIM_WI3
 //#define TIM_TORNADO
 //#define TIM_ENDER3
+//#define TIM_ENDER4
 //#define TIM_AM8
 
 // Custom Machines
@@ -28,6 +29,15 @@
 
 // DH-THW Machines
 //#define DOUG_I3MINI
+
+#if ENABLED(TIM_ENDER4)
+  #define ENDER4
+  #define ENDER4_FIL
+  #define ENDER4_OEM_LEFT
+  #define TITAN_EXTRUDER
+  #define NO_COLD_PREVENT
+  #define PIDBED_ENABLE
+#endif
 
 #if ENABLED(NGIL_ENDER3)
   #define ENDER3
