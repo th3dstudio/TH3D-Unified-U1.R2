@@ -2127,7 +2127,6 @@
   #define MESH_BED_LEVELING
   #define MBL_Z_STEP 0.025    
   #define LCD_PROBE_Z_RANGE 4 
-  #define MESH_INSET 10          
   #define GRID_MAX_POINTS_X 5    
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 #endif
@@ -2136,6 +2135,7 @@
   #define ENABLE_LEVELING_FADE_HEIGHT
   #define SEGMENT_LEVELED_MOVES
   #define LEVELED_SEGMENT_LENGTH 5.0
+  #define MESH_INSET 10          
 #endif
 
 #define EEPROM_SETTINGS
