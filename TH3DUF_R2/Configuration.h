@@ -675,6 +675,11 @@
 // NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.
 //#define POWER_LOSS_RECOVERY
 
+// MOTION SETTINGS ---------------------------------
+// If you do not like the new Junction Deviation (Jerk) and/or S-Curve Acceleration then you can uncomment the below lines to disable each feature.
+//#define JUNCTION_DEVIATION_DISABLE
+//#define S_CURVE_ACCELERATION_DISABLE
+
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.
 // We only test compile with English language. If you run into space issues disable some features.
@@ -694,6 +699,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.9"
+#define UNIFIED_VERSION "TH3D U1.R2.9a"
 
 #endif // CONFIGURATION_H
