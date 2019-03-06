@@ -525,6 +525,9 @@
 // This will extrapolate the implied tilt of the bed outside of the probe area. Do not comment out unless directed by support.
 #define EZABL_OUTSIDE_GRID_COMPENSATION
 
+// This will enable the Marlin Unified bed leveling code.
+#define EZABL_UBL_ENABLE
+
 //================================================================================
 // IF YOU HAVE A CUSTOM PROBE MOUNT OR ONE THAT IS NOT PRE-SUPPORTED UNCOMMENT THE
 // CUSTOM_PROBE OPTION IN YOUR PRINTER SECTION AND ENTER YOUR PROBE LOCATION BELOW
