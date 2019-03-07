@@ -1931,7 +1931,11 @@
 #endif 
 
 #if ENABLED(PIDBED_ENABLE)
-  #if DISABLED(SLIM_1284P) && DISABLED(MANUAL_MESH_LEVELING)
+  #if ENABLED(SLIM_1284P) && ENABLED(MANUAL_MESH_LEVELING)
+    //do nothing
+  #elif ENABLED(SLIM_1284P) && ENABLED(EZABL_ENABLE)
+    //do nothing
+  #else
     #define PIDTEMPBED
   #endif
 #endif

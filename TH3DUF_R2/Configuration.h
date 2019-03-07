@@ -577,6 +577,7 @@
 // DUAL HOTEND SETTINGS ----------------------------
 
 // This is the distance between each nozzle tip when using a dual hotend like the TH3D Tough Dual Hotend or the E3D Chimera or Dual hotends.
+// This setting only applies to printers using a dual extruder board.
 #define DUAL_HOTEND_X_DISTANCE 18.0
 
 // THERMISTOR SETTINGS -----------------------------
@@ -596,7 +597,7 @@
 // BED SETTINGS ------------------------------------
 
 // If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
-// This will be disabled when using manual mesh leveling with a 1284p board due to memory limitations.
+// This will be disabled when using automatic or manual mesh leveling with a 1284p board due to memory limitations.
 //#define PIDBED_ENABLE
 
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
