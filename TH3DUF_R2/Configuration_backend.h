@@ -1072,10 +1072,10 @@
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 200, 200, 15, 50 }
-  #define DEFAULT_MAX_ACCELERATION      { 800, 800, 100, 5000 }
+  #define DEFAULT_MAX_ACCELERATION      { 500, 800, 500, 5000 }
 
   #define DEFAULT_ACCELERATION          500   
-  #define DEFAULT_RETRACT_ACCELERATION  1000  
+  #define DEFAULT_RETRACT_ACCELERATION  500  
   #define DEFAULT_TRAVEL_ACCELERATION   500   
   
   #if ENABLED(CR10_S4) || ENABLED(CR10_S5)
@@ -1085,7 +1085,7 @@
     #define DEFAULT_XJERK                 7.0
     #define DEFAULT_YJERK                 7.0
   #endif
-  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_ZJERK                  0.3
   #define DEFAULT_EJERK                  5.0
   
   #define INVERT_X_DIR true
@@ -1193,15 +1193,20 @@
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
-  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
+  #define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 5000 }
 
   #define DEFAULT_ACCELERATION          500    
-  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_RETRACT_ACCELERATION  500   
   #define DEFAULT_TRAVEL_ACCELERATION   500    
   
-  #define DEFAULT_XJERK                 10.0
-  #define DEFAULT_YJERK                 10.0
-  #define DEFAULT_ZJERK                  0.4
+  #if ENABLED(CR10S_S4) || ENABLED(CR10S_S5)
+    #define DEFAULT_XJERK                 5.0
+    #define DEFAULT_YJERK                 5.0
+  #else
+    #define DEFAULT_XJERK                 7.0
+    #define DEFAULT_YJERK                 7.0
+  #endif
+  #define DEFAULT_ZJERK                  0.3
   #define DEFAULT_EJERK                  5.0
   
   #define INVERT_X_DIR false
