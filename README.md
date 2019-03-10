@@ -1,22 +1,12 @@
-**This firmware is maintained by TH3D. The goal is an easy to use firmware for 3D printers that we have added support for.**
+**TH3D Unified Firmware with changes for my custom machines**
 
 ----------
 
-Works with printers that are stock as well as ones using our products we sell like the [EZABL](https://www.th3dstudio.com/ezabl-kit/) and [EZOut](https://www.th3dstudio.com/product/ezout-cr-10-filament-sensor-kit/).
+This firmware is NOT maintained by TH3D. This is meant to be a personal fork/branch that will never be merged back to TH3D Unified Firmware.
 
-This is meant to be used with the TH3D line of products or stock machines. This may not work with other products so use at your own risk.
-
-Please download from http://firmware.th3dstudio.com. Additional programs are needed to flash the firmware and are contained in the download on our website.
+It uses a separate configuration file which provides me the ability to make my own custom changes while merging in upstream TH3D firmware updates that support future TH3D products.
 
 ----------
-
-- EZABL Auto Bed Leveling Kits: [https://www.th3dstudio.com/product-category/auto-bed-leveling/](https://www.th3dstudio.com/product-category/auto-bed-leveling/)
-- EZOut: [https://www.th3dstudio.com/product/ezout-cr-10-filament-sensor-kit/](https://www.th3dstudio.com/product/ezout-cr-10-filament-sensor-kit/)
-- All Products:[ https://www.th3dstudio.com/shop/](https://www.th3dstudio.com/shop/)
-
-
-----------
-
 
 **THIS IS PROVIDED UNDER THE GPL V3 LICENSE.
 PROVIDED AS-IS. NO SUPPORT OR WARRANTY IS PROVIDED.**

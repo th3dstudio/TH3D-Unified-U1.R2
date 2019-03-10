@@ -7,6 +7,7 @@
 //===========================================================================
 
 #include "Configuration_th3d.h"
+#include "Configuration_stix.h"
 
 #if DISABLED(TH3DINHOUSEMACHINE)
   #if DISABLED(CUSTOM_DRIVERS)
