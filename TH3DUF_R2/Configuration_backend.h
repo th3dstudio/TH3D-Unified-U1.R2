@@ -1159,7 +1159,7 @@
 #endif //end CR-10
 
 //CR-10S Model Settings
-#if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20)
+#if ENABLED(CR10S) || ENABLED(CR10S_MKS_GEN_L) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20)
   #define BAUDRATE 115200
   
   #if ENABLED(TOUCH_LCD_FIX)
@@ -1181,6 +1181,18 @@
   #define Y_MAX_ENDSTOP_INVERTING true
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+  
+  //dual z axis servo option
+  #if ENABLED(DUAL_Z_SERVOS)
+    #define Z_DUAL_STEPPER_DRIVERS
+  #endif
+
+  //dual z endstops option	
+  #if ENABLED(Z_DUAL_ENDSTOPS)
+    #define Z2_USE_ENDSTOP _XMAX_
+    #define Z_DUAL_ENDSTOPS_ADJUSTMENT  0
+  #endif
+
 
   #if ENABLED(TITAN_EXTRUDER)
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
@@ -1217,9 +1229,14 @@
   #else
     #define INVERT_E0_DIR false
   #endif
-  
-  #ifndef MOTHERBOARD
+
+
+  #if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20)
     #define MOTHERBOARD BOARD_CR10S
+  #endif
+  
+  #if ENABLED(CR10S_MKS_GEN_L)
+    #define MOTHERBOARD BOARD_MKS_GEN_L
   #endif
   
   #if ENABLED(EZOUT_ENABLE)
@@ -1227,6 +1244,12 @@
   #endif
 
   #if ENABLED(CR10S)
+    #define X_BED_SIZE 300
+    #define Y_BED_SIZE 300
+    #define Z_MAX_POS 400
+  #endif
+
+  #if ENABLED(CR10S_MKS_GEN_L)
     #define X_BED_SIZE 300
     #define Y_BED_SIZE 300
     #define Z_MAX_POS 400

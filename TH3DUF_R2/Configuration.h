@@ -183,6 +183,10 @@
 //#define CR10S_S4
 //#define CR10S_S5
 
+
+// Use this option if you are using a MKS_GEN_L board on your CR-10S
+//#define CR10S_MKS_GEN_L
+
 // This disables the stock CR-10S Filament Sensor
 // DO NOT ENABLE THIS IF YOU ARE USING THE EZOUT.
 //#define CR10S_NOFILAMENTSENSOR
@@ -218,6 +222,12 @@
 
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
+
+// If you are using dual Z axis servos uncomment the below line
+//#define DUAL_Z_SERVOS
+
+// If you are using dual Z axis endstops uncomment the below line
+//#define Z_DUAL_ENDSTOPS
 
 //===========================================================================
 // Creality CR-20 Options - Select 'Arduino Mega 2560' from Tools > Board
