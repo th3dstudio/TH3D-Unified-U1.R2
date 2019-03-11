@@ -1233,7 +1233,7 @@
     #define MOTHERBOARD BOARD_MKS_GEN_L
   #else
     #define MOTHERBOARD BOARD_CR10S
-  #endif   
+  #endif
   
   #if ENABLED(EZOUT_ENABLE)
     #define SPEAKER_KILL
