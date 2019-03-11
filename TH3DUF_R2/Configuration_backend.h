@@ -1181,6 +1181,17 @@
   #define Y_MAX_ENDSTOP_INVERTING true
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+  
+  //dual z axis servo option
+  #if ENABLED(DUAL_Z_SERVOS)
+    #define Z_DUAL_STEPPER_DRIVERS
+  #endif
+
+  //dual z endstops option	
+  #if ENABLED(Z_DUAL_ENDSTOPS)
+    #define Z2_USE_ENDSTOP _XMAX_
+    #define Z_DUAL_ENDSTOPS_ADJUSTMENT  0
+  #endif
 
   #if ENABLED(TITAN_EXTRUDER)
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
@@ -1218,9 +1229,11 @@
     #define INVERT_E0_DIR false
   #endif
   
-  #ifndef MOTHERBOARD
+  #if ENABLED(USE_MKS_GEN_L)
+    #define MOTHERBOARD BOARD_MKS_GEN_L
+  #else
     #define MOTHERBOARD BOARD_CR10S
-  #endif
+  #endif   
   
   #if ENABLED(EZOUT_ENABLE)
     #define SPEAKER_KILL
