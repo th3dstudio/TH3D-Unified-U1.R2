@@ -700,6 +700,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.9a"
+#define UNIFIED_VERSION "TH3D U1.R2.9b"
 
 #endif // CONFIGURATION_H
