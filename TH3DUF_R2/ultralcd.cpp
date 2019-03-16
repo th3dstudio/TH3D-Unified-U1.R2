@@ -3760,25 +3760,30 @@ void lcd_quick_feedback(const bool clear_buttons) {
   #if (ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)) || (ENABLED(BLTOUCH) && ENABLED(SLIM_1284P))
     //nothing
   #else
-    // M205 Jerk
-    void lcd_control_motion_jerk_menu() {
-      START_MENU();
-      MENU_BACK(MSG_MOTION);
-      #if ENABLED(JUNCTION_DEVIATION)
-        MENU_ITEM_EDIT_CALLBACK(float43, MSG_JUNCTION_DEVIATION, &planner.junction_deviation_mm, 0.01f, 0.3f, planner.recalculate_max_e_jerk);
-      #else
-        MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VA_JERK, &planner.max_jerk[A_AXIS], 1, 990);
-        MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VB_JERK, &planner.max_jerk[B_AXIS], 1, 990);
-        #if ENABLED(DELTA)
-          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 1, 990);
+    
+    #if ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P)
+      //do nothing
+    #else
+      // M205 Jerk
+      void lcd_control_motion_jerk_menu() {
+        START_MENU();
+        MENU_BACK(MSG_MOTION);
+        #if ENABLED(JUNCTION_DEVIATION)
+          MENU_ITEM_EDIT_CALLBACK(float43, MSG_JUNCTION_DEVIATION, &planner.junction_deviation_mm, 0.01f, 0.3f, planner.recalculate_max_e_jerk);
         #else
-          MENU_MULTIPLIER_ITEM_EDIT(float52sign, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 0.1f, 990);
+          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VA_JERK, &planner.max_jerk[A_AXIS], 1, 990);
+          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VB_JERK, &planner.max_jerk[B_AXIS], 1, 990);
+          #if ENABLED(DELTA)
+            MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 1, 990);
+          #else
+            MENU_MULTIPLIER_ITEM_EDIT(float52sign, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 0.1f, 990);
+          #endif
+          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VE_JERK, &planner.max_jerk[E_AXIS], 1, 990);
         #endif
-        MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VE_JERK, &planner.max_jerk[E_AXIS], 1, 990);
-      #endif
-
-      END_MENU();
-    }
+  
+        END_MENU();
+      }
+    #endif
 
     // M92 Steps-per-mm
     void lcd_control_motion_steps_per_mm_menu() {
@@ -3837,8 +3842,12 @@ void lcd_quick_feedback(const bool clear_buttons) {
     #if (ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)) || (ENABLED(BLTOUCH) && ENABLED(SLIM_1284P))
       //nothing
     #else
-      // M205 - Max Jerk
-      MENU_ITEM(submenu, MSG_JERK, lcd_control_motion_jerk_menu);
+      #if ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P)
+        //do nothing
+      #else
+        // M205 - Max Jerk
+        MENU_ITEM(submenu, MSG_JERK, lcd_control_motion_jerk_menu);
+      #endif
     
       // M92 - Steps Per mm
       MENU_ITEM(submenu, MSG_STEPS_PER_MM, lcd_control_motion_steps_per_mm_menu);

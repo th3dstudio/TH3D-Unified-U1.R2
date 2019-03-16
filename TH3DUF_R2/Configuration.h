@@ -594,6 +594,14 @@
 // If you are using a Keenovo with SSR and the Keenovo temperature sensor uncomment the below line.
 //#define KEENOVO_TEMPSENSOR
 
+// If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE
+//#define KNOWN_HOTEND_THERMISTOR
+//#define KNOWN_HOTEND_THERMISTOR_VALUE X
+
+// If you are using a known bed thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_BED_THERMISTOR_VALUE
+//#define KNOWN_BED_THERMISTOR
+//#define KNOWN_BED_THERMISTOR_VALUE X
+
 // BED SETTINGS ------------------------------------
 
 // If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
@@ -700,6 +708,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.9b"
+#define UNIFIED_VERSION "TH3D U1.R2.9c"
 
 #endif // CONFIGURATION_H
