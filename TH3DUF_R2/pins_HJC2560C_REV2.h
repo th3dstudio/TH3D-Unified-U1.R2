@@ -116,14 +116,13 @@
    		 #define LCD_PINS_RS    		20		//LCD_CS
     	 #define LCD_PINS_ENABLE 		15		//LCD_SDA
     	 #define LCD_PINS_D4    		14		//LCD_SCK
-//		   #define LCD_BACKLIGHT_PIN 	5    	//LCD_Backlight
-         #ifndef LCD_CONTRAST_PIN
-         	#define LCD_CONTRAST_PIN    5    //LCD_Contrast
-         #endif
-		    // define digital pin 4 for the filament runout sensor. Use the RAMPS 1.4 digital input 4 on the servos connector
-		 #ifndef FIL_RUNOUT_PIN
-		 	#define FIL_RUNOUT_PIN   	24		//Filament runout 
-         #endif
+		   #define LCD_BACKLIGHT_PIN 	5    	//LCD_Backlight
+       //#ifndef LCD_CONTRAST_PIN
+         //#define LCD_CONTRAST_PIN    5    //LCD_Contrast
+       //#endif
+		   #ifndef FIL_RUNOUT_PIN
+        #define FIL_RUNOUT_PIN   	24		//Filament runout 
+       #endif
 	  #else
     	#define LCD_PINS_RS    			20		//LCD_CS
    		#define LCD_PINS_ENABLE 		15		//LCD_SDA
