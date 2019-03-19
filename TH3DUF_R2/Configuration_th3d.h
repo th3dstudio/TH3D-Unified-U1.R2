@@ -50,8 +50,8 @@
   #define BABYSTEP_OFFSET
   #define TITAN_EXTRUDER
   #define TITAN_EXTRUDER_STEPS 463  
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "Nicks Ender3" 
@@ -69,8 +69,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "HakEnder3" 
@@ -95,8 +95,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
     
@@ -186,8 +186,8 @@
   #define USER_PRINTER_NAME "HangryPrinter" 
   #define NO_COLD_PREVENT
   #define BABYSTEP_OFFSET
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
 #endif
@@ -202,8 +202,8 @@
   #define USER_PRINTER_NAME "PartPrinter" 
   #define NO_COLD_PREVENT
   #define BABYSTEP_OFFSET
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define PIDBED_ENABLE
@@ -233,8 +233,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
     
@@ -341,8 +341,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
     
@@ -450,8 +450,8 @@
   #define BABYSTEP_OFFSET
   #define V6_HOTEND
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define TITAN_EXTRUDER
@@ -468,8 +468,8 @@
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define TITAN_EXTRUDER
@@ -485,8 +485,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "HakWi3"   
@@ -501,8 +501,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define TITAN_EXTRUDER
@@ -519,8 +519,8 @@
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "HakD6"   
@@ -537,8 +537,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define TITAN_EXTRUDER
@@ -561,8 +561,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
     
@@ -664,8 +664,8 @@
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
   #define PIDBED_ENABLE
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "HakEnder2"   
@@ -695,8 +695,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
     
@@ -801,8 +801,8 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  #define LINEAR_ADVANCE
-  #define LINEAR_ADVANCE_K 0
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
     

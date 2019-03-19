@@ -686,6 +686,7 @@
 
 // MOTION SETTINGS ---------------------------------
 // If you do not like the new Junction Deviation (Jerk) and/or S-Curve Acceleration then you can uncomment the below lines to disable each feature.
+// Due to Anet board restrictions this is always disabled on those machines.
 //#define JUNCTION_DEVIATION_DISABLE
 //#define S_CURVE_ACCELERATION_DISABLE
 
