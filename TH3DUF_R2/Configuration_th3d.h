@@ -71,6 +71,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
+  #define TITAN_EXTRUDER
+  #define TITAN_EXTRUDER_STEPS 463
   #define NEW_JERK_CONTROL
   #define NEW_ACCELERATION_CONTROL
   #define USER_PRINTER_NAME "HakEnder3" 
