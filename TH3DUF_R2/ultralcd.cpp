@@ -3590,31 +3590,6 @@ void lcd_quick_feedback(const bool clear_buttons) {
 
     END_MENU();
   }
-  
-  #if (ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)) || (ENABLED(BLTOUCH) && ENABLED(SLIM_1284P))
-    //nothing
-  #else
-    void _planner_refresh_positioning() { planner.refresh_positioning(); }
-    #if ENABLED(DISTINCT_E_FACTORS)
-      void _planner_refresh_e_positioning(const uint8_t e) {
-        if (e == active_extruder)
-          _planner_refresh_positioning();
-        else
-          planner.steps_to_mm[E_AXIS + e] = 1.0f / planner.axis_steps_per_mm[E_AXIS + e];
-      }  
-      void _planner_refresh_e0_positioning() { _planner_refresh_e_positioning(0); }
-      void _planner_refresh_e1_positioning() { _planner_refresh_e_positioning(1); }
-      #if E_STEPPERS > 2
-        void _planner_refresh_e2_positioning() { _planner_refresh_e_positioning(2); }
-        #if E_STEPPERS > 3
-          void _planner_refresh_e3_positioning() { _planner_refresh_e_positioning(3); }
-          #if E_STEPPERS > 4
-            void _planner_refresh_e4_positioning() { _planner_refresh_e_positioning(4); }
-          #endif // E_STEPPERS > 4
-        #endif // E_STEPPERS > 3
-      #endif // E_STEPPERS > 2
-    #endif
-  #endif
 
   #if DISABLED(SLIM_LCD_MENUS)
 
@@ -3675,6 +3650,27 @@ void lcd_quick_feedback(const bool clear_buttons) {
           void _reset_e3_acceleration_rate() { _reset_e_acceleration_rate(3); }
           #if E_STEPPERS > 4
             void _reset_e4_acceleration_rate() { _reset_e_acceleration_rate(4); }
+          #endif // E_STEPPERS > 4
+        #endif // E_STEPPERS > 3
+      #endif // E_STEPPERS > 2
+    #endif
+
+    void _planner_refresh_positioning() { planner.refresh_positioning(); }
+    #if ENABLED(DISTINCT_E_FACTORS)
+      void _planner_refresh_e_positioning(const uint8_t e) {
+        if (e == active_extruder)
+          _planner_refresh_positioning();
+        else
+          planner.steps_to_mm[E_AXIS + e] = 1.0f / planner.axis_steps_per_mm[E_AXIS + e];
+      }
+      void _planner_refresh_e0_positioning() { _planner_refresh_e_positioning(0); }
+      void _planner_refresh_e1_positioning() { _planner_refresh_e_positioning(1); }
+      #if E_STEPPERS > 2
+        void _planner_refresh_e2_positioning() { _planner_refresh_e_positioning(2); }
+        #if E_STEPPERS > 3
+          void _planner_refresh_e3_positioning() { _planner_refresh_e_positioning(3); }
+          #if E_STEPPERS > 4
+            void _planner_refresh_e4_positioning() { _planner_refresh_e_positioning(4); }
           #endif // E_STEPPERS > 4
         #endif // E_STEPPERS > 3
       #endif // E_STEPPERS > 2
@@ -3755,35 +3751,26 @@ void lcd_quick_feedback(const bool clear_buttons) {
       END_MENU();
     }
 
-  #endif // !SLIM_LCD_MENUS
+    // M205 Jerk
+    void lcd_control_motion_jerk_menu() {
+      START_MENU();
+      MENU_BACK(MSG_MOTION);
 
-  #if (ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)) || (ENABLED(BLTOUCH) && ENABLED(SLIM_1284P))
-    //nothing
-  #else
-    
-    #if ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P)
-      //do nothing
-    #else
-      // M205 Jerk
-      void lcd_control_motion_jerk_menu() {
-        START_MENU();
-        MENU_BACK(MSG_MOTION);
-        #if ENABLED(JUNCTION_DEVIATION)
-          MENU_ITEM_EDIT_CALLBACK(float43, MSG_JUNCTION_DEVIATION, &planner.junction_deviation_mm, 0.01f, 0.3f, planner.recalculate_max_e_jerk);
+      #if ENABLED(JUNCTION_DEVIATION)
+        MENU_ITEM_EDIT_CALLBACK(float43, MSG_JUNCTION_DEVIATION, &planner.junction_deviation_mm, 0.01f, 0.3f, planner.recalculate_max_e_jerk);
+      #else
+        MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VA_JERK, &planner.max_jerk[A_AXIS], 1, 990);
+        MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VB_JERK, &planner.max_jerk[B_AXIS], 1, 990);
+        #if ENABLED(DELTA)
+          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 1, 990);
         #else
-          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VA_JERK, &planner.max_jerk[A_AXIS], 1, 990);
-          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VB_JERK, &planner.max_jerk[B_AXIS], 1, 990);
-          #if ENABLED(DELTA)
-            MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 1, 990);
-          #else
-            MENU_MULTIPLIER_ITEM_EDIT(float52sign, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 0.1f, 990);
-          #endif
-          MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VE_JERK, &planner.max_jerk[E_AXIS], 1, 990);
+          MENU_MULTIPLIER_ITEM_EDIT(float52sign, MSG_VC_JERK, &planner.max_jerk[C_AXIS], 0.1f, 990);
         #endif
-  
-        END_MENU();
-      }
-    #endif
+        MENU_MULTIPLIER_ITEM_EDIT(float3, MSG_VE_JERK, &planner.max_jerk[E_AXIS], 1, 990);
+      #endif
+
+      END_MENU();
+    }
 
     // M92 Steps-per-mm
     void lcd_control_motion_steps_per_mm_menu() {
@@ -3811,8 +3798,9 @@ void lcd_quick_feedback(const bool clear_buttons) {
 
       END_MENU();
     }
-  #endif
-  
+
+  #endif // !SLIM_LCD_MENUS
+
   /**
    *
    * "Control" > "Motion" submenu
@@ -3828,7 +3816,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     #elif HAS_BED_PROBE
       MENU_ITEM_EDIT(float52, MSG_ZPROBE_ZOFFSET, &zprobe_zoffset, Z_PROBE_OFFSET_RANGE_MIN, Z_PROBE_OFFSET_RANGE_MAX);
     #endif
-
+    
     #if DISABLED(SLIM_LCD_MENUS)
 
       // M203 / M205 - Feedrate items
@@ -3837,21 +3825,13 @@ void lcd_quick_feedback(const bool clear_buttons) {
       // M201 - Acceleration items
       MENU_ITEM(submenu, MSG_ACCELERATION, lcd_control_motion_acceleration_menu);
 
-    #endif // !SLIM_LCD_MENUS
-    
-    #if (ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P) && ENABLED(LINEAR_ADVANCE)) || (ENABLED(BLTOUCH) && ENABLED(SLIM_1284P))
-      //nothing
-    #else
-      #if ENABLED(EZABL_ENABLE) && ENABLED(SLIM_1284P)
-        //do nothing
-      #else
-        // M205 - Max Jerk
-        MENU_ITEM(submenu, MSG_JERK, lcd_control_motion_jerk_menu);
-      #endif
-    
+      // M205 - Max Jerk
+      MENU_ITEM(submenu, MSG_JERK, lcd_control_motion_jerk_menu);
+
       // M92 - Steps Per mm
       MENU_ITEM(submenu, MSG_STEPS_PER_MM, lcd_control_motion_steps_per_mm_menu);
-    #endif
+
+    #endif // !SLIM_LCD_MENUS
 
     // M540 S - Abort on endstop hit when SD printing
     #if ENABLED(ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED)
