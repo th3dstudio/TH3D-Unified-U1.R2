@@ -2308,6 +2308,10 @@
   #define LEVEL_CENTER_TOO
 #endif
 
+#if ENABLED(BLTOUCH) && ENABLED(SLIM_1284P)
+  #define SPEAKER_KILL
+#endif
+
 #if DISABLED(SPEAKER_KILL)
   #define SPEAKER
 #endif
