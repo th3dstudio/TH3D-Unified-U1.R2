@@ -9,18 +9,20 @@
 #include "Configuration_th3d.h"
 
 #if DISABLED(TH3DINHOUSEMACHINE)
-  #if DISABLED(CUSTOM_DRIVERS)
-    #define X_DRIVER_TYPE  A4988
-    #define Y_DRIVER_TYPE  A4988
-    #define Z_DRIVER_TYPE  A4988
-    #define X2_DRIVER_TYPE A4988
-    #define Y2_DRIVER_TYPE A4988
-    #define Z2_DRIVER_TYPE A4988
-    #define E0_DRIVER_TYPE A4988
-    #define E1_DRIVER_TYPE A4988
-    #define E2_DRIVER_TYPE A4988
-    #define E3_DRIVER_TYPE A4988
-    #define E4_DRIVER_TYPE A4988
+  #if DISABLED(MKS_PRINTER)
+    #if DISABLED(CUSTOM_DRIVERS)
+      #define X_DRIVER_TYPE  A4988
+      #define Y_DRIVER_TYPE  A4988
+      #define Z_DRIVER_TYPE  A4988
+      #define X2_DRIVER_TYPE A4988
+      #define Y2_DRIVER_TYPE A4988
+      #define Z2_DRIVER_TYPE A4988
+      #define E0_DRIVER_TYPE A4988
+      #define E1_DRIVER_TYPE A4988
+      #define E2_DRIVER_TYPE A4988
+      #define E3_DRIVER_TYPE A4988
+      #define E4_DRIVER_TYPE A4988
+    #endif
   #endif
 #endif
 
@@ -159,13 +161,18 @@
 //MKS Gen L Settings
 #if ENABLED(MKS_PRINTER)
 
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_MKS_GEN_L
+  #endif
+  #define BAUDRATE 250000
+  
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { MKS_X_STEPS, MKS_Y_STEPS, MKS_Z_STEPS, MKS_E_STEPS }
 
   #define X_BED_SIZE MKS_X_SIZE
   #define Y_BED_SIZE MKS_Y_SIZE
   #define Z_MAX_POS MKS_Z_SIZE
-
-  #define MKS_E_DIRECTION 0
 
   #if MKS_X_ENDSTOP == 0
     #define X_MIN_ENDSTOP_INVERTING false
@@ -190,21 +197,60 @@
   #define X_MAX_ENDSTOP_INVERTING false
   #define Y_MAX_ENDSTOP_INVERTING false
   #define Z_MAX_ENDSTOP_INVERTING false
+  
+  #if MKS_X_DIRECTION == 0
+    #define INVERT_X_DIR false
+  #else
+    #define INVERT_X_DIR true
+  #endif
+  
+  #if MKS_Y_DIRECTION == 0
+    #define INVERT_Y_DIR false
+  #else
+    #define INVERT_Y_DIR true
+  #endif
+  
+    #if MKS_Z_DIRECTION == 0
+    #define INVERT_Z_DIR false
+  #else
+    #define INVERT_Z_DIR true
+  #endif
+  
+  #if MKS_Z_DIRECTION == 0
+    #define INVERT_Z_DIR false
+  #else
+    #define INVERT_Z_DIR true
+  #endif
+  
+  #if MKS_E_DIRECTION == 0
+    #define INVERT_E_DIR false
+  #else
+    #define INVERT_E_DIR true
+  #endif
 
-  // Motor Direction Settings
-  #define MKS_X_DIRECTION 0
-  #define MKS_Y_DIRECTION 0
-  #define MKS_Z_DIRECTION 0
-
-  // Driver Settings
-  #define MKS_X_DRIVER TMC2208_STANDALONE
-  #define MKS_Y_DRIVER TMC2208_STANDALONE
-  #define MKS_Z_DRIVER A4988
-  #define MKS_E_DRIVER A4988
+  #define X_DRIVER_TYPE  MKS_X_DRIVER
+  #define Y_DRIVER_TYPE  MKS_Y_DRIVER
+  #define Z_DRIVER_TYPE  MKS_Z_DRIVER
+  #define X2_DRIVER_TYPE A4988
+  #define Y2_DRIVER_TYPE A4988
+  #define Z2_DRIVER_TYPE A4988
+  #define E0_DRIVER_TYPE MKS_E_DRIVER
+  #define E1_DRIVER_TYPE A4988
+  #define E2_DRIVER_TYPE A4988
+  #define E3_DRIVER_TYPE A4988
+  #define E4_DRIVER_TYPE A4988
 
   // EZOut V2 Filament Sensor Settings
-  //#define MKS_EZOUT_V2_X_PLUS
-  //#define MKS_EZOUT_V2_Y_PLUS
+  #if ENABLED(MKS_EZOUT_V2_X_PLUS)
+    #define EZOUTV2_ENABLE
+  #endif
+  
+  #if ENABLED(MKS_EZOUT_V2_Y_PLUS)
+    #define EZOUTV2_DUAL_ENABLE
+  #endif
+  
+  #define PRINTER_ENABLED_CHECK
+
 #endif //end mks gen l
 
 //Ender 4 Settings
@@ -2177,7 +2223,9 @@
       #define FIL_RUNOUT_INVERTING true
     #endif
     #if DISABLED(TIM_AM8)
-      #define NUM_RUNOUT_SENSORS   1
+      #if DISABLED(EZOUTV2_DUAL_ENABLE)
+        #define NUM_RUNOUT_SENSORS   1
+      #endif
     #else
       #define NUM_RUNOUT_SENSORS   2
     #endif
