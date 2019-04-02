@@ -487,6 +487,37 @@
 //#define WANHAO_D6_OEM
 //#define CUSTOM_PROBE
 
+//===========================================================================
+// ***********************  MKS Gen L Based Printer   ***********************
+// **********  Select 'Arduino Mega 2560' from Tools > Board ****************
+//===========================================================================
+
+//#define MKS_PRINTER
+
+// Build Area Size Settings
+#define MKS_X_SIZE 300
+#define MKS_Y_SIZE 300
+#define MKS_Z_SIZE 300
+
+// Extruder Settings
+#define MKS_E_STEPS 95
+#define MKS_E_DIRECTION 0
+
+// Endstop Settings
+#define MKS_X_ENDSTOP 0
+#define MKS_Y_ENDSTOP 0
+#define MKS_Z_ENDSTOP 0
+
+// Steps per MM Settings
+#define MKS_X_STEPS 80
+#define MKS_Y_STEPS 80
+#define MKS_Z_STEPS 400
+
+// Driver Settings
+#define MKS_X_DRIVER TMC2208_STANDALONE
+#define MKS_Y_DRIVER TMC2208_STANDALONE
+#define MKS_Z_DRIVER A4988
+#define MKS_E_DRIVER A4988
 
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************
@@ -709,6 +740,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.9c"
+#define UNIFIED_VERSION "TH3D U1.R2.10"
 
 #endif // CONFIGURATION_H
