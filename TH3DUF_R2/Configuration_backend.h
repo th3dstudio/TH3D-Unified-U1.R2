@@ -156,6 +156,57 @@
   #define DISABLE_BOOT
 #endif
 
+//MKS Gen L Settings
+#if ENABLED(MKS_PRINTER)
+
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { MKS_X_STEPS, MKS_Y_STEPS, MKS_Z_STEPS, MKS_E_STEPS }
+
+  #define X_BED_SIZE MKS_X_SIZE
+  #define Y_BED_SIZE MKS_Y_SIZE
+  #define Z_MAX_POS MKS_Z_SIZE
+
+  #define MKS_E_DIRECTION 0
+
+  #if MKS_X_ENDSTOP == 0
+    #define X_MIN_ENDSTOP_INVERTING false
+  #else
+    #define X_MIN_ENDSTOP_INVERTING true
+  #endif
+  
+  #if MKS_Y_ENDSTOP == 0
+    #define Y_MIN_ENDSTOP_INVERTING false
+  #else
+    #define Y_MIN_ENDSTOP_INVERTING true
+  #endif
+  
+  #if MKS_Z_ENDSTOP == 0
+    #define Z_MIN_ENDSTOP_INVERTING false
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+  #else
+    #define Z_MIN_ENDSTOP_INVERTING true
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+  #endif
+
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
+
+  // Motor Direction Settings
+  #define MKS_X_DIRECTION 0
+  #define MKS_Y_DIRECTION 0
+  #define MKS_Z_DIRECTION 0
+
+  // Driver Settings
+  #define MKS_X_DRIVER TMC2208_STANDALONE
+  #define MKS_Y_DRIVER TMC2208_STANDALONE
+  #define MKS_Z_DRIVER A4988
+  #define MKS_E_DRIVER A4988
+
+  // EZOut V2 Filament Sensor Settings
+  //#define MKS_EZOUT_V2_X_PLUS
+  //#define MKS_EZOUT_V2_Y_PLUS
+#endif //end mks gen l
+
 //Ender 4 Settings
 #if ENABLED(ENDER4)
   #define BAUDRATE 115200
