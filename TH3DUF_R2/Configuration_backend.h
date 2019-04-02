@@ -239,8 +239,20 @@
   #define E2_DRIVER_TYPE A4988
   #define E3_DRIVER_TYPE A4988
   #define E4_DRIVER_TYPE A4988
+  
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
 
-  // EZOut V2 Filament Sensor Settings
+  #define DEFAULT_ACCELERATION          500
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   500    
+  
+  // Not used when using junction deviation which is on by default. Only here for reference.
+  #define DEFAULT_XJERK                 10.0
+  #define DEFAULT_YJERK                 10.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+
   #if ENABLED(MKS_EZOUT_V2_X_PLUS)
     #define EZOUTV2_ENABLE
   #endif
