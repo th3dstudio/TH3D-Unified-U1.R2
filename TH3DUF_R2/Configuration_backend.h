@@ -243,6 +243,8 @@
     #define INVERT_E1_DIR true
   #endif
   
+  #define DUAL_EXTRUDERS
+  
   #define DISTINCT_E_FACTORS
 
   #define X_DRIVER_TYPE  MKS_X_DRIVER
@@ -1418,6 +1420,7 @@
   #if ENABLED(DUAL_EXTRUDER_SINGLE_HOTEND)
     #define CR10SDUALEBOARD
     #define SINGLENOZZLE
+    #define DUAL_EXTRUDERS
     
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E1_DIR true
@@ -1430,6 +1433,7 @@
   //dual hotend dual nozzles
   #if ENABLED(DUAL_HOTEND_DUAL_NOZZLES)
     #define CR10SDUALEBOARD
+    #define DUAL_EXTRUDERS
     
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E1_DIR true
@@ -2228,7 +2232,7 @@
 #define DISABLE_E false
 #define DISABLE_INACTIVE_EXTRUDER true
 
-#if DISABLED(TITAN_EXTRUDER) && DISABLED(CR10SDUALEBOARD)
+#if DISABLED(DUAL_EXTRUDERS)
   #define INVERT_E1_DIR false
 #endif
 #define INVERT_E2_DIR false
