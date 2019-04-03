@@ -489,8 +489,9 @@
 
 //===========================================================================
 // ***********************  MKS Gen L Based Printer   ***********************
-// **********  Select 'Arduino Mega 2560' from Tools > Board ****************
+// *************  Select 'Arduino Mega 2560' from Tools > Board *************
 // **** Please refer to the TH3D MKS Gen L Documentation Guide for Setup ****
+// **** Endstop/Motors: changing from 0 to 1 inverts the logic/direction ****
 //===========================================================================
 
 //#define MKS_PRINTER
