@@ -219,6 +219,10 @@
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
 
+// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_DUAL_ENABLE
+
 //===========================================================================
 // Creality CR-20 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -244,6 +248,10 @@
 
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
+
+// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_DUAL_ENABLE
 
 //===========================================================================
 // Creality Ender 2 Options - Select 'Sanguino 1284p' from Tools > Board
@@ -307,6 +315,10 @@
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
 
+// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_DUAL_ENABLE
+
 //===========================================================================
 // Creality Ender 4 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -343,6 +355,31 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
+
+//=================================================================================================
+// README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 5
+// DO NOT UNCOMMENT THE ABOVE #define ENDER5 LINE IF USING THE DUAL BOARD
+// Select 'Arduino Mega 2560' from Tools > Board - NOT Sanguino
+//
+// To use the Ender 5 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the 
+// CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 5 LCD.
+// You will have to force it into the EXP1 but it will fit and work.
+// 
+// EZABL and EZOut support are still supported just use the lines above this comment section.
+//=================================================================================================
+//#define ENDER5_DUALBOARD
+
+// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
+
+// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
+//#define DUAL_EXTRUDER_SINGLE_HOTEND
+
+// If you are using a dual hotend with dual nozzles uncomment the below line
+//#define DUAL_HOTEND_DUAL_NOZZLES
+
+// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_DUAL_ENABLE
 
 //===========================================================================
 // *************************  FOLGERTECH PRINTERS   *************************
@@ -510,19 +547,22 @@
 #define MKS_X_STEPS 80
 #define MKS_Y_STEPS 80
 #define MKS_Z_STEPS 400
-#define MKS_E_STEPS 95
+#define MKS_E0_STEPS 95
+#define MKS_E1_STEPS 95
 
 // Motor Direction Settings
 #define MKS_X_DIRECTION 0
 #define MKS_Y_DIRECTION 0
 #define MKS_Z_DIRECTION 0
-#define MKS_E_DIRECTION 0
+#define MKS_E0_DIRECTION 0
+#define MKS_E1_DIRECTION 0
 
 // Stepper Driver Settings
 #define MKS_X_DRIVER TMC2208_STANDALONE
 #define MKS_Y_DRIVER TMC2208_STANDALONE
 #define MKS_Z_DRIVER A4988
-#define MKS_E_DRIVER A4988
+#define MKS_E0_DRIVER A4988
+#define MKS_E1_DRIVER A4988
 
 // Thermistor Settings (uses standard Marlin Thermistor numbers)
 #define MKS_E_THERMISTOR 1
@@ -537,6 +577,12 @@
 // For example if you are using CR-10 with the OEM mount then scroll up and uncomment the #define CR10_OEM line like you would normally.
 // If you are using a probe mount that is not supported then use the CUSTOM_PROBE option and enter in your probe offsets below.
 //#define CUSTOM_PROBE
+
+// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
+//#define DUAL_EXTRUDER_SINGLE_HOTEND
+
+// If you are using a dual hotend with dual nozzles uncomment the below line
+//#define DUAL_HOTEND_DUAL_NOZZLES
 
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************

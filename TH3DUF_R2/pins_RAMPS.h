@@ -84,7 +84,11 @@
   #endif
 #endif
 #define Y_MIN_PIN          14
-#define Y_MAX_PIN          15
+#if ENABLED(EZOUTV2_DUAL_ENABLE)
+  #define Y_MAX_PIN          -1 //15
+#else
+  #define Y_MAX_PIN        15
+#endif
 #define Z_MIN_PIN          18
 #define Z_MAX_PIN          19
 
@@ -298,7 +302,7 @@
   #define FIL_RUNOUT_PIN      4
 #endif
 
-#if ENABLED(TIM_AM8)
+#if ENABLED(TIM_AM8) || ENABLED(EZOUTV2_DUAL_ENABLE)
   #define Y_MAX_PIN -1
   #define FIL_RUNOUT2_PIN 15
 #endif

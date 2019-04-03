@@ -168,7 +168,7 @@
   
   #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { MKS_X_STEPS, MKS_Y_STEPS, MKS_Z_STEPS, MKS_E_STEPS }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { MKS_X_STEPS, MKS_Y_STEPS, MKS_Z_STEPS, MKS_E0_STEPS, MKS_E1_STEPS }
 
   #define X_BED_SIZE MKS_X_SIZE
   #define Y_BED_SIZE MKS_Y_SIZE
@@ -231,11 +231,19 @@
     #define INVERT_Z_DIR true
   #endif
   
-  #if MKS_E_DIRECTION == 0
+  #if MKS_E0_DIRECTION == 0
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
   #endif
+  
+  #if MKS_E1_DIRECTION == 0
+    #define INVERT_E1_DIR false
+  #else
+    #define INVERT_E1_DIR true
+  #endif
+  
+  #define DISTINCT_E_FACTORS
 
   #define X_DRIVER_TYPE  MKS_X_DRIVER
   #define Y_DRIVER_TYPE  MKS_Y_DRIVER
@@ -243,8 +251,8 @@
   #define X2_DRIVER_TYPE A4988
   #define Y2_DRIVER_TYPE A4988
   #define Z2_DRIVER_TYPE A4988
-  #define E0_DRIVER_TYPE MKS_E_DRIVER
-  #define E1_DRIVER_TYPE A4988
+  #define E0_DRIVER_TYPE MKS_E0_DRIVER
+  #define E1_DRIVER_TYPE MKS_E1_DRIVER
   #define E2_DRIVER_TYPE A4988
   #define E3_DRIVER_TYPE A4988
   #define E4_DRIVER_TYPE A4988
@@ -268,6 +276,18 @@
   
   #if ENABLED(MKS_EZOUT_V2_Y_PLUS)
     #define EZOUTV2_DUAL_ENABLE
+  #endif
+  
+  //dual extrusion options
+  //single hotend y adapter
+  #if ENABLED(DUAL_EXTRUDER_SINGLE_HOTEND)
+    #define SINGLENOZZLE
+  #endif
+
+  //dual hotend dual nozzles
+  #if ENABLED(DUAL_HOTEND_DUAL_NOZZLES)
+    #define HOTEND_OFFSET_X {0.0, DUAL_HOTEND_X_DISTANCE} // (in mm) for each extruder, offset of the hotend on the X axis
+    #define HOTEND_OFFSET_Y {0.0, 0.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
   #endif
   
   #define PRINTER_ENABLED_CHECK
@@ -1277,14 +1297,14 @@
 #endif //end CR-10
 
 //CR-10S Model Settings
-#if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20)
+#if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20) || ENABLED(ENDER5_DUALBOARD)
   #define BAUDRATE 115200
   
   #if ENABLED(TOUCH_LCD_FIX)
     #define CR10S_NOFILAMENTSENSOR
   #endif
 
-  #if ENABLED(CR10LCD_CR10S) || ENABLED(ENDER3_DUALBOARD)
+  #if ENABLED(CR10LCD_CR10S) || ENABLED(ENDER3_DUALBOARD) || ENABLED(ENDER5_DUALBOARD)
     #define CR10_STOCKDISPLAY
   #elif ENABLED(CR20)
     #define MINIPANEL
@@ -1329,7 +1349,13 @@
   
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
+  
+  #if ENABLED(ENDER5_DUALBOARD)
+    #define INVERT_Z_DIR false
+  #else
+    #define INVERT_Z_DIR true
+  #endif
+  
   #if ENABLED(TITAN_EXTRUDER)
     #define INVERT_E0_DIR true
   #else
@@ -1372,6 +1398,12 @@
     #define X_BED_SIZE 235
     #define Y_BED_SIZE 235
     #define Z_MAX_POS 250
+  #endif
+  
+  #if ENABLED(ENDER5_DUALBOARD)
+    #define X_BED_SIZE 220
+    #define Y_BED_SIZE 220
+    #define Z_MAX_POS 300
   #endif
   
   #if ENABLED(CR20)
@@ -2105,7 +2137,7 @@
   #define USE_YMIN_PLUG
   #define USE_ZMIN_PLUG
   #define USE_XMAX_PLUG
-#elif ENABLED(ENDER5)
+#elif ENABLED(ENDER5) || ENABLED(ENDER5_DUALBOARD)
   #define USE_XMAX_PLUG
   #define USE_YMAX_PLUG
   #define USE_ZMIN_PLUG
@@ -2205,7 +2237,7 @@
   #define X_HOME_DIR 1
   #define Y_HOME_DIR -1
   #define Z_HOME_DIR -1
-#elif ENABLED(ENDER5)
+#elif ENABLED(ENDER5) || ENABLED(ENDER5_DUALBOARD)
   #define X_HOME_DIR 1
   #define Y_HOME_DIR 1
   #define Z_HOME_DIR -1
@@ -2243,12 +2275,10 @@
     #else
       #define FIL_RUNOUT_INVERTING true
     #endif
-    #if DISABLED(TIM_AM8)
-      #if DISABLED(EZOUTV2_DUAL_ENABLE)
-        #define NUM_RUNOUT_SENSORS   1
-      #endif
+    #if ENABLED(TIM_AM8) || ENABLED(EZOUTV2_DUAL_ENABLE)
+        #define NUM_RUNOUT_SENSORS   2
     #else
-      #define NUM_RUNOUT_SENSORS   2
+      #define NUM_RUNOUT_SENSORS   1
     #endif
     #define FIL_RUNOUT_PULLUP
     #define FILAMENT_RUNOUT_SCRIPT "M600"

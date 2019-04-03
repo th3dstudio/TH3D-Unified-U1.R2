@@ -50,15 +50,26 @@
   #define FIL_RUNOUT_PIN      2
 #endif
 
+#if ENABLED(EZOUTV2_DUAL_ENABLE)
+  #define FIL_RUNOUT2_PIN 15
+#endif
+
 //
 // Limit Switches
 //
-#define X_MIN_PIN           3
-#ifndef X_MAX_PIN
-  #define X_MAX_PIN         -1
+#if ENABLED(ENDER5_DUALBOARD)
+  #define X_MIN_PIN          -1
+  #define X_MAX_PIN           3
+  #define Y_MIN_PIN          -1
+  #define Y_MAX_PIN          14
+#else
+  #define X_MIN_PIN           3
+  #define X_MAX_PIN          -1
+  #define Y_MIN_PIN          14
+  #define Y_MAX_PIN          -1
 #endif
-#define Y_MIN_PIN          14
-#define Y_MAX_PIN          15
+
+
 #define Z_MIN_PIN          18
 #define Z_MAX_PIN          19
 
