@@ -495,42 +495,47 @@
 
 //#define MKS_PRINTER
 
-#if ENABLED(MKS_PRINTER)
-  // Build Area Size Settings
-  #define MKS_X_SIZE 300
-  #define MKS_Y_SIZE 300
-  #define MKS_Z_SIZE 300
+// Build Area Size Settings
+#define MKS_X_SIZE 300
+#define MKS_Y_SIZE 300
+#define MKS_Z_SIZE 300
 
-  // Extruder Settings
-  #define MKS_E_STEPS 95
-  #define MKS_E_DIRECTION 0
+// Endstop Logic Settings
+#define MKS_X_ENDSTOP 0
+#define MKS_Y_ENDSTOP 0
+#define MKS_Z_ENDSTOP 0
 
-  // Endstop Settings
-  #define MKS_X_ENDSTOP 0
-  #define MKS_Y_ENDSTOP 0
-  #define MKS_Z_ENDSTOP 0
+// Steps per MM Settings
+#define MKS_X_STEPS 80
+#define MKS_Y_STEPS 80
+#define MKS_Z_STEPS 400
+#define MKS_E_STEPS 95
 
-  // Steps per MM Settings
-  #define MKS_X_STEPS 80
-  #define MKS_Y_STEPS 80
-  #define MKS_Z_STEPS 400
+// Motor Direction Settings
+#define MKS_X_DIRECTION 0
+#define MKS_Y_DIRECTION 0
+#define MKS_Z_DIRECTION 0
+#define MKS_E_DIRECTION 0
 
-  // Motor Direction Settings
-  #define MKS_X_DIRECTION 0
-  #define MKS_Y_DIRECTION 0
-  #define MKS_Z_DIRECTION 0
+// Stepper Driver Settings
+#define MKS_X_DRIVER TMC2208_STANDALONE
+#define MKS_Y_DRIVER TMC2208_STANDALONE
+#define MKS_Z_DRIVER A4988
+#define MKS_E_DRIVER A4988
 
-  // Driver Settings
-  #define MKS_X_DRIVER TMC2208_STANDALONE
-  #define MKS_Y_DRIVER TMC2208_STANDALONE
-  #define MKS_Z_DRIVER A4988
-  #define MKS_E_DRIVER A4988
+// Thermistor Settings (uses standard Marlin Thermistor numbers)
+#define MKS_E_THERMISTOR 1
+#define MKS_BED_THERMISTOR 1
 
-  // EZOut V2 Filament Sensor Settings
-  //#define MKS_EZOUT_V2_X_PLUS
-  //#define MKS_EZOUT_V2_Y_PLUS
+// EZOut V2 Filament Sensor Settings
+//#define MKS_EZOUT_V2_X_PLUS
+//#define MKS_EZOUT_V2_Y_PLUS
 
-#endif
+// EZABL & ABL Probe Settings
+// If you are using a pre-supported mount that is available already then uncomment it above in that printer section.
+// For example if you are using CR-10 with the OEM mount then scroll up and uncomment the #define CR10_OEM line like you would normally.
+// If you are using a probe mount that is not supported then use the CUSTOM_PROBE option and enter in your probe offsets below.
+//#define CUSTOM_PROBE
 
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************

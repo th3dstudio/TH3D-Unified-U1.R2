@@ -172,6 +172,9 @@
 
   #define X_BED_SIZE MKS_X_SIZE
   #define Y_BED_SIZE MKS_Y_SIZE
+  #define X_MIN_POS 0
+  #define Y_MIN_POS 0
+  #define Z_MIN_POS 0
   #define Z_MAX_POS MKS_Z_SIZE
 
   #if MKS_X_ENDSTOP == 0
@@ -179,6 +182,12 @@
   #else
     #define X_MIN_ENDSTOP_INVERTING true
   #endif
+  
+  #define KNOWN_HOTEND_THERMISTOR
+  #define KNOWN_HOTEND_THERMISTOR_VALUE MKS_E_THERMISTOR
+  
+  #define KNOWN_BED_THERMISTOR
+  #define KNOWN_BED_THERMISTOR_VALUE MKS_BED_THERMISTOR
   
   #if MKS_Y_ENDSTOP == 0
     #define Y_MIN_ENDSTOP_INVERTING false
@@ -210,7 +219,7 @@
     #define INVERT_Y_DIR true
   #endif
   
-    #if MKS_Z_DIRECTION == 0
+  #if MKS_Z_DIRECTION == 0
     #define INVERT_Z_DIR false
   #else
     #define INVERT_Z_DIR true
@@ -223,9 +232,9 @@
   #endif
   
   #if MKS_E_DIRECTION == 0
-    #define INVERT_E_DIR false
+    #define INVERT_E0_DIR false
   #else
-    #define INVERT_E_DIR true
+    #define INVERT_E0_DIR true
   #endif
 
   #define X_DRIVER_TYPE  MKS_X_DRIVER
