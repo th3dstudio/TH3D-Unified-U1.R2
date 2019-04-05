@@ -55,8 +55,6 @@
     
   #define CUSTOM_MACHINE_NAME "Franken i3"
 
-  #define EZOUTV2_ENABLE
-
   #define BAUDRATE 250000
   
   #define TEMP_SENSOR_0 1
