@@ -26,9 +26,103 @@
 //#define MATTF_X5S
 //#define STEVE_A30
 //#define NGIL_ENDER3
+//#define DANE_I3CUSTOM
 
 // DH-THW Machines
 //#define DOUG_I3MINI
+
+#if ENABLED(DANE_I3CUSTOM)
+  #define TH3DINHOUSEMACHINE
+  #define NO_COLD_PREVENT
+  
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #endif
+  
+  #define PIDBED_ENABLE
+  #define CUSTOM_PROBE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -20  // X offset: -left  +right  [of the nozzle]
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -32  // Y offset: -front +behind [the nozzle]
+  #define EZABL_POINTS 3
+  #define EZABL_PROBE_EDGE 20
+  #define EZABL_FASTPROBE
+  #define BABYSTEP_OFFSET
+  
+  //#define LINEAR_ADVANCE
+  //#define LINEAR_ADVANCE_K 0
+  #define NEW_JERK_CONTROL
+  #define NEW_ACCELERATION_CONTROL
+    
+  #define CUSTOM_MACHINE_NAME "Franken i3"
+
+  #define EZOUTV2_ENABLE
+
+  #define BAUDRATE 250000
+  
+  #define TEMP_SENSOR_0 1
+  #define TEMP_SENSOR_BED 1
+  
+  #define USE_XMIN_PLUG
+  #define USE_YMIN_PLUG
+  #define USE_ZMIN_PLUG
+  
+  #define ENDSTOPPULLUPS
+  
+  #define X_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+  #define Y_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+  #define Z_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+  #define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the probe.
+
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 100 }
+  #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 50, 5000 }
+  
+  #define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration for printing moves
+  #define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration for retracts
+  #define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
+
+  #define DEFAULT_XJERK                 10.0
+  #define DEFAULT_YJERK                 10.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
+  
+  #define INVERT_E0_DIR false
+  #define INVERT_E1_DIR false
+  #define INVERT_E2_DIR false
+  #define INVERT_E3_DIR false
+  #define INVERT_E4_DIR false
+  
+  #define X_HOME_DIR -1
+  #define Y_HOME_DIR -1
+  #define Z_HOME_DIR -1
+
+  #define X_BED_SIZE 220
+  #define Y_BED_SIZE 220
+
+  #define X_MIN_POS -3
+  #define Y_MIN_POS -12
+  
+  #define X_MAX_POS X_BED_SIZE
+  #define Y_MAX_POS Y_BED_SIZE
+  #define Z_MAX_POS 220
+  
+  #define SDSUPPORT
+
+  #define REVERSE_ENCODER_DIRECTION
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+
+  #define X_DRIVER_TYPE  A4988
+  #define Y_DRIVER_TYPE  A4988
+  #define Z_DRIVER_TYPE  A4988
+  #define E0_DRIVER_TYPE A4988
+#endif
 
 #if ENABLED(TIM_ENDER4)
   #define ENDER4
