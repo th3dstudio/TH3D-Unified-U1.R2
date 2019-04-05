@@ -2178,7 +2178,11 @@
   #if ENABLED(PROBING_MOTORS_OFF)
     #define XY_PROBE_SPEED 8000
   #else
-    #define XY_PROBE_SPEED 12000
+    #if ENABLED(SLOWER_PROBE_MOVES) || ENABLED(TH3D_EZ300)
+      #define XY_PROBE_SPEED 8000
+    #else
+      #define XY_PROBE_SPEED 12000
+    #endif
   #endif
   #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
   #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)  

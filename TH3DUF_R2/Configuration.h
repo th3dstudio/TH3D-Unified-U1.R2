@@ -529,6 +529,7 @@
 // *************  Select 'Arduino Mega 2560' from Tools > Board *************
 // **** Please refer to the TH3D MKS Gen L Documentation Guide for Setup ****
 // **** Endstop/Motors: changing from 0 to 1 inverts the logic/direction ****
+// ********** TH3D MKS Gen L Documentation Coming end of April 2019 *********
 //===========================================================================
 
 //#define MKS_PRINTER
@@ -620,6 +621,9 @@
 
 // This will extrapolate the implied tilt of the bed outside of the probe area. Do not comment out unless directed by support.
 #define EZABL_OUTSIDE_GRID_COMPENSATION
+
+// Does your machine make weird noises/vibrations when it is probing the mesh? Enable this to slow down the speed between probe points.
+//#define SLOWER_PROBE_MOVES
 
 //================================================================================
 // IF YOU HAVE A CUSTOM PROBE MOUNT OR ONE THAT IS NOT PRE-SUPPORTED UNCOMMENT THE
