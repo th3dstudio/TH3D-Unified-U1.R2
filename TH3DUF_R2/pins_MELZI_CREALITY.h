@@ -57,7 +57,11 @@
   #define BEEPER_PIN       -1
 #else
   #define FIL_RUNOUT_PIN   -1
-  #define BEEPER_PIN       27
+  #if ENABLED(BLTOUCH)
+    #define BEEPER_PIN     -1
+  #else
+    #define BEEPER_PIN     27
+  #endif
 #endif
 
 // Alter timing for graphical display
