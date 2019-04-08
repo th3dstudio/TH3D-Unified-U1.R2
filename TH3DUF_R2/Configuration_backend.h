@@ -1101,7 +1101,7 @@
 
 //Wanhao i3 Model Settings
 #if ENABLED(WANHAO_I3)
-	#define SLIM_1284P
+  #define SLIM_1284P
   #define BAUDRATE 115200
   
   #if ENABLED(EZOUTV2_ENABLE)
@@ -1487,10 +1487,10 @@
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
   #else
     #if ENABLED(CUSTOM_ESTEPS)
-	    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-	  #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #else
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-	  #endif
+    #endif
   #endif
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 5000 }
@@ -1551,11 +1551,11 @@
   #if ENABLED(TITAN_EXTRUDER)
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
   #else
-	  #if ENABLED(CUSTOM_ESTEPS)
-	    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-	  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #else
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 }
-	  #endif
+    #endif
   #endif
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
@@ -1614,7 +1614,7 @@
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
   #if ENABLED(CUSTOM_ESTEPS)
-	  #define DEFAULT_AXIS_STEPS_PER_UNIT {100.5,100.5,1600,CUSTOM_ESTEPS_VALUE}
+    #define DEFAULT_AXIS_STEPS_PER_UNIT {100.5,100.5,1600,CUSTOM_ESTEPS_VALUE}
   #else
     #define DEFAULT_AXIS_STEPS_PER_UNIT {100.5,100.5,1600,830}
   #endif
@@ -1680,23 +1680,23 @@
   #if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8)
     #if ENABLED(TITAN_EXTRUDER)
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, TITAN_EXTRUDER_STEPS }
-	  #else
-	    #if ENABLED(CUSTOM_ESTEPS)
-		    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
-	    #else
+    #else
+      #if ENABLED(CUSTOM_ESTEPS)
+        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
+      #else
         #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 95 }
       #endif
-	  #endif
-	#else
-	  #if ENABLED(TITAN_EXTRUDER)
+    #endif
+  #else
+    #if ENABLED(TITAN_EXTRUDER)
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
-	  #else
-	    #if ENABLED(CUSTOM_ESTEPS)
-		    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-	    #else
+    #else
+      #if ENABLED(CUSTOM_ESTEPS)
+        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+      #else
         #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-	    #endif
-	  #endif
+      #endif
+    #endif
   #endif
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
@@ -2129,7 +2129,7 @@
     #define  DEFAULT_bedKp 690.34
     #define  DEFAULT_bedKi 111.47
     #define  DEFAULT_bedKd 1068.83
-  #endif	
+  #endif  
 #endif
 
 #if DISABLED(NO_COLD_PREVENT)
@@ -2169,9 +2169,9 @@
 #endif
 
 #if DISABLED(EZABL_FASTPROBE)
-	#define HOMING_FEEDRATE_Z  (4*60)
+  #define HOMING_FEEDRATE_Z  (4*60)
 #else
-	#define HOMING_FEEDRATE_Z  (8*60)
+  #define HOMING_FEEDRATE_Z  (8*60)
 #endif
   
 #if ENABLED(EZABL_ENABLE)
