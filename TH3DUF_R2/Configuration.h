@@ -585,6 +585,13 @@
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
 
+// While recommend the 12864 LCD we carry as it has a SD slot you can use a CR-10/Ender 3/Ender 5 LCD connected to EXP1 (rotate 180 degrees instead of aligning the pin)
+// Uncomment the below line to use the single cable Creality (Melzi) LCD instead of a standard 12864 LCD
+//#define CR10_STOCKDISPLAY
+
+// If your lcd knob moves the wrong direction uncomment the below line to reverse it
+//#define MKS_KNOB_REVERSE
+
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************
 //===========================================================================
