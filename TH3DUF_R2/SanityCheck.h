@@ -503,7 +503,16 @@ static_assert(X_MAX_LENGTH >= X_BED_SIZE && Y_MAX_LENGTH >= Y_BED_SIZE,
 #if DISABLED(BLTOUCH)
   #if (Z_MIN_PROBE_ENDSTOP_INVERTING == false)
     #if ENABLED(FIX_MOUNTED_PROBE)
-      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please consider supporting us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
+      #warning "The Creality ABL Kit is not supported. EZABL kits help support development of this firmware. Please support us through our shop or buy a Genuine EZABL kit."
     #endif
   #endif
 #endif
