@@ -191,6 +191,8 @@
   #include "pins_RAMPSPLUS2.h"        // ATmega2560                                 env:megaatmega2560
 #elif MB(GT2560_REV_B)
   #include "pins_GT2560_B.h"          // ATmega2560                                 env:megaatmega2560
+#elif MB(COPYMASTER300)
+  #include "pins_RAMPS_COPYMASTER300.h"//ATmega2560                                env:megaatmega2560
 
 //
 // ATmega1281, ATmega2561
