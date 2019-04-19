@@ -19,7 +19,7 @@
 *
 * STEP 2:
 * Uncomment the printer you want to flash. The printers are sorted A-Z by brand name.
-* If you are using the CR-10S DUAL board with the Ender 3 then read the specific section below on how to do this.
+* If you are using the Creality Dual board with the Ender 3/Ender 5/CR-20 then read the specific section below in that printer section on how to do this.
 *
 * STEP 3: 
 * Select the COM port your printer is on from the Tools menu. If you do not see the COM port try
