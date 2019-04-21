@@ -2256,9 +2256,9 @@
 #endif
 
 #if DISABLED(EZABL_FASTPROBE)
-  #define HOMING_FEEDRATE_Z  (4*60)
+  #define HOMING_FEEDRATE_Z  (20*60)
 #else
-  #define HOMING_FEEDRATE_Z  (8*60)
+  #define HOMING_FEEDRATE_Z  (20*60)
 #endif
   
 #if ENABLED(EZABL_ENABLE)
@@ -2268,10 +2268,10 @@
   #endif
   #define Z_PROBE_OFFSET_FROM_EXTRUDER 0
   #if ENABLED(PROBING_MOTORS_OFF)
-    #define XY_PROBE_SPEED 8000
+    #define XY_PROBE_SPEED 12000
   #else
     #if ENABLED(SLOWER_PROBE_MOVES) || ENABLED(TH3D_EZ300)
-      #define XY_PROBE_SPEED 8000
+      #define XY_PROBE_SPEED 12000
     #else
       #define XY_PROBE_SPEED 12000
     #endif
@@ -2283,8 +2283,8 @@
   #endif  
   #define MULTIPLE_PROBING 2
   #if ENABLED(BLTOUCH)
-    #define Z_CLEARANCE_DEPLOY_PROBE   15
-    #define Z_CLEARANCE_BETWEEN_PROBES 10
+    #define Z_CLEARANCE_DEPLOY_PROBE   5
+    #define Z_CLEARANCE_BETWEEN_PROBES 4
   #else
     #define Z_CLEARANCE_DEPLOY_PROBE   5
     #define Z_CLEARANCE_BETWEEN_PROBES 3
