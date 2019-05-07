@@ -45,17 +45,17 @@
 #endif
 
 #if ENABLED(THERMAL_PROTECTION_HOTENDS)
-  #define THERMAL_PROTECTION_PERIOD 120        // Seconds
+  #define THERMAL_PROTECTION_PERIOD HOTEND_THERMAL_PROTECTION_TIME // Seconds
   #define THERMAL_PROTECTION_HYSTERESIS 4     // Degrees Celsius
-  #define WATCH_TEMP_PERIOD 120                // Seconds
+  #define WATCH_TEMP_PERIOD HOTEND_THERMAL_PROTECTION_TIME                // Seconds
   #define WATCH_TEMP_INCREASE 4               // Degrees Celsius
 #endif
 
  
 #if ENABLED(THERMAL_PROTECTION_BED)
-  #define THERMAL_PROTECTION_BED_PERIOD 240    // Seconds
+  #define THERMAL_PROTECTION_BED_PERIOD BED_THERMAL_PROTECTION_TIME    // Seconds
   #define THERMAL_PROTECTION_BED_HYSTERESIS 4 // Degrees Celsius
-  #define WATCH_BED_TEMP_PERIOD 240                // Seconds
+  #define WATCH_BED_TEMP_PERIOD BED_THERMAL_PROTECTION_TIME                // Seconds
   #define WATCH_BED_TEMP_INCREASE 4               // Degrees Celsius
 #endif
 

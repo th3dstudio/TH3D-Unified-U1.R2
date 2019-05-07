@@ -709,6 +709,11 @@
 //#define KNOWN_BED_THERMISTOR
 //#define KNOWN_BED_THERMISTOR_VALUE X
 
+// If you want to make thermal protection periods less or more adjust below. The number is in seconds.
+// If you are getting false thermal runaway then increase the protection time. Do not make it over 300 for either setting.
+#define HOTEND_THERMAL_PROTECTION_TIME 60
+#define BED_THERMAL_PROTECTION_TIME 180
+
 // BED SETTINGS ------------------------------------
 
 // If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
