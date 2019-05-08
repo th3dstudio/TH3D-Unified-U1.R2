@@ -175,6 +175,9 @@
 //#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
+// TMC2208 V1.1.4 Board Setting - uncomment this to set the driver type if you are using the TMC V1.1.4 board
+//#define TMC_CREALITY_BOARD
+
 //===========================================================================
 // Creality CR-10S Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -294,6 +297,9 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
+// TMC2208 V1.1.4 Board Setting - uncomment this to set the driver type if you are using the TMC V1.1.4 board
+//#define TMC_CREALITY_BOARD
+
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 3
 // DO NOT UNCOMMENT THE ABOVE #define ENDER3 LINE IF USING THE DUAL BOARD
@@ -355,6 +361,9 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
+
+// TMC2208 V1.1.4 Board Setting - uncomment this to set the driver type if you are using the TMC V1.1.4 board
+//#define TMC_CREALITY_BOARD
 
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 5
