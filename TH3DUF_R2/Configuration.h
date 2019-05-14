@@ -424,6 +424,16 @@
 
 // EZABL Probe Mounts
 //#define GEE_A10_V1_OEM
+//#define GEE_A10_V2_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// Geeetech A20 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define GEEETECH_A20
+
+// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
+//#define GEE_A10_V2_OEM
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -631,6 +641,10 @@
 
 // Heaters will stay on during probing - only use if directed to by support. Do not use on AC beds.
 //#define HEATERS_ON_DURING_PROBING
+
+// Letting the bed heat recover between probes can increase accuracy due to the bed warping during cooling/heating
+// Enabling the below option will let the bed get back to temperature during probing but will increase probing times.
+//#define WAIT_FOR_BED_HEATER
 
 // If you want a more granular control over the babystepping uncomment the below line.
 // This will make the adjustment finer than the standard setting.
