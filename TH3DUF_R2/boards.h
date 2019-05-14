@@ -110,6 +110,7 @@
 #define BOARD_RAMPSPLUS2		    512	  // Alfawise U10 RampsPlus2 Board
 #define BOARD_GT2560_REV_B      600   // Geeetech GT2560 Rev. B
 #define BOARD_COPYMASTER300     998 // Copymaster 3D 300 Board
+#define BOARD_GT2560_V3_0       76    // Geeetech A10, A20, etc.
 
 //
 // ATmega1281, ATmega2561

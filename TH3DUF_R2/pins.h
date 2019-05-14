@@ -142,6 +142,8 @@
   #include "pins_RAMPS_ENDER_4.h"     // ATmega2560                                 env:megaatmega2560
 #elif MB(HJC2560C_REV2)
   #include "pins_HJC2560C_REV2.h"     // ATmega2560                                 env:megaatmega2560
+#elif MB(GT2560_V3_0)
+  #include "pins_GT2560_V3.0.h"       // ATmega2560									env:megaatmega2560
 
 //
 // Other ATmega1280, ATmega2560
