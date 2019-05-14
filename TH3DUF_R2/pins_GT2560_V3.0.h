@@ -140,7 +140,7 @@
   #endif
 #endif
 
-#if ENABLED(GEEETECH_A20)
+#if ENABLED(GEEETECH_A20) || ENABLED(GEEETECH_A20M)
   #define BEEPER_PIN         18
   #define LCD_PINS_RS         5
   #define LCD_PINS_ENABLE    36
