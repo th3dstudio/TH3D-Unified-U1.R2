@@ -420,6 +420,7 @@
 // A10 V1 has the 40mm Fan on the left side of the hotend and NO filament sensor
 // A10 V2 has a filament sensor and no 40mm fan on the left side of the hotend (support coming soon)
 //#define GEEETECH_A10_V1
+//#define GEEETECH_A10_V2
 
 // EZABL Probe Mounts
 //#define GEE_A10_V1_OEM
