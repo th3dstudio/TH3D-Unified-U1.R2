@@ -123,7 +123,7 @@
 //
 // LCD / Controller
 //
-#if ENABLED(GEEETECH_A10_V2)
+#if ENABLED(GEEETECH_A10_V2) || ENABLED(GEEETECH_A10M)
   #define BEEPER_PIN         18
 
   #define LCD_PINS_RS        20

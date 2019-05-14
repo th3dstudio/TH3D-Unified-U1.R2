@@ -428,6 +428,15 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
+// Geeetech A10M Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define GEEETECH_A10M
+
+// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
+//#define GEE_A10_V2_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // Geeetech A20 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define GEEETECH_A20
