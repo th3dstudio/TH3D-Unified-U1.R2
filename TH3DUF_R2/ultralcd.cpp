@@ -184,7 +184,7 @@ uint16_t max_display_update_time = 0;
     void lcd_control_temperature_preheat_material2_settings_menu();
   #endif
 
-  #if DISABLED(NO_VOLUMETRICS) || ENABLED(ADVANCED_PAUSE_FEATURE)
+  #if DISABLED(NO_VOLUMETRICS) || (ENABLED(ADVANCED_PAUSE_FEATURE) && DISABLED(SLIM_LCD_MENUS))
     void lcd_control_filament_menu();
   #endif
 
@@ -3333,7 +3333,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     MENU_ITEM(submenu, MSG_TEMPERATURE, lcd_control_temperature_menu);
     MENU_ITEM(submenu, MSG_MOTION, lcd_control_motion_menu);
 
-    #if DISABLED(NO_VOLUMETRICS) || ENABLED(ADVANCED_PAUSE_FEATURE)
+    #if DISABLED(NO_VOLUMETRICS) || (ENABLED(ADVANCED_PAUSE_FEATURE) && DISABLED(SLIM_LCD_MENUS))
       #if ENABLED(BLTOUCH) && ENABLED(SLIM_1284P)
         //nothing
       #else
@@ -3841,7 +3841,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     END_MENU();
   }
 
-  #if DISABLED(NO_VOLUMETRICS) || ENABLED(ADVANCED_PAUSE_FEATURE)
+  #if DISABLED(NO_VOLUMETRICS) || (ENABLED(ADVANCED_PAUSE_FEATURE) && DISABLED(SLIM_LCD_MENUS))
     /**
      *
      * "Control" > "Filament" submenu
