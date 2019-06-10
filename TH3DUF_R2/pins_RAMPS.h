@@ -73,7 +73,11 @@
 //
 // Limit Switches
 //
-#define X_MIN_PIN           3
+#if ENABLED(MKS_PRINTER)
+  #define X_STOP_PIN         3
+#else
+  #define X_MIN_PIN          3
+#endif
 #ifndef X_MAX_PIN
   #if ENABLED(EZOUTV2_ENABLE)
     #define X_MAX_PIN         -1
@@ -83,7 +87,11 @@
     #define X_MAX_PIN         2
   #endif
 #endif
-#define Y_MIN_PIN          14
+#if ENABLED(MKS_PRINTER)
+  #define Y_STOP_PIN         14
+#else
+  #define Y_MIN_PIN          14
+#endif
 #if ENABLED(EZOUTV2_DUAL_ENABLE)
   #define Y_MAX_PIN          -1 //15
 #else

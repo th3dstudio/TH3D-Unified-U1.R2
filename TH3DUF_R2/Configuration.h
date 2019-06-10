@@ -582,6 +582,10 @@
 #define MKS_Y_ENDSTOP 0
 #define MKS_Z_ENDSTOP 0
 
+// Homing Settings
+#define X_HOME_LOCATION 0
+#define Y_HOME_LOCATION 0
+
 // Steps per MM Settings
 #define MKS_X_STEPS 80
 #define MKS_Y_STEPS 80
@@ -866,6 +870,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.11a"
+#define UNIFIED_VERSION "TH3D U1.R2.12"
 
 #endif // CONFIGURATION_H

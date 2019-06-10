@@ -2289,6 +2289,20 @@
   #define USE_XMIN_PLUG
   #define USE_YMAX_PLUG
   #define USE_ZMIN_PLUG
+#elif ENABLED(MKS_PRINTER)
+  #if X_HOME_LOCATION == 0
+    #define USE_XMIN_PLUG
+  #else
+    #define USE_XMAX_PLUG
+  #endif
+  
+  #if Y_HOME_LOCATION == 0
+    #define USE_YMIN_PLUG
+  #else
+    #define USE_YMAX_PLUG
+  #endif
+  
+  #define USE_ZMIN_PLUG
 #else
   #define USE_XMIN_PLUG
   #define USE_YMIN_PLUG
@@ -2408,6 +2422,20 @@
 #elif ENABLED(COPYMASTER3D_300)
   #define X_HOME_DIR -1
   #define Y_HOME_DIR 1
+  #define Z_HOME_DIR -1
+#elif ENABLED(MKS_PRINTER)
+  #if X_HOME_LOCATION == 0
+    #define X_HOME_DIR -1
+  #else
+    #define X_HOME_DIR 1
+  #endif
+  
+  #if Y_HOME_LOCATION == 0
+    #define Y_HOME_DIR -1
+  #else
+    #define Y_HOME_DIR 1
+  #endif
+  
   #define Z_HOME_DIR -1
 #else
   #define X_HOME_DIR -1
