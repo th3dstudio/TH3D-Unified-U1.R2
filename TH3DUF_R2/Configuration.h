@@ -134,6 +134,7 @@
 //#define ANET_A8
 //#define ANET_E10
 //#define ANET_E12
+//#define ANET_E16
 
 // Choose bed size for A2 only
 // IGNORE THESE OPTIONS FOR MACHINES OTHER THAN THE A2
