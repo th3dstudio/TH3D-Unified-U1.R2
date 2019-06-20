@@ -34,7 +34,7 @@
 
 #include "MarlinConfig.h"
 
-#define FIL_RUNOUT_THRESHOLD 50
+#define FIL_RUNOUT_THRESHOLD 100
 
 class FilamentRunoutSensor {
   public:
