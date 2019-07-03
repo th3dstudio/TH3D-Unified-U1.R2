@@ -578,6 +578,7 @@
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
+  #define EZOUTV2_ENABLE
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
