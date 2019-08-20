@@ -1,14 +1,10 @@
 #include <avr/pgmspace.h>
-/**
- * Made with Marlin Bitmap Converter
- * http://marlinfw.org/tools/u8glib/converter.html
- *
- * This bitmap from the file 'ez300boot.png'
- */
+
+#define CUSTOM_BOOTSCREEN_TIMEOUT   1500
 #define CUSTOM_BOOTSCREEN_BMPWIDTH  128
 #define CUSTOM_BOOTSCREEN_BMPHEIGHT 64
-#define CUSTOM_BOOTSCREEN_TIMEOUT   1500
-const unsigned char custom_start_bmp[] PROGMEM = {
+
+const unsigned char custom_start_bmp[1024] PROGMEM = {
   B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000, // ································································
   B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000111,B11111110,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000, // ······························▐████▌····························
   B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00001111,B11111110,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000,B00000000, // ······························█████▌····························

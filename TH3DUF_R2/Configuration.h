@@ -278,6 +278,9 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
+// Use Ender Bootscreeen instead of TH3D
+//#define ENDER_BOOT
+
 //===========================================================================
 // Creality Ender 3 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
@@ -325,6 +328,9 @@
 // and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUTV2_DUAL_ENABLE
 
+// Use Ender Bootscreeen instead of TH3D
+//#define ENDER_BOOT
+
 //===========================================================================
 // Creality Ender 4 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -342,6 +348,9 @@
 //#define ENDER4_OEM_LEFT
 //#define ENDER4_OEM_RIGHT //need to design
 //#define CUSTOM_PROBE
+
+// Use Ender Bootscreeen instead of TH3D
+//#define ENDER_BOOT
 
 //===========================================================================
 // Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
@@ -365,6 +374,8 @@
 // TMC2208 Creality Board Setting - uncomment this to set the driver type if you are using the TMC Creality board
 //#define TMC_CREALITY_BOARD
 
+// Use Ender Bootscreeen instead of TH3D
+//#define ENDER_BOOT
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 5
 // DO NOT UNCOMMENT THE ABOVE #define ENDER5 LINE IF USING THE DUAL BOARD
@@ -470,6 +481,26 @@
 //===========================================================================
 // *************************     TEVO PRINTERS      *************************
 //===========================================================================
+
+//===========================================================================
+// TEVO Tarantula Pro Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define TARANTULA_PRO
+
+// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_ENABLE line below.
+// Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
+
+// EZABL Probe Mounts
+//#define TARANTULA_PRO_OEM
+//#define CUSTOM_PROBE
+
+// Use Tarantula Pro Bootscreen instead of TH3D
+//#define TARANTULA_PRO_BOOT
+
+// Slow down the hotend fan and control box fans to reduce noise
+//#define TARANTULA_PRO_QUIET
 
 //===========================================================================
 // TEVO Tornado Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -789,9 +820,6 @@
 // Use TinyMachines Bootscreen instead of TH3D
 //#define TM3D_BOOT
 
-// Use Ender Bootscreeen instead of TH3D
-//#define ENDER_BOOT
-
 // Disable Bootscreen completely
 //#define DISABLE_BOOT
 
@@ -872,6 +900,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.14"
+#define UNIFIED_VERSION "TH3D U1.R2.15"
 
 #endif // CONFIGURATION_H

@@ -1,10 +1,9 @@
-#ifndef BOOTSCREEN_H_
-#define BOOTSCREEN_H_
+#include <avr/pgmspace.h>
 
-#define CUSTOM_BOOTSCREEN_TIMEOUT 1500  // milliseconds
-#define CUSTOM_BOOTSCREEN_BMPWIDTH 128  // Width in pixels
-#define CUSTOM_BOOTSCREEN_BMPHEIGHT 64  // Height in pixels
-const unsigned char custom_start_bmp[] PROGMEM = {
+#define CUSTOM_BOOTSCREEN_TIMEOUT   1500
+#define CUSTOM_BOOTSCREEN_BMPWIDTH  128
+#define CUSTOM_BOOTSCREEN_BMPHEIGHT 64
+const unsigned char custom_start_bmp[1024] PROGMEM = {
   0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, // ################################################################################################################################
   0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, // ################################################################################################################################
   0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, // ################################################################################################################################
@@ -71,4 +70,3 @@ const unsigned char custom_start_bmp[] PROGMEM = {
   0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF  // ################################################################################################################################
 };
 
-#endif // BOOTSCREEN_H_

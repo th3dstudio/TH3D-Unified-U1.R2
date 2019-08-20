@@ -1,6 +1,8 @@
-#define CUSTOM_BOOTSCREEN_TIMEOUT      1500
-#define CUSTOM_BOOTSCREEN_BMPWIDTH      128
-#define CUSTOM_BOOTSCREEN_BMPHEIGHT      64
+#include <avr/pgmspace.h>
+
+#define CUSTOM_BOOTSCREEN_TIMEOUT   1500
+#define CUSTOM_BOOTSCREEN_BMPWIDTH  128
+#define CUSTOM_BOOTSCREEN_BMPHEIGHT 64
 
 const unsigned char custom_start_bmp[1024] PROGMEM = {
   0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, // ................................................................................................................................

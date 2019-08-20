@@ -45,6 +45,11 @@
     #define DISABLE_BOOT
   #endif
 #endif
+#if ENABLED(TARANTULA_PRO_OEM)
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -65
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
+  #define EZABL_ENABLE
+#endif
 #if ENABLED(ENDER4_OEM_LEFT)
   #define X_PROBE_OFFSET_FROM_EXTRUDER -53
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -19
@@ -400,6 +405,68 @@
   #define PRINTER_ENABLED_CHECK
 
 #endif //end mks gen l
+
+//Tarantula Pro Model Settings
+#if ENABLED(TARANTULA_PRO)
+  #define BAUDRATE 250000
+
+  #define MKS_MINI_12864
+
+  #define X_MIN_ENDSTOP_INVERTING true
+  #define Y_MIN_ENDSTOP_INVERTING true
+  #define Z_MIN_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING true
+  #define Y_MAX_ENDSTOP_INVERTING true
+  #define Z_MAX_ENDSTOP_INVERTING true
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+
+  #if ENABLED(TITAN_EXTRUDER)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 408 }
+    #endif
+  #endif
+  #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+
+  #define DEFAULT_ACCELERATION          1000    
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   1500    
+  
+  #define DEFAULT_XJERK                 10.0
+  #define DEFAULT_YJERK                 10.0
+  #define DEFAULT_ZJERK                  0.3
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR true
+  #define INVERT_E0_DIR true
+  
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_MKS_BASE
+  #endif
+
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS -12
+    #define Y_MIN_POS 0
+  #endif
+  
+  #define X_BED_SIZE 240
+  #define Y_BED_SIZE 240
+  #define Z_MAX_POS 260
+
+  //#define REVERSE_ENCODER_DIRECTION
+  
+  #define PRINTER_ENABLED_CHECK
+
+#endif //end tarantula pro
 
 //Ender 4 Settings
 #if ENABLED(ENDER4)
