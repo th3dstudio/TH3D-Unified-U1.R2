@@ -454,8 +454,8 @@
     #define X_MIN_POS X_HOME_ADJUST_LOCATION
     #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
-    #define X_MIN_POS -12
-    #define Y_MIN_POS 0
+    #define X_MIN_POS -4
+    #define Y_MIN_POS -2
   #endif
   
   #define X_BED_SIZE 240
