@@ -493,6 +493,8 @@
 //#define EZOUTV2_ENABLE
 
 // EZABL Probe Mounts
+// Before connecting the EZABL control board to the Tarantula Pro please remove the 5V wire from the 3 pin plug.
+// Pictures and write up available here: https://www.th3dstudio.com/knowledgebase/ezabl-tevo-tarantula-pro-endstop-cable-mod/
 //#define TARANTULA_PRO_OEM
 //#define CUSTOM_PROBE
 
