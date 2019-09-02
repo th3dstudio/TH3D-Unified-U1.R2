@@ -645,8 +645,14 @@
 #ifndef MSG_RESTORE_FAILSAFE
   #define MSG_RESTORE_FAILSAFE                _UxGT("Restore failsafe")
 #endif
-#ifndef MSG_INIT_EEPROM
-  #define MSG_INIT_EEPROM                     _UxGT("Reset EEPROM")
+#if ENABLED(WANHAO_I3_PLUS)
+  #ifndef MSG_INIT_EEPROM
+    #define MSG_INIT_EEPROM                     _UxGT("Initialize EEPROM")
+  #endif
+#else
+  #ifndef MSG_INIT_EEPROM
+    #define MSG_INIT_EEPROM                     _UxGT("Reset EEPROM")
+  #endif
 #endif
 #ifndef MSG_REFRESH
   #define MSG_REFRESH                         _UxGT("Refresh")
@@ -757,16 +763,40 @@
   #define MSG_BLTOUCH                         _UxGT("BLTouch")
 #endif
 #ifndef MSG_BLTOUCH_SELFTEST
-  #define MSG_BLTOUCH_SELFTEST                _UxGT("BLTouch Self-Test")
+  #define MSG_BLTOUCH_SELFTEST                _UxGT("Cmd: Self-Test")
 #endif
 #ifndef MSG_BLTOUCH_RESET
-  #define MSG_BLTOUCH_RESET                   _UxGT("Reset BLTouch")
-#endif
-#ifndef MSG_BLTOUCH_DEPLOY
-  #define MSG_BLTOUCH_DEPLOY                  _UxGT("Deploy BLTouch")
+  #define MSG_BLTOUCH_RESET                   _UxGT("Cmd: Reset")
 #endif
 #ifndef MSG_BLTOUCH_STOW
-  #define MSG_BLTOUCH_STOW                    _UxGT("Stow BLTouch")
+  #define MSG_BLTOUCH_STOW                    _UxGT("Cmd: Stow")
+#endif
+#ifndef MSG_BLTOUCH_DEPLOY
+  #define MSG_BLTOUCH_DEPLOY                  _UxGT("Cmd: Deploy")
+#endif
+#ifndef MSG_BLTOUCH_SW_MODE
+  #define MSG_BLTOUCH_SW_MODE                 _UxGT("Cmd: SW-Mode")
+#endif
+#ifndef MSG_BLTOUCH_5V_MODE
+  #define MSG_BLTOUCH_5V_MODE                 _UxGT("Cmd: 5V-Mode")
+#endif
+#ifndef MSG_BLTOUCH_OD_MODE
+  #define MSG_BLTOUCH_OD_MODE                 _UxGT("Cmd: OD-Mode")
+#endif
+#ifndef MSG_BLTOUCH_MODE_STORE
+  #define MSG_BLTOUCH_MODE_STORE              _UxGT("Cmd: Mode-Store")
+#endif
+#ifndef MSG_BLTOUCH_MODE_STORE_5V
+  #define MSG_BLTOUCH_MODE_STORE_5V           _UxGT("Set BLTouch to 5V")
+#endif
+#ifndef MSG_BLTOUCH_MODE_STORE_OD
+  #define MSG_BLTOUCH_MODE_STORE_OD           _UxGT("Set BLTouch to OD")
+#endif
+#ifndef MSG_BLTOUCH_MODE_ECHO
+  #define MSG_BLTOUCH_MODE_ECHO               _UxGT("Report Drain")
+#endif
+#ifndef MSG_BLTOUCH_MODE_CHANGE
+  #define MSG_BLTOUCH_MODE_CHANGE             _UxGT("DANGER: Bad settings can cause damage! Proceed anyway?")
 #endif
 #ifndef MSG_HOME
   #define MSG_HOME                            _UxGT("Home") // Used as MSG_HOME " " MSG_X MSG_Y MSG_Z " " MSG_FIRST
@@ -798,23 +828,44 @@
 #ifndef MSG_ERR_REDUNDANT_TEMP
   #define MSG_ERR_REDUNDANT_TEMP              _UxGT("Err: REDUNDANT TEMP")
 #endif
-#ifndef MSG_THERMAL_RUNAWAY
-  #define MSG_THERMAL_RUNAWAY                 _UxGT("THERMAL RUNAWAY")
-#endif
-#ifndef MSG_THERMAL_RUNAWAY_BED
-  #define MSG_THERMAL_RUNAWAY_BED             _UxGT("BED THERMAL RUNAWAY")
-#endif
-#ifndef MSG_ERR_MAXTEMP
-  #define MSG_ERR_MAXTEMP                     _UxGT("Err: MAXTEMP")
-#endif
-#ifndef MSG_ERR_MINTEMP
-  #define MSG_ERR_MINTEMP                     _UxGT("Err: MINTEMP")
-#endif
-#ifndef MSG_ERR_MAXTEMP_BED
-  #define MSG_ERR_MAXTEMP_BED                 _UxGT("Err: MAXTEMP BED")
-#endif
-#ifndef MSG_ERR_MINTEMP_BED
-  #define MSG_ERR_MINTEMP_BED                 _UxGT("Err: MINTEMP BED")
+#if ENABLED(WANHAO_I3_PLUS)
+  #ifndef MSG_THERMAL_RUNAWAY
+    #define MSG_THERMAL_RUNAWAY                 _UxGT("The temperature has deviated too much")
+  #endif
+  #ifndef MSG_THERMAL_RUNAWAY_BED
+    #define MSG_THERMAL_RUNAWAY_BED             _UxGT("The temperature of the bed has deviated too much")
+  #endif
+  #ifndef MSG_ERR_MAXTEMP
+    #define MSG_ERR_MAXTEMP                     _UxGT("Maximum temperature exceeded")
+  #endif
+  #ifndef MSG_ERR_MINTEMP
+    #define MSG_ERR_MINTEMP                     _UxGT("Minimum temperature exceeded")
+  #endif
+  #ifndef MSG_ERR_MAXTEMP_BED
+    #define MSG_ERR_MAXTEMP_BED                 _UxGT("Maximum bed temperature exceeded")
+  #endif
+  #ifndef MSG_ERR_MINTEMP_BED
+    #define MSG_ERR_MINTEMP_BED                 _UxGT("Minimum bed temperature exceeded")
+  #endif
+#else
+  #ifndef MSG_THERMAL_RUNAWAY
+    #define MSG_THERMAL_RUNAWAY                 _UxGT("THERMAL RUNAWAY")
+  #endif
+  #ifndef MSG_THERMAL_RUNAWAY_BED
+    #define MSG_THERMAL_RUNAWAY_BED             _UxGT("BED THERMAL RUNAWAY")
+  #endif
+  #ifndef MSG_ERR_MAXTEMP
+    #define MSG_ERR_MAXTEMP                     _UxGT("Err: MAXTEMP")
+  #endif
+  #ifndef MSG_ERR_MINTEMP
+    #define MSG_ERR_MINTEMP                     _UxGT("Err: MINTEMP")
+  #endif
+  #ifndef MSG_ERR_MAXTEMP_BED
+    #define MSG_ERR_MAXTEMP_BED                 _UxGT("Err: MAXTEMP BED")
+  #endif
+  #ifndef MSG_ERR_MINTEMP_BED
+    #define MSG_ERR_MINTEMP_BED                 _UxGT("Err: MINTEMP BED")
+  #endif
 #endif
 #ifndef MSG_ERR_Z_HOMING
   #define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST

@@ -32,7 +32,9 @@
 #include "Configuration_adv.h"
 
 #if USE_MARLINSERIAL
-  #define HardwareSerial_h // trick to disable the standard HWserial
+  #if DISABLED(WANHAO_I3_PLUS)
+    #define HardwareSerial_h // trick to disable the standard HWserial
+  #endif
 #endif
 
 #include "types.h"

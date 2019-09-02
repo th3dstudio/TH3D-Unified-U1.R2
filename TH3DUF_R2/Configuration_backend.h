@@ -45,6 +45,14 @@
     #define DISABLE_BOOT
   #endif
 #endif
+#if ENABLED(WANHAO_I3_PLUS_EZABL)
+  #define ADVi3PP_PROBE
+  #define ADVi3PP_MARK2
+  #define EZABL_ENABLE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 0
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER 0
+#endif
 #if ENABLED(TARANTULA_PRO_OEM)
   #define X_PROBE_OFFSET_FROM_EXTRUDER -65
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
@@ -179,6 +187,84 @@
   #define EZABL_ENABLE
   #define DISABLE_BOOT
 #endif
+
+//Wanhao i3 Plus Settings
+#if ENABLED(WANHAO_I3_PLUS)
+  #include "advi3pp_defines.h"
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_I3_PLUS
+  #endif
+
+  #define PIDBED_ENABLE
+
+  #define LINEAR_ADVANCE
+
+  #define DISABLE_BOOT
+  
+  #define I3PLUS_LCD
+  #define LCD_USE_I2C_BUZZER
+  #define BAUDRATE 115200
+
+  #define X_MIN_ENDSTOP_INVERTING true
+  #define Y_MIN_ENDSTOP_INVERTING true
+  #define Z_MIN_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING true
+  #define Y_MAX_ENDSTOP_INVERTING true
+  #define Z_MAX_ENDSTOP_INVERTING true
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+    #endif
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 450, 450, 20, 25 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 1000 }
+
+  #define DEFAULT_ACCELERATION          800    
+  #define DEFAULT_RETRACT_ACCELERATION  800   
+  #define DEFAULT_TRAVEL_ACCELERATION   800    
+  
+  #define DEFAULT_XJERK                  8.0
+  #define DEFAULT_YJERK                  8.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  1.0
+  
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+
+  #define X_BED_SIZE 200
+  #define Y_BED_SIZE 200
+  #define Z_MAX_POS 180
+  
+  #define REVERSE_MENU_DIRECTION
+  
+  #define FAN_SOFT_PWM
+  
+  #define PRINTCOUNTER
+  
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+    
+  #define PRINTER_ENABLED_CHECK
+#endif //end wanhao i3 plus
 
 //Copymaster 3D 300 Settings
 #if ENABLED(COPYMASTER3D_300)
@@ -2230,6 +2316,8 @@
   #elif ENABLED(TAZ5)
     #define TEMP_SENSOR_BED 7
   #elif ENABLED(WANHAO_D6)
+    #define TEMP_SENSOR_BED 1
+  #elif ENABLED(WANHAO_I3_PLUS)
     #define TEMP_SENSOR_BED 1
   #elif ENABLED(KEENOVO_TEMPSENSOR)
     #define TEMP_SENSOR_BED 11

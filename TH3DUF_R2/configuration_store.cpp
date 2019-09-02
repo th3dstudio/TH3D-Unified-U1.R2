@@ -37,11 +37,12 @@
  */
 
 // Change EEPROM version if the structure changes
-#define EEPROM_VERSION "V55"
+#define EEPROM_VERSION "V56"
 #define EEPROM_OFFSET 100
 
 // Check the integrity of data offsets.
 // Can be disabled for production build.
+
 //#define DEBUG_EEPROM_READWRITE
 
 #include "configuration_store.h"
@@ -51,9 +52,19 @@
 #include "planner.h"
 #include "temperature.h"
 #include "ultralcd.h"
+#if ENABLED(WANHAO_I3_PLUS)
+  #include "advi3pp.h" // @advi3++
+#endif
 #include "stepper.h"
 #include "parser.h"
 #include "vector_3.h"
+
+#if ENABLED(WANHAO_I3_PLUS)
+  // @advi3++: Enable in DEBUG builds
+  #ifdef DEBUG
+    #define DEBUG_EEPROM_READWRITE
+  #endif
+#endif
 
 #if ENABLED(MESH_BED_LEVELING)
   #include "mesh_bed_leveling.h"
@@ -75,6 +86,10 @@
 
 #if ENABLED(PID_EXTRUSION_SCALING)
   #define LPQ_LEN thermalManager.lpq_len
+#endif
+
+#if ENABLED(BLTOUCH)
+  extern bool bltouch_last_written_mode;
 #endif
 
 #pragma pack(push, 1) // No padding between variables
@@ -158,6 +173,11 @@ typedef struct SettingsDataStruct {
   //
   bool planner_leveling_active;                         // M420 S  planner.leveling_active
   int8_t ubl_storage_slot;                              // ubl.storage_slot
+
+  //
+  // BLTOUCH
+  //
+  bool bltouch_last_written_mode;
 
   //
   // DELTA / [XYZ]_DUAL_ENDSTOPS
@@ -283,7 +303,12 @@ MarlinSettings settings;
   extern void refresh_bed_level();
 #endif
 
-uint16_t MarlinSettings::datasize() { return sizeof(SettingsData); }
+#if ENABLED(WANHAO_I3_PLUS)
+  // @advi3++: Add the size of ADVi3++ specific data
+  uint16_t MarlinSettings::datasize() { return sizeof(SettingsData) + advi3pp::ADVi3pp::size_of(); }
+#else
+  uint16_t MarlinSettings::datasize() { return sizeof(SettingsData); }
+#endif
 
 /**
  * Post-process after Retrieve or Reset
@@ -572,6 +597,20 @@ void MarlinSettings::postprocess() {
       EEPROM_WRITE(ubl_active);
       EEPROM_WRITE(storage_slot);
     #endif // AUTO_BED_LEVELING_UBL
+
+    //
+    // BLTOUCH
+    //
+    {
+      _FIELD_TEST(bltouch_last_written_mode);
+      #if ENABLED(BLTOUCH)
+        const bool &eeprom_bltouch_last_written_mode = bltouch_last_written_mode;
+      #else
+        constexpr bool eeprom_bltouch_last_written_mode = false;
+      #endif
+      EEPROM_WRITE(eeprom_bltouch_last_written_mode);
+    }
+
 
     // 11 floats for DELTA / [XYZ]_DUAL_ENDSTOPS
     #if ENABLED(DELTA)
@@ -966,6 +1005,11 @@ void MarlinSettings::postprocess() {
       for (uint8_t q = MAX_EXTRUDERS * 2; q--;) EEPROM_WRITE(dummy);
     #endif
 
+    #if ENABLED(WANHAO_I3_PLUS)    
+      // @advi3++: Store data specific to ADVi3++
+      advi3pp::ADVi3pp::write(&write_data, eeprom_index, working_crc);
+    #endif
+
     //
     // Validate CRC and Data Size
     //
@@ -1161,7 +1205,9 @@ void MarlinSettings::postprocess() {
       EEPROM_READ_ALWAYS(grid_max_y);                       // 1 byte
       #if ENABLED(AUTO_BED_LEVELING_BILINEAR)
         if (grid_max_x == GRID_MAX_POINTS_X && grid_max_y == GRID_MAX_POINTS_Y) {
-          if (!validating) set_bed_leveling_enabled(false);
+          #if DISABLED(WANHAO_I3_PLUS)
+		    if (!validating) set_bed_leveling_enabled(false);
+          #endif
           EEPROM_READ(bilinear_grid_spacing);        // 2 ints
           EEPROM_READ(bilinear_start);               // 2 ints
           EEPROM_READ(z_values);                     // 9 to 256 floats
@@ -1190,6 +1236,19 @@ void MarlinSettings::postprocess() {
         EEPROM_READ(dummyb);
         EEPROM_READ(dummyui8);
       #endif // AUTO_BED_LEVELING_UBL
+
+      //
+      // BLTOUCH
+      //
+      {
+        _FIELD_TEST(bltouch_last_written_mode);
+        #if ENABLED(BLTOUCH)
+          bool &eeprom_bltouch_last_written_mode = bltouch_last_written_mode;
+        #else
+          bool eeprom_bltouch_last_written_mode;
+        #endif
+        EEPROM_READ(eeprom_bltouch_last_written_mode);
+      }
 
       //
       // DELTA Geometry or Dual Endstops offsets
@@ -1576,6 +1635,12 @@ void MarlinSettings::postprocess() {
         for (uint8_t q = MAX_EXTRUDERS * 2; q--;) EEPROM_READ(dummy);
       #endif
 
+      #if ENABLED(WANHAO_I3_PLUS)
+	    // @advi3++: Load data specific to ADVi3++
+        if(!advi3pp::ADVi3pp::read(&read_data, eeprom_index, working_crc))
+            eeprom_error = true;
+      #endif
+
       eeprom_error = size_error(eeprom_index - (EEPROM_OFFSET));
       if (eeprom_error) {
         SERIAL_ECHO_START();
@@ -1660,6 +1725,10 @@ void MarlinSettings::postprocess() {
   bool MarlinSettings::load() {
     if (validate()) return _load();
     reset();
+    #if ENABLED(WANHAO_I3_PLUS)
+      // @advi3++: Display a message on the LCD panel when it is not possible to use the data stored in EEPROM (incompatible)
+      advi3pp::ADVi3pp::eeprom_settings_mismatch();
+    #endif
     return true;
   }
 
@@ -1981,6 +2050,10 @@ void MarlinSettings::reset() {
     }
   #endif
 
+  #if ENABLED(WANHAO_I3_PLUS)
+    // @advi3++: Reset data specific to ADVi3++
+    advi3pp::ADVi3pp::reset();
+  #endif
   postprocess();
 
   #if ENABLED(EEPROM_CHITCHAT)

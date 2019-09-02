@@ -106,11 +106,14 @@
 #define BOARD_GT2560_REV_A      74    // Geeetech GT2560 Rev. A
 #define BOARD_GT2560_REV_A_PLUS 75    // Geeetech GT2560 Rev. A+ (with auto level probe)
 #define BOARD_CR10S             476   // Creality CR-10S Board
-#define	BOARD_ONEPLUS1_wanhao	  511   // Wanhao i3 Mini Board
-#define BOARD_RAMPSPLUS2		    512	  // Alfawise U10 RampsPlus2 Board
+#define	BOARD_ONEPLUS1_wanhao	511   // Wanhao i3 Mini Board
+#define BOARD_RAMPSPLUS2		512	  // Alfawise U10 RampsPlus2 Board
 #define BOARD_GT2560_REV_B      600   // Geeetech GT2560 Rev. B
 #define BOARD_COPYMASTER300     998 // Copymaster 3D 300 Board
 #define BOARD_GT2560_V3_0       76    // Geeetech A10, A20, etc.
+#define BOARD_I3_PLUS           888   // Wanhao Duplicator i3 Plus @advi3++
+#define BOARD_I3_PLUS_MARK2     889   // Wanhao Duplicator i3 Plus Mark II @advi3++
+#define BOARD_I3_PLUS_HE180021  890   // Aldi UK Balco 2018 (HE180021)
 
 //
 // ATmega1281, ATmega2561

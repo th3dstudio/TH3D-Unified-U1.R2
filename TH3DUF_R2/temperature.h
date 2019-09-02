@@ -30,6 +30,9 @@
 #include "thermistortables.h"
 
 #include "MarlinConfig.h"
+#if ENABLED(WANHAO_I3_PLUS)
+  #include "advi3pp.h"
+#endif
 
 #if ENABLED(AUTO_POWER_CONTROL)
   #include "power.h"
@@ -415,6 +418,9 @@ class Temperature {
         powerManager.power_on();
       #endif
       target_temperature[HOTEND_INDEX] = MIN(celsius, maxttemp[HOTEND_INDEX] - 5);
+      #if ENABLED(WANHAO_I3_PLUS)
+        advi3pp::ADVi3pp::on_set_temperature(advi3pp::TemperatureKind::Hotend, celsius);
+      #endif
       #if WATCH_HOTENDS
         start_watching_heater(HOTEND_INDEX);
       #endif
@@ -454,6 +460,9 @@ class Temperature {
             celsius
           #endif
         ;
+        #if ENABLED(WANHAO_I3_PLUS)
+          advi3pp::ADVi3pp::on_set_temperature(advi3pp::TemperatureKind::Bed, target_temperature_bed);
+        #endif
         #if WATCH_THE_BED
           start_watching_bed();
         #endif

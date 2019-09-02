@@ -114,8 +114,14 @@ void GCodeParser::parse(char *p) {
     starpos[1] = '\0';
   }
 
-  // Bail if the letter is not G, M, or T
-  switch (letter) { case 'G': case 'M': case 'T': break; default: return; }
+  #if ENABLED(WANHAO_I3_PLUS)
+    // Bail if the letter is not G, M, T
+    // @advi3++: or A
+    switch (letter) { case 'G': case 'M': case 'T': case 'A': break; default: return; }
+  #else
+    // Bail if the letter is not G, M, or T
+    switch (letter) { case 'G': case 'M': case 'T': break; default: return; }
+  #endif
 
   // Skip spaces to get the numeric part
   while (*p == ' ') p++;

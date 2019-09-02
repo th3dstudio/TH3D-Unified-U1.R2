@@ -572,6 +572,30 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
+// Wanhao i3 Plus Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+// Before compiling copy all files from "\Firmware\ADVi3PPFiles" folder to the
+// "\Firmware\TH3DUF_R2" folder. Once copied the firmware will only work for 
+// the Wanhao i3 Plus. If you wish to flash other machines then extract a new
+// copy of the firmware to a different location on your computer.
+//
+// Touch LCD Flashing
+// You MUST flash the LCD firmware with the ADVi3++ 4.0.3 LCD image to use 
+// our firmware with the Wanhao i3 Plus. Get it here: 
+// How to Flash AVDi3++ LCD: https://community.advi3pp.com/t/how-to-flash/16
+// Touchscreen Guide: https://community.advi3pp.com/t/lcd-touch-screen-guide/20
+//===========================================================================
+//#define WANHAO_I3_PLUS
+
+// Uncomment to enable EZABL support - Probe Offsets are set from the LCD
+//#define WANHAO_I3_PLUS_EZABL
+
+// The Wanhao i3 Plus support would not be possible
+// without the open source work of Sebastien Andrivet
+// Please consider becoming a Patreon of his.
+// Patreon Link: https://www.patreon.com/join/andrivet
+
+//===========================================================================
 // Wanhao i3 MINI Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define WANHAO_I3MINI
@@ -861,6 +885,7 @@
 //
 // NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
 // the Bootscreen and some Control > Motion menus will not be displayed due to space restrictions
+// The BL Touch is NOT supported on the Wanhao i3 Plus, use the ADVi3++ Firmware instead if you want to use a BL Touch.
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. 
@@ -872,13 +897,15 @@
 // Continue after Power-Loss feature will store the current state to the SD Card at the start of each layer
 // during SD printing. If this is found at bootup it will ask you if you want to resume the print.
 //
-// NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.
+// NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.3
+// Power Loss Recovery is NOT supported on the Wanhao i3 Plus at this time.
 //#define POWER_LOSS_RECOVERY
 
 // MOTION SETTINGS ---------------------------------
 // There are 2 new acceleration/jerk controls available in this firmware that can result is better print quality and
 // smoother movement. To try each out just enable them below.
 // Due to Anet board restrictions this is always disabled on those machines.
+// Junction Deviation is NOT supported on the Wanhao i3 Plus at this time.
 //#define JUNCTION_DEVIATION_ON
 //#define S_CURVE_ACCELERATION_ON
 
@@ -902,6 +929,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.15"
+#define UNIFIED_VERSION "TH3D U1.R2.16"
 
 #endif // CONFIGURATION_H

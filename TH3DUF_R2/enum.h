@@ -97,8 +97,9 @@ enum DebugFlags : unsigned char {
     ADVANCED_PAUSE_RESPONSE_EXTRUDE_MORE,
     ADVANCED_PAUSE_RESPONSE_RESUME_PRINT
   };
-
-  #if ENABLED(ULTIPANEL)
+  
+  // @advi3++
+  #if ENABLED(ULTIPANEL) || ENABLED(I3PLUS_LCD)
     enum AdvancedPauseMessage : char {
       ADVANCED_PAUSE_MESSAGE_INIT,
       ADVANCED_PAUSE_MESSAGE_UNLOAD,

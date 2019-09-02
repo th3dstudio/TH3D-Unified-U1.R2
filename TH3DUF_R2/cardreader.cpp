@@ -406,7 +406,9 @@ void CardReader::openFile(char * const path, const bool read, const bool subcall
       SERIAL_PROTOCOLLNPGM(MSG_SD_FILE_SELECTED);
 
       getfilename(0, fname);
-      lcd_setstatus(longFilename[0] ? longFilename : fname);
+      #if DISABLED(WANHAO_I3_PLUS)
+		lcd_setstatus(longFilename[0] ? longFilename : fname);
+	  #endif
       //if (longFilename[0]) {
       //  SERIAL_PROTOCOLPAIR(MSG_SD_FILE_LONG_NAME, longFilename);
       //}
@@ -426,7 +428,9 @@ void CardReader::openFile(char * const path, const bool read, const bool subcall
     else {
       saving = true;
       SERIAL_PROTOCOLLNPAIR(MSG_SD_WRITE_TO_FILE, path);
-      lcd_setstatus(fname);
+	  #if DISABLED(WANHAO_I3_PLUS)      
+        lcd_setstatus(fname);
+	  #endif
     }
   }
 }
@@ -911,7 +915,8 @@ void CardReader::printingHasFinished() {
     #if ENABLED(SDCARD_SORT_ALPHA)
       presort();
     #endif
-    #if ENABLED(ULTRA_LCD) && ENABLED(LCD_SET_PROGRESS_MANUALLY)
+    // @advi3++: Allow progress bar
+    #if (ENABLED(ULTRA_LCD) || ENABLED(I3PLUS_LCD)) && ENABLED(LCD_SET_PROGRESS_MANUALLY)
       progress_bar_percent = 0;
     #endif
     #if ENABLED(SD_REPRINT_LAST_SELECTED_FILE)

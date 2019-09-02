@@ -29,7 +29,14 @@
 
 #include "MarlinConfig.h"
 
-#define VALIDATE_HOMING_ENDSTOPS
+#if ENABLED(WANHAO_I3_PLUS)
+  // @advi3++: Do not validate when using the Simulator
+  #ifndef ADVi3PP_SIMULATOR
+  	#define VALIDATE_HOMING_ENDSTOPS
+  #endif
+#else
+  #define VALIDATE_HOMING_ENDSTOPS
+#endif
 
 enum EndstopEnum : char {
   X_MIN,

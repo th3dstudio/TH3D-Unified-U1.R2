@@ -1124,24 +1124,6 @@
   #define MIN_PROBE_EDGE 0
 #endif
 
-/**
- * Bed Probe dependencies
- */
- 
-#if ENABLED(FIX_MOUNTED_PROBE)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING true
-#endif
-
-#if ENABLED(BLTOUCH)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING false
-#endif
-
 #if ENABLED(DELTA)
   /**
    * Delta radius/rod trimmers/angle trimmers
@@ -1187,10 +1169,12 @@
 #else
 
   // Boundaries for Cartesian probing based on bed limits
-  #define _MIN_PROBE_X (max(X_MIN_BED + MIN_PROBE_EDGE, X_MIN_POS + X_PROBE_OFFSET_FROM_EXTRUDER))
-  #define _MIN_PROBE_Y (max(Y_MIN_BED + MIN_PROBE_EDGE, Y_MIN_POS + Y_PROBE_OFFSET_FROM_EXTRUDER))
-  #define _MAX_PROBE_X (min(X_MAX_BED - (MIN_PROBE_EDGE), X_MAX_POS + X_PROBE_OFFSET_FROM_EXTRUDER))
-  #define _MAX_PROBE_Y (min(Y_MAX_BED - (MIN_PROBE_EDGE), Y_MAX_POS + Y_PROBE_OFFSET_FROM_EXTRUDER))
+  #if DISABLED(WANHAO_I3_PLUS)
+	#define _MIN_PROBE_X (max(X_MIN_BED + MIN_PROBE_EDGE, X_MIN_POS + X_PROBE_OFFSET_FROM_EXTRUDER))
+  	#define _MIN_PROBE_Y (max(Y_MIN_BED + MIN_PROBE_EDGE, Y_MIN_POS + Y_PROBE_OFFSET_FROM_EXTRUDER))
+  	#define _MAX_PROBE_X (min(X_MAX_BED - (MIN_PROBE_EDGE), X_MAX_POS + X_PROBE_OFFSET_FROM_EXTRUDER))
+  	#define _MAX_PROBE_Y (min(Y_MAX_BED - (MIN_PROBE_EDGE), Y_MAX_POS + Y_PROBE_OFFSET_FROM_EXTRUDER))
+  #endif
 
 #endif
 
@@ -1199,17 +1183,19 @@
 #endif
 
 // These may be overridden in Configuration.h if a smaller area is desired
-#ifndef MIN_PROBE_X
-  #define MIN_PROBE_X _MIN_PROBE_X
-#endif
-#ifndef MIN_PROBE_Y
-  #define MIN_PROBE_Y _MIN_PROBE_Y
-#endif
-#ifndef MAX_PROBE_X
-  #define MAX_PROBE_X _MAX_PROBE_X
-#endif
-#ifndef MAX_PROBE_Y
-  #define MAX_PROBE_Y _MAX_PROBE_Y
+#if DISABLED(WANHAO_I3_PLUS)
+  #ifndef MIN_PROBE_X
+    #define MIN_PROBE_X _MIN_PROBE_X
+  #endif
+  #ifndef MIN_PROBE_Y
+    #define MIN_PROBE_Y _MIN_PROBE_Y
+  #endif
+  #ifndef MAX_PROBE_X
+    #define MAX_PROBE_X _MAX_PROBE_X
+  #endif
+  #ifndef MAX_PROBE_Y
+    #define MAX_PROBE_Y _MAX_PROBE_Y
+  #endif
 #endif
 
 /**
@@ -1303,37 +1289,21 @@
   #endif
 #endif
 
-#if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
-  #ifndef LEFT_PROBE_BED_POSITION
-    #define LEFT_PROBE_BED_POSITION MIN_PROBE_X
+#if DISABLED(WANHAO_I3_PLUS)
+  #if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
+    #ifndef LEFT_PROBE_BED_POSITION
+      #define LEFT_PROBE_BED_POSITION MIN_PROBE_X
+    #endif
+    #ifndef RIGHT_PROBE_BED_POSITION
+      #define RIGHT_PROBE_BED_POSITION MAX_PROBE_X
+    #endif
+    #ifndef FRONT_PROBE_BED_POSITION
+      #define FRONT_PROBE_BED_POSITION MIN_PROBE_Y
+    #endif
+    #ifndef BACK_PROBE_BED_POSITION
+      #define BACK_PROBE_BED_POSITION MAX_PROBE_Y
+    #endif
   #endif
-  #ifndef RIGHT_PROBE_BED_POSITION
-    #define RIGHT_PROBE_BED_POSITION MAX_PROBE_X
-  #endif
-  #ifndef FRONT_PROBE_BED_POSITION
-    #define FRONT_PROBE_BED_POSITION MIN_PROBE_Y
-  #endif
-  #ifndef BACK_PROBE_BED_POSITION
-    #define BACK_PROBE_BED_POSITION MAX_PROBE_Y
-  #endif
-#endif
-
-/**
- * Bed Probe dependencies
- */
- 
-#if ENABLED(FIX_MOUNTED_PROBE)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING true
-#endif
-
-#if ENABLED(BLTOUCH)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING false
 #endif
 
 /**
@@ -1422,24 +1392,6 @@
   #endif
 #endif
 
-/**
- * Bed Probe dependencies
- */
- 
-#if ENABLED(FIX_MOUNTED_PROBE)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING true
-#endif
-
-#if ENABLED(BLTOUCH)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING false
-#endif
-
 // Number of VFAT entries used. Each entry has 13 UTF-16 characters
 #if ENABLED(SCROLL_LONG_FILENAMES)
   #define MAX_VFAT_ENTRIES (5)
@@ -1478,24 +1430,6 @@
 
 #if ENABLED(SDCARD_SORT_ALPHA)
   #define HAS_FOLDER_SORTING (FOLDER_SORTING || ENABLED(SDSORT_GCODE))
-#endif
-
-/**
- * Bed Probe dependencies
- */
- 
-#if ENABLED(FIX_MOUNTED_PROBE)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING true
-#endif
-
-#if ENABLED(BLTOUCH)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING false
 #endif
 
 /**

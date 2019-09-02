@@ -25,12 +25,56 @@
 
 #include "MarlinConfig.h"
 
+#if ENABLED(WANHAO_I3_PLUS)
+  // @advi3++: ADVi3++ is similar to ULTRA LCD but with a different implementation
+  #include "advi3pp.h"
+
+  #if ENABLED(I3PLUS_LCD)
+      inline void lcd_init() { /* Nothing to do */ }
+      inline bool lcd_detected() { return true; }
+      inline void lcd_update() {  /* Nothing to do */ }
+
+      inline bool lcd_hasstatus() { return advi3pp::ADVi3pp::has_status(); }
+      inline void lcd_setstatus(const char* const message, const bool persist=false) { advi3pp::ADVi3pp::set_status(message); }
+      inline void lcd_setstatusPGM(const char* const message, const int8_t level=0) { advi3pp::ADVi3pp::set_status(reinterpret_cast<const FlashChar*>(message)); }
+      inline void lcd_setalertstatusPGM(const char* message) { advi3pp::ADVi3pp::set_status(reinterpret_cast<const FlashChar*>(message)); }
+      inline void lcd_reset_alert_level() { /* Do nothing */ }
+      inline void lcd_reset_status() { advi3pp::ADVi3pp::reset_status(); }
+      inline void lcd_status_printf_P(uint8_t, const char * fmt, ...) { va_list args; va_start(args, fmt);
+          advi3pp::ADVi3pp::set_status(reinterpret_cast<const FlashChar*>(fmt), args); va_end(args); }
+
+      inline void lcd_buttons_update() { /* Do nothing */ }
+      inline void lcd_refresh() { /* Do nothing */ }
+      inline void lcd_buzz(const long duration, const uint16_t freq) { advi3pp::ADVi3pp::buzz(duration, freq); }
+
+      #if ENABLED(ADVANCED_PAUSE_FEATURE)
+      extern uint8_t active_extruder;
+      inline void lcd_advanced_pause_show_message(AdvancedPauseMessage message,
+                                           AdvancedPauseMode mode=ADVANCED_PAUSE_MODE_PAUSE_PRINT,
+                                           uint8_t extruder=active_extruder)
+      {
+          advi3pp::ADVi3pp::advanced_pause_show_message(message);
+      }
+
+      inline void kill_screen(const char* msg) { advi3pp::ADVi3pp::set_status(msg); }
+
+  #if ENABLED(LCD_SET_PROGRESS_MANUALLY)
+      extern uint8_t progress_bar_percent;
+      #endif
+ 
+      extern int16_t lcd_contrast;
+      inline void set_lcd_contrast(const int16_t value) { advi3pp::ADVi3pp::set_brightness(value); }
+
+      #endif // ADVANCED_PAUSE_FEATURE
+   #endif
+#endif
+
 #if ENABLED(ULTRA_LCD) || ENABLED(MALYAN_LCD)
   void lcd_init();
   bool lcd_detected();
   void lcd_update();
   void lcd_setalertstatusPGM(const char* message);
-#else
+#elif DISABLED(I3PLUS_LCD)
   inline void lcd_init() {}
   inline bool lcd_detected() { return true; }
   inline void lcd_update() {}
@@ -196,7 +240,7 @@
     void wait_for_release();
   #endif
 
-#else // MALYAN_LCD or no LCD
+#elif DISABLED(I3PLUS_LCD) // @advi3++: ADVi3++ LCD functions are all defined on the top of this file
 
   constexpr bool lcd_wait_for_move = false;
 
@@ -237,7 +281,7 @@
   extern volatile uint8_t buttons;  // The last-checked buttons in a bit array.
   void lcd_buttons_update();
 
-#else
+#elif DISABLED(I3PLUS_LCD) // @advi3++: ADVi3++ LCD functions are all defined on the top of this file
 
   inline void lcd_buttons_update() {}
 

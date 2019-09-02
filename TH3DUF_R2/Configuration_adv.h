@@ -20,11 +20,68 @@
  *
  */
 
-// DO NOT TOUCH THESE SETTINGS.
-
 #ifndef CONFIGURATION_ADV_H
 #define CONFIGURATION_ADV_H
 #define CONFIGURATION_ADV_H_VERSION 010109
+
+#if ENABLED(BLTOUCH)
+  /**
+   * Either: Use the defaults (recommended) or: For special purposes, use the following DEFINES
+   * Do not activate settings that the probe might not understand. Clones might misunderstand
+   * advanced commands.
+   *
+   * Note: If the probe is not deploying, check a "Cmd: Reset" and "Cmd: Self-Test" and then
+   *       check the wiring of the BROWN, RED and ORANGE wires.
+   *
+   * Note: If the trigger signal of your probe is not being recognized, it has been very often
+   *       because the BLACK and WHITE wires needed to be swapped. They are not "interchangeable"
+   *       like they would be with a real switch. So please check the wiring first.
+   *
+   * Settings for all BLTouch and clone probes:
+   */
+
+  // Safety: The probe needs time to recognize the command.
+  //         Minimum command delay (ms). Enable and increase if needed.
+  //#define BLTOUCH_DELAY 500
+
+  /**
+   * Settings for BLTOUCH Classic 1.2, 1.3 or BLTouch Smart 1.0, 2.0, 2.2, 3.0, 3.1, and most clones:
+   */
+
+  // Feature: Switch into SW mode after a deploy. It makes the output pulse longer. Can be useful
+  //          in special cases, like noisy or filtered input configurations.
+  //#define BLTOUCH_FORCE_SW_MODE
+
+  /**
+   * Settings for BLTouch Smart 3.0 and 3.1
+   * Summary:
+   *   - Voltage modes: 5V and OD (open drain - "logic voltage free") output modes
+   *   - High-Speed mode
+   *   - Disable LCD voltage options
+   */
+
+  /**
+   * Danger: Don't activate 5V mode unless attached to a 5V-tolerant controller!
+   * V3.0 or 3.1: Set default mode to 5V mode at Marlin startup.
+   * If disabled, OD mode is the hard-coded default on 3.0
+   * On startup, Marlin will compare its eeprom to this vale. If the selected mode
+   * differs, a mode set eeprom write will be completed at initialization.
+   * Use the option below to force an eeprom write to a V3.1 probe regardless.
+   */
+  //#define BLTOUCH_SET_5V_MODE
+
+  /**
+   * Safety: Activate if connecting a probe with an unknown voltage mode.
+   * V3.0: Set a probe into mode selected above at Marlin startup. Required for 5V mode on 3.0
+   * V3.1: Force a probe with unknown mode into selected mode at Marlin startup ( = Probe EEPROM write )
+   * To preserve the life of the probe, use this once then turn it off and re-flash.
+   */
+  //#define BLTOUCH_FORCE_MODE_SET
+
+  // Safety: Enable voltage mode settings in the LCD menu.
+  //#define BLTOUCH_LCD_VOLTAGE_MENU
+
+#endif // BLTOUCH
 
 #if ENABLED(TH3D_RGB_STRIP)
   #define LED_CONTROL_MENU
@@ -194,8 +251,10 @@
 #if ENABLED(JUNCTION_DEVIATION_ON)
   #if DISABLED(POWER_LOSS_RECOVERY)
     #if DISABLED(ANET_PRINTER)
-      #define JUNCTION_DEVIATION
-      #define JUNCTION_DEVIATION_MM 0.02
+      #if DISABLED(WANHAO_I3_PLUS)
+        #define JUNCTION_DEVIATION
+        #define JUNCTION_DEVIATION_MM 0.02
+      #endif
     #endif
   #endif
 #endif
@@ -252,6 +311,9 @@
 
 #if DISABLED(LCD2004)
   #define LCD_SET_PROGRESS_MANUALLY
+  #if ENABLED(WANHAO_I3_PLUS)
+    #define LCD_PROGRESS_BAR
+  #endif
 #else
   #define LCD_PROGRESS_BAR
   #define PROGRESS_BAR_BAR_TIME 2000
@@ -277,7 +339,9 @@
     #define BABYSTEP_MULTIPLICATOR 10
   #endif
   #if ENABLED(EZABL_ENABLE) && DISABLED(LCD2004)   
-    #define BABYSTEP_ZPROBE_GFX_OVERLAY
+    #if DISABLED(WANHAO_I3_PLUS)
+      #define BABYSTEP_ZPROBE_GFX_OVERLAY
+    #endif
   #endif
   #define DOUBLECLICK_FOR_Z_BABYSTEPPING
   #define DOUBLECLICK_MAX_INTERVAL 2000 
@@ -306,7 +370,11 @@
 
 #define BLOCK_BUFFER_SIZE 16
 #define MAX_CMD_SIZE 96
-#define BUFSIZE 4
+#if ENABLED(WANHAO_I3_PLUS)
+  #define BUFSIZE 8
+#else
+  #define BUFSIZE 4
+#endif
 #define TX_BUFFER_SIZE 0
 
 #define ADVANCED_PAUSE_FEATURE
@@ -337,6 +405,11 @@
 #endif
 
 #define AUTO_REPORT_TEMPERATURES
+
+#if ENABLED(WANHAO_I3_PLUS)
+  #define EMERGENCY_PARSER
+  #define ACTION_ON_KILL "poweroff"
+#endif
 
 #if DISABLED(SLIM_1284P)
   #define EXTENDED_CAPABILITIES_REPORT
