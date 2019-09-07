@@ -45,6 +45,11 @@
     #define DISABLE_BOOT
   #endif
 #endif
+#if ENABLED(CR10S_PRO_OEM)
+  #define EZABL_ENABLE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -27
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
+#endif
 #if ENABLED(WANHAO_I3_PLUS_EZABL)
   #define ADVi3PP_PROBE
   #define ADVi3PP_MARK2
@@ -187,6 +192,76 @@
   #define EZABL_ENABLE
   #define DISABLE_BOOT
 #endif
+
+//CR-10S Pro Settings
+#if ENABLED(CR10S_PRO)
+#ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #endif
+  
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+  
+  #define BAUDRATE 115200
+
+  #define X_MIN_ENDSTOP_INVERTING false
+  #define Y_MIN_ENDSTOP_INVERTING false
+  #define Z_MIN_ENDSTOP_INVERTING false
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
+    #endif
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 70 }
+  #define DEFAULT_MAX_ACCELERATION      { 750, 750, 100, 1000 }
+
+  #define DEFAULT_ACCELERATION          300    
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   300    
+  
+  #define DEFAULT_XJERK                  8.0
+  #define DEFAULT_YJERK                  8.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 300
+  #define Z_MAX_POS 400
+  
+  #define REVERSE_MENU_DIRECTION
+  
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+  
+  #define ENCODER_PULSES_PER_STEP 1
+  #define ENCODER_STEPS_PER_MENU_ITEM 5
+  
+  #define PRINTER_ENABLED_CHECK
+#endif //end cr-10s pro settings
 
 //Wanhao i3 Plus Settings
 #if ENABLED(WANHAO_I3_PLUS)

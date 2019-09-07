@@ -227,6 +227,24 @@
 //#define EZOUTV2_DUAL_ENABLE
 
 //===========================================================================
+// Creality CR-10S Pro Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define CR10S_PRO
+
+// What LCD are you using?
+//#define REPRAP_12864
+// Stock Touch LCD is not supported at this time.
+// Info on converting the LCD can be found here: 
+
+// If you are using our EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
+
+// EZABL Probe Mounts
+//#define CR10S_PRO_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // Creality CR-20 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define CR20
