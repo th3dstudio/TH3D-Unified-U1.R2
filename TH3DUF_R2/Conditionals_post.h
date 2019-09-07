@@ -986,10 +986,17 @@
  */
  
 #if ENABLED(FIX_MOUNTED_PROBE)
-  #undef Z_MIN_PROBE_ENDSTOP_INVERTING
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  #undef Z_MIN_ENDSTOP_INVERTING
-  #define Z_MIN_ENDSTOP_INVERTING true
+  #if ENABLED(CR10S_PRO_STOCK_ABL) && ENABLED(CR10S_PRO)
+    #undef Z_MIN_PROBE_ENDSTOP_INVERTING
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+    #undef Z_MIN_ENDSTOP_INVERTING
+    #define Z_MIN_ENDSTOP_INVERTING false
+  #else
+    #undef Z_MIN_PROBE_ENDSTOP_INVERTING
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+    #undef Z_MIN_ENDSTOP_INVERTING
+    #define Z_MIN_ENDSTOP_INVERTING true
+  #endif
 #endif
 
 // If you are changing these to use the Creality or SainSmart kit these kits are a very low end rip-off copy of our EZABL kits. Support the original creators and user the code BETTERABL for 10% off our EZABL kits.
