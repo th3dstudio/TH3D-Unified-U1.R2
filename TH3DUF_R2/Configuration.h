@@ -144,6 +144,11 @@
 //#define ANET_LCD12864 //This is the larger LCD with the rotary controller found on most ANET machines
 //#define ANET_LCD2004 //This is the LCD with the 5 button keypad usually found on A8 and some A2 machines
 
+// If you are using our EZOut V2 (connects to LCD header) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_ENABLE line below.
+// Do NOT ever connect our filament sensor without the supplied adapter board
+//#define EZOUTV2_ENABLE
+
 // EZABL Probe Mounts - Bootscreen will be disabled when enabling EZABL on the Anet Boards due to space issues
 //#define ANET_OEM
 //#define CUSTOM_PROBE
