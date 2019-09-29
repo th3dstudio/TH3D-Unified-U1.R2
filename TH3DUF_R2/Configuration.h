@@ -179,6 +179,14 @@
 //#define TMC_CREALITY_BOARD
 
 //===========================================================================
+// Creality CR-10 V2 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define CR10_V2
+
+// EZABL Probe Mounts
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // Creality CR-10S Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define CR10S
