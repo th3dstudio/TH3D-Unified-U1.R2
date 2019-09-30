@@ -129,20 +129,12 @@
 // ANET Printers Options - Select 'ANET V1.0' from Tools > Board
 //===========================================================================
 // Uncomment the ANET Model you are using
-//#define ANET_A2 //** please see option below to choose bed size for the A2 only!!
+//#define ANET_A2
 //#define ANET_A6
 //#define ANET_A8
+//#define ANET_A8_PLUS
 //#define ANET_E10
 //#define ANET_E12
-
-// Choose bed size for A2 only
-// IGNORE THESE OPTIONS FOR MACHINES OTHER THAN THE A2
-//#define A2_SMALL_BED //(220x220)
-//#define A2_LARGE_BED //(220x270)
-
-// Choose which type of LCD you have (Select One option)
-//#define ANET_LCD12864 //This is the larger LCD with the rotary controller found on most ANET machines
-//#define ANET_LCD2004 //This is the LCD with the 5 button keypad usually found on A8 and some A2 machines
 
 // If you are using our EZOut V2 (connects to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUTV2_ENABLE line below.
@@ -152,6 +144,15 @@
 // EZABL Probe Mounts - Bootscreen will be disabled when enabling EZABL on the Anet Boards due to space issues
 //#define ANET_OEM
 //#define CUSTOM_PROBE
+
+// Extra Anet Options ----------------------------------------------------------
+
+// If you have the larger A2 bed (220x270) uncomment the below line.
+//#define A2_LARGE_BED
+
+// LCD Overide - Change if you have a different screen than the one that came with the printer by default
+//#define ANET_LCD12864   // Rotary Encoder Model
+//#define ANET_LCD2004    // 5 Button Keypad Model
 
 //===========================================================================
 // *************************   CREALITY PRINTERS    *************************

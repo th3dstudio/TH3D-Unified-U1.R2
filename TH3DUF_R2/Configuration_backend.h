@@ -41,7 +41,7 @@
 //Sensor Mounts
 #if ENABLED(CUSTOM_PROBE)
   #define EZABL_ENABLE
-  #if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12)
+  #if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12) || ENABLED(ANET_A8_PLUS)
     #define DISABLE_BOOT
   #endif
 #endif
@@ -2082,7 +2082,7 @@
 #endif //end taz5
 
 //ANET Model Settings
-#if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12) || ENABLED(ANET_E16)
+#if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12) || ENABLED(ANET_E16) || ENABLED(ANET_A8_PLUS)
   #define SLIM_1284P
   
   #define ANET_PRINTER
@@ -2134,19 +2134,28 @@
   #define DEFAULT_ZJERK                  0.4
   #define DEFAULT_EJERK                  5.0
   
-  #if ENABLED(ANET_LCD2004)
-    #define ZONESTAR_LCD
-    #define LCD2004
-  #endif
-  #if ENABLED(ANET_LCD12864)
-    #define ANET_FULL_GRAPHICS_LCD
+  #if ENABLED(ANET_LCD2004) || ENABLED(ANET_LCD12864)
+    #if ENABLED(ANET_LCD2004)
+      #define ZONESTAR_LCD
+      #define LCD2004
+    #endif
+    #if ENABLED(ANET_LCD12864)
+      #define ANET_FULL_GRAPHICS_LCD
+    #endif
+  #else
+    #if ENABLED(ANET_A2) || ENABLED(ANET_A8)
+      #define ZONESTAR_LCD
+      #define LCD2004
+    #else
+      #define ANET_FULL_GRAPHICS_LCD
+    #endif
   #endif
 
   #define Z_MIN_POS 0
   #define X_MAX_POS X_BED_SIZE
   #define Y_MAX_POS Y_BED_SIZE
   
-  #if ENABLED(A2_SMALL_BED)   
+  #if ENABLED(ANET_A2) && DISABLED(A2_LARGE_BED)   
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2171,12 +2180,12 @@
     #define INVERT_Z_DIR false
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E0_DIR true
-	#else
+    #else
       #define INVERT_E0_DIR false
     #endif 
-#endif
+  #endif
 
-#if ENABLED(A2_LARGE_BED)
+  #if ENABLED(ANET_A2) && ENABLED(A2_LARGE_BED)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2203,9 +2212,9 @@
 	#else
       #define INVERT_E0_DIR false
     #endif
-#endif
+  #endif
 
-#if ENABLED(ANET_A6)
+  #if ENABLED(ANET_A6)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2230,44 +2239,76 @@
     #define INVERT_Z_DIR true
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E0_DIR true
-	#else
+    #else
       #define INVERT_E0_DIR false
     #endif
-#endif
 
-#if ENABLED(ANET_A8)
-  #if ENABLED(HOME_ADJUST)
-     #define X_MIN_POS X_HOME_ADJUST_LOCATION
-     #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
-  #else
-     #define X_MIN_POS -33
-     #define Y_MIN_POS -10
   #endif
-  
-  #define DIRECT_DRIVE_PRINTER
+  #if ENABLED(ANET_A8)
+    #if ENABLED(HOME_ADJUST)
+       #define X_MIN_POS X_HOME_ADJUST_LOCATION
+       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+    #else
+       #define X_MIN_POS -33
+       #define Y_MIN_POS -10
+    #endif
     
-  #define X_BED_SIZE 220
-  #define Y_BED_SIZE 220
-  #define Z_MAX_POS 240
+    #define DIRECT_DRIVE_PRINTER
+      
+    #define X_BED_SIZE 220
+    #define Y_BED_SIZE 220
+    #define Z_MAX_POS 240
+      
+    #if ENABLED(ANET_OEM)
+      #define X_PROBE_OFFSET_FROM_EXTRUDER -26
+      #define Y_PROBE_OFFSET_FROM_EXTRUDER -40
+    #endif
+     
+    #define INVERT_X_DIR false
+    #define INVERT_Y_DIR false
+    #define INVERT_Z_DIR true
     
-  #if ENABLED(ANET_OEM)
-    #define X_PROBE_OFFSET_FROM_EXTRUDER -26
-    #define Y_PROBE_OFFSET_FROM_EXTRUDER -40
-  #endif
-   
-  #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
-  
-  #if ENABLED(TITAN_EXTRUDER)
-    #define INVERT_E0_DIR true
-  #else
-    #define INVERT_E0_DIR false
+    #if ENABLED(TITAN_EXTRUDER)
+      #define INVERT_E0_DIR true
+    #else
+      #define INVERT_E0_DIR false
+    #endif
+    
   #endif
   
-#endif
+  #if ENABLED(ANET_A8_PLUS)
+    #if ENABLED(HOME_ADJUST)
+       #define X_MIN_POS X_HOME_ADJUST_LOCATION
+       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+    #else
+       #define X_MIN_POS -21
+       #define Y_MIN_POS -7
+    #endif
+    
+    #define DIRECT_DRIVE_PRINTER
+      
+    #define X_BED_SIZE 300
+    #define Y_BED_SIZE 300
+    #define Z_MAX_POS 350
+      
+    #if ENABLED(ANET_OEM)
+      #define X_PROBE_OFFSET_FROM_EXTRUDER -24
+      #define Y_PROBE_OFFSET_FROM_EXTRUDER -42
+    #endif
+     
+    #define INVERT_X_DIR true
+    #define INVERT_Y_DIR true
+    #define INVERT_Z_DIR true
+    
+    #if ENABLED(TITAN_EXTRUDER)
+      #define INVERT_E0_DIR true
+    #else
+      #define INVERT_E0_DIR false
+    #endif
+    
+  #endif
 
-#if ENABLED(ANET_E10)
+  #if ENABLED(ANET_E10)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2291,13 +2332,13 @@
 	
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E0_DIR false
-	#else
+    #else
       #define INVERT_E0_DIR true
     #endif
 	
-#endif
+  #endif
 
-#if ENABLED(ANET_E12)
+  #if ENABLED(ANET_E12)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2323,9 +2364,9 @@
     #else
       #define INVERT_E0_DIR true
     #endif
-#endif
+  #endif
 
-#define PRINTER_ENABLED_CHECK
+  #define PRINTER_ENABLED_CHECK
   
 #endif //End ANET model settings
 
