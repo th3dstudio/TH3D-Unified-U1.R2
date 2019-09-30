@@ -41,9 +41,6 @@
 //Sensor Mounts
 #if ENABLED(CUSTOM_PROBE)
   #define EZABL_ENABLE
-  #if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12) || ENABLED(ANET_A8_PLUS)
-    #define DISABLE_BOOT
-  #endif
 #endif
 #if ENABLED(CR10S_PRO_OEM)
   #define EZABL_ENABLE
@@ -190,7 +187,6 @@
 #endif
 #if ENABLED(ANET_OEM)
   #define EZABL_ENABLE
-  #define DISABLE_BOOT
 #endif
 
 //CR-10 V2 Settings
@@ -2727,9 +2723,7 @@
 
 #if ENABLED(S_CURVE_ACCELERATION_ON)
   #if DISABLED(POWER_LOSS_RECOVERY)
-    #if DISABLED(ANET_PRINTER)
-      #define S_CURVE_ACCELERATION
-    #endif
+    #define S_CURVE_ACCELERATION
   #endif
 #endif
 

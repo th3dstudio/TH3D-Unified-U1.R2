@@ -911,7 +911,7 @@
 //
 //#define BLTOUCH
 //#define BLTOUCH_V3
-// Here is where you set your servo pin. EZOut Servo Pin Numbers: Ender3/5/CR-10 - 27, Ender 2 - 29. For 2560 boards look for the pin you connected the servo wire to and enter below.
+// Here is where you set your servo pin. EZOut Servo Pin Numbers: Anet(with 2004LCD)/Ender3/5/CR-10 - 27, Anet(with 12864LCD)/Ender 2 - 29. For 2560 boards look for the pin you connected the servo wire to and enter below.
 //#define SERVO0_PIN 27
 //
 // NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
@@ -935,7 +935,6 @@
 // MOTION SETTINGS ---------------------------------
 // There are 2 new acceleration/jerk controls available in this firmware that can result is better print quality and
 // smoother movement. To try each out just enable them below.
-// Due to Anet board restrictions this is always disabled on those machines.
 // Junction Deviation is NOT supported on the Wanhao i3 Plus at this time.
 //#define JUNCTION_DEVIATION_ON
 //#define S_CURVE_ACCELERATION_ON

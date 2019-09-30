@@ -250,11 +250,9 @@
 
 #if ENABLED(JUNCTION_DEVIATION_ON)
   #if DISABLED(POWER_LOSS_RECOVERY)
-    #if DISABLED(ANET_PRINTER)
-      #if DISABLED(WANHAO_I3_PLUS)
-        #define JUNCTION_DEVIATION
-        #define JUNCTION_DEVIATION_MM 0.02
-      #endif
+    #if DISABLED(WANHAO_I3_PLUS)
+      #define JUNCTION_DEVIATION
+      #define JUNCTION_DEVIATION_MM 0.02
     #endif
   #endif
 #endif
