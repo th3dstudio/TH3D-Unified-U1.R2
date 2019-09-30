@@ -2513,6 +2513,8 @@
       #else
         #define TEMP_SENSOR_BED 1
       #endif
+    #elif ENABLED(ANET_PRINTER)
+      #define TEMP_SENSOR_BED 1
     #else
       #define TEMP_SENSOR_BED 5
     #endif
