@@ -806,13 +806,16 @@
 #define TH3D_RGB_STRIP_LED_COUNT 20
 
 // EXTRUDER SETTINGS -------------------------------
+// Use to set custom esteps and/or reverse your E Motor direction if you are installing an extruder that needs the direction reversed.
+// If you reversed the wiring on your E motor already (like the Bondtech Guide says to do) then you do not need to reverse it in the firmware here.
 
 // If you want to change the Esteps for your printer you can uncomment the below line and set CUSTOM_ESTEPS_VALUE to what you want - USE WHOLE NUMBERS ONLY
+// This option sets the esteps from the CUSTOM_ESTEPS_VALUE line below and does NOT reverse the E motor direction.
 //#define CUSTOM_ESTEPS
 #define CUSTOM_ESTEPS_VALUE 999
 
-// If you are using an TH3D Tough Extruder, Bondtech BMG (set steps below to 415), or E3D Titan Extruder
-// uncomment the below line to setup the firmware to the correct steps and direction. Also applicable to Titan/Tough Aero setups.
+// If you are using an TH3D Tough Extruder or E3D Titan Extruder uncomment the below line to setup the firmware to the correct steps and direction. Also applicable to Tough Direct or Titan Aero setups.
+// This option sets the esteps from the TITAN_EXTRUDER_STEPS line below and reverses the E motor direction.
 //#define TITAN_EXTRUDER
 #define TITAN_EXTRUDER_STEPS 463
 
@@ -822,7 +825,7 @@
 // This setting only applies to printers using a dual extruder board.
 #define DUAL_HOTEND_X_DISTANCE 18.0
 
-// THERMISTOR SETTINGS -----------------------------
+// HOTEND THERMISTOR SETTINGS ----------------------
 
 // If you are using an E3D V6 Hotend with their cartridge thermistor (not glass version) uncomment the below line.
 //#define V6_HOTEND
@@ -830,19 +833,23 @@
 // If you are using a Tough Hotend from TH3D or any thermistors TH3D sells for your hotend uncomment the below line.
 //#define TH3D_HOTEND_THERMISTOR
 
+// If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE
+//#define KNOWN_HOTEND_THERMISTOR
+//#define KNOWN_HOTEND_THERMISTOR_VALUE X
+
+// BED THERMISTOR SETTINGS -------------------------
+
 // If you are using a thermistor TH3D sells for your bed uncomment the below line.
 //#define TH3D_BED_THERMISTOR
 
 // If you are using a Keenovo with SSR and the Keenovo temperature sensor uncomment the below line.
 //#define KEENOVO_TEMPSENSOR
 
-// If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE
-//#define KNOWN_HOTEND_THERMISTOR
-//#define KNOWN_HOTEND_THERMISTOR_VALUE X
-
 // If you are using a known bed thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_BED_THERMISTOR_VALUE
 //#define KNOWN_BED_THERMISTOR
 //#define KNOWN_BED_THERMISTOR_VALUE X
+
+// THERMAL RUNAWAY PROTECTION SETTINGS -------------
 
 // If you want to make thermal protection periods less or more adjust below. The number is in seconds.
 // If you are getting false thermal runaway then increase the protection time. Do not make it over 300 for either setting.
@@ -928,7 +935,7 @@
 // Continue after Power-Loss feature will store the current state to the SD Card at the start of each layer
 // during SD printing. If this is found at bootup it will ask you if you want to resume the print.
 //
-// NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.3
+// NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.
 // Power Loss Recovery is NOT supported on the Wanhao i3 Plus at this time.
 //#define POWER_LOSS_RECOVERY
 

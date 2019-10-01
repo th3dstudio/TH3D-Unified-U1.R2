@@ -36,6 +36,12 @@
   #error "Marlin requires C++11 support (gcc >= 4.7, Arduino IDE >= 1.6.8). Please upgrade your toolchain."
 #endif
 
+// Because people don't RTFM.
+
+#if ENABLED(CUSTOM_ESTEPS) && ENABLED(TITAN_EXTRUDER)
+  #error "CUSTOM_ESTEPS and TITAN_EXTRUDER cannot be used together. Read the information by each option and pick which one applies to your setup."
+#endif
+
 #if ENABLED(EZOUT_ENABLE) && ENABLED(EZOUTV2_ENABLE)
   #error "Only use one type of EZOut sensor at a time. Please read the EZOut installation guide for details."
 #endif
@@ -46,6 +52,30 @@
 
 #if ENABLED(TH3D_HOTEND_THERMISTOR) && ENABLED(V6_HOTEND)
   #error "Only select one type of hotend thermistor setting."
+#endif
+
+#if ENABLED(TH3D_HOTEND_THERMISTOR) && ENABLED(KNOWN_HOTEND_THERMISTOR)
+  #error "Only select one type of hotend thermistor setting."
+#endif
+
+#if ENABLED(V6_HOTEND) && ENABLED(KNOWN_HOTEND_THERMISTOR)
+  #error "Only select one type of hotend thermistor setting."
+#endif
+
+#if ENABLED(KEENOVO_TEMPSENSOR) && ENABLED(KNOWN_BED_THERMISTOR)
+  #error "Only select one type of bed thermistor setting."
+#endif
+
+#if ENABLED(KEENOVO_TEMPSENSOR) && ENABLED(TH3D_BED_THERMISTOR)
+  #error "Only select one type of bed thermistor setting."
+#endif
+
+#if ENABLED(KNOWN_BED_THERMISTOR) && ENABLED(TH3D_BED_THERMISTOR)
+  #error "Only select one type of bed thermistor setting."
+#endif
+
+#if (ENABLED(KNOWN_BED_THERMISTOR) || ENABLED(TH3D_BED_THERMISTOR) || ENABLED(KEENOVO_TEMPSENSOR)) && ENABLED(AC_BED)
+  #error "You cannot define a thermistor and use the AC_BED option. Use one or the other."
 #endif
 
 #if ENABLED(CR10S_NOFILAMENTSENSOR) && (ENABLED(EZOUT_ENABLE) || ENABLED(EZOUTV2_ENABLE))
