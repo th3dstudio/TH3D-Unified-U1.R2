@@ -800,12 +800,6 @@
 //******************** EXTRA FEATURES AND TWEAKS ****************************
 //===========================================================================
 
-// TH3D RGB LED STRIP ------------------------------
-// If you are using the TH3D RGB strip connect to the Z+ endstop connection, power supply connection, and uncomment the below line
-//#define TH3D_RGB_STRIP
-// If you cut the strip shorter please count the LEDs that are left, uncomment the line below, and change the number below to how many LEDs you have.
-#define TH3D_RGB_STRIP_LED_COUNT 20
-
 // EXTRUDER SETTINGS -------------------------------
 // Use to set custom esteps and/or reverse your E Motor direction if you are installing an extruder that needs the direction reversed.
 // If you reversed the wiring on your E motor already (like the Bondtech Guide says to do) then you do not need to reverse it in the firmware here.
