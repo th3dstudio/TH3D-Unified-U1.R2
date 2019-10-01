@@ -849,7 +849,7 @@ void Temperature::manage_heater() {
         if(advi3pp::ADVi3pp::is_thermal_protection_enabled())
         {
           // Check for thermal runaway
-          thermal_runaway_protection(&thermal_runaway_state_machine[e], &thermal_runaway_timer[e], current_temperature[e], target_temperature[e], e, THERMAL_PROTECTION_PERIOD,         THERMAL_PROTECTION_HYSTERESIS);
+          thermal_runaway_protection(&thermal_runaway_state_machine[e], &thermal_runaway_timer[e], current_temperature[e], target_temperature[e], e, THERMAL_PROTECTION_PERIOD, THERMAL_PROTECTION_HYSTERESIS);
         }
       #else
         // Check for thermal runaway
