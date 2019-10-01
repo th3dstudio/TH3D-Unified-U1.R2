@@ -77,8 +77,8 @@ namespace
     const FlashChar* get_sensor_name(size_t index)
     {
         // Note: F macro can be used only in a function, this is why this is coded like this
-        auto diicooler           = F("DiiCooler");
-        auto custom              = F("Custom");
+        auto diicooler           = F("Custom 1");
+        auto custom              = F("Custom 2");
 
 #if defined(ADVi3PP_MARK2)
         auto mark2               = F("EZABL OEM");
@@ -97,9 +97,9 @@ namespace
     const advi3pp::SensorPosition DEFAULT_SENSOR_POSITION[advi3pp::SensorSettings::NB_SENSOR_POSITIONS] =
     {
 #if defined(ADVi3PP_MARK2)
-        {  4400, -5000 },    // OEM
-        { -3500, -4000 },    // DiiCooler
-        {     0,     0 }     // Custom
+        { -3500, -4000 },    // OEM
+        {     0,     0 },    // Custom 1
+        {     0,     0 }     // Custom 2
 #elif defined(ADVi3PP_BLTOUCH)
         {  +150, -4270 },    // Baseggio/Indianagio Front
         { -2400, -3800 },    // Teaching Tech L. Side

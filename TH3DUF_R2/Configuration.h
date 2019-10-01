@@ -190,6 +190,7 @@
 //#define CR10_V2
 
 // EZABL Probe Mounts
+//#define CR10V2_OEM
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -245,7 +246,7 @@
 //===========================================================================
 //#define CR10S_PRO
 
-// What LCD are you using?
+// What LCD are you using? (Only 12864 LCD is supported)
 //#define RR_LCD_UPGRADE
 // Stock Touch LCD is not supported at this time.
 // Info on converting the LCD can be found here: 

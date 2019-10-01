@@ -42,6 +42,11 @@
 #if ENABLED(CUSTOM_PROBE)
   #define EZABL_ENABLE
 #endif
+#if ENABLED(CR10V2_OEM)
+  #define EZABL_ENABLE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 52
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 5
+#endif
 #if ENABLED(CR10S_PRO_OEM)
   #define EZABL_ENABLE
   #define X_PROBE_OFFSET_FROM_EXTRUDER -27
@@ -2289,7 +2294,7 @@
       
     #if ENABLED(ANET_OEM)
       #define X_PROBE_OFFSET_FROM_EXTRUDER -24
-      #define Y_PROBE_OFFSET_FROM_EXTRUDER -42
+      #define Y_PROBE_OFFSET_FROM_EXTRUDER -45
     #endif
      
     #define INVERT_X_DIR true
