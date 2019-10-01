@@ -24,7 +24,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../duration_t.h"
+#include "duration_t.h"
 
 class __FlashStringHelper;
 using FlashChar = __FlashStringHelper;

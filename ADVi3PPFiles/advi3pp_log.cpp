@@ -22,7 +22,7 @@
 #include "advi3pp_log.h"
 
 #include <HardwareSerial.h>
-#include "../serial.h"
+#include "serial.h"
 
 namespace advi3pp {
 

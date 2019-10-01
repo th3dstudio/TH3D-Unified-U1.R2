@@ -22,7 +22,7 @@
 
 #include <stdint.h>
 #include <stdarg.h>
-#include "../enum.h"
+#include "enum.h"
 #include "advi3pp_pages.h"
 
 class MarlinSettings;

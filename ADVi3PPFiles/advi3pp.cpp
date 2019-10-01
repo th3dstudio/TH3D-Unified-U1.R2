@@ -20,13 +20,13 @@
 
 #include <HardwareSerial.h>
 
-#include "../serial.h"
-#include "../temperature.h"
-#include "../cardreader.h"
-#include "../planner.h"
-#include "../parser.h"
-#include "../printcounter.h"
-#include "../duration_t.h"
+#include "serial.h"
+#include "temperature.h"
+#include "cardreader.h"
+#include "planner.h"
+#include "parser.h"
+#include "printcounter.h"
+#include "duration_t.h"
 
 #include "advi3pp.h"
 #include "advi3pp_log.h"

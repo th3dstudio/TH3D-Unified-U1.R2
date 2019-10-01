@@ -22,9 +22,9 @@
 #define ADV_I3_PLUS_PLUS_DGUS_H
 
 #ifndef ADVi3PP_UNIT_TEST
-#include "../Marlin.h"
+#include "Marlin.h"
 #endif
-#include "../duration_t.h"
+#include "duration_t.h"
 #include "ADVstring.h"
 
 namespace advi3pp {

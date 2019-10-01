@@ -17,12 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include "../configuration_store.h"
-#include "../temperature.h"
-#include "../cardreader.h"
-#include "../planner.h"
-#include "../parser.h"
-#include "../duration_t.h"
+#include "configuration_store.h"
+#include "temperature.h"
+#include "cardreader.h"
+#include "planner.h"
+#include "parser.h"
+#include "duration_t.h"
 
 #include "advi3pp.h"
 #include "advi3pp_log.h"

@@ -26,11 +26,11 @@
 #define ADVi3PP_PROBE
 #endif
 
-#include "../Marlin.h"
-#include "../temperature.h"
-#include "../printcounter.h"
-#include "../planner.h"
-#include "../point_t.h"
+#include "Marlin.h"
+#include "temperature.h"
+#include "printcounter.h"
+#include "planner.h"
+#include "point_t.h"
 #include "advi3pp_versions.h"
 #include "advi3pp_bitmasks.h"
 #include "advi3pp_enums.h"
