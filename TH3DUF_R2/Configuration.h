@@ -724,6 +724,9 @@
 // If your lcd knob moves the wrong direction uncomment the below line to reverse it
 //#define MKS_KNOB_REVERSE
 
+// If you are using the RepRap 2004 LCD Controller Use the below line to enable that display
+//#define REPRAP_DISCOUNT_SMART_CONTROLLER
+
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************
 //===========================================================================
@@ -964,6 +967,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.16"
+#define UNIFIED_VERSION "TH3D U1.R2.16a"
 
 #endif // CONFIGURATION_H
