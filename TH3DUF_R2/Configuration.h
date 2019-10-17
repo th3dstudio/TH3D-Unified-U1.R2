@@ -181,7 +181,7 @@
 //#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// TMC2208 Creality Board Setting - uncomment this to set the driver type if you are using the TMC Creality board
+// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
 //#define TMC_CREALITY_BOARD
 
 //===========================================================================
@@ -332,7 +332,7 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// TMC2208 Creality Board Setting - uncomment this to set the driver type if you are using the TMC Creality board
+// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
 //#define TMC_CREALITY_BOARD
 
 //=================================================================================================
@@ -403,7 +403,7 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// TMC2208 Creality Board Setting - uncomment this to set the driver type if you are using the TMC Creality board
+// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
 //#define TMC_CREALITY_BOARD
 
 // Use Ender Bootscreeen instead of TH3D
@@ -900,7 +900,7 @@
 
 // LINEAR ADVANCE ----------------------------------
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
-//
+// NOTE: Linear Advance does NOT work with the Creality Silent boards.
 //#define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0

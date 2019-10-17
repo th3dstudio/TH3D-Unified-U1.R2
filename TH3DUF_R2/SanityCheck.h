@@ -36,7 +36,11 @@
   #error "Marlin requires C++11 support (gcc >= 4.7, Arduino IDE >= 1.6.8). Please upgrade your toolchain."
 #endif
 
-// Because people don't RTFM.
+// Because people don't read the directions sometimes, throw errors to prevent issues.
+
+#if ENABLED(LIN_ADVANCE) && ENABLED(TMC_CREALITY_BOARD)
+  #error "Due to the TMC2208 on the Creality board being stuck in StealthChop Linear Advance is not compatible with these boards. Disable Linear Advance and re-compile."
+#endif
 
 #if ENABLED(CUSTOM_ESTEPS) && ENABLED(TITAN_EXTRUDER)
   #error "CUSTOM_ESTEPS and TITAN_EXTRUDER cannot be used together. Read the information by each option and pick which one applies to your setup."
