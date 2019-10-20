@@ -194,6 +194,79 @@
   #define EZABL_ENABLE
 #endif
 
+//CTC I3 Pro B Settings
+#if ENABLED(CTC_I3_PROB)
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_ANET_10
+  #endif
+  
+  #define ANET_LCD2004
+  #define ZONESTAR_LCD
+  #define LCD2004
+  
+  #define BAUDRATE 250000
+
+  #define X_MIN_ENDSTOP_INVERTING false
+  #define Y_MIN_ENDSTOP_INVERTING false
+  #define Z_MIN_ENDSTOP_INVERTING false
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+  
+  #if ENABLED(CTC_I3_T8_LEAD)
+    #define CTC_I3_PROB_LEAD 400
+  #else
+    #define CTC_I3_PROB_LEAD 2560
+  #endif
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, TITAN_EXTRUDER_STEPS }
+  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, CUSTOM_ESTEPS_VALUE }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, 95 }
+    #endif
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 1000 }
+
+  #define DEFAULT_ACCELERATION          500    
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   500    
+  
+  #define DEFAULT_XJERK                  8.0
+  #define DEFAULT_YJERK                  8.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+
+  #define X_BED_SIZE 200
+  #define Y_BED_SIZE 200
+  #define Z_MAX_POS 180
+  
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+  
+  #define PRINTER_ENABLED_CHECK
+#endif //end ctc i3 pro b settings
+
 //CR-10 V2 Settings
 #if ENABLED(CR10_V2)
   #ifndef MOTHERBOARD
@@ -2544,7 +2617,7 @@
     #define TEMP_SENSOR_0 5
   #elif ENABLED(KNOWN_HOTEND_THERMISTOR)
     #define TEMP_SENSOR_0 KNOWN_HOTEND_THERMISTOR_VALUE
-  #elif ENABLED(TH3D_HOTEND_THERMISTOR) || ENABLED(TH3D_EZ300)
+  #elif ENABLED(TH3D_HOTEND_THERMISTOR)
     #define TEMP_SENSOR_0 1
   #elif ENABLED(WANHAO_D6)
     #define TEMP_SENSOR_0 20
