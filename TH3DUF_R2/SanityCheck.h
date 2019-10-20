@@ -38,7 +38,7 @@
 
 // Because people don't read the directions sometimes, throw errors to prevent issues.
 
-#if ENABLED(LIN_ADVANCE) && ENABLED(TMC_CREALITY_BOARD)
+#if ENABLED(LIN_ADVANCE) && (ENABLED(TMC_CREALITY_BOARD) || ENABLED(CR10_V2))
   #error "Due to the TMC2208 on the Creality board being stuck in StealthChop Linear Advance is not compatible with these boards. Disable Linear Advance and re-compile."
 #endif
 

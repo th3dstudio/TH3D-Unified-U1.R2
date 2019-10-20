@@ -939,7 +939,7 @@
 
 // LINEAR ADVANCE ----------------------------------
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
-// NOTE: Linear Advance does NOT work with the Creality Silent boards.
+// NOTE: Linear Advance does NOT work with the Creality Silent boards or the CR-10 V2.
 //#define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0
