@@ -139,7 +139,7 @@
 //===========================================================================
 // Artillery AL-4 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
-#define ARTILLERY_AL4
+//#define ARTILLERY_AL4
 
 // If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
