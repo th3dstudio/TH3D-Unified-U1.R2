@@ -69,9 +69,13 @@
   #define Y_MAX_PIN          -1
 #endif
 
-
-#define Z_MIN_PIN          18
-#define Z_MAX_PIN          19
+#if ENABLED(CR10_MAX)
+  #define Z_MIN_PIN          19
+  #define Z_MAX_PIN          18
+#else
+  #define Z_MIN_PIN          18
+  #define Z_MAX_PIN          19
+#endif
 
 //
 // Z Probe (when not Z_MIN_PIN)

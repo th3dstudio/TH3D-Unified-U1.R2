@@ -250,7 +250,7 @@
 // What LCD are you using? (Only 12864 LCD is supported)
 //#define RR_LCD_UPGRADE
 // Stock Touch LCD is not supported at this time.
-// Info on converting the LCD can be found here: 
+// Info on converting the LCD can be found here: COMING SOON
 
 // EZABL/ABL Probe Mounts
 //#define CR10S_PRO_OEM
@@ -258,6 +258,23 @@
 
 // If you are using the stock Creality ABL probe uncomment the below line
 //#define CR10S_PRO_STOCK_ABL
+
+//===========================================================================
+// Creality CR-10 Max Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define CR10_MAX
+
+// What LCD are you using? (Only 12864 LCD is supported)
+//#define RR_LCD_UPGRADE
+// Stock Touch LCD is not supported at this time.
+// Info on converting the LCD can be found here: COMING SOON
+
+// EZABL/ABL Probe Mounts
+//#define CUSTOM_PROBE
+
+// If you are using the stock BL Touch sensor uncomment the below line
+// If you are using a BL Touch but with a different mount uncomment the below line and the above CUSTOM_PROBE then enter the offsets below.
+//#define CR10_MAX_BLTOUCH
 
 //===========================================================================
 // Creality CR-20 Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -1006,6 +1023,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.17"
+#define UNIFIED_VERSION "TH3D U1.R2.18"
 
 #endif // CONFIGURATION_H
