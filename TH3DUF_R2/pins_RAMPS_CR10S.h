@@ -57,7 +57,7 @@
 //
 // Limit Switches
 //
-#if ENABLED(ENDER5_DUALBOARD)
+#if ENABLED(ENDER5_DUALBOARD) || ENABLED(ENDER5_PLUS)
   #define X_MIN_PIN          -1
   #define X_MAX_PIN           3
   #define Y_MIN_PIN          -1
@@ -69,7 +69,7 @@
   #define Y_MAX_PIN          -1
 #endif
 
-#if ENABLED(CR10_MAX)
+#if ENABLED(CR10_MAX) && ENABLED(BLTOUCH)
   #define Z_MIN_PIN          19
   #define Z_MAX_PIN          18
 #else

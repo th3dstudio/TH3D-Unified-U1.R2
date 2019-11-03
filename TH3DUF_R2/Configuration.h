@@ -452,6 +452,23 @@
 //#define EZOUTV2_DUAL_ENABLE
 
 //===========================================================================
+// Creality Ender 5 PLUS Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define ENDER5_PLUS
+
+// What LCD are you using? (Only 12864 LCD is supported)
+//#define RR_LCD_UPGRADE
+// Stock Touch LCD is not supported at this time.
+// Info on converting the LCD can be found here: COMING SOON
+
+// EZABL/ABL Probe Mounts
+//#define CUSTOM_PROBE
+
+// If you are using the stock BL Touch sensor uncomment the below line
+// If you are using a BL Touch but with a different mount uncomment the below line and the above CUSTOM_PROBE then enter the offsets below.
+//#define ENDER5_PLUS_BLTOUCH
+
+//===========================================================================
 // ***************************   CTC PRINTERS    ***************************
 //===========================================================================
 
@@ -463,6 +480,12 @@
 
 // If you swapped the stock threaded rod "leadscrews" for T8x8 uncomment the below line to set the steps for those
 //#define CTC_I3_T8_LEAD
+
+// If you are using our EZOut V2 (connects to LCD header) filament sensor kit please follow the install guide
+// and then uncomment the #define EZOUTV2_ENABLE line below.
+// Do NOT ever connect our filament sensor without the supplied adapter board
+// This printer uses the Anet 2004 LCD EZOut Package
+//#define EZOUTV2_ENABLE
 
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
