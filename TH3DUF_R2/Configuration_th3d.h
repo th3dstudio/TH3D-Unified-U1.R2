@@ -4,6 +4,7 @@
 
 // TH3D In House Machines/Custom Machines
 // These are here for TH3D use ONLY. NOT SUPPORTED.
+// Do not use these unless you have your own machine that we built that is listed below.
 // We use Unified as well so we merged our machines into the code so it's easier for us to update. :)
 
 // TH3D Machines
@@ -50,8 +51,8 @@
   
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
     
   #define CUSTOM_MACHINE_NAME "Franken i3"
 
@@ -144,8 +145,8 @@
   #define TITAN_EXTRUDER_STEPS 463  
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "Nicks Ender3" 
   #define PIDBED_ENABLE
 #endif
@@ -165,8 +166,8 @@
   //#define LINEAR_ADVANCE_K 0
   #define TITAN_EXTRUDER
   #define TITAN_EXTRUDER_STEPS 463
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "HakEnder3" 
   #define HOME_ADJUST
   #define X_HOME_LOCATION 0
@@ -191,8 +192,8 @@
   
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
     
   #define CUSTOM_MACHINE_NAME "Aaaaay30"
 
@@ -282,8 +283,8 @@
   #define BABYSTEP_OFFSET
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
 #endif
 
 #if ENABLED(DOUG_I3MINI)
@@ -298,8 +299,8 @@
   #define BABYSTEP_OFFSET
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define PIDBED_ENABLE
 #endif
 
@@ -329,8 +330,8 @@
   
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
     
   #define CUSTOM_MACHINE_NAME "HakAM8Dual"
 
@@ -437,8 +438,8 @@
   
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
     
   #define CUSTOM_MACHINE_NAME "HakX5S"
   #define IS_MKS_BOARD_ATX
@@ -546,8 +547,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define TITAN_EXTRUDER
   #define USER_PRINTER_NAME "HakU10" 
 #endif
@@ -564,8 +565,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define TITAN_EXTRUDER
   #define USER_PRINTER_NAME "Irma"   
 #endif
@@ -582,8 +583,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "HakWi3"   
 #endif
 
@@ -598,8 +599,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define TITAN_EXTRUDER
   #define USER_PRINTER_NAME "HakEZ300"   
 #endif
@@ -616,8 +617,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "HakD6"   
 #endif
 
@@ -634,8 +635,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define TITAN_EXTRUDER
   #define USER_PRINTER_NAME "HakCR10Mini"   
 #endif
@@ -658,8 +659,8 @@
   
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
     
   #define CUSTOM_MACHINE_NAME "HakE10"
   #define IS_MKS_BOARD_ATX
@@ -761,8 +762,8 @@
   #define PIDBED_ENABLE
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "HakEnder2"   
 #endif
 
@@ -792,8 +793,8 @@
   
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
     
   #define CUSTOM_MACHINE_NAME "HakSMARTT"
 
@@ -898,8 +899,8 @@
   
   //#define LINEAR_ADVANCE
   //#define LINEAR_ADVANCE_K 0
-  #define NEW_JERK_CONTROL
-  #define NEW_ACCELERATION_CONTROL
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
     
   #define CUSTOM_MACHINE_NAME "HakCR10"
   #define IS_MKS_BOARD_ATX
