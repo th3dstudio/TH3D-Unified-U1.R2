@@ -623,9 +623,6 @@
     #define Y_MIN_POS 0
   #endif
   
-  #define ENCODER_PULSES_PER_STEP 1
-  #define ENCODER_STEPS_PER_MENU_ITEM 5
-  
   #define PRINTER_ENABLED_CHECK
 #endif //end cr-10s pro settings
 
@@ -2793,6 +2790,8 @@
       #define CUSTOM_MACHINE_NAME "Alpha EZ300"
     #elif ENABLED(BLTOUCH)
       #define CUSTOM_MACHINE_NAME "TH3D BLTouch"
+    #elif ENABLED(CR10S_PRO_STOCK_ABL) && ENABLED(CR10S_PRO)
+      #define CUSTOM_MACHINE_NAME "CR-10S Pro"
     #elif ENABLED(EZABL_ENABLE)
       #define CUSTOM_MACHINE_NAME "TH3D EZABL"
     #elif ENABLED(EZOUT_ENABLE)

@@ -250,7 +250,7 @@
 // What LCD are you using? (Only 12864 LCD is supported)
 //#define RR_LCD_UPGRADE
 // Stock Touch LCD is not supported at this time.
-// Info on converting the LCD can be found here: COMING SOON
+// Info on converting the LCD can be found here: https://www.th3dstudio.com/product/cr-10s-pro-lcd-ezabl-upgrade-kit/
 
 // EZABL/ABL Probe Mounts
 //#define CR10S_PRO_OEM
