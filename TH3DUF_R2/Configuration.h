@@ -543,6 +543,7 @@
 //#define SOVOL_SV01
 
 // EZABL Probe Mounts
+//#define SV01_OEM_MOUNT
 //#define CUSTOM_PROBE
 
 //===========================================================================
