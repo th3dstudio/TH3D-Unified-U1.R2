@@ -871,9 +871,9 @@
   #define NO_COLD_PREVENT
 
   #define CUSTOM_DRIVERS
-  #define X_DRIVER_TYPE  DRV8825
-  #define Y_DRIVER_TYPE  DRV8825
-  #define Z_DRIVER_TYPE  DRV8825
+  #define X_DRIVER_TYPE  TMC2208_STANDALONE
+  #define Y_DRIVER_TYPE  TMC2208_STANDALONE
+  #define Z_DRIVER_TYPE  TMC2208_STANDALONE
   #define E0_DRIVER_TYPE A4988
   
   #ifndef MOTHERBOARD
@@ -886,8 +886,6 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
     
@@ -930,7 +928,8 @@
   #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the probe.
 
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 463 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 463 } //TMC2208 XYZ
+  //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 463 } //DRV8825 XYZ
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 1000 }
 
@@ -943,9 +942,13 @@
   #define DEFAULT_ZJERK                  0.4
   #define DEFAULT_EJERK                  5.0
   
-  #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
+  //#define INVERT_X_DIR false //DRV8825
+  //#define INVERT_Y_DIR false //DRV8825
+  //#define INVERT_Z_DIR true  //DRV8825
+  
+  #define INVERT_X_DIR true //TMC2208
+  #define INVERT_Y_DIR true //TMC2208
+  #define INVERT_Z_DIR false  //TMC2208
   
   #define INVERT_E0_DIR true
   #define INVERT_E1_DIR false
