@@ -127,7 +127,9 @@
   #define ENDER4
   #define ENDER4_FIL
   #define ENDER4_OEM_LEFT
-  #define TITAN_EXTRUDER
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define NO_COLD_PREVENT
   #define PIDBED_ENABLE
 #endif
@@ -141,10 +143,9 @@
   #define NO_COLD_PREVENT
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
-  #define TITAN_EXTRUDER
-  #define TITAN_EXTRUDER_STEPS 463  
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "Nicks Ender3" 
@@ -162,10 +163,9 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define PIDBED_ENABLE
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
-  #define TITAN_EXTRUDER
-  #define TITAN_EXTRUDER_STEPS 463
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "HakEnder3" 
@@ -190,8 +190,6 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
     
@@ -275,14 +273,13 @@
   #define EZABL_POINTS 3
   #define EZABL_PROBE_EDGE 5
   #define EZABL_FASTPROBE
-  #define TITAN_EXTRUDER
-  #define TITAN_EXTRUDER_STEPS 463
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define I3MINI_FANCONTROL
   #define USER_PRINTER_NAME "HangryPrinter" 
   #define NO_COLD_PREVENT
   #define BABYSTEP_OFFSET
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
 #endif
@@ -297,8 +294,6 @@
   #define USER_PRINTER_NAME "PartPrinter" 
   #define NO_COLD_PREVENT
   #define BABYSTEP_OFFSET
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
   #define PIDBED_ENABLE
@@ -327,9 +322,7 @@
   #define EZABL_PROBE_EDGE 10
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
-  
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
+
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
     
@@ -436,8 +429,6 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
     
@@ -545,11 +536,11 @@
   #define BABYSTEP_OFFSET
   #define V6_HOTEND
   #define PIDBED_ENABLE
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
-  #define TITAN_EXTRUDER
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define USER_PRINTER_NAME "HakU10" 
 #endif
 
@@ -563,11 +554,11 @@
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
   #define PIDBED_ENABLE
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
-  #define TITAN_EXTRUDER
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define USER_PRINTER_NAME "Irma"   
 #endif
 
@@ -581,8 +572,6 @@
   #define BABYSTEP_OFFSET
   #define EZOUTV2_ENABLE
   #define PIDBED_ENABLE
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
   #define USER_PRINTER_NAME "HakWi3"   
@@ -597,11 +586,11 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define PIDBED_ENABLE
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
-  #define TITAN_EXTRUDER
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define USER_PRINTER_NAME "HakEZ300"   
 #endif
 
@@ -633,11 +622,11 @@
   #define EZABL_FASTPROBE
   #define BABYSTEP_OFFSET
   #define PIDBED_ENABLE
-  //#define LINEAR_ADVANCE
-  //#define LINEAR_ADVANCE_K 0
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
-  #define TITAN_EXTRUDER
+  #define CUSTOM_ESTEPS
+  #define REVERSE_E_MOTOR_DIRECTION
+  #define CUSTOM_ESTEPS_VALUE 463
   #define USER_PRINTER_NAME "HakCR10Mini"   
 #endif
 
@@ -942,23 +931,23 @@
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the probe.
 
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 463 }
-  #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 25 }
-  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
-  
-  #define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves
-  #define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration for retracts
-  #define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 1000 }
 
-  #define DEFAULT_XJERK                 10.0
-  #define DEFAULT_YJERK                 10.0
+  #define DEFAULT_ACCELERATION          500    
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   500    
+  
+  #define DEFAULT_XJERK                  8.0
+  #define DEFAULT_YJERK                  8.0
   #define DEFAULT_ZJERK                  0.4
   #define DEFAULT_EJERK                  5.0
   
-  #define INVERT_X_DIR true
-  #define INVERT_Y_DIR true
-  #define INVERT_Z_DIR false
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
   
-  #define INVERT_E0_DIR false
+  #define INVERT_E0_DIR true
   #define INVERT_E1_DIR false
   #define INVERT_E2_DIR false
   #define INVERT_E3_DIR false
@@ -976,7 +965,7 @@
   #define Z_MIN_POS 0
   #define X_MAX_POS X_BED_SIZE
   #define Y_MAX_POS Y_BED_SIZE
-  #define Z_MAX_POS 400
+  #define Z_MAX_POS 390
   
   #define SDSUPPORT
   #define ENCODER_PULSES_PER_STEP 4
