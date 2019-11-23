@@ -113,6 +113,7 @@
 //#define ANET_A8_PLUS
 //#define ANET_E10
 //#define ANET_E12
+//#define ANET_E16
 
 // If you are using our EZOut V2 (connects to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUTV2_ENABLE line below.
@@ -803,7 +804,7 @@
 // You can do down to 10mm on the Wanhao i3 since it cannot print on the entire bed.
 // You can do down to 5mm on the Wanhao i3 Mini since it cannot print on the entire bed.
 // (only used if EZABL enabled)
-#define EZABL_PROBE_EDGE 15
+#define EZABL_PROBE_EDGE 35
 
 // If you have issues with your machine running the faster probe setting disable the #define EZABL_FASTPROBE below.
 // DO NOTE: Most machines will work with the fast probe enabled. Use M48 to verify accuracy.
@@ -866,14 +867,13 @@
 // If you reversed the wiring on your E motor already (like the Bondtech Guide says to do) then you do not need to reverse it in the firmware here.
 
 // If you want to change the Esteps for your printer you can uncomment the below line and set CUSTOM_ESTEPS_VALUE to what you want - USE WHOLE NUMBERS ONLY
-// This option sets the esteps from the CUSTOM_ESTEPS_VALUE line below and does NOT reverse the E motor direction.
+// This option sets the esteps from the CUSTOM_ESTEPS_VALUE line below.
+// If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option.
+// Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 463 ESteps, BMG Extruder - 415 ESteps
+// When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
 //#define CUSTOM_ESTEPS
-#define CUSTOM_ESTEPS_VALUE 999
-
-// If you are using an TH3D Tough Extruder or E3D Titan Extruder uncomment the below line to setup the firmware to the correct steps and direction. Also applicable to Tough Direct or Titan Aero setups.
-// This option sets the esteps from the TITAN_EXTRUDER_STEPS line below and reverses the E motor direction.
-//#define TITAN_EXTRUDER
-#define TITAN_EXTRUDER_STEPS 463
+//#define REVERSE_E_MOTOR_DIRECTION
+#define CUSTOM_ESTEPS_VALUE 463
 
 // DUAL HOTEND SETTINGS ----------------------------
 
@@ -1024,6 +1024,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.18"
+#define UNIFIED_VERSION "TH3D U1.R2.19"
 
 #endif // CONFIGURATION_H

@@ -308,14 +308,10 @@
     #define CTC_I3_PROB_LEAD 2560
   #endif
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, 95 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, CTC_I3_PROB_LEAD, 95 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
@@ -334,7 +330,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -373,14 +369,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
@@ -399,7 +391,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -439,14 +431,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
@@ -465,7 +453,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR false
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -510,14 +498,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
@@ -536,7 +520,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -582,14 +566,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
@@ -608,7 +588,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -656,14 +636,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 450, 450, 20, 25 }
@@ -682,7 +658,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR false
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -727,14 +703,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 94.14, 94.14, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 94.14, 94.14, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 94.14, 94.14, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 94.14, 94.14, 400, 96.27 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 94.14, 94.14, 400, 96.27 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 100, 100, 15, 20 }
@@ -753,7 +725,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -963,15 +935,12 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 408 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 408 }
   #endif
+  
   #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
 
@@ -1027,14 +996,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
   #endif
   
   #define REPRAP_DISCOUNT_SMART_CONTROLLER
@@ -1076,7 +1041,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
 
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -1102,14 +1067,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
   #endif
   
   #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
@@ -1145,7 +1106,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR false
 
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -1171,14 +1132,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
   #endif
   
   #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
@@ -1212,7 +1169,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
 
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -1238,14 +1195,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
@@ -1264,7 +1217,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR false
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -1307,14 +1260,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 200 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 200 }
   #endif
   
   #undef X_DRIVER_TYPE
@@ -1342,7 +1291,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -1389,14 +1338,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 95 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 95 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
@@ -1415,7 +1360,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -1477,14 +1422,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 463 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 463 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
@@ -1503,7 +1444,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR true
@@ -1572,17 +1513,13 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #if ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 340 }
     #else
-      #if ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 340 }
-      #else
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-      #endif
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
     #endif
   #endif
   
@@ -1608,7 +1545,7 @@
     #define SINGLENOZZLE
   #endif
   
-  #if ENABLED(TITAN_EXTRUDER) || ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION) || ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -1652,14 +1589,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 105 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 105 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 25 }
@@ -1678,7 +1611,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -1793,11 +1726,11 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
     
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #if ENABLED(TIM_U10)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, TITAN_EXTRUDER_STEPS }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, CUSTOM_ESTEPS_VALUE }
     #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
     #endif
   #else
     #if ENABLED(CUSTOM_ESTEPS)
@@ -1834,14 +1767,11 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
   #endif
-
-  //#define ENCODER_PULSES_PER_STEP 4
-  //#define ENCODER_STEPS_PER_MENU_ITEM 1
   
   #define PRINTER_ENABLED_CHECK
 #endif
@@ -1865,15 +1795,12 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
     
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 94 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 94 }
   #endif
+
   #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 3000 }
   
@@ -1902,7 +1829,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR false
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -1939,14 +1866,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
@@ -1978,7 +1901,7 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
 
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -2022,14 +1945,10 @@
   #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-	  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-	#else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-	#endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 200, 200, 15, 50 }
@@ -2058,7 +1977,7 @@
     #define INVERT_Z_DIR false
   #endif
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -2143,14 +2062,10 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING false
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-	  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-	#else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-	#endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
   #endif
   
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
@@ -2179,7 +2094,7 @@
     #define INVERT_Z_DIR true
   #endif
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
@@ -2243,7 +2158,7 @@
     #define SINGLENOZZLE
     #define DUAL_EXTRUDERS
     
-    #if ENABLED(TITAN_EXTRUDER)
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E1_DIR true
     #else
       #define INVERT_E1_DIR false
@@ -2256,7 +2171,7 @@
     #define CR10SDUALEBOARD
     #define DUAL_EXTRUDERS
     
-    #if ENABLED(TITAN_EXTRUDER)
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E1_DIR true
     #else
       #define INVERT_E1_DIR false
@@ -2299,15 +2214,12 @@
   
   #define SPEAKER_KILL
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
   #endif
+  
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 5000 }
 
@@ -2324,7 +2236,7 @@
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR false
   
-  #if ENABLED(TITAN_EXTRUDER)
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
@@ -2364,15 +2276,12 @@
   #define Z_MAX_ENDSTOP_INVERTING true
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
 
-  #if ENABLED(TITAN_EXTRUDER)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
-    #if ENABLED(CUSTOM_ESTEPS)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-    #else
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 }
-    #endif
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 }
   #endif
+  
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
 
@@ -2493,26 +2402,19 @@
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
   
   #if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8)
-    #if ENABLED(TITAN_EXTRUDER)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, TITAN_EXTRUDER_STEPS }
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
     #else
-      #if ENABLED(CUSTOM_ESTEPS)
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, CUSTOM_ESTEPS_VALUE }
-      #else
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 95 }
-      #endif
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 95 }
     #endif
   #else
-    #if ENABLED(TITAN_EXTRUDER)
-      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
     #else
-      #if ENABLED(CUSTOM_ESTEPS)
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-      #else
-        #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-      #endif
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
     #endif
   #endif
+
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
   #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
 
@@ -2569,7 +2471,8 @@
     #define INVERT_X_DIR false
     #define INVERT_Y_DIR true
     #define INVERT_Z_DIR false
-    #if ENABLED(TITAN_EXTRUDER)
+
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E0_DIR true
     #else
       #define INVERT_E0_DIR false
@@ -2598,7 +2501,8 @@
     #define INVERT_X_DIR false
     #define INVERT_Y_DIR true
     #define INVERT_Z_DIR false
-    #if ENABLED(TITAN_EXTRUDER)
+
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E0_DIR true
 	#else
       #define INVERT_E0_DIR false
@@ -2628,7 +2532,8 @@
     #define INVERT_X_DIR false
     #define INVERT_Y_DIR false
     #define INVERT_Z_DIR true
-    #if ENABLED(TITAN_EXTRUDER)
+
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E0_DIR true
     #else
       #define INVERT_E0_DIR false
@@ -2659,7 +2564,7 @@
     #define INVERT_Y_DIR false
     #define INVERT_Z_DIR true
     
-    #if ENABLED(TITAN_EXTRUDER)
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E0_DIR true
     #else
       #define INVERT_E0_DIR false
@@ -2691,10 +2596,42 @@
     #define INVERT_Y_DIR true
     #define INVERT_Z_DIR true
     
-    #if ENABLED(TITAN_EXTRUDER)
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E0_DIR true
     #else
       #define INVERT_E0_DIR false
+    #endif
+    
+  #endif
+  
+  #if ENABLED(ANET_E16)
+    #if ENABLED(HOME_ADJUST)
+       #define X_MIN_POS X_HOME_ADJUST_LOCATION
+       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+    #else
+       #define X_MIN_POS -7
+       #define Y_MIN_POS -23
+    #endif
+    
+    #define DIRECT_DRIVE_PRINTER
+      
+    #define X_BED_SIZE 300
+    #define Y_BED_SIZE 300
+    #define Z_MAX_POS 400
+      
+    #if ENABLED(ANET_OEM)
+      #define X_PROBE_OFFSET_FROM_EXTRUDER -38
+      #define Y_PROBE_OFFSET_FROM_EXTRUDER -12
+    #endif
+     
+    #define INVERT_X_DIR false
+    #define INVERT_Y_DIR true
+    #define INVERT_Z_DIR true
+    
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+      #define INVERT_E0_DIR false
+    #else
+      #define INVERT_E0_DIR true
     #endif
     
   #endif
@@ -2721,7 +2658,7 @@
     #define INVERT_Y_DIR true
     #define INVERT_Z_DIR true
 	
-    #if ENABLED(TITAN_EXTRUDER)
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E0_DIR false
     #else
       #define INVERT_E0_DIR true
@@ -2750,7 +2687,7 @@
     #define INVERT_Y_DIR true
     #define INVERT_Z_DIR true
 	
-    #if ENABLED(TITAN_EXTRUDER)
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
       #define INVERT_E0_DIR false
     #else
       #define INVERT_E0_DIR true
