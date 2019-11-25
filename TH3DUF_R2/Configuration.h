@@ -396,7 +396,8 @@
 // Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUT_ENABLE
 
-// EZABL Probe Mounts (Ender 5 uses the same mounts as CR-10)
+// EZABL Probe Mounts (Ender 5 can use most of the same mounts as CR-10)
+//#define ENDER5_OEM
 //#define CR10_OEM
 //#define CR10_VOLCANO
 //#define CR10_V6HEAVYDUTY
