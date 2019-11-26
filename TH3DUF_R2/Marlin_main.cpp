@@ -3774,7 +3774,8 @@ inline void gcode_G0_G1(
           const float e = clockwise ^ (r < 0) ? -1 : 1,             // clockwise -1/1, counterclockwise 1/-1
                       dx = p2 - p1, dy = q2 - q1,                   // X and Y differences
                       d = HYPOT(dx, dy),                            // Linear distance between the points
-                      h = SQRT(sq(r) - sq(d * 0.5f)),               // Distance to the arc pivot-point
+                      h2 = (r - 0.5f * d) * (r + 0.5f * d),         // factor to reduce rounding error
+                      h = (h2 >= 0) ? SQRT(h2) : 0.0f,              // Distance to the arc pivot-point
                       mx = (p1 + p2) * 0.5f, my = (q1 + q2) * 0.5f, // Point between the two points
                       sx = -dy / d, sy = dx / d,                    // Slope of the perpendicular bisector
                       cx = mx + e * h * sx, cy = my + e * h * sy;   // Pivot-point of the arc
@@ -4221,6 +4222,8 @@ inline void gcode_G4() {
           SERIAL_ECHOPGM(" & Same Z as");
         SERIAL_ECHOLNPGM(" Nozzle)");
       #endif
+
+
     #else
       #if HAS_BED_PROBE
         SERIAL_ECHOPAIR("Probe Offset X:", X_PROBE_OFFSET_FROM_EXTRUDER);
@@ -8335,10 +8338,10 @@ inline void gcode_M42() {
 
     const int8_t verbose_level = parser.byteval('V', 1);
     #if DISABLED(SLIM_1284P)
-      if (!WITHIN(verbose_level, 0, 4)) {
-      	SERIAL_PROTOCOLLNPGM("?(V)erbose level error (0-4).");
-      	return;
-      }
+        if (!WITHIN(verbose_level, 0, 4)) {
+          SERIAL_PROTOCOLLNPGM("?(V)erbose level is implausible (0-4).");
+          return;
+        }
     #endif
 
     if (verbose_level > 0)
@@ -15673,15 +15676,15 @@ void setup() {
     enable_D();
   #endif
 
-  #if ENABLED(SDSUPPORT) && DISABLED(ULTRA_LCD)
+  #if ENABLED(SDSUPPORT) && !(ENABLED(ULTRA_LCD) && PIN_EXISTS(SD_DETECT))
     card.beginautostart();
   #endif
   
-  // SD Card Init Fix
+  // SD Card Init Fix //Disabled 11/26/2019 TDH
 
-  #if ENABLED(SDSUPPORT)
-	  if (!card.cardOK) card.initsd();
-  #endif
+  //#if ENABLED(SDSUPPORT)
+	  //if (!card.cardOK) card.initsd();
+  //#endif
 }
 
 /**

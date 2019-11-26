@@ -3342,7 +3342,12 @@ void lcd_quick_feedback(const bool clear_buttons) {
     void lcd_callback_set_contrast() { set_lcd_contrast(lcd_contrast); }
   #endif
 
-  #if ENABLED(EEPROM_SETTINGS)
+  static void lcd_factory_settings() {
+    settings.reset();
+    lcd_completion_feedback();
+  }
+
+  #if ENABLED(EEPROM_SETTINGS) && DISABLED(SLIM_LCD_MENUS)
 
     static void lcd_init_eeprom() {
       lcd_completion_feedback(settings.init_eeprom());
@@ -3395,7 +3400,9 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_ITEM(function, MSG_STORE_EEPROM, lcd_store_settings);
     #endif
 
-    #if ENABLED(EEPROM_SETTINGS)
+    MENU_ITEM(function, MSG_RESTORE_FAILSAFE, lcd_factory_settings);
+
+    #if ENABLED(EEPROM_SETTINGS) && DISABLED(SLIM_LCD_MENUS)
       MENU_ITEM(submenu, MSG_INIT_EEPROM, lcd_init_eeprom_confirm);
     #endif
 
@@ -3847,7 +3854,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     #elif HAS_BED_PROBE
       MENU_ITEM_EDIT(float52, MSG_ZPROBE_ZOFFSET, &zprobe_zoffset, Z_PROBE_OFFSET_RANGE_MIN, Z_PROBE_OFFSET_RANGE_MAX);
     #endif
-    
+
     #if DISABLED(SLIM_LCD_MENUS)
 
       // M203 / M205 - Feedrate items
