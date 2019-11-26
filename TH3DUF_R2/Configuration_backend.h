@@ -608,6 +608,9 @@
     #define Y_MIN_POS 0
   #endif
   
+  #define ENCODER_PULSES_PER_STEP 1
+  #define ENCODER_STEPS_PER_MENU_ITEM 5
+  
   #define PRINTER_ENABLED_CHECK
 #endif //end cr-10s pro settings
 
