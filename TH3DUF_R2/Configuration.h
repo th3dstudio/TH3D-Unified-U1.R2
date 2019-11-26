@@ -1025,6 +1025,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.20"
+#define UNIFIED_VERSION "TH3D U1.R2.19"
 
 #endif // CONFIGURATION_H
