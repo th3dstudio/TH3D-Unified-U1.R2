@@ -1315,9 +1315,24 @@
     #define MOTHERBOARD BOARD_MKS_GEN_L
   #endif
 
-  #define X_DRIVER_TYPE  A4988
-  #define Y_DRIVER_TYPE  A4988
-  #define Z_DRIVER_TYPE  A4988
+  #if ENABLED(ARTILLERY_AL4_X_AXIS_TMC2208)
+    #define X_DRIVER_TYPE  TMC2208_STANDALONE
+  #else
+    #define X_DRIVER_TYPE  A4988
+  #endif
+  
+  #if ENABLED(ARTILLERY_AL4_Y_AXIS_TMC2208)
+    #define Y_DRIVER_TYPE  TMC2208_STANDALONE
+  #else
+    #define Y_DRIVER_TYPE  A4988
+  #endif
+  
+  #if ENABLED(ARTILLERY_AL4_Z_AXIS_TMC2208)
+    #define Z_DRIVER_TYPE  TMC2208_STANDALONE
+  #else
+    #define Z_DRIVER_TYPE  A4988
+  #endif
+
   #define E0_DRIVER_TYPE A4988
   #define E1_DRIVER_TYPE A4988
   
@@ -1350,9 +1365,23 @@
   #define DEFAULT_ZJERK                  0.4
   #define DEFAULT_EJERK                  5.0
   
-  #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
+  #if ENABLED(ARTILLERY_AL4_X_AXIS_TMC2208)
+    #define INVERT_X_DIR true
+  #else
+    #define INVERT_X_DIR false
+  #endif
+  
+  #if ENABLED(ARTILLERY_AL4_Y_AXIS_TMC2208)
+    #define INVERT_Y_DIR true
+  #else
+    #define INVERT_Y_DIR false
+  #endif
+  
+  #if ENABLED(ARTILLERY_AL4_Z_AXIS_TMC2208)
+    #define INVERT_Z_DIR false
+  #else
+    #define INVERT_Z_DIR true
+  #endif
   
   #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true

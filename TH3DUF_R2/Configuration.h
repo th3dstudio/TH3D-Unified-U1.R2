@@ -156,6 +156,12 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
+// If you swapped the X, Y, or Z drivers with the TMC2208s you may need to reverse your axis. Uncomment the line for each axis that needs reversing.
+// Enabling these options will also set the driver delays/modes to the TMC2208_STANDALONE mode for whatever axis you uncomment it for.
+//#define ARTILLERY_AL4_X_AXIS_TMC2208
+//#define ARTILLERY_AL4_Y_AXIS_TMC2208
+//#define ARTILLERY_AL4_Z_AXIS_TMC2208
+
 //===========================================================================
 // *************************   CREALITY PRINTERS    *************************
 //===========================================================================
