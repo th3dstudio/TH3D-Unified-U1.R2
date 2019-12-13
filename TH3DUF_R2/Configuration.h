@@ -417,6 +417,9 @@
 
 // Use Ender Bootscreeen instead of TH3D
 //#define ENDER_BOOT
+
+// If you have the new Ender 5 or Ender 5 Pro Model that has the new 800steps/mm Z leadscrew uncomment the below option to set the correct steps/mm
+//#define ENDER5_NEW_LEADSCREW
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 5
 // DO NOT UNCOMMENT THE ABOVE #define ENDER5 LINE IF USING THE DUAL BOARD
@@ -1031,6 +1034,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.20"
+#define UNIFIED_VERSION "TH3D U1.R2.21"
 
 #endif // CONFIGURATION_H
