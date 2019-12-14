@@ -240,7 +240,7 @@
   #if ENABLED(CUSTOM_ESTEPS)
 	  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
 	#else
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 382.14 }
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 402 }
 	#endif
   
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
