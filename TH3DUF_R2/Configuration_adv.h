@@ -252,7 +252,7 @@
   #if DISABLED(POWER_LOSS_RECOVERY)
     #if DISABLED(WANHAO_I3_PLUS)
       #define JUNCTION_DEVIATION
-      #define JUNCTION_DEVIATION_MM 0.02
+      #define JUNCTION_DEVIATION_MM 0.013
     #endif
   #endif
 #endif
