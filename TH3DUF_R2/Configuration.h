@@ -10,7 +10,7 @@
 * 
 * EZABL SETUP NOTES: 
 * If you have EZABL uncomment the mount you are using with the printer. 
-* If you have a custom/unsupported mount uncomment #define CUSTOM_MOUNT and enter your offsets 
+* If you have a custom/unsupported mount uncomment #define CUSTOM_PROBE and enter your offsets 
 * below in the CUSTOM MOUNT section. Refer to the EZABL guide to get your offsets.
 * 
 * STEP 1:
