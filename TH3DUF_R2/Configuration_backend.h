@@ -233,6 +233,82 @@
   #endif
 #endif
 
+//AnyCubic Mega Zero Settings
+#if ENABLED(AC_MEGA_ZERO)
+  #define SLIM_1284P
+  #define BAUDRATE 115200
+
+  #define AC_BED
+
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+
+  #if ENABLED(EZOUT_ENABLE)
+    #define SPEAKER_KILL
+  #endif
+
+  #if ENABLED(LINEAR_ADVANCE)
+    #define SPEAKER_KILL
+  #endif
+    
+  #define X_MIN_ENDSTOP_INVERTING false
+  #define Y_MIN_ENDSTOP_INVERTING false
+  #define Z_MIN_ENDSTOP_INVERTING false
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+  #else
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 }
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 200, 200, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 500, 800, 500, 5000 }
+
+  #define DEFAULT_ACCELERATION          500   
+  #define DEFAULT_RETRACT_ACCELERATION  500  
+  #define DEFAULT_TRAVEL_ACCELERATION   500   
+  
+  #define DEFAULT_XJERK                 7.0
+  #define DEFAULT_YJERK                 7.0
+  #define DEFAULT_ZJERK                  0.3
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
+  
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+    
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_MELZI_CREALITY
+  #endif
+
+  #define X_BED_SIZE 225
+  #define Y_BED_SIZE 225
+  #define Z_MAX_POS 250
+
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS -7
+    #define Y_MIN_POS -3
+  #endif
+  
+  #define ENCODER_PULSES_PER_STEP 4
+  #define ENCODER_STEPS_PER_MENU_ITEM 1
+  
+  #define PRINTER_ENABLED_CHECK
+
+#endif
+
 //SOVOL SV01 Model Settings
 #if ENABLED(SOVOL_SV01)
   #define BAUDRATE 115200
@@ -269,7 +345,11 @@
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
 
-  #define INVERT_E0_DIR true
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR false
+  #else
+    #define INVERT_E0_DIR true
+  #endif
   
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_CR10S
@@ -972,7 +1052,12 @@
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
-  #define INVERT_E0_DIR true
+  
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR false
+  #else
+    #define INVERT_E0_DIR true
+  #endif
   
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_MKS_BASE
@@ -1490,7 +1575,7 @@
   #define INVERT_Z_DIR true
   
   #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
-    #define INVERT_E0_DIR true
+    #define INVERT_E0_DIR false
   #else
     #define INVERT_E0_DIR true
   #endif
@@ -1590,10 +1675,18 @@
     #define SINGLENOZZLE
   #endif
   
-  #if ENABLED(REVERSE_E_MOTOR_DIRECTION) || ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
-    #define INVERT_E0_DIR false
-  #else
-    #define INVERT_E0_DIR true
+  #if ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+	  #define INVERT_E0_DIR true
+    #else
+      #define INVERT_E0_DIR false
+    #endif
+  #else  
+    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+      #define INVERT_E0_DIR false
+    #else
+      #define INVERT_E0_DIR true
+    #endif
   #endif
   
   #if ENABLED(HOME_ADJUST)
@@ -2342,7 +2435,12 @@
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
-  #define INVERT_E0_DIR true
+  
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR false
+  #else
+    #define INVERT_E0_DIR true
+  #endif
   
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_MKS_BASE
@@ -2405,7 +2503,12 @@
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR false
-  #define INVERT_E0_DIR true
+  
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR false
+  #else
+    #define INVERT_E0_DIR true
+  #endif
   
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_RAMBO

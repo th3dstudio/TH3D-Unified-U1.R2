@@ -163,6 +163,21 @@
 //#define ARTILLERY_AL4_Z_AXIS_TMC2208
 
 //===========================================================================
+// ***********************     ANYCUBIC PRINTERS     ************************
+//===========================================================================
+
+//===========================================================================
+// Mega Zero Options - Select 'Sanguino 1284p' from Tools > Board
+//===========================================================================
+//#define AC_MEGA_ZERO
+
+// If you are using our EZOut Pin 29?
+//#define EZOUT_ENABLE
+
+// EZABL Probe Mounts
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // *************************   CREALITY PRINTERS    *************************
 //===========================================================================
 
@@ -1063,6 +1078,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.A2"
+#define UNIFIED_VERSION "TH3D U1.R2.A3"
 
 #endif // CONFIGURATION_H
