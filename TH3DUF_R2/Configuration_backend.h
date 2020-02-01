@@ -2285,7 +2285,7 @@
   #if ENABLED(CR20)
     #define X_BED_SIZE 220
     #define Y_BED_SIZE 220
-    #define Z_MAX_POS 320
+    #define Z_MAX_POS 250
   #endif
   
   //dual extrusion options
