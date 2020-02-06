@@ -171,9 +171,6 @@
 //===========================================================================
 //#define AC_MEGA_ZERO
 
-// If you are using our EZOut Pin 29?
-//#define EZOUT_ENABLE
-
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
