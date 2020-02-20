@@ -995,7 +995,7 @@
 //#define DISABLE_BOOT
 
 //===========================================================================
-//****************** COMMUNITY REQUESTED FEATURES ***************************
+//*************************** COMMUNITY FEATURES ****************************
 //===========================================================================
 
 // HOME OFFSET ADJUSTMENT --------------------------
@@ -1021,15 +1021,15 @@
 // and then enter your probe offsets in the CUSTOM_PROBE section above. The Pin 27 boards on other ecommerce sites are clones of our original EZOut.
 // If you want to support the people that originally came up with the board you can get our EZOut breakout board here: http://EZOut.TH3DStudio.com
 // Sales from our shop allow us to allocate time for community firmware development at no charge to you. <3
-//
 //#define BLTOUCH
-// If you are having issues with the probe not deploying/stowing correctly enable the below BLTOUCH_FORCE_SW_MODE
-//#define BLTOUCH_FORCE_SW_MODE
-// For V3.0 or 3.1: Set default mode to 5V mode at Marlin startup.
-//#define BLTOUCH_SET_5V_MODE
-// Here is where you set your servo pin. EZOut Servo Pin Numbers: Anet(with 2004LCD)/Ender3/5/CR-10 - 27, Anet(with 12864LCD)/Ender 2 - 29. For 2560 boards look for the pin you connected the servo wire to and enter below.
+
+// Here is where you set your servo pin. 
+// EZOut Servo Pin Numbers: 
+// Anet(with 2004LCD)/Ender3/5/CR-10 - 27
+// Anet(with 12864LCD)/Ender 2 - 29
+// For 2560 boards look for the pin you connected the servo wire to and enter below (typically 11).
 //#define SERVO0_PIN 27
-//
+
 // NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
 // the Bootscreen and some Control > Motion menus will not be displayed due to space restrictions
 // The BL Touch is NOT supported on the Wanhao i3 Plus, use the ADVi3++ Firmware instead if you want to use a BL Touch.
@@ -1075,6 +1075,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.A3"
+#define UNIFIED_VERSION "TH3D U1.R2.A4"
 
 #endif // CONFIGURATION_H
