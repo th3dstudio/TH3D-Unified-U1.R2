@@ -22,6 +22,7 @@
 //#define TIM_ENDER3
 //#define TIM_ENDER4
 //#define TIM_AM8
+//#define TIM_WOODI3
 
 // Custom Machines
 //#define MATTF_X5S
@@ -31,6 +32,18 @@
 
 // DH-THW Machines
 //#define DOUG_I3MINI
+
+#if ENABLED(TIM_WOODI3)
+  #define NO_COLD_PREVENT
+  #define CTC_I3_PROB
+  #define CTC_I3_T8_LEAD
+  #define EZOUTV2_ENABLE
+  #define CUSTOM_PROBE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -35
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -36
+  #define JUNCTION_DEVIATION_ON
+  #define S_CURVE_ACCELERATION_ON
+#endif
 
 #if ENABLED(DANE_I3CUSTOM)
   #define TH3DINHOUSEMACHINE
