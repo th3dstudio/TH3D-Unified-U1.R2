@@ -11,7 +11,8 @@
 * EZABL SETUP NOTES: 
 * If you have EZABL uncomment the mount you are using with the printer. 
 * If you have a custom/unsupported mount uncomment #define CUSTOM_PROBE and enter your offsets 
-* below in the CUSTOM MOUNT section. Refer to the EZABL guide to get your offsets.
+* below in the Custom Probe Mount Settings section.
+* Refer to the Custom Probe Mount Settings section below for entering these and how to measure.
 * 
 * STEP 1:
 * Select the correct board from the tools menu for the printer you are flashing.
@@ -870,6 +871,8 @@
 //#define SLOWER_PROBE_MOVES
 
 //================================================================================
+// Custom Probe Mount Settings
+//
 // IF YOU HAVE A CUSTOM PROBE MOUNT OR ONE THAT IS NOT PRE-SUPPORTED UNCOMMENT THE
 // CUSTOM_PROBE OPTION IN YOUR PRINTER SECTION AND ENTER YOUR PROBE LOCATION BELOW
 //================================================================================
