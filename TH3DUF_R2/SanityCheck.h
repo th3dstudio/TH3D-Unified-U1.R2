@@ -42,6 +42,10 @@
   #error "Due to the TMC2208 on the Creality board being stuck in StealthChop Linear Advance is not compatible with these boards. Disable Linear Advance and re-compile."
 #endif
 
+#if ENABLED(WANHAO_I3_PLUS) && ENABLED(MANUAL_MESH_LEVELING)
+  #error "The i3 Plus does not support manual mesh leveling due to the LCD limitations. Disable MANUAL_MESH_LEVELING and re-compile. If you want mesh leveling on the i3 Plus you need an ABL sensor."
+#endif
+
 #if ENABLED(CUSTOM_ESTEPS) && ENABLED(TITAN_EXTRUDER)
   #error "CUSTOM_ESTEPS and TITAN_EXTRUDER cannot be used together. Read the information by each option and pick which one applies to your setup."
 #endif
