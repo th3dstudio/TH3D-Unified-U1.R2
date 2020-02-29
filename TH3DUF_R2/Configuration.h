@@ -202,9 +202,6 @@
 //#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
-//#define TMC_CREALITY_BOARD
-
 //===========================================================================
 // Creality CR-10 V2 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -310,6 +307,21 @@
 //#define EZOUTV2_DUAL_ENABLE
 
 //===========================================================================
+// Creality CR-X Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define CR_X
+
+// If you are using our EZOut V2 filament sensor kit please follow the install guide
+// E0 (Left Extruder) sensor connects to X+
+// E1 (Right Extruder) sensor connects to Y+
+// Then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
+
+// EZABL Probe Mounts
+//#define CRX_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // Creality Ender 2 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define ENDER2
@@ -352,9 +364,6 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
-
-// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
-//#define TMC_CREALITY_BOARD
 
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 3
@@ -424,9 +433,6 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
-
-// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
-//#define TMC_CREALITY_BOARD
 
 // Use Ender Bootscreeen instead of TH3D
 //#define ENDER_BOOT
@@ -1079,6 +1085,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.A5"
+#define UNIFIED_VERSION "TH3D U1.R2.A6"
 
 #endif // CONFIGURATION_H

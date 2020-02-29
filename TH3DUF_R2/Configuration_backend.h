@@ -2177,7 +2177,7 @@
 #endif //end CR-10
 
 //CR-10S Model Settings
-#if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20) || ENABLED(ENDER5_DUALBOARD)
+#if ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3_DUALBOARD) || ENABLED(CR20) || ENABLED(ENDER5_DUALBOARD) || ENABLED(CR_X)
   #define BAUDRATE 115200
   
   #if ENABLED(TOUCH_LCD_FIX)
@@ -2190,6 +2190,13 @@
     #define MINIPANEL
   #else
     #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+    #if ENABLED(CR_X)
+      #define REVERSE_ENCODER_DIRECTION
+    #endif
+  #endif
+
+  #if ENABLED(CR_X) && ENABLED(EZOUTV2_ENABLE)
+    #define EZOUTV2_DUAL_ENABLE 
   #endif
 
   #define X_MIN_ENDSTOP_INVERTING false
@@ -2224,7 +2231,12 @@
   #define DEFAULT_EJERK                  5.0
   
   #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
+  
+  #if ENABLED(CR_X)
+    #define INVERT_Y_DIR true
+  #else
+    #define INVERT_Y_DIR false
+  #endif
   
   #if ENABLED(ENDER5_DUALBOARD)
     #define INVERT_Z_DIR false
@@ -2246,7 +2258,7 @@
     #define SPEAKER_KILL
   #endif
 
-  #if ENABLED(CR10S)
+  #if ENABLED(CR10S) || ENABLED(CR_X)
     #define X_BED_SIZE 300
     #define Y_BED_SIZE 300
     #define Z_MAX_POS 400
@@ -2291,15 +2303,23 @@
   //dual extrusion options
   
   //single hotend y adapter
-  #if ENABLED(DUAL_EXTRUDER_SINGLE_HOTEND)
+  #if ENABLED(DUAL_EXTRUDER_SINGLE_HOTEND) || ENABLED(CR_X)
     #define CR10SDUALEBOARD
     #define SINGLENOZZLE
     #define DUAL_EXTRUDERS
-    
-    #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
-      #define INVERT_E1_DIR true
+
+    #if ENABLED(CR_X)
+      #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+        #define INVERT_E1_DIR false
+      #else
+        #define INVERT_E1_DIR true
+      #endif
     #else
-      #define INVERT_E1_DIR false
+      #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+        #define INVERT_E1_DIR true
+      #else
+        #define INVERT_E1_DIR false
+      #endif
     #endif
 
   #endif
