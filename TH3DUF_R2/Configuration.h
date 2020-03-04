@@ -309,7 +309,7 @@
 //===========================================================================
 // Creality CR-X Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
-//#define CR_X
+//#define CRX
 
 // If you are using our EZOut V2 filament sensor kit please follow the install guide
 // E0 (Left Extruder) sensor connects to X+
@@ -995,6 +995,9 @@
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
 //#define SLOWER_HOMING
 
+// Using a Creality Silent Board? Enable the below option to set the correct driver setting for those boards
+//#define TMC_CREALITY_BOARD
+
 // BOOT SCREEN OPTIONS -----------------------------
 
 // Use TinyMachines Bootscreen instead of TH3D
@@ -1018,12 +1021,10 @@
 
 // LINEAR ADVANCE ----------------------------------
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
-// NOTE: Linear Advance does NOT work with the Creality Silent boards or the CR-10 V2.
-//#define LINEAR_ADVANCE
+// NOTE: Linear Advance does NOT work with the Creality Silent boards, CR-10S Pro, CR-10S Max, and CR-10 V2 due to poor driver implementation.
+#define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0
-// NOTE: If using linear advance along with EZABL on a printer with 1284p some Control > Motion menus will not be displayed due to space restrictions.
-// You can still change these via GCode commands.
 
 // BL TOUCH ----------------------------------------
 // If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option in your printer section, 
@@ -1039,8 +1040,6 @@
 // For 2560 boards look for the pin you connected the servo wire to and enter below (typically 11).
 //#define SERVO0_PIN 27
 
-// NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
-// the Bootscreen and some Control > Motion menus will not be displayed due to space restrictions
 // The BL Touch is NOT supported on the Wanhao i3 Plus, use the ADVi3++ Firmware instead if you want to use a BL Touch.
 
 // MANUAL MESH LEVELING ----------------------------
@@ -1054,7 +1053,7 @@
 // Continue after Power-Loss feature will store the current state to the SD Card at the start of each layer
 // during SD printing. If this is found at bootup it will ask you if you want to resume the print.
 //
-// NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.
+// NOTE: This feature causes excessive wear on your SD card. This will also disable Junction Jerk, SCurve Acceleration, Linear Advance, and Reduce the Serial Buffer due to RAM limitations.
 // Power Loss Recovery is NOT supported on the Wanhao i3 Plus at this time.
 //#define POWER_LOSS_RECOVERY
 

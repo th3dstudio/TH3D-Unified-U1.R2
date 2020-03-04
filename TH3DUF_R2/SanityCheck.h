@@ -38,16 +38,20 @@
 
 // Because people don't read the directions sometimes, throw errors to prevent issues.
 
-#if ENABLED(LIN_ADVANCE) && (ENABLED(TMC_CREALITY_BOARD) || ENABLED(CR10_V2))
-  #error "Due to the TMC2208 on the Creality board being stuck in StealthChop Linear Advance is not compatible with these boards. Disable Linear Advance and re-compile."
+#if ENABLED(POWER_LOSS_RECOVERY) && ENABLED(LINEAR_ADVANCE)
+  #error "Power Loss Recovery and Linear Advance cannot be used at the same time due to memory limitations. Disable one of these features and compile again"
+#endif
+
+#if ENABLED(POWER_LOSS_RECOVERY)
+  #warning "Serial buffer size reduced to 4 due to RAM limitations. Blobs and zits may occour when USB printing. Disable POWER_LOSS_RECOVERY if you want a larger serial buffer size."
+#endif
+
+#if ENABLED(LINEAR_ADVANCE) && (ENABLED(CR10S_PRO) || ENABLED(CR10_V2) || ENABLED(CR10_MAX) || ENABLED(TMC_CREALITY_BOARD))
+  #error "Due to the TMC2208 on the Creality boards being stuck in StealthChop. Linear Advance is not compatible with these boards. Disable Linear Advance and re-compile."
 #endif
 
 #if ENABLED(WANHAO_I3_PLUS) && ENABLED(MANUAL_MESH_LEVELING)
   #error "The i3 Plus does not support manual mesh leveling due to the LCD limitations. Disable MANUAL_MESH_LEVELING and re-compile. If you want mesh leveling on the i3 Plus you need an ABL sensor."
-#endif
-
-#if ENABLED(CUSTOM_ESTEPS) && ENABLED(TITAN_EXTRUDER)
-  #error "CUSTOM_ESTEPS and TITAN_EXTRUDER cannot be used together. Read the information by each option and pick which one applies to your setup."
 #endif
 
 #if ENABLED(EZOUT_ENABLE) && ENABLED(EZOUTV2_ENABLE)
@@ -95,7 +99,7 @@
 #endif
 
 #if ENABLED(BLTOUCH) && ENABLED(POWER_LOSS_RECOVERY) && ENABLED(SLIM_1284P)
-  #error "Due to space limitations the BLTouch cannot be used with Power Loss Recovery on your printer. Disable Power Loss Recovery and retry."
+  #error "Due to space limitations the BLTouch cannot be used with Power Loss Recovery on your printer. Disable Power Loss Recovery and re-compile."
 #endif
 
 #if ENABLED(POWER_LOSS_RECOVERY) && ENABLED(WANHAO_I3_PLUS)
