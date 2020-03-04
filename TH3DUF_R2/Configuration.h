@@ -857,6 +857,7 @@
 #define EZABL_FASTPROBE
 
 // Superfast probing - Only works with the EZABL Pro Sensors
+// DO NOTE: Not all machines will work with the fast probe enabled. Use M48 to verify accuracy and make sure the Z isn't binding with the high speeds.
 //#define EZABL_SUPERFASTPROBE
 
 // This will disable the XYE motors during probing. Can be useful if you have stepper motors causing interference issues with the EZABL sensor.
