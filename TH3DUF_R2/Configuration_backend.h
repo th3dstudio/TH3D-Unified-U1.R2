@@ -2349,8 +2349,13 @@
     #define X_MIN_POS X_HOME_ADJUST_LOCATION
     #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
-    #define X_MIN_POS 0
-    #define Y_MIN_POS 0
+    #if ENABLED(CRX)
+      #define X_MIN_POS 0
+      #define Y_MIN_POS -8
+    #else
+      #define X_MIN_POS 0
+      #define Y_MIN_POS 0
+    #endif
   #endif
   
   #define ENCODER_PULSES_PER_STEP 4
