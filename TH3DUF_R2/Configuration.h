@@ -54,6 +54,8 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 #define CONFIGURATION_H_VERSION 010109
+#include "Configuration_beta.h"
+#include "Configuration_backend.h"
 
 //===========================================================================
 //============================ TH3D Configuration ===========================
@@ -1085,9 +1087,6 @@
 
 #define LCD_LANGUAGE en
 
-#include "Configuration_beta.h"
-#include "Configuration_backend.h"
-
-#define UNIFIED_VERSION "TH3D U1.R2.A6"
+#define UNIFIED_VERSION "TH3D U1.R2.A7"
 
 #endif // CONFIGURATION_H

@@ -2,6 +2,7 @@
 * ************** How to use this firmware - READ THIS, yes actually read this. *********************************
 *
 * This is for beta machine testing only. Enable the beta machine below and set the other options in Configuration.h
+* No included support is provided for machines in this section. This is for our internal testing only. Use at your own risk.
 *
 */
 
@@ -51,5 +52,18 @@
 // If you are using the stock BL Touch sensor uncomment the below line
 // If you are using a BL Touch but with a different mount uncomment the below line and the above CUSTOM_PROBE then enter the offsets below.
 //#define CR10_MAX_BLTOUCH
+
+//===========================================================================
+// ***************************   OTHER PRINTERS    **************************
+//===========================================================================
+
+//===========================================================================
+// Aliexpress A-10S Options - Select 'Sanguino 1284p' from Tools > Board
+// Has an Anet Style Melzi board and Wanhao i3 Style LCD
+//===========================================================================
+//#define ALI_A10S
+
+// EZABL Probe Mounts
+//#define CUSTOM_PROBE
 
 #endif // CONFIGURATION_H
