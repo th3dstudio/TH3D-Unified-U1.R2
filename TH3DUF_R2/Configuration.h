@@ -54,6 +54,7 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 #define CONFIGURATION_H_VERSION 010109
+#include "Configuration_beta.h"
 
 //===========================================================================
 //============================ TH3D Configuration ===========================
@@ -1026,7 +1027,7 @@
 // LINEAR ADVANCE ----------------------------------
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
 // NOTE: Linear Advance does NOT work with the Creality Silent boards, CR-10S Pro, CR-10S Max, and CR-10 V2 due to poor driver implementation.
-#define LINEAR_ADVANCE
+//#define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0
 
@@ -1085,9 +1086,7 @@
 
 #define LCD_LANGUAGE en
 
-#include "Configuration_beta.h"
+#define UNIFIED_VERSION "TH3D U1.R2.A7"
 #include "Configuration_backend.h"
-
-#define UNIFIED_VERSION "TH3D U1.R2.A6"
 
 #endif // CONFIGURATION_H

@@ -2065,6 +2065,86 @@
   #define PRINTER_ENABLED_CHECK
 #endif //end i3 settings
 
+//Aliexpress A-10S Model Settings
+#if ENABLED(ALI_A10S)
+  #define SLIM_1284P
+  #define BAUDRATE 115200
+  
+  #if ENABLED(EZOUTV2_ENABLE)
+    #define SPEAKER_KILL
+  #endif
+  
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_MELZI_MAKR3D
+  #endif
+  #define IS_WANHAO_DI3
+
+  #define DIRECT_DRIVE_PRINTER
+  
+  #define X_MIN_ENDSTOP_INVERTING true
+  #define Y_MIN_ENDSTOP_INVERTING true
+  #define Z_MIN_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING true
+  #define Y_MAX_ENDSTOP_INVERTING true
+  #define Z_MAX_ENDSTOP_INVERTING true
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+  #else
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
+
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 500, 5000 }
+  
+  #define DEFAULT_ACCELERATION          700    
+  #define DEFAULT_RETRACT_ACCELERATION  3000   
+  #define DEFAULT_TRAVEL_ACCELERATION   700    
+
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 300
+  #define Z_MAX_POS 400
+
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+
+  #define DEFAULT_XJERK                 10.0
+  #define DEFAULT_YJERK                 10.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
+
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR false
+  #else
+    #define INVERT_E0_DIR true
+  #endif
+
+  #ifndef ST7920_DELAY_1
+    #define ST7920_DELAY_1 DELAY_NS(200)
+  #endif
+  #ifndef ST7920_DELAY_2
+    #define ST7920_DELAY_2 DELAY_NS(200)
+  #endif
+  #ifndef ST7920_DELAY_3
+    #define ST7920_DELAY_3 DELAY_NS(200)
+  #endif
+
+  #define LCD_FOR_MELZI
+  
+  #define PRINTER_ENABLED_CHECK
+#endif //Aliexpress A-10S settings
+
 //CR-10 and Ender 3 Model Settings
 #if ENABLED(CR10) || ENABLED(CR10_MINI) || ENABLED(CR10_S4) || ENABLED(CR10_S5) || ENABLED(ENDER3) || ENABLED(ENDER5)
   #define SLIM_1284P
