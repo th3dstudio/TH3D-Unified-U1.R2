@@ -11,7 +11,8 @@
 * EZABL SETUP NOTES: 
 * If you have EZABL uncomment the mount you are using with the printer. 
 * If you have a custom/unsupported mount uncomment #define CUSTOM_PROBE and enter your offsets 
-* below in the CUSTOM MOUNT section. Refer to the EZABL guide to get your offsets.
+* below in the Custom Probe Mount Settings section.
+* Refer to the Custom Probe Mount Settings section below for entering these and how to measure.
 * 
 * STEP 1:
 * Select the correct board from the tools menu for the printer you are flashing.
@@ -53,6 +54,7 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 #define CONFIGURATION_H_VERSION 010109
+#include "Configuration_beta.h"
 
 //===========================================================================
 //============================ TH3D Configuration ===========================
@@ -201,9 +203,6 @@
 //#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
-//#define TMC_CREALITY_BOARD
-
 //===========================================================================
 // Creality CR-10 V2 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -309,6 +308,21 @@
 //#define EZOUTV2_DUAL_ENABLE
 
 //===========================================================================
+// Creality CR-X Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define CRX
+
+// If you are using our EZOut V2 filament sensor kit please follow the install guide
+// E0 (Left Extruder) sensor connects to X+
+// E1 (Right Extruder) sensor connects to Y+
+// Then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
+//#define EZOUTV2_ENABLE
+
+// EZABL Probe Mounts
+//#define CRX_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // Creality Ender 2 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define ENDER2
@@ -351,9 +365,6 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
-
-// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
-//#define TMC_CREALITY_BOARD
 
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 3
@@ -423,9 +434,6 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
-
-// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
-//#define TMC_CREALITY_BOARD
 
 // Use Ender Bootscreeen instead of TH3D
 //#define ENDER_BOOT
@@ -849,6 +857,10 @@
 // DO NOTE: Most machines will work with the fast probe enabled. Use M48 to verify accuracy.
 #define EZABL_FASTPROBE
 
+// Superfast probing - Only works with the EZABL Pro Sensors
+// DO NOTE: Not all machines will work with the fast probe enabled. Use M48 to verify accuracy and make sure the Z isn't binding with the high speeds.
+//#define EZABL_SUPERFASTPROBE
+
 // This will disable the XYE motors during probing. Can be useful if you have stepper motors causing interference issues with the EZABL sensor.
 //#define PROBING_MOTORS_OFF
 
@@ -870,6 +882,8 @@
 //#define SLOWER_PROBE_MOVES
 
 //================================================================================
+// Custom Probe Mount Settings
+//
 // IF YOU HAVE A CUSTOM PROBE MOUNT OR ONE THAT IS NOT PRE-SUPPORTED UNCOMMENT THE
 // CUSTOM_PROBE OPTION IN YOUR PRINTER SECTION AND ENTER YOUR PROBE LOCATION BELOW
 //================================================================================
@@ -986,6 +1000,9 @@
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
 //#define SLOWER_HOMING
 
+// Using a Creality Silent Board? Enable the below option to set the correct driver setting for those boards
+//#define TMC_CREALITY_BOARD
+
 // BOOT SCREEN OPTIONS -----------------------------
 
 // Use TinyMachines Bootscreen instead of TH3D
@@ -1009,12 +1026,10 @@
 
 // LINEAR ADVANCE ----------------------------------
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
-// NOTE: Linear Advance does NOT work with the Creality Silent boards or the CR-10 V2.
+// NOTE: Linear Advance does NOT work with the Creality Silent boards, CR-10S Pro, CR-10S Max, and CR-10 V2 due to poor driver implementation.
 //#define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0
-// NOTE: If using linear advance along with EZABL on a printer with 1284p some Control > Motion menus will not be displayed due to space restrictions.
-// You can still change these via GCode commands.
 
 // BL TOUCH ----------------------------------------
 // If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option in your printer section, 
@@ -1030,13 +1045,12 @@
 // For 2560 boards look for the pin you connected the servo wire to and enter below (typically 11).
 //#define SERVO0_PIN 27
 
-// NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
-// the Bootscreen and some Control > Motion menus will not be displayed due to space restrictions
 // The BL Touch is NOT supported on the Wanhao i3 Plus, use the ADVi3++ Firmware instead if you want to use a BL Touch.
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. 
 // Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html If used with a 1284P board the bootscreen will be disabled to save space.
+// NOTE: This is not supported on the Wanhao i3 Plus due to the LCD limitations.
 // NOTE: If you want to automate the leveling process our EZABL kits do this for you. Check them out here: http://EZABL.TH3DStudio.com
 //#define MANUAL_MESH_LEVELING
 
@@ -1044,7 +1058,7 @@
 // Continue after Power-Loss feature will store the current state to the SD Card at the start of each layer
 // during SD printing. If this is found at bootup it will ask you if you want to resume the print.
 //
-// NOTE: This feature causes excessive wear on your SD card. This will disable junction jerk,  SCurve Acceleration, and Linear Advance due to RAM limitations.
+// NOTE: This feature causes excessive wear on your SD card. This will also disable Junction Jerk, SCurve Acceleration, Linear Advance, and Reduce the Serial Buffer due to RAM limitations.
 // Power Loss Recovery is NOT supported on the Wanhao i3 Plus at this time.
 //#define POWER_LOSS_RECOVERY
 
@@ -1072,9 +1086,7 @@
 
 #define LCD_LANGUAGE en
 
-#include "Configuration_beta.h"
+#define UNIFIED_VERSION "TH3D U1.R2.A7"
 #include "Configuration_backend.h"
-
-#define UNIFIED_VERSION "TH3D U1.R2.A4"
 
 #endif // CONFIGURATION_H
