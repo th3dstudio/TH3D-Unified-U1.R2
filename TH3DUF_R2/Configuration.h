@@ -1086,7 +1086,7 @@
 
 #define LCD_LANGUAGE en
 
-#define UNIFIED_VERSION "TH3D U1.R2.A7"
+#define UNIFIED_VERSION "TH3D U1.R2.A8"
 #include "Configuration_backend.h"
 
 #endif // CONFIGURATION_H

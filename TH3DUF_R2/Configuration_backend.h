@@ -222,15 +222,16 @@
 #if ENABLED(ENDER5_PLUS)
   #if DISABLED(ENDER5_PLUS_NOABL) && DISABLED(ENDER5_PLUS_EZABL)
     #define BLTOUCH
-	#define SERVO0_PIN 11
-	#ifndef EZABL_PROBE_EDGE
-	  #define EZABL_PROBE_EDGE 35
-	#endif
-	#ifndef EZABL_POINTS
-	  #define EZABL_POINTS 5
-	#endif
-	#if DISABLED(CUSTOM_PROBE)
-      #define NOZZLE_TO_PROBE_OFFSET { -44, -9, 0}
+	  #define SERVO0_PIN 11
+	  #ifndef EZABL_PROBE_EDGE
+  	  #define EZABL_PROBE_EDGE 35
+  	#endif
+  	#ifndef EZABL_POINTS
+	    #define EZABL_POINTS 5
+	  #endif
+	  #if DISABLED(CUSTOM_PROBE)
+      #define X_PROBE_OFFSET_FROM_EXTRUDER -44
+      #define Y_PROBE_OFFSET_FROM_EXTRUDER -9
     #endif
   #endif  
   #if DISABLED(ENDER5_PLUS_NOABL)
