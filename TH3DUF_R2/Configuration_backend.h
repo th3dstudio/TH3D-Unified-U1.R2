@@ -951,12 +951,6 @@
     #define INVERT_Z_DIR true
   #endif
   
-  #if MKS_Z_DIRECTION == 0
-    #define INVERT_Z_DIR false
-  #else
-    #define INVERT_Z_DIR true
-  #endif
-  
   #if MKS_E0_DIRECTION == 0
     #define INVERT_E0_DIR false
   #else
