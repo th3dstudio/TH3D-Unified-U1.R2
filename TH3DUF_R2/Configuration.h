@@ -377,7 +377,8 @@
 // CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 3 LCD.
 // You will have to force it into the EXP1 but it will fit and work.
 // 
-// EZABL and EZOut support are still supported just use the lines above this comment section.
+// EZABL and EZOut support are still supported, just use the lines above this comment section.
+// Ender Xtender options still work, just use the lines above this comment section.
 //=================================================================================================
 //#define ENDER3_DUALBOARD
 
@@ -392,11 +393,6 @@
 // If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUTV2_DUAL_ENABLE
-
-// Ender Xtender Kit Options
-//#define ENDER_XTENDER_400
-//#define ENDER_XTENDER_400XL
-//#define ENDER_XTENDER_XL
 
 //===========================================================================
 // Creality Ender 4 Options - Select 'Arduino Mega 2560' from Tools > Board
