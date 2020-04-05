@@ -2230,14 +2230,28 @@
   #endif
   
   #if ENABLED(ENDER3)
-    #define X_BED_SIZE 235
-    #define Y_BED_SIZE 235
-    #define Z_MAX_POS 250
+		#if ENABLED(ENDER_XTENDER_400)
+			#define X_BED_SIZE 400
+			#define Y_BED_SIZE 400
+			#define Z_MAX_POS 250
+		#elif ENABLED(ENDER_XTENDER_400XL)
+			#define X_BED_SIZE 400
+			#define Y_BED_SIZE 400
+			#define Z_MAX_POS 500
+		#elif ENABLED(ENDER_XTENDER_XL)
+			#define X_BED_SIZE 235
+			#define Y_BED_SIZE 235
+			#define Z_MAX_POS 500
+		#else
+			#define X_BED_SIZE 235
+			#define Y_BED_SIZE 235
+			#define Z_MAX_POS 250
+		#endif
   #endif
   
   #if ENABLED(ENDER5)
-    #define X_BED_SIZE 220
-    #define Y_BED_SIZE 220
+    #define X_BED_SIZE 235
+    #define Y_BED_SIZE 235
     #define Z_MAX_POS 300
   #endif
 
@@ -2363,9 +2377,23 @@
   #endif
   
   #if ENABLED(ENDER3_DUALBOARD)
-    #define X_BED_SIZE 235
-    #define Y_BED_SIZE 235
-    #define Z_MAX_POS 250
+		#if ENABLED(ENDER_XTENDER_400)
+			#define X_BED_SIZE 400
+			#define Y_BED_SIZE 400
+			#define Z_MAX_POS 250
+		#elif ENABLED(ENDER_XTENDER_400XL)
+			#define X_BED_SIZE 400
+			#define Y_BED_SIZE 400
+			#define Z_MAX_POS 500
+		#elif ENABLED(ENDER_XTENDER_XL)
+			#define X_BED_SIZE 235
+			#define Y_BED_SIZE 235
+			#define Z_MAX_POS 500
+		#else
+			#define X_BED_SIZE 235
+			#define Y_BED_SIZE 235
+			#define Z_MAX_POS 250
+		#endif
   #endif
   
   #if ENABLED(ENDER5_DUALBOARD)

@@ -344,11 +344,8 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// Use Ender Bootscreeen instead of TH3D
-//#define ENDER_BOOT
-
 //===========================================================================
-// Creality Ender 3 Options - Select 'Sanguino 1284p' from Tools > Board
+// Creality Ender 3/3 Pro Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 //#define ENDER3
 
@@ -365,6 +362,11 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
+
+// Ender Xtender Kit Options
+//#define ENDER_XTENDER_400
+//#define ENDER_XTENDER_400XL
+//#define ENDER_XTENDER_XL
 
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 3
@@ -391,8 +393,10 @@
 // and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUTV2_DUAL_ENABLE
 
-// Use Ender Bootscreeen instead of TH3D
-//#define ENDER_BOOT
+// Ender Xtender Kit Options
+//#define ENDER_XTENDER_400
+//#define ENDER_XTENDER_400XL
+//#define ENDER_XTENDER_XL
 
 //===========================================================================
 // Creality Ender 4 Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -411,9 +415,6 @@
 //#define ENDER4_OEM_LEFT
 //#define ENDER4_OEM_RIGHT //need to design
 //#define CUSTOM_PROBE
-
-// Use Ender Bootscreeen instead of TH3D
-//#define ENDER_BOOT
 
 //===========================================================================
 // Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
@@ -435,11 +436,9 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// Use Ender Bootscreeen instead of TH3D
-//#define ENDER_BOOT
-
 // If you have the new Ender 5 or Ender 5 Pro Model that has the new 800steps/mm Z leadscrew uncomment the below option to set the correct steps/mm
 //#define ENDER5_NEW_LEADSCREW
+
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 5
 // DO NOT UNCOMMENT THE ABOVE #define ENDER5 LINE IF USING THE DUAL BOARD
@@ -1086,7 +1085,7 @@
 
 #define LCD_LANGUAGE en
 
-#define UNIFIED_VERSION "TH3D U1.R2.A8"
+#define UNIFIED_VERSION "TH3D U1.R2.A9"
 #include "Configuration_backend.h"
 
 #endif // CONFIGURATION_H
