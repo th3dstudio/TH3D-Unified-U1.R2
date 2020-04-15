@@ -3308,11 +3308,7 @@
     #define PROBING_HEATERS_OFF   
   #endif  
   
-  #if ENABLED(EZABL_SUPERFASTPROBE)
-    #define MULTIPLE_PROBING 3
-  #else
-    #define MULTIPLE_PROBING 2
-  #endif
+  #define MULTIPLE_PROBING 2
 
   #if ENABLED(BLTOUCH)
     #define Z_CLEARANCE_DEPLOY_PROBE   15
