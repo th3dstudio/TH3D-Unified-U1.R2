@@ -48,6 +48,11 @@
 #if ENABLED(CUSTOM_PROBE)
   #define EZABL_ENABLE
 #endif
+#if ENABLED(SIDEWINDER_X1_OEM)
+  #define EZABL_ENABLE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 0 //TODO
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0 //TODO
+#endif
 #if ENABLED(CR10_MAX_BLTOUCH) && ENABLED(CR10_MAX)
   #define BLTOUCH
   #define SERVO0_PIN 11
@@ -523,9 +528,7 @@
   
   #define MOUNTED_FILAMENT_SENSOR 
   
-  #if ENABLED(RR_LCD_UPGRADE)
-    #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
-  #endif
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
   
   #define BAUDRATE 115200
 
@@ -654,9 +657,7 @@
   
   #define MOUNTED_FILAMENT_SENSOR
   
-  #if ENABLED(RR_LCD_UPGRADE)
-    #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
-  #endif
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
   
   #define BAUDRATE 115200
 
@@ -1414,6 +1415,80 @@
   #define ENCODER_STEPS_PER_MENU_ITEM 1
   
   #define PRINTER_ENABLED_CHECK
+#endif
+
+//Artillery AL-4 Settings
+#if ENABLED(SIDEWINDER_X1)
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_MKS_GEN_L
+  #endif
+
+  #define EZOUTV2_ENABLE
+  #define STOCK_MKS_PRINTER
+  #define DIRECT_DRIVE_PRINTER
+
+  #define X_DRIVER_TYPE  TMC2100  
+  #define Y_DRIVER_TYPE  TMC2100
+  #define Z_DRIVER_TYPE  TMC2100
+  #define E0_DRIVER_TYPE TMC2100
+  #define Z2_DRIVER_TYPE TMC2100
+  
+  #define MKS_MINI_12864
+  #define BAUDRATE 250000
+
+  #define X_MIN_ENDSTOP_INVERTING true
+  #define Y_MIN_ENDSTOP_INVERTING true
+  #define Z_MIN_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING true
+  #define Y_MAX_ENDSTOP_INVERTING true
+  #define Z_MAX_ENDSTOP_INVERTING true
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+  
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+  #else
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 463 }
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 1000, 5000 }
+
+  #define DEFAULT_ACCELERATION          1000    
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   1000    
+  
+  #define DEFAULT_XJERK                 10.0
+  #define DEFAULT_YJERK                 10.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
+  
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 300
+  #define Z_MAX_POS 400
+  
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+  
+  #define ENCODER_PULSES_PER_STEP 4
+  #define ENCODER_STEPS_PER_MENU_ITEM 1
+  
+  #define PRINTER_ENABLED_CHECK
+  
 #endif
 
 //Artillery AL-4 Settings

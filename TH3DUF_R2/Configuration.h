@@ -136,7 +136,7 @@
 //#define ANET_LCD2004    // 5 Button Keypad Model
 
 //===========================================================================
-// **********************     ARTILLERY PRINTERS      ***********************
+// ******************     ARTILLERY/EVNOVO PRINTERS      ********************
 //===========================================================================
 
 //===========================================================================
@@ -163,6 +163,19 @@
 //#define ARTILLERY_AL4_X_AXIS_TMC2208
 //#define ARTILLERY_AL4_Y_AXIS_TMC2208
 //#define ARTILLERY_AL4_Z_AXIS_TMC2208
+
+//===========================================================================
+// Sidewinder X1 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define SIDEWINDER_X1
+
+// NOTE: The Sidewinder X1 is ONLY compatible with our firmware once you have installed the LCD conversion kit
+// the stock LCD is not supported due to closed source firmware limitations on it.
+// You can get the LCD conversion kit here: LINK HERE
+
+// EZABL Probe Mounts
+//#define SIDEWINDER_X1_OEM
+//#define CUSTOM_PROBE
 
 //===========================================================================
 // ***********************     ANYCUBIC PRINTERS     ************************
@@ -265,10 +278,9 @@
 //===========================================================================
 //#define CR10S_PRO
 
-// What LCD are you using? (Only 12864 LCD is supported)
-//#define RR_LCD_UPGRADE
-// Stock Touch LCD is not supported at this time.
-// Info on converting the LCD can be found here: https://www.th3dstudio.com/product/cr-10s-pro-lcd-ezabl-upgrade-kit/
+// NOTE: The CR-10S Pro is ONLY compatible with our firmware once you have installed the LCD conversion kit
+// the stock LCD is not supported due to closed source firmware limitations on it.
+// You can get the LCD conversion kit here: https://www.th3dstudio.com/product/cr-10s-pro-lcd-ezabl-upgrade-kit/
 
 // EZABL/ABL Probe Mounts
 //#define CR10S_PRO_OEM
@@ -311,6 +323,10 @@
 // Creality CR-X Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define CRX
+
+// NOTE: The CR-X is ONLY compatible with our firmware once you have installed the LCD conversion kit
+// the stock LCD is not supported due to closed source firmware limitations on it.
+// You can get the LCD conversion kit here: LINK HERE
 
 // If you are using our EZOut V2 filament sensor kit please follow the install guide
 // E0 (Left Extruder) sensor connects to X+
@@ -465,10 +481,9 @@
 //===========================================================================
 //#define ENDER5_PLUS
 
-// What LCD are you using? (Only 12864 LCD is supported)
-//#define RR_LCD_UPGRADE
-// Stock Touch LCD is not supported at this time.
-// Info on converting the LCD can be found here: https://www.th3dstudio.com/product/ender-5-plus-12864-lcd-upgrade-kit/
+// NOTE: Ender 5 Plus is ONLY compatible with our firmware once you have installed the LCD conversion kit
+// the stock LCD is not supported due to closed source firmware limitations on it.
+// You can get the LCD conversion kit here: https://www.th3dstudio.com/product/ender-5-plus-12864-lcd-upgrade-kit/
 
 // EZABL/ABL Probe Mounts - Uses some CR-10/Ender 3 Mounts
 //#define CR10_OEM
@@ -1081,7 +1096,7 @@
 
 #define LCD_LANGUAGE en
 
-#define UNIFIED_VERSION "TH3D U1.R2.A9"
+#define UNIFIED_VERSION "TH3D U1.R2.B1"
 #include "Configuration_backend.h"
 
 #endif // CONFIGURATION_H
