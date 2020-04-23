@@ -326,7 +326,7 @@
 
 // NOTE: The CR-X is ONLY compatible with our firmware once you have installed the LCD conversion kit
 // the stock LCD is not supported due to closed source firmware limitations on it.
-// You can get the LCD conversion kit here: LINK HERE
+// You can get the LCD conversion kit here: https://www.th3dstudio.com/product/cr-x-12864-lcd-upgrade-kit/
 
 // If you are using our EZOut V2 filament sensor kit please follow the install guide
 // E0 (Left Extruder) sensor connects to X+
