@@ -1079,6 +1079,14 @@
 //#define JUNCTION_DEVIATION_ON
 //#define S_CURVE_ACCELERATION_ON
 
+// HOST ACTION TRIGGER
+// Enabling this turns on 2 new trigger on a filament change (M600) to let OctoPi and other compatible software know
+// that we are pausing for a filament change. This way the host can wait before sending new commands/react to it with
+// a custom action. Once the filament change is done, another action is send to the host and letting it know things go
+// on.
+
+//#define PAUSE_ACTION_OCTOPI
+
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.
 // We only test compile with English language. If you run into space issues disable some features.
