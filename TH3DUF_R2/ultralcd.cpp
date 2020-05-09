@@ -179,7 +179,7 @@ uint16_t max_display_update_time = 0;
   void lcd_control_temperature_menu();
   void lcd_control_motion_menu();
 
-  #if DISABLED(SLIM_LCD_MENUS)
+  #if DISABLED(SLIM_LCD_MENUS) || ENABLED(SHOW_PREHEAT_CONFIG_MENU)
     void lcd_control_temperature_preheat_material1_settings_menu();
     void lcd_control_temperature_preheat_material2_settings_menu();
   #endif
@@ -3607,7 +3607,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
 
     #endif // PIDTEMP
 
-    #if DISABLED(SLIM_LCD_MENUS)
+    #if DISABLED(SLIM_LCD_MENUS) || ENABLED(SHOW_PREHEAT_CONFIG_MENU)
       //
       // Preheat Material 1 conf
       //
@@ -3622,7 +3622,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     END_MENU();
   }
 
-  #if DISABLED(SLIM_LCD_MENUS)
+  #if DISABLED(SLIM_LCD_MENUS) || ENABLED(SHOW_PREHEAT_CONFIG_MENU)
 
     void _lcd_control_temperature_preheat_settings_menu(const uint8_t material) {
       #if HOTENDS > 4
@@ -3669,6 +3669,10 @@ void lcd_quick_feedback(const bool clear_buttons) {
      *
      */
     void lcd_control_temperature_preheat_material2_settings_menu() { _lcd_control_temperature_preheat_settings_menu(1); }
+
+  #endif // !SLIM_LCD_MENUS || SHOW_PREHEAT_CONFIG_MENU
+
+  #if DISABLED(SLIM_LCD_MENUS)
 
     void _reset_acceleration_rates() { planner.reset_acceleration_rates(); }
     #if ENABLED(DISTINCT_E_FACTORS)
