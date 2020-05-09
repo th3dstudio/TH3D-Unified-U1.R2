@@ -1084,8 +1084,13 @@
 // that we are pausing for a filament change. This way the host can wait before sending new commands/react to it with
 // a custom action. Once the filament change is done, another action is send to the host and letting it know things go
 // on.
+// Enable PAUSE_ACTION_OCTOPI when you want the M600 handled by Marlin completely. OctoPi switches to pause/resume, but
+// doesn't trigger any GCODE/SD commands
+// Enable PAUSE_ACTION_DEFAULT when you want the M600 triggering GCODE scripts/SD commands when OctoPi pause/resumes. Also
+// use this when you use a different host then OctoPi as it's the default event and should be supported by other hosts.
 
 //#define PAUSE_ACTION_OCTOPI
+//#define PAUSE_ACTION_DEFAULT
 
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.

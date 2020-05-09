@@ -354,6 +354,9 @@
   #if ENABLED(PAUSE_ACTION_OCTOPI)
     #define ACTION_ON_PAUSE "paused"
     #define ACTION_ON_RESUME "resumed"
+  #elif ENABLED(PAUSE_ACTION_DEFAULT)
+    #define ACTION_ON_PAUSE "pause"
+    #define ACTION_ON_RESUME "resume"
   #endif  
 #endif
 
