@@ -174,7 +174,7 @@
 // You can get the LCD conversion kit here: https://www.th3dstudio.com/product/evonvo-artillery-sidewinder-x1-lcd-conversion-kit/
 
 // EZABL Probe Mounts
-//#define SIDEWINDER_X1_OEM
+//#define SIDEWINDER_X1_OEM //NOT FINISHED YET. WILL BE RELEASED AT A LATER DATE.
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -1096,7 +1096,7 @@
 
 #define LCD_LANGUAGE en
 
-#define UNIFIED_VERSION "TH3D U1.R2.B2"
+#define UNIFIED_VERSION "TH3D U1.R2.B3"
 #include "Configuration_backend.h"
 
 #endif // CONFIGURATION_H

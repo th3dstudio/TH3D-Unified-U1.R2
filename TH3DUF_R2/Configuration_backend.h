@@ -1417,7 +1417,7 @@
   #define PRINTER_ENABLED_CHECK
 #endif
 
-//Artillery AL-4 Settings
+//Artillery X1 Settings
 #if ENABLED(SIDEWINDER_X1)
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_MKS_GEN_L
@@ -1488,6 +1488,12 @@
   #define ENCODER_STEPS_PER_MENU_ITEM 1
   
   #define PRINTER_ENABLED_CHECK
+
+  #define RGB_LED
+  #define RGB_LED_R_PIN 5
+  #define RGB_LED_G_PIN 4
+  #define RGB_LED_B_PIN 6
+  #define PRINTER_EVENT_LEDS
   
 #endif
 
