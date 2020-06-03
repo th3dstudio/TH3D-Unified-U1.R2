@@ -48,13 +48,8 @@ Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' men
 
 #define HEATER_0_PIN      4
 #define HEATER_BED_PIN    44    // BED
-#if ENABLED(TIM_I3MINI)
-  #define TEMP_0_PIN        14   // ANALOG NUMBERING
-  #define TEMP_BED_PIN      13   // ANALOG NUMBERING
-#else
-  #define TEMP_0_PIN        13   // ANALOG NUMBERING
-  #define TEMP_BED_PIN      14   // ANALOG NUMBERING
-#endif
+#define TEMP_0_PIN        13   // ANALOG NUMBERING
+#define TEMP_BED_PIN      14   // ANALOG NUMBERING
 #define FAN_PIN           -1 // IO pin. Buffer needed
 
 #define BEEPER_PIN 37
