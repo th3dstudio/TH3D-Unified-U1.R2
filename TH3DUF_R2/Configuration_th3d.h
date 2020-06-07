@@ -281,7 +281,7 @@
 #endif //end of steve A30
 
 #if ENABLED(TIM_I3MINI)
-  #define WANHAO_I3MINI
+  #define WANHAO_I3MINI_V2
   #define WANHAO_I3MINI_OEM_EZABLMINI
   #define EZABL_POINTS 3
   #define EZABL_PROBE_EDGE 5
