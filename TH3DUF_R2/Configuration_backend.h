@@ -52,6 +52,11 @@
 #if ENABLED(CUSTOM_PROBE)
   #define EZABL_ENABLE
 #endif
+#if ENABLED(ZONESTAR_Z5F_STOCK_ABL)
+  #define EZABL_ENABLE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 35
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
+#endif
 #if ENABLED(SIDEWINDER_X1_OEM)
   #define EZABL_ENABLE
   #define X_PROBE_OFFSET_FROM_EXTRUDER 0 //TODO
@@ -246,6 +251,72 @@
   #if DISABLED(ENDER5_PLUS_NOABL)
 	  #define EZABL_ENABLE
   #endif
+#endif
+
+//ZoneStar Z5F Settings
+#if ENABLED(ZONESTAR_Z5F)
+  #define BAUDRATE 115200
+
+  #define REPRAP_DISCOUNT_SMART_CONTROLLER
+  #define LCD2004
+
+  #define X_MIN_ENDSTOP_INVERTING true
+  #define Y_MIN_ENDSTOP_INVERTING true
+  #define Z_MIN_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+
+  #if ENABLED(CUSTOM_ESTEPS)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+  #else
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 200, 200, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 500, 5000 }
+
+  #define DEFAULT_ACCELERATION          1000   
+  #define DEFAULT_RETRACT_ACCELERATION  1000  
+  #define DEFAULT_TRAVEL_ACCELERATION   1000   
+  
+  #define DEFAULT_XJERK                 7.0
+  #define DEFAULT_YJERK                 7.0
+  #define DEFAULT_ZJERK                 0.3
+  #define DEFAULT_EJERK                 5.0
+  
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
+  
+  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
+    #define INVERT_E0_DIR false
+  #else
+    #define INVERT_E0_DIR true
+  #endif
+    
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_ZRIB_V20
+  #endif
+
+  #define X_BED_SIZE 220
+  #define Y_BED_SIZE 220
+  #define Z_MAX_POS 220
+
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS -15
+    #define Y_MIN_POS -21
+  #endif
+  
+  //#define ENCODER_PULSES_PER_STEP 4
+  //#define ENCODER_STEPS_PER_MENU_ITEM 1
+  
+  #define PRINTER_ENABLED_CHECK
+
 #endif
 
 //AnyCubic Mega Zero Settings

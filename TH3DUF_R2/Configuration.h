@@ -774,6 +774,21 @@
 //#define CUSTOM_PROBE
 
 //===========================================================================
+// ************************    ZONESTAR PRINTERS     ************************
+//===========================================================================
+
+//===========================================================================
+// Zonestar Z5F Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define ZONESTAR_Z5F
+
+//Stock ABL Option
+//#define ZONESTAR_Z5F_STOCK_ABL
+
+// EZABL Probe Mounts
+//#define CUSTOM_PROBE
+
+//===========================================================================
 // ***********************  MKS Gen L Based Printer   ***********************
 // *************  Select 'Arduino Mega 2560' from Tools > Board *************
 // **** Please refer to the TH3D MKS Gen L Documentation Guide for Setup ****
@@ -1099,7 +1114,7 @@
 
 #define LCD_LANGUAGE en
 
-#define UNIFIED_VERSION "TH3D U1.R2.B4"
+#define UNIFIED_VERSION "TH3D U1.R2.B5"
 #include "Configuration_backend.h"
 
 #endif // CONFIGURATION_H

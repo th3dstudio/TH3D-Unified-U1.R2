@@ -24,8 +24,8 @@
  * ZRIB V2.0 pin assignments
  */
 
-#define ZRIB_V20_D6_PIN 6
-#define ZRIB_V20_D9_PIN 9
+#define ZRIB_V20_D6_PIN 9 //6
+#define ZRIB_V20_D9_PIN 6 //9
 #define RAMPS_D9_PIN         ZRIB_V20_D6_PIN
 #define ORIG_E0_AUTO_FAN_PIN ZRIB_V20_D9_PIN
 #define ORIG_E1_AUTO_FAN_PIN ZRIB_V20_D9_PIN
