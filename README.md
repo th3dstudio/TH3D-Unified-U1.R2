@@ -1,8 +1,8 @@
-**Unified 2 Firmware Migration Progress**
+**[Unified 2](https://github.com/th3dstudio/UnifiedFirmware/releases) Firmware Migration Progress**
 
-As we move machines from using this Unified 1 to Unified 2 we will remove the config options for those machines and place a note stating that they are now to use Unified 2 instead.
+As we move machines from using this Unified 1 to [Unified 2](https://github.com/th3dstudio/UnifiedFirmware/releases) we will remove the config options for those machines and place a note stating that they are now to use Unified 2 instead.
 
-If your machine is supported in Unified 2 please use that instead of Unified 1.
+If your machine is supported in [Unified 2](https://github.com/th3dstudio/UnifiedFirmware/releases) please use that instead of Unified 1.
 
 **Machines that have been migrated so far:**
 
