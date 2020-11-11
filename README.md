@@ -1,3 +1,23 @@
+**Unified 2 Firmware Migration Progress**
+
+As we move machines from using this Unified 1 to Unified 2 we will remove the config options for those machines and place a note stating that they are now to use Unified 2 instead.
+
+If your machine is supported in Unified 2 please use that instead of Unified 1.
+
+**Machines that have been migrated so far:**
+
+- CR-10 (1284p Board)
+- CR-10 Mini (1284p Board)
+- CR-10 S4 (1284p Board)
+- CR-10 S5 (1284p Board)
+- CR-10 V2 (2560 Board)
+- Ender 2 (1284p Board)
+- Ender 3 (1284p Board)
+- Ender 5 (1284p Board)
+- Sidewinder X1 (2560 Board)
+
+----------
+
 **This firmware is maintained by TH3D. The goal is an easy to use firmware for 3D printers that we have added support for.**
 
 **The issues queue has been disabled as some people do not understand it's for firmware problems and not technical support.**
