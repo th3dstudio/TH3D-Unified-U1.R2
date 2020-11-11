@@ -167,15 +167,8 @@
 //===========================================================================
 // Sidewinder X1 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
-//#define SIDEWINDER_X1
 
-// NOTE: The Sidewinder X1 is ONLY compatible with our firmware once you have installed the LCD conversion kit
-// the stock LCD is not supported due to closed source firmware limitations on it.
-// You can get the LCD conversion kit here: https://www.th3dstudio.com/product/evonvo-artillery-sidewinder-x1-lcd-conversion-kit/
-
-// EZABL Probe Mounts
-//#define SIDEWINDER_X1_OEM //NOT FINISHED YET. WILL BE RELEASED AT A LATER DATE.
-//#define CUSTOM_PROBE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // ***********************     ANYCUBIC PRINTERS     ************************
@@ -196,34 +189,14 @@
 //===========================================================================
 // Creality CR-10 Options - Select 'Sanguino 1284P' from Tools > Board
 //===========================================================================
-//#define CR10
-//#define CR10_MINI
-//#define CR10_S4
-//#define CR10_S5
 
-// If you are using our EZOut V1/V2 (connects to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUT_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUT_ENABLE
-
-// EZABL Probe Mounts
-//#define CR10_OEM
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define CR10_FANG
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // Creality CR-10 V2 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
-//#define CR10_V2
 
-// EZABL Probe Mounts
-//#define CR10V2_OEM
-//#define CUSTOM_PROBE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // Creality CR-10S Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -341,29 +314,15 @@
 //===========================================================================
 // Creality Ender 2 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
-//#define ENDER2
 
-// If you are using our EZOut V2 (connects to the LCD header & connect the 2 pin connector to the "Check" header to the right of the LCD connection) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts (Ender 2 can use the same mounts as CR-10, Ender 2 Specific mounts minimize distance from probe to nozzle for max probing area)
-// If you have issues with the non-Ender 2 mounts then please print them off and switch to one of them before contacting support. 
-// This is because the probeable area on the non-Ender 2 mounts is too small typically to get a good result.
-//#define ENDER2_OEM
-//#define ENDER2_V6
-//#define CR10_OEM
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // Creality Ender 3/3 Pro Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
-//#define ENDER3
+
+//Use Unified 2.0 for this machine when using the "Melzi" board - Go to https://UF2.TH3DStudio.com
+// If you are using the CR-10S Dual Board still use this firmware. We will port the dual board over to Unified 2 in the future.
 
 // If you are using our EZOut V1/V2 (connected to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUT_ENABLE line below.
@@ -431,7 +390,9 @@
 //===========================================================================
 // Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
-//#define ENDER5
+
+//Use Unified 2.0 for this machine when using the "Melzi" board - Go to https://UF2.TH3DStudio.com
+// If you are using the CR-10S Dual Board still use this firmware. We will port the dual board over to Unified 2 in the future.
 
 // If you are using our EZOut V1/V2 (connected to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUT_ENABLE line below.
