@@ -16,6 +16,12 @@ If your machine is supported in [Unified 2](https://github.com/th3dstudio/Unifie
 - Ender 5 (1284p Board)
 - Sidewinder X1 (2560 Board)
 
+**When will X printer be moved over?**
+
+The answer is when we have time. We prioritize the more popular machines over the ones that are more niche/unpopular.
+
+We have one person that does all the firmware work in addition to running the company. If you wish to have a machine moved over quicker you are welcome to help out by making the code yourself and making a pull request against the Unified 2 firmware github repo.
+
 ----------
 
 **This firmware is maintained by TH3D. The goal is an easy to use firmware for 3D printers that we have added support for.**
