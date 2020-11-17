@@ -620,28 +620,6 @@
 //#define TORNADO_QUIET
 
 //===========================================================================
-// *************************     TH3D PRINTERS      *************************
-//===========================================================================
-
-//===========================================================================
-// TH3D Alpha EZ300 Options - Select Arduino Mega 2560 from Tools > Board
-//===========================================================================
-//#define TH3D_EZ300
-
-// EZABL Probe Mounts
-//#define EZ300_OEM_MOUNT
-
-// The Alpha X Carriage is 100% compatible with the Creality printer mounts.
-//#define CR10_OEM
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define CR10_FANG
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
-
-//===========================================================================
 // *************************    TRONXY PRINTERS     *************************
 //===========================================================================
 
