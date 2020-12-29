@@ -74,6 +74,8 @@
 //#define ADIM_I3P_OEM
 //#define CUSTOM_PROBE
 
+//Not being ported to Unified 2 at this time
+
 //===========================================================================
 // *************************    AIBECY PRINTERS     *************************
 //===========================================================================
@@ -85,6 +87,8 @@
 
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
+
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // *************************   ALFAWISE PRINTERS    *************************
@@ -180,53 +184,7 @@
 // Creality CR-10S Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 
-//Use Unified 2.0 for this machine when using the "Melzi" board - Go to https://UF2.TH3DStudio.com
-// If you are using the CR-10S Dual Board still use this firmware. We will port the dual board over to Unified 2 in the future.
-
-//#define CR10S
-//#define CR10S_MINI
-//#define CR10S_S4
-//#define CR10S_S5
-
-// This disables the stock CR-10S Filament Sensor
-// DO NOT ENABLE THIS IF YOU ARE USING THE EZOUT.
-//#define CR10S_NOFILAMENTSENSOR
-
-// Use this to use the CR-10 LCD with the CR-10S Board. Rotate the LCD plug 180
-// and plug into EXP1. You will have to force it in but it will fit and work.
-//#define CR10LCD_CR10S
-
-// If you are using our EZOut V1 (connects to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUT_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUT_ENABLE
-
-// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts
-//#define CR10_OEM
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
-
-// Touch LCD Setting - Enable this if you have the touch LCD are are getting a "paused for user" message in the terminal window.
-//#define TOUCH_LCD_FIX
-
-// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
-
-// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
-//#define DUAL_EXTRUDER_SINGLE_HOTEND
-
-// If you are using a dual hotend with dual nozzles uncomment the below line
-//#define DUAL_HOTEND_DUAL_NOZZLES
-
-// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_DUAL_ENABLE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // Creality CR-10S Pro Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -238,35 +196,7 @@
 // Creality CR-20 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 
-//Use Unified 2.0 for this machine when using the "Melzi" board - Go to https://UF2.TH3DStudio.com
-// If you are using the CR-10S Dual Board still use this firmware. We will port the dual board over to Unified 2 in the future.
-
-//#define CR20
-
-// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts (CR-20 uses the same mounts as CR-10)
-//#define CR10_OEM
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
-
-// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
-
-// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
-//#define DUAL_EXTRUDER_SINGLE_HOTEND
-
-// If you are using a dual hotend with dual nozzles uncomment the below line
-//#define DUAL_HOTEND_DUAL_NOZZLES
-
-// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_DUAL_ENABLE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // Creality CR-X Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -284,53 +214,7 @@
 // Creality Ender 3/3 Pro Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 
-//Use Unified 2.0 for this machine when using the "Melzi" board - Go to https://UF2.TH3DStudio.com
-// If you are using the CR-10S Dual Board still use this firmware. We will port the dual board over to Unified 2 in the future.
-
-// If you are using our EZOut V1/V2 (connected to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUT_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUT_ENABLE
-
-// EZABL Probe Mounts (Ender 3 uses the same mounts as CR-10)
-//#define CR10_OEM
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
-
-// Ender Xtender Kit Options
-//#define ENDER_XTENDER_400
-//#define ENDER_XTENDER_400XL
-//#define ENDER_XTENDER_XL
-
-//=================================================================================================
-// README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 3
-// DO NOT UNCOMMENT THE ABOVE #define ENDER3 LINE IF USING THE DUAL BOARD
-// Select 'Arduino Mega 2560' from Tools > Board - NOT Sanguino
-//
-// To use the Ender 3 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the 
-// CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 3 LCD.
-// You will have to force it into the EXP1 but it will fit and work.
-// 
-// EZABL and EZOut support are still supported, just use the lines above this comment section.
-// Ender Xtender options still work, just use the lines above this comment section.
-//=================================================================================================
-//#define ENDER3_DUALBOARD
-
-// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
-
-// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
-//#define DUAL_EXTRUDER_SINGLE_HOTEND
-
-// If you are using a dual hotend with dual nozzles uncomment the below line
-//#define DUAL_HOTEND_DUAL_NOZZLES
-
-// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_DUAL_ENABLE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // Creality Ender 4 Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -354,51 +238,7 @@
 // Creality Ender 5 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
 
-//Use Unified 2.0 for this machine when using the "Melzi" board - Go to https://UF2.TH3DStudio.com
-// If you are using the CR-10S Dual Board still use this firmware. We will port the dual board over to Unified 2 in the future.
-
-// If you are using our EZOut V1/V2 (connected to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUT_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUT_ENABLE
-
-// EZABL Probe Mounts (Ender 5 can use most of the same mounts as CR-10)
-//#define ENDER5_OEM
-//#define CR10_OEM
-//#define CR10_VOLCANO
-//#define CR10_V6HEAVYDUTY
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
-
-// If you have the new Ender 5 or Ender 5 Pro Model that has the new 800steps/mm Z leadscrew uncomment the below option to set the correct steps/mm
-//#define ENDER5_NEW_LEADSCREW
-
-//=================================================================================================
-// README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 5
-// DO NOT UNCOMMENT THE ABOVE #define ENDER5 LINE IF USING THE DUAL BOARD
-// Select 'Arduino Mega 2560' from Tools > Board - NOT Sanguino
-//
-// To use the Ender 5 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the 
-// CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 5 LCD.
-// You will have to force it into the EXP1 but it will fit and work.
-// 
-// EZABL and EZOut support are still supported just use the lines above this comment section.
-//=================================================================================================
-//#define ENDER5_DUALBOARD
-
-// Dual Extruder Board Options - The below options are for use with the TH3D CR-10S Board with dual extruder support.
-
-// If you are using a single hotend with the 2 into 1 adapter OR mixing nozzle uncomment the below line
-//#define DUAL_EXTRUDER_SINGLE_HOTEND
-
-// If you are using a dual hotend with dual nozzles uncomment the below line
-//#define DUAL_HOTEND_DUAL_NOZZLES
-
-// If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_DUAL_ENABLE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // Creality Ender 5 PLUS Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -428,6 +268,8 @@
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
+//Not being ported to Unified 2 at this time
+
 //===========================================================================
 // *************************  FOLGERTECH PRINTERS   *************************
 //===========================================================================
@@ -448,7 +290,7 @@
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
-//Not being ported to Unified 2
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // *************************   GEEETECH PRINTERS    *************************
@@ -467,6 +309,8 @@
 //#define GEE_A10_V2_OEM
 //#define CUSTOM_PROBE
 
+//Not being ported to Unified 2 at this time
+
 //===========================================================================
 // Geeetech A10M Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -475,6 +319,8 @@
 // EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
 //#define GEE_A10_V2_OEM
 //#define CUSTOM_PROBE
+
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // Geeetech A20 Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -485,6 +331,8 @@
 //#define GEE_A10_V2_OEM
 //#define CUSTOM_PROBE
 
+//Not being ported to Unified 2 at this time
+
 //===========================================================================
 // Geeetech A20M Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -493,6 +341,8 @@
 // EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
 //#define GEE_A10_V2_OEM
 //#define CUSTOM_PROBE
+
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // *************************    LULZBOT PRINTERS    *************************
@@ -507,7 +357,7 @@
 //#define TAZ5_OEM
 //#define CUSTOM_PROBE
 
-//Not being ported to Unified 2
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // **************************    SOVOL PRINTERS    **************************
@@ -516,11 +366,8 @@
 //===========================================================================
 // SOVOL SV01 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
-//#define SOVOL_SV01
 
-// EZABL Probe Mounts
-//#define SV01_OEM_MOUNT
-//#define CUSTOM_PROBE
+//Use Unified 2.0 for this machine - Go to https://UF2.TH3DStudio.com
 
 //===========================================================================
 // *************************     TEVO PRINTERS      *************************
@@ -542,11 +389,7 @@
 //#define TARANTULA_PRO_OEM
 //#define CUSTOM_PROBE
 
-// Use Tarantula Pro Bootscreen instead of TH3D
-//#define TARANTULA_PRO_BOOT
-
-// Slow down the hotend fan and control box fans to reduce noise
-//#define TARANTULA_PRO_QUIET
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // TEVO Tornado Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -567,11 +410,7 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
-// Use Tornado Bootscreen instead of TH3D
-//#define TORNADO_BOOT
-
-// Slow down the hotend fan and control box fans to reduce noise
-//#define TORNADO_QUIET
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // *************************    TRONXY PRINTERS     *************************
@@ -585,6 +424,8 @@
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
+//Not being ported to Unified 2 at this time
+
 //===========================================================================
 // TronXY X5S Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
@@ -592,6 +433,8 @@
 
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
+
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // *************************    WANHAO PRINTERS     *************************
@@ -614,6 +457,8 @@
 //#define WANHAO_I3_OEM
 //#define WANHAO_I3_DIIICOOLER
 //#define CUSTOM_PROBE
+
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // Wanhao i3 Plus Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -639,7 +484,7 @@
 // Please consider becoming a Patreon of his.
 // Patreon Link: https://www.patreon.com/join/andrivet
 
-//Not being ported to Unified 2
+//Not being ported to Unified 2 ever due to the LCD Screen Limits
 
 //===========================================================================
 // Wanhao i3 MINI (V1/V2) Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -654,6 +499,8 @@
 
 // If you have the V1 and you've added a heated bed, just uncomment the V2 option
 
+//Not being ported to Unified 2 at this time
+
 //===========================================================================
 // Wanhao D6 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -667,6 +514,8 @@
 // EZABL Probe Mounts
 //#define WANHAO_D6_OEM
 //#define CUSTOM_PROBE
+
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // ************************    ZONESTAR PRINTERS     ************************
@@ -683,7 +532,7 @@
 // EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
-//Not being ported to Unified 2
+//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // ***********************  MKS Gen L Based Printer   ***********************
@@ -691,8 +540,9 @@
 // **** Please refer to the TH3D MKS Gen L Documentation Guide for Setup ****
 // *Endstop/Motors/Homing: changing from 0 to 1 inverts the logic/direction *
 // ****** We have a detailed guide here: http://mksguide.th3dstudio.com *****
-// ******** Use the code GENLGUIDEHALFOFF for 50% off our PDF Guide *********
 //===========================================================================
+
+//Will not be ported to Unified 2 ever
 
 //#define MKS_PRINTER
 
