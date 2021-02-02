@@ -91,40 +91,6 @@
 //Not being ported to Unified 2 at this time
 
 //===========================================================================
-// *************************     ANET PRINTERS      *************************
-//===========================================================================
-
-//===========================================================================
-// ANET Printers Options - Select 'ANET V1.0' from Tools > Board
-//===========================================================================
-// Uncomment the ANET Model you are using
-//#define ANET_A2
-//#define ANET_A6
-//#define ANET_A8
-//#define ANET_A8_PLUS
-//#define ANET_E10
-//#define ANET_E12
-//#define ANET_E16
-
-// If you are using our EZOut V2 (connects to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts - Bootscreen will be disabled when enabling EZABL on the Anet Boards due to space issues
-//#define ANET_OEM
-//#define CUSTOM_PROBE
-
-// Extra Anet Options ----------------------------------------------------------
-
-// If you have the larger A2 bed (220x270) uncomment the below line.
-//#define A2_LARGE_BED
-
-// LCD Overide - Change if you have a different screen than the one that came with the printer by default
-//#define ANET_LCD12864   // Rotary Encoder Model
-//#define ANET_LCD2004    // 5 Button Keypad Model
-
-//===========================================================================
 // *************************   CREALITY PRINTERS    *************************
 //===========================================================================
 
