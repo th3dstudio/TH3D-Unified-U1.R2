@@ -6,15 +6,28 @@ If your machine is supported in [Unified 2](https://github.com/th3dstudio/Unifie
 
 **Machines that have been migrated so far:**
 
-- CR-10 (1284p Board)
-- CR-10 Mini (1284p Board)
-- CR-10 S4 (1284p Board)
-- CR-10 S5 (1284p Board)
-- CR-10 V2 (2560 Board)
-- Ender 2 (1284p Board)
-- Ender 3 (1284p Board)
-- Ender 5 (1284p Board)
-- Sidewinder X1 (2560 Board)
+- Alfawise U10
+- Anet A2/A6/A8/A8 Plus/E10/E12/E16
+- AnyCubic Mega Zero V1/V2
+- Artillery AL-4
+- Artillery Sidewinder X1
+- CR-10
+- CR-10 Mini
+- CR-10 S4
+- CR-10 S5
+- CR-10S
+- CR-10S Mini
+- CR-10S S4
+- CR-10S S5
+- CR-10 V2
+- CR-20
+- CR-X
+- Creality Dual Extrusion Board Machines
+- Ender 2
+- Ender 3
+- Ender 5
+- Ender 5 Plus
+- Sovol SV01
 
 **When will X printer be moved over?**
 

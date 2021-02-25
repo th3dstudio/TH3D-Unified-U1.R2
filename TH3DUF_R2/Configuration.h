@@ -109,7 +109,6 @@
 
 // EZABL Probe Mounts
 //#define ENDER4_OEM_LEFT
-//#define ENDER4_OEM_RIGHT //need to design
 //#define CUSTOM_PROBE
 
 //===========================================================================
