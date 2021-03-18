@@ -342,21 +342,6 @@
 //Not being ported to Unified 2 ever due to the LCD Screen Limits
 
 //===========================================================================
-// Wanhao i3 MINI (V1/V2) Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define WANHAO_I3MINI
-//#define WANHAO_I3MINI_V2
-
-// EZABL Probe Mounts
-//#define WANHAO_I3MINI_OEM
-//#define WANHAO_I3MINI_OEM_EZABLMINI
-//#define CUSTOM_PROBE
-
-// If you have the V1 and you've added a heated bed, just uncomment the V2 option
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
 // Wanhao D6 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define WANHAO_D6

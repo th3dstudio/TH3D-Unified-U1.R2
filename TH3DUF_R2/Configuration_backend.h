@@ -8,10 +8,6 @@
 
 #include "Configuration_th3d.h"
 
-#if ENABLED(WANHAO_I3MINI_V2)
-  #define WANHAO_I3MINI
-#endif
-
 #if DISABLED(TH3DINHOUSEMACHINE)
   #if DISABLED(MKS_PRINTER)
     #if ENABLED(TMC_CREALITY_BOARD) || ENABLED(CR10S_PRO) || ENABLED(CR10_V2) || ENABLED(CR10_MAX)
@@ -1088,71 +1084,6 @@
   #define PRINTER_ENABLED_CHECK
 
 #endif //end D6
-
-//Wanhao i3 Mini Model Settings
-#if ENABLED(WANHAO_I3MINI)
-  #define BAUDRATE 250000
-
-  #define MINIPANEL
-
-  #ifndef MOTHERBOARD
-    #define MOTHERBOARD BOARD_ONEPLUS1_wanhao
-  #endif
-  
-  #define X_MIN_ENDSTOP_INVERTING true
-  #define Y_MIN_ENDSTOP_INVERTING true
-  #define Z_MIN_ENDSTOP_INVERTING true
-  #define X_MAX_ENDSTOP_INVERTING true
-  #define Y_MAX_ENDSTOP_INVERTING true
-  #define Z_MAX_ENDSTOP_INVERTING true
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-    
-  #if ENABLED(CUSTOM_ESTEPS)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-  #else
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 94 }
-  #endif
-
-  #define DEFAULT_MAX_FEEDRATE          { 400, 400, 15, 50 }
-  #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 500, 5000 }
-  
-  #define DEFAULT_ACCELERATION          800    // X, Y, Z and E acceleration for printing moves
-  #define DEFAULT_RETRACT_ACCELERATION  800    // E acceleration for retracts
-  #define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
-
-  #define DEFAULT_XJERK                 10.0
-  #define DEFAULT_YJERK                 10.0
-  #define DEFAULT_ZJERK                  0.3
-  #define DEFAULT_EJERK                  5.0
-
-  #define X_BED_SIZE 125
-  #define Y_BED_SIZE 140
-  #define Z_MAX_POS 100
-
-  #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_ADJUST_LOCATION
-    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
-  #else
-    #define X_MIN_POS 0
-    #define Y_MIN_POS 0
-  #endif
-  
-  #define INVERT_X_DIR true
-  #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR false
-  
-  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
-    #define INVERT_E0_DIR false
-  #else
-    #define INVERT_E0_DIR true
-  #endif
-
-  #define ENCODER_PULSES_PER_STEP 4
-  #define ENCODER_STEPS_PER_MENU_ITEM 1
-  
-  #define PRINTER_ENABLED_CHECK
-#endif
-//end i3 Mini Settings
 
 //Wanhao i3 Model Settings
 #if ENABLED(WANHAO_I3)
