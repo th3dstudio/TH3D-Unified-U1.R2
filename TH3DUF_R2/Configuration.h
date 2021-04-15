@@ -435,12 +435,6 @@
 // If you have a direct drive machine with a filament sensor uncomment DIRECT_DRIVE_PRINTER to decrease the unload length from 100mm to 20mm
 //#define DIRECT_DRIVE_PRINTER
 
-// DUAL HOTEND SETTINGS ----------------------------
-
-// This is the distance between each nozzle tip when using a dual hotend like the TH3D Tough Dual Hotend or the E3D Chimera or Dual hotends.
-// This setting only applies to printers using a dual extruder board.
-#define DUAL_HOTEND_X_DISTANCE 18.0
-
 // HOTEND THERMISTOR SETTINGS ----------------------
 
 // If you are using an E3D V6 Hotend (or Hemera) with their cartridge thermistor (not glass version) uncomment the below line.
@@ -500,17 +494,6 @@
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
 //#define SLOWER_HOMING
 
-// Using a Creality Silent Board? Enable the below option to set the correct driver setting for those boards
-//#define TMC_CREALITY_BOARD
-
-// BOOT SCREEN OPTIONS -----------------------------
-
-// Use TinyMachines Bootscreen instead of TH3D
-//#define TM3D_BOOT
-
-// Disable Bootscreen completely
-//#define DISABLE_BOOT
-
 //===========================================================================
 //*************************** COMMUNITY FEATURES ****************************
 //===========================================================================
@@ -561,13 +544,6 @@
 // NOTE: This feature causes excessive wear on your SD card. This will also disable Junction Jerk, SCurve Acceleration, Linear Advance, and Reduce the Serial Buffer due to RAM limitations.
 // Power Loss Recovery is NOT supported on the Wanhao i3 Plus at this time.
 //#define POWER_LOSS_RECOVERY
-
-// MOTION SETTINGS ---------------------------------
-// There are 2 new acceleration/jerk controls available in this firmware that can result is better print quality and
-// smoother movement. To try each out just enable them below.
-// Junction Deviation is NOT supported on the Wanhao i3 Plus at this time.
-//#define JUNCTION_DEVIATION_ON
-//#define S_CURVE_ACCELERATION_ON
 
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.
