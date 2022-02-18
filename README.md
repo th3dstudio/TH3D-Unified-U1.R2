@@ -27,7 +27,13 @@ If your machine is supported in [Unified 2](https://github.com/th3dstudio/Unifie
 - Ender 3
 - Ender 5
 - Ender 5 Plus
+- Geeetech A10 V1
+- Geeetech A10 V2
+- Geeetech A20
 - Sovol SV01
+- Tevo Tornado
+- Tevo Tarantula Pro
+- Wanhao i3
 
 **When will X printer be moved over?**
 
