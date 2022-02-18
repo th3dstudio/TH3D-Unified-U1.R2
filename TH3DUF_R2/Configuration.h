@@ -56,42 +56,6 @@
 #define CONFIGURATION_H_VERSION 010109
 
 //===========================================================================
-//============================ TH3D Configuration ===========================
-//===========================================================================
-
-// ONLY UNCOMMENT THINGS IN ONE PRINTER SECTION!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME.
-
-//===========================================================================
-// *************************   GEEETECH PRINTERS    *************************
-//===========================================================================
-
-//===========================================================================
-// Geeetech A10M Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define GEEETECH_A10M
-
-// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
-//#define GEE_A10_V2_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// Geeetech A20M Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define GEEETECH_A20M
-
-// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
-//#define GEE_A10_V2_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// *************************    WANHAO PRINTERS     *************************
-//===========================================================================
-
-//===========================================================================
 // Wanhao i3 Plus Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 // Before compiling copy all files from "\Firmware\ADVi3PPFiles" folder to the
@@ -105,7 +69,7 @@
 // How to Flash AVDi3++ LCD: https://community.advi3pp.com/t/how-to-flash/16
 // Touchscreen Guide: https://community.advi3pp.com/t/lcd-touch-screen-guide/20
 //===========================================================================
-//#define WANHAO_I3_PLUS
+#define WANHAO_I3_PLUS
 
 // Uncomment to enable EZABL support - Probe Offsets are set from the LCD
 //#define WANHAO_I3_PLUS_EZABL
@@ -116,22 +80,6 @@
 // Patreon Link: https://www.patreon.com/join/andrivet
 
 //Not being ported to Unified 2 ever due to the LCD Screen Limits
-
-//===========================================================================
-// Wanhao D6 Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define WANHAO_D6
-
-// If you are using our EZOut V2 (connects to ANALOG/J9 connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts
-//#define WANHAO_D6_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************
@@ -359,7 +307,7 @@
 
 #define LCD_LANGUAGE en
 
-#define UNIFIED_VERSION "TH3D U1.R2.B5"
+#define UNIFIED_VERSION "TH3D U1.R2.i3P"
 #include "Configuration_backend.h"
 
 #endif // CONFIGURATION_H

@@ -18,11 +18,6 @@
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
   #define Z_PROBE_OFFSET_FROM_EXTRUDER 0
 #endif
-#if ENABLED(WANHAO_D6_OEM)
-  #define X_PROBE_OFFSET_FROM_EXTRUDER 24
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -16
-  #define EZABL_ENABLE
-#endif
 
 //Wanhao i3 Plus Settings
 #if ENABLED(WANHAO_I3_PLUS)
@@ -98,156 +93,6 @@
   #define PRINTER_ENABLED_CHECK
 #endif //end wanhao i3 plus
 
-//Geeetech A10M/A20M Settings
-#if ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
-  #define GEEETECH_BED_TEMPSENSOR
-
-  #ifndef MOTHERBOARD
-  	#define MOTHERBOARD BOARD_GT2560_V3_0
-  #endif
-  
-  #if ENABLED(GEEETECH_A10M)
-	  #define REPRAP_DISCOUNT_SMART_CONTROLLER
-	  #define LCD2004
-	  #define X_BED_SIZE 220
-	  #define Y_BED_SIZE 220
-	  #define Z_MAX_POS 260
-  #endif
-  
-  #if ENABLED(GEEETECH_A20M)
-	  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
-	  #define X_BED_SIZE 250
-	  #define Y_BED_SIZE 250
-	  #define Z_MAX_POS 250
-  #endif
-  
-  #define BAUDRATE 250000
-
-  #define X_MIN_ENDSTOP_INVERTING true
-  #define Y_MIN_ENDSTOP_INVERTING true
-  #define Z_MIN_ENDSTOP_INVERTING true
-  #define X_MAX_ENDSTOP_INVERTING true
-  #define Y_MAX_ENDSTOP_INVERTING true
-  #define Z_MAX_ENDSTOP_INVERTING true
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  
-  #if ENABLED(CUSTOM_ESTEPS)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
-  #else
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 340 }
-  #endif
-  
-  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
-  #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 500, 5000 }
-
-  #define DEFAULT_ACCELERATION          750    
-  #define DEFAULT_RETRACT_ACCELERATION  1500   
-  #define DEFAULT_TRAVEL_ACCELERATION   750    
-  
-  #define DEFAULT_XJERK                 10.0
-  #define DEFAULT_YJERK                 10.0
-  #define DEFAULT_ZJERK                  0.4
-  #define DEFAULT_EJERK                  5.0
-  
-  #define INVERT_X_DIR true
-  #define INVERT_Y_DIR true
-  #define INVERT_Z_DIR false
-  
-  #if ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
-    #define DUAL_EXTRUDERS
-    #define INVERT_E1_DIR false
-    #define SINGLENOZZLE
-  #endif
-  
-  #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
-    #define INVERT_E0_DIR true
-  #else
-    #define INVERT_E0_DIR false
-  #endif
-  
-  #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_ADJUST_LOCATION
-    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
-  #else
-    #define X_MIN_POS -7
-    #define Y_MIN_POS -5
-  #endif
-  
-  #define ENCODER_PULSES_PER_STEP 4
-  #define ENCODER_STEPS_PER_MENU_ITEM 1
-  
-  #define PRINTER_ENABLED_CHECK
-#endif
-
-//Wanhao D6 Model Settings
-#if ENABLED(WANHAO_D6)
-  #define BAUDRATE 250000
-  
-  #define ULTIPANEL
-  #define U8GLIB_SSD1306
-  #define LCD_WIDTH 22
-  #define LCD_HEIGHT 5
-  #define LCD_RESET_PIN 5
-  #define PCA9632
-  
-  #define DIRECT_DRIVE_PRINTER
-  
-  #define X_MIN_ENDSTOP_INVERTING true
-  #define Y_MIN_ENDSTOP_INVERTING true
-  #define Z_MIN_ENDSTOP_INVERTING true
-  #define X_MAX_ENDSTOP_INVERTING true
-  #define Y_MAX_ENDSTOP_INVERTING true
-  #define Z_MAX_ENDSTOP_INVERTING true
-  #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-  
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 99 }
-
-  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 15, 50 }
-
-  #define DEFAULT_MAX_ACCELERATION      { 1500, 1500, 500, 5000 }
-
-  #define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves
-  #define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration for retracts
-  #define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves
-  
-  #define DEFAULT_XJERK                 10.0
-  #define DEFAULT_YJERK                 10.0
-  #define DEFAULT_ZJERK                  0.3
-  #define DEFAULT_EJERK                  1.0
-  
-  #define INVERT_X_DIR true
-  #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
-  #define INVERT_E0_DIR true
-  
-  #ifndef MOTHERBOARD
-    #define MOTHERBOARD BOARD_ULTIMAIN_2
-  #endif
-  
-  #if ENABLED(WANHAO_D6_5015)
-    #define X_BED_SIZE 175
-  #else
-    #define X_BED_SIZE 200
-  #endif
-  #define Y_BED_SIZE 200  
-  #define Z_MAX_POS 170
-
-  #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_ADJUST_LOCATION
-    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
-  #else
-    #define X_MIN_POS 0
-    #define Y_MIN_POS 0
-  #endif
-  
-  #define ENCODER_PULSES_PER_STEP 2
-  #define ENCODER_STEPS_PER_MENU_ITEM 1
-  #define REVERSE_ENCODER_DIRECTION
-  
-  #define PRINTER_ENABLED_CHECK
-
-#endif //end D6
-
 //Machine Check
 #if DISABLED(PRINTER_ENABLED_CHECK)
   #if DISABLED(TH3DINHOUSEMACHINE)  
@@ -301,11 +146,7 @@
 
 #define SERIAL_PORT 0
 
-#if ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
-  #define EXTRUDERS 2
-#else
-  #define EXTRUDERS 1
-#endif
+#define EXTRUDERS 1
 
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
 
@@ -555,9 +396,7 @@
 #define DISABLE_E false
 #define DISABLE_INACTIVE_EXTRUDER true
 
-#if DISABLED(DUAL_EXTRUDERS)
-  #define INVERT_E1_DIR false
-#endif
+#define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
 #define INVERT_E4_DIR false
@@ -584,24 +423,6 @@
   #define MAX_SOFTWARE_ENDSTOP_X
   #define MAX_SOFTWARE_ENDSTOP_Y
   #define MAX_SOFTWARE_ENDSTOP_Z
-#endif
-
-#if ENABLED(EZOUT_ENABLE) || ENABLED(EZOUTV2_ENABLE) || ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
-  #define FILAMENT_RUNOUT_SENSOR
-  #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-    #if ENABLED(EZOUT_ENABLE) || ENABLED(EZOUTV2_ENABLE)
-      #define FIL_RUNOUT_INVERTING false
-    #else
-      #define FIL_RUNOUT_INVERTING true
-    #endif
-    #if ENABLED(GEEETECH_A10M) || ENABLED(GEEETECH_A20M)
-        #define NUM_RUNOUT_SENSORS   2
-    #else
-      #define NUM_RUNOUT_SENSORS   1
-    #endif
-    #define FIL_RUNOUT_PULLUP
-    #define FILAMENT_RUNOUT_SCRIPT "M600"
-  #endif
 #endif
 
 #if ENABLED(MANUAL_MESH_LEVELING) && DISABLED(EZABL_ENABLE) && DISABLED(WANHAO_I3_PLUS)
@@ -638,15 +459,9 @@
 #define NOZZLE_PARK_FEATURE
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
-  #if ENABLED(WANHAO_I3) || ENABLED(WANHAO_D6)
-    #define NOZZLE_PARK_POINT { (X_MAX_POS - 15), 15, 10 }
-    #define NOZZLE_PARK_XY_FEEDRATE 100  
-    #define NOZZLE_PARK_Z_FEEDRATE 5  
-  #else  
-    #define NOZZLE_PARK_POINT { 10, 10, 10 }
-    #define NOZZLE_PARK_XY_FEEDRATE 100  
-    #define NOZZLE_PARK_Z_FEEDRATE 5  
-  #endif
+  #define NOZZLE_PARK_POINT { 10, 10, 10 }
+  #define NOZZLE_PARK_XY_FEEDRATE 100  
+  #define NOZZLE_PARK_Z_FEEDRATE 5  
 #endif
 
 #define PRINTJOB_TIMER_AUTOSTART

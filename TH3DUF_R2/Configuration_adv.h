@@ -24,27 +24,11 @@
 #define CONFIGURATION_ADV_H
 #define CONFIGURATION_ADV_H_VERSION 010109
 
-#if ENABLED(SIDEWINDER_X1)
-  //DUAL Z STEPPER CONFIG
-  #define Z_DUAL_STEPPER_DRIVERS
-#endif
-
 #if ENABLED(BLTOUCH)
   #define BLTOUCH_DELAY 750
   #define BLTOUCH_SET_5V_MODE
   #define BLTOUCH_FORCE_MODE_SET
 #endif // BLTOUCH
-
-#if ENABLED(TH3D_RGB_STRIP) || ENABLED(SIDEWINDER_X1)
-  #define LED_CONTROL_MENU
-  #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
-  #define LED_USER_PRESET_RED        130  // User defined RED value
-  #define LED_USER_PRESET_GREEN      203  // User defined GREEN value
-  #define LED_USER_PRESET_BLUE       225  // User defined BLUE value
-  #define LED_USER_PRESET_WHITE      0  // User defined WHITE value
-  #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-  #define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
-#endif
 
 #if DISABLED(PIDTEMPBED)
   #define BED_CHECK_INTERVAL 500
@@ -59,7 +43,6 @@
   #define WATCH_TEMP_PERIOD (HOTEND_THERMAL_PROTECTION_TIME / 2)                // Seconds
   #define WATCH_TEMP_INCREASE 4               // Degrees Celsius
 #endif
-
  
 #if ENABLED(THERMAL_PROTECTION_BED)
   #define THERMAL_PROTECTION_BED_PERIOD (BED_THERMAL_PROTECTION_TIME / 2)    // Seconds
@@ -71,101 +54,9 @@
 #define TEMP_SENSOR_AD595_OFFSET 0.0
 #define TEMP_SENSOR_AD595_GAIN   1.0
 
-#if ENABLED(TAZ5)
-  #define USE_CONTROLLER_FAN
-  #if ENABLED(USE_CONTROLLER_FAN)
-    #define CONTROLLER_FAN_PIN 2  
-    #define CONTROLLERFAN_SECS 60          
-    #define CONTROLLERFAN_SPEED 255        
-  #endif
-  #define FAN_KICKSTART_TIME 100
-  #define FAN_MIN_PWM 70
-  #define DIGIPOT_MOTOR_CURRENT { ((950 -750)/5+135), ((950 -750)/5+135), ((1275 -750)/5+135), ((750 -750)/5+135), ((750 -750)/5+135) }
-  #define DIGIPOT_I2C_NUM_CHANNELS 8
-  #define DIGIPOT_I2C_MOTOR_CURRENTS { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }  
-#endif
-
-#if ENABLED(WANHAO_D6)
-  #define CASE_LIGHT_ENABLE
-  #if ENABLED(CASE_LIGHT_ENABLE)
-    #define CASE_LIGHT_PIN 8                  
-    #define INVERT_CASE_LIGHT false           
-    #define CASE_LIGHT_DEFAULT_ON true        
-    #define CASE_LIGHT_DEFAULT_BRIGHTNESS 255 
-    #define MENU_ITEM_CASE_LIGHT              
-  #endif
-
-  #define MOTOR_CURRENT_PWM_RANGE 2782
-  #define PWM_MOTOR_CURRENT { 1200, 1200, 1000 }
-  #define DIGIPOT_I2C_NUM_CHANNELS 8 
-  #define DIGIPOT_I2C_MOTOR_CURRENTS { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }
-  
-  #define ENCODER_RATE_MULTIPLIER 
-  #define ENCODER_10X_STEPS_PER_SEC 75
-  #define ENCODER_100X_STEPS_PER_SEC 160
-
-  #define CHDK_DELAY 50
-  
-  #if ENABLED(DOGLCD)
-    #define USE_SMALL_INFOFONT
-  #endif
-  
-  #define I2C_SLAVE_ADDRESS  0
-  
-#endif
-
-#if ENABLED(TORNADO) || ENABLED(TARANTULA_PRO) || ENABLED(SIDEWINDER_X1)
-  #define E0_AUTO_FAN_PIN 7
-  #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-  #if ENABLED(TORNADO_QUIET) || ENABLED(TARANTULA_PRO_QUIET)
-    #define EXTRUDER_AUTO_FAN_SPEED  190  
-  #else
-    #define EXTRUDER_AUTO_FAN_SPEED  255  
-  #endif
-  #if ENABLED(TIM_TORNADO)
-    #define USE_CONTROLLER_FAN
-    #if ENABLED(USE_CONTROLLER_FAN)
-      #define CONTROLLER_FAN_PIN 11
-      #define CONTROLLERFAN_SECS 10
-      #define CONTROLLERFAN_SPEED 255
-    #endif
-  #endif
-#else
-  #if ENABLED(I3MINI_FANCONTROL)
-    #define E0_AUTO_FAN_PIN 12
-    #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-    #define EXTRUDER_AUTO_FAN_SPEED   255
-  #elif ENABLED(TH3D_EZ300)
-    #define E0_AUTO_FAN_PIN 7
-    #define EXTRUDER_AUTO_FAN_TEMPERATURE 40
-    #define EXTRUDER_AUTO_FAN_SPEED   255
-  #elif ENABLED(MKS_PRINTER) && DISABLED(DUAL_HOTEND_DUAL_NOZZLES)
-    #define E0_AUTO_FAN_PIN 7
-    #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-    #define EXTRUDER_AUTO_FAN_SPEED   255  
-  #elif ENABLED(ZONESTAR_Z5F)
-    #define E0_AUTO_FAN_PIN 6
-    #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-    #define EXTRUDER_AUTO_FAN_SPEED   255 
-  #else  
-    #define E0_AUTO_FAN_PIN -1
-    #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-    #define EXTRUDER_AUTO_FAN_SPEED   255  
-  #endif
-#endif
-#if ENABLED(TH3D_EZ300)
-  #define USE_CONTROLLER_FAN
-  #define CONTROLLER_FAN_PIN 5
-  #define CONTROLLERFAN_SECS 60
-  #define CONTROLLERFAN_SPEED 145
-#endif
-
-#if ENABLED(DY_H9)
-  #define E0_AUTO_FAN_PIN 7
-  #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-  #define EXTRUDER_AUTO_FAN_SPEED  255
-#endif
-
+#define E0_AUTO_FAN_PIN -1
+#define EXTRUDER_AUTO_FAN_TEMPERATURE 50
+#define EXTRUDER_AUTO_FAN_SPEED   255  
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
