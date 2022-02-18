@@ -62,97 +62,13 @@
 // ONLY UNCOMMENT THINGS IN ONE PRINTER SECTION!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME.
 
 //===========================================================================
-// *************************    AIBECY PRINTERS     *************************
-//===========================================================================
-
-//===========================================================================
-// Aibecy DY-H9 Options - Select Arduino Mega 2560 from Tools > Board
-//===========================================================================
-//#define DY_H9
-
-// EZABL Probe Mounts
-//#define CUSTOM_PROBE
-
-//===========================================================================
-// ***************************   CTC PRINTERS    ***************************
-//===========================================================================
-
-//===========================================================================
-// CTC i3 Pro B "Woody" Options - Select 'Anet V1.0' from Tools > Board
-// Model has the Red Anet style Melzi board
-//===========================================================================
-//#define CTC_I3_PROB
-
-// If you swapped the stock threaded rod "leadscrews" for T8x8 uncomment the below line to set the steps for those
-//#define CTC_I3_T8_LEAD
-
-// If you are using our EZOut V2 (connects to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board
-// This printer uses the Anet 2004 LCD EZOut Package
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// *************************  FOLGERTECH PRINTERS   *************************
-//===========================================================================
-
-//===========================================================================
-// Folgertech FT-5 Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define FT5
-
-// If you are using a 12864 LCD instead of the stock LCD 2004 display uncomment the below line.
-//#define FT5_12864LCD
-
-// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
 // *************************   GEEETECH PRINTERS    *************************
 //===========================================================================
-
-//===========================================================================
-// Geeetech A10 Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-// A10 V1 has the 40mm Fan on the left side of the hotend and NO filament sensor
-// A10 V2 has a filament sensor and no 40mm fan on the left side of the hotend
-//#define GEEETECH_A10_V1
-//#define GEEETECH_A10_V2
-
-// EZABL Probe Mounts
-//#define GEE_A10_V1_OEM
-//#define GEE_A10_V2_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // Geeetech A10M Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 //#define GEEETECH_A10M
-
-// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
-//#define GEE_A10_V2_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// Geeetech A20 Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define GEEETECH_A20
 
 // EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
 //#define GEE_A10_V2_OEM
@@ -172,110 +88,8 @@
 //Not being ported to Unified 2 at this time
 
 //===========================================================================
-// *************************    LULZBOT PRINTERS    *************************
-//===========================================================================
-
-//===========================================================================
-// Lulzbot TAZ5 Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define TAZ5
-
-// EZABL Probe Mounts
-//#define TAZ5_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// *************************     TEVO PRINTERS      *************************
-//===========================================================================
-
-//===========================================================================
-// TEVO Tarantula Pro Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define TARANTULA_PRO
-
-// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts
-// Before connecting the EZABL control board to the Tarantula Pro please remove the 5V wire from the 3 pin plug.
-// Pictures and write up available here: https://www.th3dstudio.com/knowledgebase/ezabl-tevo-tarantula-pro-endstop-cable-mod/
-//#define TARANTULA_PRO_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// TEVO Tornado Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define TORNADO
-
-// If you are using our EZOut V2 (connects to X+ connector) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// EZABL Probe Mounts
-//#define TORNADO_OEM
-//#define TORNADO_VOLCANO
-//#define TORNADO_V6HEAVYDUTY
-//#define TM3DAERO
-//#define TM3DAERO_EXTENDED
-//#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// *************************    TRONXY PRINTERS     *************************
-//===========================================================================
-
-//===========================================================================
-// TronXY X3S Options - Select 'Sanguino 1284p' from Tools > Board
-//===========================================================================
-//#define TRONXY_X3S
-
-// EZABL Probe Mounts
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// TronXY X5S Options - Select 'Sanguino 1284p' from Tools > Board
-//===========================================================================
-//#define TRONXY_X5S
-
-// EZABL Probe Mounts
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
 // *************************    WANHAO PRINTERS     *************************
 //===========================================================================
-
-//===========================================================================
-// Wanhao i3 Options - Select 'Sanguino 1284p' from Tools > Board
-//===========================================================================
-//#define WANHAO_I3
-
-// If you are using our EZOut V2 (connected to LCD header) filament sensor kit please follow the install guide
-// and then uncomment the #define EZOUTV2_ENABLE line below.
-// Do NOT ever connect our filament sensor without the supplied adapter board.
-//#define EZOUTV2_ENABLE
-
-// If your thermistor temperatures are off please uncomment the 10K option below to fix temps being off
-//#define WANHAO_10K_THERMISTOR
-
-// EZABL Probe Mounts
-//#define WANHAO_I3_OEM
-//#define WANHAO_I3_DIIICOOLER
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
 
 //===========================================================================
 // Wanhao i3 Plus Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -315,23 +129,6 @@
 
 // EZABL Probe Mounts
 //#define WANHAO_D6_OEM
-//#define CUSTOM_PROBE
-
-//Not being ported to Unified 2 at this time
-
-//===========================================================================
-// ************************    ZONESTAR PRINTERS     ************************
-//===========================================================================
-
-//===========================================================================
-// Zonestar Z5F Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define ZONESTAR_Z5F
-
-//Stock ABL Option
-//#define ZONESTAR_Z5F_STOCK_ABL
-
-// EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
 //Not being ported to Unified 2 at this time
